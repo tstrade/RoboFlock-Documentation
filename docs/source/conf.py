@@ -3,6 +3,7 @@
 import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+sys.path.append(str(Path('sphinext').resolve()))
 
 
 # Configuration file for the Sphinx documentation builder.
@@ -38,7 +39,11 @@ exclude_patterns = []
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_theme = 'sphinx_rtd_theme'
-html_static_path = ['_static']
+html_static_path = [
+    '_static',
+    '_images',
+]
+
 html_css_files = [
     'custom.css',
 ]

@@ -40,11 +40,10 @@ Main Changes From Alpha Design
 5. Beacon Communication
     * Using Meshtastic devices we create a mesh network by which communication with the beacon will be accomplished.  This allows us to request beacon holders to return robots to the base, to communicate vital system information such as low battery levels or stuck robots, or simply send text messages to the beacon.
 
-.. figure:: /source/images/fig1_finalprod_overview.png
+.. figure:: _images/fig1_finalprod_overview.png
     :align: center
-    :alt: alternative text
     :height: 559
     :width: 1263
-    :loading: embed
+    :loading: link
 
     Figure 1: Overview of Final Product

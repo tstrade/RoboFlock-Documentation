@@ -5,7 +5,7 @@ charset-normalizer==3.4.4
 docutils==0.21.2
 idna==3.11
 imagesize==1.4.1
-Jinja==23.1.6
+Jinja2==3.1.6
 MarkupSafe==3.0.3
 packaging==25.0
 pip==24.0
@@ -24,4 +24,4 @@ sphinxcontrib-jquery==4.1
 sphinxcontrib-jsmath==1.0.1
 sphinxcontrib-qthelp==2.0.0
 sphinxcontrib-serializinghtml==2.0.0
-urllib==32.6.2
+urllib3==2.6.2
