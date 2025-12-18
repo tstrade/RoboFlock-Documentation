@@ -1,7 +1,7 @@
 NVIDIA Jetson Orin Nano
 =======================
 
-.. _motivation:
+.. _motivation 1:
 
 Motivation
 ----------
@@ -11,7 +11,7 @@ The Nvidia Jetson Orin Nano is an affordable, yet powerful, mini-computer that w
 Additionally, the new RoboFlock design makes use of the Jetson’s carrier board that provides a 40-pin expansion header with UART, SPI, I2S, I2C, and GPIO connections, as well as other useful features shown in Figure 2.2 below. Almost all the hardware in the new design makes use of this expansion header. To accommodate the overlap in protocols that the design requires, an Arduino Nano will be used as essentially another expansion header. More details about these connections are given Table 1 below.
 Although this seems like overkill (and it probably is), using the Jetson leaves ample space for future teams to implement more advanced hardware such as 4-D LiDAR sensors, cameras, L5 GPS modules, or other solutions that have not yet been considered. The current motivation is centered on the software frameworks that are used in the design. The Jetson’s embedded Linux environment provides the new RoboFlock design with the ability to process data and synchronize communication using ROS2, a set of software libraries and tools for building robot applications. 
 
-.. _hardware specifications:
+.. _hardware specifications 1:
 
 Hardware Specifications
 -----------------------

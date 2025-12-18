@@ -13,7 +13,7 @@ Obstacle Detection
 ------------------
 
 
-.. _hardware specifications:
+.. _hardware specifications 2:
 
 Hardware Specifications
 -----------------------

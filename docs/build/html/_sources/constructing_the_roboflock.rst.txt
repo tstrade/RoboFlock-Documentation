@@ -19,13 +19,13 @@ Step 3 - Beacon
 ---------------
 
 
-.. _step 4 - mount antennas
+.. _step 4 - mount antennas:
 
 Step 4 - Mount Antennas
 -----------------------
 
 
-.. _step 5 - mount ultrasonic sensors
+.. _step 5 - mount ultrasonic sensors:
 
 Step 5 - Mount Ultrasonic Sensors
 ---------------------------------

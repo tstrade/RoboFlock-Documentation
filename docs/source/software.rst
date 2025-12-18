@@ -1,7 +1,7 @@
 Software
 ========
 
-.. _architectural block diagram:
+.. _architectural block diagram 2:
 
 Architectural Block Diagram
 ---------------------------

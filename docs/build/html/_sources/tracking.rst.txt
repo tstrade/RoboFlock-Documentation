@@ -16,7 +16,7 @@ Architectural Block Diagram
 Tracking Functionality
 ^^^^^^^^^^^^^^^^^^^^^^
 
-.. _gps visualization simulation
+.. _gps visualization simulation:
 
 GPS Visualization Simulation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
