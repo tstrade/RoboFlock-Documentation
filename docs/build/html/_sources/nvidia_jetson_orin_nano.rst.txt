@@ -16,3 +16,54 @@ Although this seems like overkill (and it probably is), using the Jetson leaves 
 Hardware Specifications
 -----------------------
 
+.. figure:: _images/fig2-1_jetson_block_diagram.png
+    :align: center
+    :height: 755
+    :width: 968
+    :loading: link
+
+    Figure 2-1: Jetson Orin Nano Block Diagram (citation here)
+
+.. figure:: _images/fig2-2_jetson_carrier_connections.png
+    :align: center
+    :height: 679
+    :width: 968
+    :loading: link
+
+    Figure 2-2: Jetson Orin Nano Carrier Board Connections
+
+Table 1: Pins Used on the Carrier Board's 40-Pin Expansion Header
+
++-------+------------+---------------------+----------------------+
+| Pin # | Name       | Connection          | Comments             |
++=======+============+=====================+======================+
+|   1   | 3.3V Power | Power Bus           |                      |
++-------+------------+---------------------+----------------------+
+|   2   | 5V Power   | Power Bus           |                      |
++-------+------------+---------------------+----------------------+
+|   3   | I2C1_SDA   | MAX17048 SDA        | Power Guage          |
++-------+------------+---------------------+----------------------+
+|   5   | I2C1_SCL   | MAX17048 SCL        | Power Guage          |
++-------+------------+---------------------+----------------------+
+|   6   | GND        | Ground Bus          |                      |
++-------+------------+---------------------+----------------------+
+|   8   | UART1_TXD  | HC-12.1a RXD        | GPS Error Correction |
++-------+------------+---------------------+----------------------+
+|  10   | UART1_RXD  | HC-12.1a TXD        | GPS Error Correction |
++-------+------------+---------------------+----------------------+
+|  15   | GPIO12     | ESC PWM Signal      | Drive System         |
++-------+------------+---------------------+----------------------+
+|  27   | I2C0_SDA   | NEO-M8P Pin 18      | GPS Coordinates      |
++-------+------------+---------------------+----------------------+
+|  28   | I2C0_SCL   | NEO-M8P Pin 19      | GPS Coordinates      |
++-------+------------+---------------------+----------------------+
+|  29   | GPIO01     | Arduino Nano Pin 16 | Sonar 1              |
++-------+------------+---------------------+----------------------+
+|  30   | GND        | Ground Bus          |                      |
++-------+------------+---------------------+----------------------+
+|  31   | GPIO11     | Arduino Nano Pin 15 | Sonar 2              |
++-------+------------+---------------------+----------------------+
+|  32   | GPIO7      | INJ5235 PWM Signal  | Steering System      |
++-------+------------+---------------------+----------------------+
+|  33   | GPIO13     | Arduino Nano Pin 14 | Sonar 3              |
++-------+------------+---------------------+----------------------+

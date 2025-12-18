@@ -152,6 +152,107 @@ Although this seems like overkill (and it probably is), using the Jetson leaves 
 </section>
 <section id="hardware-specifications">
 <span id="hardware-specifications-1"></span><h2>Hardware Specifications<a class="headerlink" href="#hardware-specifications" title="Link to this heading"></a></h2>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="_images/fig2-1_jetson_block_diagram.png"><img alt="_images/fig2-1_jetson_block_diagram.png" src="_images/fig2-1_jetson_block_diagram.png" style="width: 968px; height: 755px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 2-1: Jetson Orin Nano Block Diagram (citation here)</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="_images/fig2-2_jetson_carrier_connections.png"><img alt="_images/fig2-2_jetson_carrier_connections.png" src="_images/fig2-2_jetson_carrier_connections.png" style="width: 968px; height: 679px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 2-2: Jetson Orin Nano Carrier Board Connections</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Table 1: Pins Used on the Carrier Board’s 40-Pin Expansion Header</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pin #</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Connection</p></th>
+<th class="head"><p>Comments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>3.3V Power</p></td>
+<td><p>Power Bus</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>5V Power</p></td>
+<td><p>Power Bus</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>I2C1_SDA</p></td>
+<td><p>MAX17048 SDA</p></td>
+<td><p>Power Guage</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>I2C1_SCL</p></td>
+<td><p>MAX17048 SCL</p></td>
+<td><p>Power Guage</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>GND</p></td>
+<td><p>Ground Bus</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>UART1_TXD</p></td>
+<td><p>HC-12.1a RXD</p></td>
+<td><p>GPS Error Correction</p></td>
+</tr>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>UART1_RXD</p></td>
+<td><p>HC-12.1a TXD</p></td>
+<td><p>GPS Error Correction</p></td>
+</tr>
+<tr class="row-odd"><td><p>15</p></td>
+<td><p>GPIO12</p></td>
+<td><p>ESC PWM Signal</p></td>
+<td><p>Drive System</p></td>
+</tr>
+<tr class="row-even"><td><p>27</p></td>
+<td><p>I2C0_SDA</p></td>
+<td><p>NEO-M8P Pin 18</p></td>
+<td><p>GPS Coordinates</p></td>
+</tr>
+<tr class="row-odd"><td><p>28</p></td>
+<td><p>I2C0_SCL</p></td>
+<td><p>NEO-M8P Pin 19</p></td>
+<td><p>GPS Coordinates</p></td>
+</tr>
+<tr class="row-even"><td><p>29</p></td>
+<td><p>GPIO01</p></td>
+<td><p>Arduino Nano Pin 16</p></td>
+<td><p>Sonar 1</p></td>
+</tr>
+<tr class="row-odd"><td><p>30</p></td>
+<td><p>GND</p></td>
+<td><p>Ground Bus</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>31</p></td>
+<td><p>GPIO11</p></td>
+<td><p>Arduino Nano Pin 15</p></td>
+<td><p>Sonar 2</p></td>
+</tr>
+<tr class="row-odd"><td><p>32</p></td>
+<td><p>GPIO7</p></td>
+<td><p>INJ5235 PWM Signal</p></td>
+<td><p>Steering System</p></td>
+</tr>
+<tr class="row-even"><td><p>33</p></td>
+<td><p>GPIO13</p></td>
+<td><p>Arduino Nano Pin 14</p></td>
+<td><p>Sonar 3</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 </section>
 
