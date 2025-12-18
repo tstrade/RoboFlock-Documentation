@@ -1,10 +1,8 @@
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here.
 import sys
-import os
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
-sys.path.append(os.path.abspath("/home/School/Fall_2025/Hardware_Software_Integration/RoboFlock-Documentation/docs/source/robolib"))
 
 
 # Configuration file for the Sphinx documentation builder.
@@ -41,9 +39,13 @@ exclude_patterns = []
 
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
+html_css_files = [
+    'custom.css',
+]
 html_theme_options = {
     'collapse_navigation': False,
     'sticky_navigation': False,
     'prev_next_buttons_location': "both",
     'style_external_links': True,
+    'body_max_width': 'none',
 }
