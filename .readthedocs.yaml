@@ -7,11 +7,18 @@ build:
   jobs:
     create_environment:
       - echo "Preparing environment..."
+      - source .venv/bin/activate
     install:
       - echo "Installing dependencies..."
+      - requirements: docs/requirements.txt
+      - method: pip
+        path: .
     build:
       html:
         - echo "Building HTML..."
+        - cd /docs/source
+        - make clean
+        - make html
     post_build:
       - echo "Build complete!"       
 
