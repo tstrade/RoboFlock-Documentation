@@ -4,7 +4,7 @@ python:
   install:
     - requirements: docs/requirements.txt
     - method: pip
-      path: ./docs/requirements.txt
+      path: ./docs/setup.py
 
 build:
   os: ubuntu-24.04
