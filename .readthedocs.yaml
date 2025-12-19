@@ -19,7 +19,7 @@ build:
       - echo "Successfully installed dependencies!"
     pre_create_environment:
       - echo "Preparing environment..."
-    pre_bild:
+    pre_build:
       - echo "Building HTML document..."
     post_build:
       - echo "Build complete!"       
