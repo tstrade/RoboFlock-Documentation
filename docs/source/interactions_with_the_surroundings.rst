@@ -40,16 +40,14 @@ The LiDAR sensor is mounted on top of the robot’s chassis, giving it the full 
 
 .. figure:: _images/fig3-1_lidar_dims.png
     :align: center
-    :height: 608
-    :width: 1323
+    :width: 50%
     :loading: link
 
     Figure 3.1: RPLiDAR A1 Dimensions
 
 .. figure:: _images/fig3-2_lidar_usb_adapter.png
     :align: center
-    :height: 266
-    :width: 1323
+    :width: 50%
     :loading: link
 
     Figure 3.2: RPLiDAR A1 UART to USB Adapter
@@ -59,10 +57,25 @@ Table 3: RPLiDAR A1 USB Adapter Pin Descriptions
 +-----------+-------------+--------+-----------------------------+------+---------+---------+
 | Interface | Signal Name | Type   | Description                 | Min  | Typical | Max     |
 +===========+=============+========+=============================+======+=========+=========+
-|           | 5V MOTO     | Power  | Power for RPLiDAR A1 Motor  | -    | 5V      | 9V      |
+|           | 5V MOTO     | Power  | Power for RPLiDAR A1 Motor  | --   | 5V      | 9V      |
 +           +-------------+--------+-----------------------------+------+---------+---------+
-|  Motor    | CTRL_MOTO   | Input  | Enable signal for RPLidAR   | 0V   | -       | 5V_MOTO |
-|           |             |        | A1 Motor/PWM Control Signal |      |         |         |
+|           |             |        | Enable signal for           |      |         |         |
+| Motor     | CTRL_MOTO   | Input  | RPLidAR A1 Motor/PWM        | 0V   | --      | 5V_MOTO |
+| Interface |             |        | Control Signal              |      |         |         |
++           +-------------+--------+-----------------------------+------+---------+---------+
+|           | GND_MOTO    | Power  | GND for RPLIDAR A1 Motor    | --   + 0V      | --      |
++-----------+-------------+--------+-----------------------------+------+---------+---------+
+|           | VCC_5       | Power  | Power for RPLIDAR A1        | 4.9V | 5V      | 5.5V    |
+|           |             |        | Range Scanner Core          |      |         |         |
++           +-------------+--------+-----------------------------+------+---------+---------+
+|           | TX          | Output | Serial output for Range     | 0V   | --      | 5V      |
+| Core      |             |        | Scanner Core                |      |         |         |
++ Interface +-------------+--------+-----------------------------+------+---------+---------+
+|           | RX          | Input  | Serial input for Range      | 0V   | --      | 5V      |
+|           |             |        | Scanner Core                |      |         |         |
++           +-------------+--------+-----------------------------+------+---------+---------+
+|           | GND         | Power  | GND for RPLIDAR A1 Range    | --   | 0V      | V5.0    |
+|           |             |        | Scanner Core                |      |         |         |
 +-----------+-------------+--------+-----------------------------+------+---------+---------+
 
 
@@ -71,16 +84,14 @@ The ultrasonic sensors are mounted on the front of the robot’s chassis and ang
 
 .. figure:: _images/fig4-1_sonar_phys_design.png
     :align: center
-    :height: 437
-    :width: 930
+    :width: 50%
     :loading: link
 
     Figure 4.1: Physical Design of the LV-MaxSonar Range Finder
 
 .. figure:: _images/fig4-2_sonar_positions.png
     :align: center
-    :height: 730
-    :width: 759
+    :width: 50%
     :loading: link
 
     Figure 4.2: Ultrasonic Sensor Positioning and Ranges

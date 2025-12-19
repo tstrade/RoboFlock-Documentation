@@ -21,16 +21,14 @@ Hardware Specifications
 
 .. figure:: _images/fig2-1_jetson_block_diagram.png
     :align: center
-    :height: 755
-    :width: 968
+    :width: 50%
     :loading: link
 
     Figure 2-1: Jetson Orin Nano Block Diagram (citation here)
 
 .. figure:: _images/fig2-2_jetson_carrier_connections.png
     :align: center
-    :height: 679
-    :width: 968
+    :width: 50%
     :loading: link
 
     Figure 2-2: Jetson Orin Nano Carrier Board Connections

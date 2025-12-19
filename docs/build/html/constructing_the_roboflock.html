@@ -9,7 +9,7 @@
   <title>Constructing the RoboFlock &mdash; RoboFlock 0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=27bdb456" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=13512c6c" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
@@ -43,75 +43,19 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#introduction">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#project-roboflock">Project RoboFlock</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="overview.html#main-changes-from-alpha-design">Main Changes From Alpha Design</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="nvidia_jetson_orin_nano.html">NVIDIA Jetson Orin Nano</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="nvidia_jetson_orin_nano.html#motivation">Motivation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="nvidia_jetson_orin_nano.html#hardware-specifications">Hardware Specifications</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="interactions_with_the_surroundings.html">Interactions with the Surroundings</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="interactions_with_the_surroundings.html#navigation">Navigation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="interactions_with_the_surroundings.html#obstacle-detection">Obstacle Detection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="interactions_with_the_surroundings.html#hardware-specifications">Hardware Specifications</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="tracking.html">Tracking</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tracking.html#beacon">Beacon</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="tracking.html#architectural-block-diagram">Architectural Block Diagram</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tracking.html#tracking-functionality">Tracking Functionality</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tracking.html#gps-visualization-simulation">GPS Visualization Simulation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tracking.html#design">Design</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="tracking.html#neo-m8p-2">NEO-M8P-2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tracking.html#zed-f9p">ZED-F9P</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tracking.html#hc-12">HC-12</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="software.html">Software</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="software.html#architectural-block-diagram">Architectural Block Diagram</a></li>
-<li class="toctree-l2"><a class="reference internal" href="software.html#ros2">ROS2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="software.html#perception">Perception</a></li>
-<li class="toctree-l2"><a class="reference internal" href="software.html#planning">Planning</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="chassis_design.html">Chassis Design</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="chassis_design.html#design-objectives">Design Objectives</a></li>
-<li class="toctree-l2"><a class="reference internal" href="chassis_design.html#fabrication-plan">Fabrication Plan</a></li>
-</ul>
-</li>
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nvidia_jetson_orin_nano.html">NVIDIA Jetson Orin Nano</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interactions_with_the_surroundings.html">Interactions with the Surroundings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tracking.html">Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="software.html">Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chassis_design.html">Chassis Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wiring_specifications.html">Wiring Specifications</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Constructing the RoboFlock</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#step-1-chassis">Step 1 - Chassis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#step-2-drive-system">Step 2 - Drive System</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#step-3-beacon">Step 3 - Beacon</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#step-4-mount-antennas">Step 4 - Mount Antennas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#step-5-mount-ultrasonic-sensors">Step 5 - Mount Ultrasonic Sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#step-6-internal-wiring">Step 6 - Internal Wiring</a></li>
-</ul>
-</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Constructing the RoboFlock</a></li>
 <li class="toctree-l1"><a class="reference internal" href="future_considerations.html">Future Considerations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
-<li class="toctree-l1"><a class="reference internal" href="appendix_a.html">Appendix A</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="appendix_a.html#electronic-components">Electronic Components</a></li>
-<li class="toctree-l2"><a class="reference internal" href="appendix_a.html#power-supply-components">Power Supply Components</a></li>
-<li class="toctree-l2"><a class="reference internal" href="appendix_a.html#drive-system-components">Drive System Components</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="appendix_b.html">Appendix B</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="appendix_b.html#datasheets">Datasheets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="appendix_b.html#schematics">Schematics</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="appendix_a.html">Appendix A</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix_b.html">Appendix B</a></li>
 </ul>
 
         </div>
@@ -143,23 +87,57 @@
              
   <section id="constructing-the-roboflock">
 <h1>Constructing the RoboFlock<a class="headerlink" href="#constructing-the-roboflock" title="Link to this heading"></a></h1>
+<p>The chassis must be fabricated and assembled before drivetrain integration, because the motors, axle pivot points, battery compartment, sensors, and mounts all depend on chassis mounting geometry.</p>
+<p>The prototype chassis should be 3D printed as originally planned under the section Chassis Design. We will be making a directory with all necessary files.</p>
 <section id="step-1-chassis">
 <span id="id1"></span><h2>Step 1 - Chassis<a class="headerlink" href="#step-1-chassis" title="Link to this heading"></a></h2>
+<p>Print the lower structural frame in multiple joined pieces using large-bed printers if possible. Reinforce the joints using threaded inserts and screws through bridge plates.</p>
+<p>Confirm mounting holes align for the antenna mounts, motor mounting plate locations, axle pivot brackets, and LiDAR top mounting plate.</p>
+<p>Install the axle pivot structure using the two provided double-shear brackets in the noted areas.</p>
+<p>Print the shell shown in figure 15-16 which has an internal cavity sized for electronics and batteries. Assemble the collapsing two-tiered shelf inside the cavity using the provided designs.</p>
+<p>The front interior should contain LiDAR cabling and sensor routing, the center floor compartment stores the battery and related equipment. The rear area mounts motor controllers and relays. Organize wiring based on <a class="reference internal" href="wiring_specifications.html"><span class="doc">Table 4</span></a> color conventions.</p>
 </section>
 <section id="step-2-drive-system">
 <span id="id2"></span><h2>Step 2 - Drive System<a class="headerlink" href="#step-2-drive-system" title="Link to this heading"></a></h2>
+<p>Use four (4) identical BLDC motors (one per wheel) that are sized for a robot mass &lt;50lb, an 18in wheel diameter, and sufficient torque at low speeds. For each wheel, print the provided motor mounting bracket that bolts to the suspension trailing arm and holds the motor so its shaft is parallel to the wheel hub.Attach each more to its bracket using machine screws and threadlocker. Route the motor wires into the chassis through grommeted holes.</p>
+<p>Print and install the front steering uprights and connect them to the steering servo/linkage. Attach the front motors to their brackets so that the connection remains functional through the full steering angle. Also ensure that the motor wiring has enough slack and strain relief to steer without pulling or twisting the wires.</p>
+<p>Mount four (4) ESCs inside the chassis on the internal electronics plate and route each motor to their corresponding module.</p>
 </section>
 <section id="step-3-beacon">
 <span id="id3"></span><h2>Step 3 - Beacon<a class="headerlink" href="#step-3-beacon" title="Link to this heading"></a></h2>
+<figure class="align-center" id="id7">
+<a class="reference internal image-reference" href="_images/fig19_beacon_wiring_diagram.png"><img alt="_images/fig19_beacon_wiring_diagram.png" src="_images/fig19_beacon_wiring_diagram.png" style="width: 80%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 19: Wiring Diagram of the Beacon’s GPS</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
 </section>
 <section id="step-4-mount-antennas">
 <span id="id4"></span><h2>Step 4 - Mount Antennas<a class="headerlink" href="#step-4-mount-antennas" title="Link to this heading"></a></h2>
+<p>For the Robot, thread the antenna’s cable through the hole in the center of the antenna ground plate, then mount the antenna/ground plate combination on top of the Robot’s body with the antenna facing upward towards the sky.  Finally connect the Antenna’s male SMA connector to the female SMA to U.FL receiver adapter and connect the U.FL end to the U.FL connector on the NEO-M8P-2 breakout board.</p>
+<p>For the Beacon, thread the antenna’s cable through the hole in the center of the antenna ground plate, then mount the antenna/ground plate combination on top of the Beacon’s.  For ideal satellite connectivity the antenna should be facing upward towards the sky.  Finally connect the Antenna’s male SMA connector to the female SMA connector on the ZED-F9P breakout board.</p>
 </section>
 <section id="step-5-mount-ultrasonic-sensors">
 <span id="id5"></span><h2>Step 5 - Mount Ultrasonic Sensors<a class="headerlink" href="#step-5-mount-ultrasonic-sensors" title="Link to this heading"></a></h2>
+<p>To support close-range obstacle detection along with the LiDAR system, install three (3) LVMAX ultrasonic sensors in the designated front-facing position as shown in the figure below. Each sensor should be placed in its printed mount on the robot’s body.</p>
+<figure class="align-center" id="id8">
+<a class="reference internal image-reference" href="_images/fig4-2_sonar_positions.png"><img alt="_images/fig4-2_sonar_positions.png" src="_images/fig4-2_sonar_positions.png" style="width: 80%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 20: Ultrasonic Sensor Positioning and Ranges</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+</figcaption>
+</figure>
 </section>
 <section id="step-6-internal-wiring">
 <span id="id6"></span><h2>Step 6 - Internal Wiring<a class="headerlink" href="#step-6-internal-wiring" title="Link to this heading"></a></h2>
+<figure class="align-center" id="id9">
+<a class="reference internal image-reference" href="_images/fig21_internal_wiring_diagram.png"><img alt="_images/fig21_internal_wiring_diagram.png" src="_images/fig21_internal_wiring_diagram.png" style="width: 80%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 21: Complete Internal Wiring for RoboFlock (See <a class="reference internal" href="wiring_specifications.html"><span class="doc">Table 4</span></a> for color conventions)</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+</figcaption>
+</figure>
 </section>
 </section>
 

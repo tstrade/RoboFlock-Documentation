@@ -9,7 +9,7 @@
   <title>Future Considerations &mdash; RoboFlock 0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=27bdb456" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=13512c6c" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
@@ -43,75 +43,19 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#introduction">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#project-roboflock">Project RoboFlock</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="overview.html#main-changes-from-alpha-design">Main Changes From Alpha Design</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="nvidia_jetson_orin_nano.html">NVIDIA Jetson Orin Nano</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="nvidia_jetson_orin_nano.html#motivation">Motivation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="nvidia_jetson_orin_nano.html#hardware-specifications">Hardware Specifications</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="interactions_with_the_surroundings.html">Interactions with the Surroundings</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="interactions_with_the_surroundings.html#navigation">Navigation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="interactions_with_the_surroundings.html#obstacle-detection">Obstacle Detection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="interactions_with_the_surroundings.html#hardware-specifications">Hardware Specifications</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="tracking.html">Tracking</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tracking.html#beacon">Beacon</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="tracking.html#architectural-block-diagram">Architectural Block Diagram</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tracking.html#tracking-functionality">Tracking Functionality</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tracking.html#gps-visualization-simulation">GPS Visualization Simulation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tracking.html#design">Design</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="tracking.html#neo-m8p-2">NEO-M8P-2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tracking.html#zed-f9p">ZED-F9P</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tracking.html#hc-12">HC-12</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="software.html">Software</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="software.html#architectural-block-diagram">Architectural Block Diagram</a></li>
-<li class="toctree-l2"><a class="reference internal" href="software.html#ros2">ROS2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="software.html#perception">Perception</a></li>
-<li class="toctree-l2"><a class="reference internal" href="software.html#planning">Planning</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="chassis_design.html">Chassis Design</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="chassis_design.html#design-objectives">Design Objectives</a></li>
-<li class="toctree-l2"><a class="reference internal" href="chassis_design.html#fabrication-plan">Fabrication Plan</a></li>
-</ul>
-</li>
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nvidia_jetson_orin_nano.html">NVIDIA Jetson Orin Nano</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interactions_with_the_surroundings.html">Interactions with the Surroundings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tracking.html">Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="software.html">Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chassis_design.html">Chassis Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wiring_specifications.html">Wiring Specifications</a></li>
-<li class="toctree-l1"><a class="reference internal" href="constructing_the_roboflock.html">Constructing the RoboFlock</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="constructing_the_roboflock.html#step-1-chassis">Step 1 - Chassis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="constructing_the_roboflock.html#step-2-drive-system">Step 2 - Drive System</a></li>
-<li class="toctree-l2"><a class="reference internal" href="constructing_the_roboflock.html#step-3-beacon">Step 3 - Beacon</a></li>
-<li class="toctree-l2"><a class="reference internal" href="constructing_the_roboflock.html#step-4-mount-antennas">Step 4 - Mount Antennas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="constructing_the_roboflock.html#step-5-mount-ultrasonic-sensors">Step 5 - Mount Ultrasonic Sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="constructing_the_roboflock.html#step-6-internal-wiring">Step 6 - Internal Wiring</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="constructing_the_roboflock.html">Constructing the RoboFlock</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Future Considerations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
-<li class="toctree-l1"><a class="reference internal" href="appendix_a.html">Appendix A</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="appendix_a.html#electronic-components">Electronic Components</a></li>
-<li class="toctree-l2"><a class="reference internal" href="appendix_a.html#power-supply-components">Power Supply Components</a></li>
-<li class="toctree-l2"><a class="reference internal" href="appendix_a.html#drive-system-components">Drive System Components</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="appendix_b.html">Appendix B</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="appendix_b.html#datasheets">Datasheets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="appendix_b.html#schematics">Schematics</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="appendix_a.html">Appendix A</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix_b.html">Appendix B</a></li>
 </ul>
 
         </div>
@@ -143,6 +87,11 @@
              
   <section id="future-considerations">
 <h1>Future Considerations<a class="headerlink" href="#future-considerations" title="Link to this heading"></a></h1>
+<p>Return home functionality</p>
+<p>Replace NEO with ZED</p>
+<p>Location broadcasting</p>
+<p>L5 GPS</p>
+<p>4D LiDAR</p>
 </section>
 
 

@@ -9,7 +9,7 @@
   <title>Software &mdash; RoboFlock 0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=27bdb456" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=13512c6c" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
@@ -43,75 +43,19 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#introduction">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#project-roboflock">Project RoboFlock</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="overview.html#main-changes-from-alpha-design">Main Changes From Alpha Design</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="nvidia_jetson_orin_nano.html">NVIDIA Jetson Orin Nano</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="nvidia_jetson_orin_nano.html#motivation">Motivation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="nvidia_jetson_orin_nano.html#hardware-specifications">Hardware Specifications</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="interactions_with_the_surroundings.html">Interactions with the Surroundings</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="interactions_with_the_surroundings.html#navigation">Navigation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="interactions_with_the_surroundings.html#obstacle-detection">Obstacle Detection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="interactions_with_the_surroundings.html#hardware-specifications">Hardware Specifications</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="tracking.html">Tracking</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tracking.html#beacon">Beacon</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="tracking.html#architectural-block-diagram">Architectural Block Diagram</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tracking.html#tracking-functionality">Tracking Functionality</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tracking.html#gps-visualization-simulation">GPS Visualization Simulation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tracking.html#design">Design</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="tracking.html#neo-m8p-2">NEO-M8P-2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tracking.html#zed-f9p">ZED-F9P</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tracking.html#hc-12">HC-12</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Software</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#architectural-block-diagram">Architectural Block Diagram</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ros2">ROS2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#perception">Perception</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#planning">Planning</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="chassis_design.html">Chassis Design</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="chassis_design.html#design-objectives">Design Objectives</a></li>
-<li class="toctree-l2"><a class="reference internal" href="chassis_design.html#fabrication-plan">Fabrication Plan</a></li>
-</ul>
-</li>
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nvidia_jetson_orin_nano.html">NVIDIA Jetson Orin Nano</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interactions_with_the_surroundings.html">Interactions with the Surroundings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tracking.html">Tracking</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chassis_design.html">Chassis Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wiring_specifications.html">Wiring Specifications</a></li>
-<li class="toctree-l1"><a class="reference internal" href="constructing_the_roboflock.html">Constructing the RoboFlock</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="constructing_the_roboflock.html#step-1-chassis">Step 1 - Chassis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="constructing_the_roboflock.html#step-2-drive-system">Step 2 - Drive System</a></li>
-<li class="toctree-l2"><a class="reference internal" href="constructing_the_roboflock.html#step-3-beacon">Step 3 - Beacon</a></li>
-<li class="toctree-l2"><a class="reference internal" href="constructing_the_roboflock.html#step-4-mount-antennas">Step 4 - Mount Antennas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="constructing_the_roboflock.html#step-5-mount-ultrasonic-sensors">Step 5 - Mount Ultrasonic Sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="constructing_the_roboflock.html#step-6-internal-wiring">Step 6 - Internal Wiring</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="constructing_the_roboflock.html">Constructing the RoboFlock</a></li>
 <li class="toctree-l1"><a class="reference internal" href="future_considerations.html">Future Considerations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
-<li class="toctree-l1"><a class="reference internal" href="appendix_a.html">Appendix A</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="appendix_a.html#electronic-components">Electronic Components</a></li>
-<li class="toctree-l2"><a class="reference internal" href="appendix_a.html#power-supply-components">Power Supply Components</a></li>
-<li class="toctree-l2"><a class="reference internal" href="appendix_a.html#drive-system-components">Drive System Components</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="appendix_b.html">Appendix B</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="appendix_b.html#datasheets">Datasheets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="appendix_b.html#schematics">Schematics</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="appendix_a.html">Appendix A</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix_b.html">Appendix B</a></li>
 </ul>
 
         </div>
@@ -145,15 +89,37 @@
 <h1>Software<a class="headerlink" href="#software" title="Link to this heading"></a></h1>
 <section id="architectural-block-diagram">
 <span id="architectural-block-diagram-2"></span><h2>Architectural Block Diagram<a class="headerlink" href="#architectural-block-diagram" title="Link to this heading"></a></h2>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="_images/fig11_ros2_overview.png"><img alt="_images/fig11_ros2_overview.png" src="_images/fig11_ros2_overview.png" style="width: 80%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 11: Overview of ROS2 Setup</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
 </section>
 <section id="ros2">
 <span id="id1"></span><h2>ROS2<a class="headerlink" href="#ros2" title="Link to this heading"></a></h2>
+<p>ROS2 is the main software framework for the robot. It handles message passing, timing, and modularity. Each sensor, controller, and algorithm runs as a ROS2 node. These nodes will use one of the following communication methods provided by the framework:</p>
+<ol class="arabic simple">
+<li><p><em>Topics</em> are used for continuous streams of data. Nodes can publish messages via topics and nodes can subscribe to messages via topics.</p></li>
+<li><p><em>Services</em> are used for call-and-response communication. Many nodes can act as the service client, each capable of sending requests to the node acting as the service server.</p></li>
+</ol>
+<p>Simpler tasks, such as collecting the ultrasonic data or telling the motors how fast to move, will be communicated via topics. More complex tasks, such as obtaining the beacon’s location, will be communicated via services.</p>
 </section>
 <section id="perception">
 <span id="id2"></span><h2>Perception<a class="headerlink" href="#perception" title="Link to this heading"></a></h2>
+<p>The LiDAR node publishes range data at its native scan rate. The ultrasonic nodes publish short range distance readings. The GPS node publishes the robot’s global position. The HC-12 module publishes relative range data when available. The motor controller node accepts velocity commands and drives the ESC.</p>
+<p>The ultrasonic sensors are added as a safety feature for immediate obstacle detection.</p>
 </section>
 <section id="planning">
 <span id="id3"></span><h2>Planning<a class="headerlink" href="#planning" title="Link to this heading"></a></h2>
+<p>The navigation system uses Nav2 to move the robot toward the beacon while avoiding obstacles by computing a target waypoint from the GPS position of the beacon. The robot updates this waypoint as the beacon moves.</p>
+<p>Nav2 builds a local cost map from LiDAR and ultrasonic data, showing both free space and blocked space around the robot. This map is updated at a high rate, giving it smooth motion around obstacles, even when they appear without warning.</p>
+<p>Nav2 runs two planners:</p>
+<ul class="simple">
+<li><p>The global planner draws a simple route toward the target point.</p></li>
+<li><p>The local planner produces velocity commands that steer the robot along the route without hitting obstacles. It adjusts speed when space becomes tight. It slows or stops when the ultrasonic sensors report close-range hazards.</p></li>
+</ul>
 </section>
 </section>
 

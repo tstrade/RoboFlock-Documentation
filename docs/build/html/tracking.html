@@ -9,7 +9,7 @@
   <title>Tracking &mdash; RoboFlock 0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=27bdb456" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=13512c6c" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
@@ -43,75 +43,19 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#introduction">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#project-roboflock">Project RoboFlock</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="overview.html#main-changes-from-alpha-design">Main Changes From Alpha Design</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="nvidia_jetson_orin_nano.html">NVIDIA Jetson Orin Nano</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="nvidia_jetson_orin_nano.html#motivation">Motivation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="nvidia_jetson_orin_nano.html#hardware-specifications">Hardware Specifications</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="interactions_with_the_surroundings.html">Interactions with the Surroundings</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="interactions_with_the_surroundings.html#navigation">Navigation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="interactions_with_the_surroundings.html#obstacle-detection">Obstacle Detection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="interactions_with_the_surroundings.html#hardware-specifications">Hardware Specifications</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Tracking</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#beacon">Beacon</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#architectural-block-diagram">Architectural Block Diagram</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#tracking-functionality">Tracking Functionality</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#gps-visualization-simulation">GPS Visualization Simulation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#design">Design</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#neo-m8p-2">NEO-M8P-2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#zed-f9p">ZED-F9P</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#hc-12">HC-12</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="software.html">Software</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="software.html#architectural-block-diagram">Architectural Block Diagram</a></li>
-<li class="toctree-l2"><a class="reference internal" href="software.html#ros2">ROS2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="software.html#perception">Perception</a></li>
-<li class="toctree-l2"><a class="reference internal" href="software.html#planning">Planning</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="chassis_design.html">Chassis Design</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="chassis_design.html#design-objectives">Design Objectives</a></li>
-<li class="toctree-l2"><a class="reference internal" href="chassis_design.html#fabrication-plan">Fabrication Plan</a></li>
-</ul>
-</li>
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nvidia_jetson_orin_nano.html">NVIDIA Jetson Orin Nano</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interactions_with_the_surroundings.html">Interactions with the Surroundings</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="software.html">Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chassis_design.html">Chassis Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wiring_specifications.html">Wiring Specifications</a></li>
-<li class="toctree-l1"><a class="reference internal" href="constructing_the_roboflock.html">Constructing the RoboFlock</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="constructing_the_roboflock.html#step-1-chassis">Step 1 - Chassis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="constructing_the_roboflock.html#step-2-drive-system">Step 2 - Drive System</a></li>
-<li class="toctree-l2"><a class="reference internal" href="constructing_the_roboflock.html#step-3-beacon">Step 3 - Beacon</a></li>
-<li class="toctree-l2"><a class="reference internal" href="constructing_the_roboflock.html#step-4-mount-antennas">Step 4 - Mount Antennas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="constructing_the_roboflock.html#step-5-mount-ultrasonic-sensors">Step 5 - Mount Ultrasonic Sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="constructing_the_roboflock.html#step-6-internal-wiring">Step 6 - Internal Wiring</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="constructing_the_roboflock.html">Constructing the RoboFlock</a></li>
 <li class="toctree-l1"><a class="reference internal" href="future_considerations.html">Future Considerations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
-<li class="toctree-l1"><a class="reference internal" href="appendix_a.html">Appendix A</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="appendix_a.html#electronic-components">Electronic Components</a></li>
-<li class="toctree-l2"><a class="reference internal" href="appendix_a.html#power-supply-components">Power Supply Components</a></li>
-<li class="toctree-l2"><a class="reference internal" href="appendix_a.html#drive-system-components">Drive System Components</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="appendix_b.html">Appendix B</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="appendix_b.html#datasheets">Datasheets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="appendix_b.html#schematics">Schematics</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="appendix_a.html">Appendix A</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix_b.html">Appendix B</a></li>
 </ul>
 
         </div>
@@ -145,27 +89,98 @@
 <h1>Tracking<a class="headerlink" href="#tracking" title="Link to this heading"></a></h1>
 <section id="beacon">
 <span id="id1"></span><h2>Beacon<a class="headerlink" href="#beacon" title="Link to this heading"></a></h2>
+<p>The beacon will be a portable-handheld device. It will act as a homing system for the robot, and the robot will follow it at a certain distance to the best of its ability in an outdoor environment. The beacon consists of a battery system, GPS module, and LEDs to make it exciting to possess. It will also alert the user if the robot has any problems, such as getting stuck or low battery power.</p>
 <section id="architectural-block-diagram">
 <span id="id2"></span><h3>Architectural Block Diagram<a class="headerlink" href="#architectural-block-diagram" title="Link to this heading"></a></h3>
+<figure class="align-center" id="id9">
+<a class="reference internal image-reference" href="_images/fig5_beacon_rover_datastream.png"><img alt="_images/fig5_beacon_rover_datastream.png" src="_images/fig5_beacon_rover_datastream.png" style="width: 80%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 5: Block Diagram for the Beacon to Rover Correction Data Stream</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+</figcaption>
+</figure>
 </section>
 <section id="tracking-functionality">
 <span id="id3"></span><h3>Tracking Functionality<a class="headerlink" href="#tracking-functionality" title="Link to this heading"></a></h3>
+<p>Real-time kinematic (RTK) positioning is a form of differential GPS that uses a known coordinate location to determine errors in GPS coordinates with centimeter-level accuracy. This information is used to obtain correctional data that can be sent out to other GPS modules in the area. In short, RTK allows for the system to work based on relative locations instead of absolute locations.</p>
+<p>The setup involves a “rover” and “base” module, which are analogous to the robot and beacon, respectively. Each module obtains GPS coordinates individually, with the addition that the beacon also provides error corrections that are sent out to the robot. Using the beacon’s location as the frame of reference, a position vector in the direction of the beacon will guide the robot from its current position to its next position.</p>
 </section>
 <section id="gps-visualization-simulation">
 <span id="id4"></span><h3>GPS Visualization Simulation<a class="headerlink" href="#gps-visualization-simulation" title="Link to this heading"></a></h3>
+<p>As an intermediate step between fully implementing and starting to test the GPS visualization functionality, we will simulate the expected outputs from the Beacon and Robot GPS modules to the Jetson Orin Nano.  By simulating this network traffic under assumption of NMEA data format used for the GPS data we will write a script in Python that extracts latitude and longitude information from each module’s raw NMEA data stream and using this position information we visualize the location of the Robot and Beacon on a map using the Folium mapping library.</p>
+<figure class="align-center" id="id10">
+<a class="reference internal image-reference" href="_images/fig6_ex_gps_visuals.png"><img alt="_images/fig6_ex_gps_visuals.png" src="_images/fig6_ex_gps_visuals.png" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 6: Example of GPS Visualization of Robot’s Position on Map of Black Rock City (Burning Man Site)</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
+</figcaption>
+</figure>
 </section>
 <section id="design">
 <span id="id5"></span><h3>Design<a class="headerlink" href="#design" title="Link to this heading"></a></h3>
+<p>The beacon is designed to be portable, allowing users to carry it around and pass the beacon off to others without having to reset the system. No user input is required; a simple LED indicates the beacon’s status to its user.</p>
+<p>The robot uses a NEO-M8P module that wirelessly receives error correction data from the beacon via the HC-12. The beacon uses a ZED-F9P module that is connected to two HC-12 wireless communication devices, designated as Base 1 and Base 2, which use separate radio frequencies to avoid interference with one another.</p>
+<p>Two bases are required for transmitting GPS data since the ZED-F9P provides both coordinates and error correction data. These must be handled separately to ensure proper data processing. Their use-cases are as follows:</p>
+<ul class="simple">
+<li><p>Base 1: transmits the beacon’s GPS coordinates to the Jetson Orin Nano for use in tracking functionality.</p></li>
+<li><p>Base 2: transmits real-time correction messages to the robot’s NEO-M8P-2 module</p></li>
+</ul>
+<figure class="align-center" id="id11">
+<a class="reference internal image-reference" href="_images/fig7-1_beacon_robo_comms.png"><img alt="_images/fig7-1_beacon_robo_comms.png" src="_images/fig7-1_beacon_robo_comms.png" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 7.1: Beacon-to-Robot Communication</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id12">
+<a class="reference internal image-reference" href="_images/fig7-2_beacon_robo_dataflow.png"><img alt="_images/fig7-2_beacon_robo_dataflow.png" src="_images/fig7-2_beacon_robo_dataflow.png" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 7.2: Beacon-to-Robot GPS Data Flowchart</span><a class="headerlink" href="#id12" title="Link to this image"></a></p>
+</figcaption>
+</figure>
 </section>
 </section>
 <section id="neo-m8p-2">
 <span id="id6"></span><h2>NEO-M8P-2<a class="headerlink" href="#neo-m8p-2" title="Link to this heading"></a></h2>
+<p>The NEO-M8P-2 module is an RTK capable GPS module with L1 satellite constellations mounted on the Robot which will accept RTCM correction data from the ZED-F9P GPS module in order to achieve centimeter level position coordinate accuracy in Rover configuration relative to the Beacon’s moving baseline configuration.  We will use this module to obtain position coordinates of the Robot which in combination with the position coordinates of the Beacon obtained via the ZED-F9P will allow us to track the Beacon and Robot positions relative to one another.</p>
+<figure class="align-center" id="id13">
+<a class="reference internal image-reference" href="_images/fig8_neo_pinout.png"><img alt="_images/fig8_neo_pinout.png" src="_images/fig8_neo_pinout.png" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 8: u-blox NEO-M8P Pinout</span><a class="headerlink" href="#id13" title="Link to this image"></a></p>
+</figcaption>
+</figure>
 </section>
 <section id="zed-f9p">
 <span id="id7"></span><h2>ZED-F9P<a class="headerlink" href="#zed-f9p" title="Link to this heading"></a></h2>
+<p>The ZED-F9P GPS module is a RTK capable module with access to the L1 and L2 satellite constellations.  We will use this module on the Beacon as a moving baseline, allowing for GPS correction data to be determined relative to the Beacon’s position and sent to the Robot’s NEO-M8P-2 GPS module resulting in centimeter level position coordinate accuracy for both Beacon and Robot.</p>
+<figure class="align-center" id="id14">
+<a class="reference internal image-reference" href="_images/fig9_zed_pinout.png"><img alt="_images/fig9_zed_pinout.png" src="_images/fig9_zed_pinout.png" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 9: u-blox ZED-F9P Pinout</span><a class="headerlink" href="#id14" title="Link to this image"></a></p>
+</figcaption>
+</figure>
 </section>
 <section id="hc-12">
 <span id="id8"></span><h2>HC-12<a class="headerlink" href="#hc-12" title="Link to this heading"></a></h2>
+<p>The HC-12 wireless serial port communication module is a new-generation multichannel embedded wireless data transmission module. Its wireless working frequency band is 433.4-473.0MHz, multiple channels can be set, with the stepping of 400 KHz, and there are totally 100 channels. The maximum transmitting power of the module is 100mW (20dBm), the receiving sensitivity is -117dBm at a baud rate of 5,000bps in the air, and the communication distance is 1,000m in open space.</p>
+<figure class="align-center" id="id15">
+<a class="reference internal image-reference" href="_images/fig10_hc12_pinout.png"><img alt="_images/fig10_hc12_pinout.png" src="_images/fig10_hc12_pinout.png" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 10: HC-12 Pinout</span><a class="headerlink" href="#id15" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><strong>*HC-12 Pin Layout*</strong></p>
+<ul class="simple">
+<li><p>3: RXD, UART input port</p></li>
+<li><p>4: TXD, UART output port</p></li>
+<li><p>5: SET, config control port</p></li>
+<li><p>6: ANT, external antenna for transmission and reception</p></li>
+</ul>
+<p>This module interfaces seamlessly with microcontrollers via the UART hardware interface, enabling reliable communication through the RXD and TXD pins.</p>
 </section>
 </section>
 

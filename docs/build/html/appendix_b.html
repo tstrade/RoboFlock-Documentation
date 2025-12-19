@@ -9,7 +9,7 @@
   <title>Appendix B &mdash; RoboFlock 0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=27bdb456" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=13512c6c" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
@@ -42,75 +42,19 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#introduction">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#project-roboflock">Project RoboFlock</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="overview.html#main-changes-from-alpha-design">Main Changes From Alpha Design</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="nvidia_jetson_orin_nano.html">NVIDIA Jetson Orin Nano</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="nvidia_jetson_orin_nano.html#motivation">Motivation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="nvidia_jetson_orin_nano.html#hardware-specifications">Hardware Specifications</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="interactions_with_the_surroundings.html">Interactions with the Surroundings</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="interactions_with_the_surroundings.html#navigation">Navigation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="interactions_with_the_surroundings.html#obstacle-detection">Obstacle Detection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="interactions_with_the_surroundings.html#hardware-specifications">Hardware Specifications</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="tracking.html">Tracking</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tracking.html#beacon">Beacon</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="tracking.html#architectural-block-diagram">Architectural Block Diagram</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tracking.html#tracking-functionality">Tracking Functionality</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tracking.html#gps-visualization-simulation">GPS Visualization Simulation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tracking.html#design">Design</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="tracking.html#neo-m8p-2">NEO-M8P-2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tracking.html#zed-f9p">ZED-F9P</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tracking.html#hc-12">HC-12</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="software.html">Software</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="software.html#architectural-block-diagram">Architectural Block Diagram</a></li>
-<li class="toctree-l2"><a class="reference internal" href="software.html#ros2">ROS2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="software.html#perception">Perception</a></li>
-<li class="toctree-l2"><a class="reference internal" href="software.html#planning">Planning</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="chassis_design.html">Chassis Design</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="chassis_design.html#design-objectives">Design Objectives</a></li>
-<li class="toctree-l2"><a class="reference internal" href="chassis_design.html#fabrication-plan">Fabrication Plan</a></li>
-</ul>
-</li>
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nvidia_jetson_orin_nano.html">NVIDIA Jetson Orin Nano</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interactions_with_the_surroundings.html">Interactions with the Surroundings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tracking.html">Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="software.html">Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chassis_design.html">Chassis Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wiring_specifications.html">Wiring Specifications</a></li>
-<li class="toctree-l1"><a class="reference internal" href="constructing_the_roboflock.html">Constructing the RoboFlock</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="constructing_the_roboflock.html#step-1-chassis">Step 1 - Chassis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="constructing_the_roboflock.html#step-2-drive-system">Step 2 - Drive System</a></li>
-<li class="toctree-l2"><a class="reference internal" href="constructing_the_roboflock.html#step-3-beacon">Step 3 - Beacon</a></li>
-<li class="toctree-l2"><a class="reference internal" href="constructing_the_roboflock.html#step-4-mount-antennas">Step 4 - Mount Antennas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="constructing_the_roboflock.html#step-5-mount-ultrasonic-sensors">Step 5 - Mount Ultrasonic Sensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="constructing_the_roboflock.html#step-6-internal-wiring">Step 6 - Internal Wiring</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="constructing_the_roboflock.html">Constructing the RoboFlock</a></li>
 <li class="toctree-l1"><a class="reference internal" href="future_considerations.html">Future Considerations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
-<li class="toctree-l1"><a class="reference internal" href="appendix_a.html">Appendix A</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="appendix_a.html#electronic-components">Electronic Components</a></li>
-<li class="toctree-l2"><a class="reference internal" href="appendix_a.html#power-supply-components">Power Supply Components</a></li>
-<li class="toctree-l2"><a class="reference internal" href="appendix_a.html#drive-system-components">Drive System Components</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Appendix B</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#datasheets">Datasheets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#schematics">Schematics</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="appendix_a.html">Appendix A</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Appendix B</a></li>
 </ul>
 
         </div>
@@ -143,9 +87,30 @@
 <h1>Appendix B<a class="headerlink" href="#appendix-b" title="Link to this heading"></a></h1>
 <section id="datasheets">
 <span id="id1"></span><h2>Datasheets<a class="headerlink" href="#datasheets" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://statics3.seeedstudio.com/assets/file/bazaar/product/HC-12_english_datasheets.pdf" rel="noreferrer" target="_blank">HC-12 Wireless RF UART Communication Module User Manual rev.2.4</a>.</p></li>
+<li><p><a class="reference external" href="https://cdn-shop.adafruit.com/product-files/4010/4010_datasheet.pdf" rel="noreferrer" target="_blank">SLAMTEC RPLidar A1 Datasheet rev.2.1</a>.</p></li>
+<li><p><a class="reference external" href="https://developer.nvidia.com/downloads/assets/embedded/secure/jetson/orin_nano/docs/jetson_orin_nano_ds" rel="noreferrer" target="_blank">NVIDIA Jetson Orin Nano Series Modules Datasheet v1.5</a>.</p></li>
+<li><p><a class="reference external" href="https://developer.nvidia.com/embedded/dlc/Jetson_Nano_Developer_Kit_User_Guide" rel="noreferrer" target="_blank">Jetson Nano Developer Kit User Guide v1.3</a>.</p></li>
+<li><p><a class="reference external" href="https://developer.nvidia.com/downloads/assets/embedded/secure/jetson/orin_nx/docs/jetson_orin_nx_orin_nano_pin_function_names_guide_da-11434-001_v1.0.pdf" rel="noreferrer" target="_blank">Jetson Orin NX Series and Jetson Orin Nano Series Pin and Function Name Guide v1.0</a>.</p></li>
+<li><p><a class="reference external" href="https://cdn.sparkfun.com/assets/2/f/6/8/3/NEO-M8P_DataSheet__UBX-15016656_.pdf" rel="noreferrer" target="_blank">NEO-M8P-2 Datasheet</a>.</p></li>
+<li><p><a class="reference external" href="https://cdn.sparkfun.com/assets/a/a/d/2/2/NEO-M8P_HardwareIntegrationManual__UBX-15028081_.pdf" rel="noreferrer" target="_blank">NEO-M8P-2 Hardware Integration Module</a>.</p></li>
+<li><p><a class="reference external" href="https://content.u-blox.com/sites/default/files/documents/ANN-MB_DataSheet_UBX-18049862.pdf" rel="noreferrer" target="_blank">ANN-MB Series - Multi-Band, High Precision GNSS Antennas Datasheet rev.R05</a>.</p></li>
+<li><p><a class="reference external" href="https://www.ardusimple.com/wp-admin/admin-post.php?action=generate_product_pdf&amp;product_id=3127" rel="noreferrer" target="_blank">u-blox GNSS Multiband Antenna ANN-MB-00 (IP67) Datasheet</a>.</p></li>
+<li><p><a class="reference external" href="https://cdn.sparkfun.com/assets/f/8/d/6/d/ZED-F9P-02B_DataSheet_UBX-21023276.pdf" rel="noreferrer" target="_blank">ZED-F9P-02B High-Precision GNSS Module (Professional Grade) Datasheet rev.R03</a>.</p></li>
+<li><p><a class="reference external" href="https://cdn.shopify.com/s/files/1/0550/8091/0899/files/11832.pdf?v=1726578772" rel="noreferrer" target="_blank">LV-MaxSonar-EZ Series: High Performance Sonar Range Finder Datasheet</a>.</p></li>
+<li><p><a class="reference external" href="https://www.analog.com/media/en/technical-documentation/data-sheets/max17048-max17049.pdf" rel="noreferrer" target="_blank">MAX17048/MAX17049 3uA 1-Cell/2-Cell Fuel Gauge with ModelGauge Datasheet rev.7</a>.</p></li>
+<li><p><a class="reference external" href="https://docs.arduino.cc/resources/datasheets/A000005-datasheet.pdf" rel="noreferrer" target="_blank">Arduino Nano Datasheet rev.4</a>.</p></li>
+<li><p><a class="reference external" href="https://manuals.plus/asin/B074FSZWVT" rel="noreferrer" target="_blank">iRhapsody 40/30A 12VDC Waterproof Relay Kit Instruction Manual</a>.</p></li>
+</ul>
 </section>
 <section id="schematics">
 <span id="id2"></span><h2>Schematics<a class="headerlink" href="#schematics" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://cdn.sparkfun.com/assets/6/5/7/6/6/SparkFun-GPS-RTK-SMA-ZED-F9P-Schematic.pdf" rel="noreferrer" target="_blank">Qwiic GPS-RTK-SMA - u-blox ZED-F9P Schematic v12</a>.</p></li>
+<li><p><a class="reference external" href="https://cdn.sparkfun.com/assets/f/f/5/c/8/Qwiic_GPS-RTK_-_ublox_NEO-M8P.pdf" rel="noreferrer" target="_blank">Qwiic GPS-RTK - u-blox NEO-M8P Schematic v10</a>.</p></li>
+<li><p><a class="reference external" href="https://bucket-download.slamtec.com/fb0b36f64212432b51a8e078081f168f39b96a49/RPLIDAR%20A1M8_en.pdf" rel="noreferrer" target="_blank">SLAMTEC RPLiDAR A1M8 Core Schematic</a>.</p></li>
+</ul>
 </section>
 </section>
 
