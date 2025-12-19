@@ -76,7 +76,7 @@ The chassis interfaces with the drivetrain and motors listed in :doc:`Appendix A
 
 .. figure:: _images/fig12_chassis_design_proto.png
     :align: center
-    :width: 80%
+    :width: 50%
     :loading: link
 
     Figure 12: Chassis Design Prototype
@@ -84,7 +84,7 @@ The chassis interfaces with the drivetrain and motors listed in :doc:`Appendix A
 
 .. figure:: _images/fig13_chassis_frame.png
     :align: center
-    :width: 80%
+    :width: 50%
     :loading: link
 
     Figure 13: Chassis Custom Frame
@@ -92,7 +92,7 @@ The chassis interfaces with the drivetrain and motors listed in :doc:`Appendix A
 
 .. figure:: _images/fig14_chassis_frame_dims.png
     :align: center
-    :width: 80%
+    :width: 50%
     :loading: link
 
     Figure 14: Chassis Frame Dimensions
@@ -100,7 +100,7 @@ The chassis interfaces with the drivetrain and motors listed in :doc:`Appendix A
 
 .. figure:: _images/fig15_chassis_shell.png
     :align: center
-    :width: 80%
+    :width: 50%
     :loading: link
 
     Figure 15: Chassis Shell with Electronics Storage Space
@@ -108,7 +108,7 @@ The chassis interfaces with the drivetrain and motors listed in :doc:`Appendix A
 
 .. figure:: _images/fig16_chassis_shell_dims.png
     :align: center
-    :width: 80%
+    :width: 50%
     :loading: link
 
     Figure 16: Chassis Shell Dimensions
@@ -116,7 +116,7 @@ The chassis interfaces with the drivetrain and motors listed in :doc:`Appendix A
 
 .. figure:: _images/fig17_airless_tires.png
     :align: center
-    :width: 80%
+    :width: 50%
     :loading: link
 
     Figure 17: Airless Wheels and Tires
@@ -124,7 +124,7 @@ The chassis interfaces with the drivetrain and motors listed in :doc:`Appendix A
 
 .. figure:: _images/fig18_airless_tires_dims.png
     :align: center
-    :width: 80%
+    :width: 50%
     :loading: link
 
     Figure 18: Airless Wheel and Tire Dimensions

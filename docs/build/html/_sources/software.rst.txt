@@ -8,7 +8,7 @@ Architectural Block Diagram
 
 .. figure:: _images/fig11_ros2_overview.png
     :align: center
-    :width: 80%
+    :width: 50%
     :loading: link
 
     Figure 11: Overview of ROS2 Setup

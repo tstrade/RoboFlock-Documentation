@@ -55,3 +55,8 @@ html_theme_options = {
     'style_external_links': True,
     'body_max_width': 'none',
 }
+
+expub_exclude_files = ['search.html']
+# add sourcecode to path
+import sys, os
+sys.path.insert(0, os.path.abspath('../src'))

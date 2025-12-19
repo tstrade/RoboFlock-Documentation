@@ -40,7 +40,7 @@ Step 3 - Beacon
 
 .. figure:: _images/fig19_beacon_wiring_diagram.png
     :align: center
-    :width: 80%
+    :width: 50%
     :loading: link
 
     Figure 19: Wiring Diagram of the Beacon's GPS
@@ -64,7 +64,7 @@ To support close-range obstacle detection along with the LiDAR system, install t
 
 .. figure:: _images/fig4-2_sonar_positions.png
     :align: center
-    :width: 80%
+    :width: 50%
     :loading: link
 
     Figure 20: Ultrasonic Sensor Positioning and Ranges
@@ -77,7 +77,7 @@ Step 6 - Internal Wiring
 
 .. figure:: _images/fig21_internal_wiring_diagram.png
     :align: center
-    :width: 80%
+    :width: 50%
     :loading: link
 
     Figure 21: Complete Internal Wiring for RoboFlock (See :doc:`Table 4 <wiring_specifications>` for color conventions)

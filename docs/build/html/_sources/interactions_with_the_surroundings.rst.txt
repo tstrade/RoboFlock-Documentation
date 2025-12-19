@@ -40,14 +40,14 @@ The LiDAR sensor is mounted on top of the robot’s chassis, giving it the full 
 
 .. figure:: _images/fig3-1_lidar_dims.png
     :align: center
-    :width: 80%
+    :width: 50%
     :loading: link
 
     Figure 3.1: RPLiDAR A1 Dimensions
 
 .. figure:: _images/fig3-2_lidar_usb_adapter.png
     :align: center
-    :width: 80%
+    :width: 50%
     :loading: link
 
     Figure 3.2: RPLiDAR A1 UART to USB Adapter
@@ -84,14 +84,14 @@ The ultrasonic sensors are mounted on the front of the robot’s chassis and ang
 
 .. figure:: _images/fig4-1_sonar_phys_design.png
     :align: center
-    :width: 80%
+    :width: 50%
     :loading: link
 
     Figure 4.1: Physical Design of the LV-MaxSonar Range Finder
 
 .. figure:: _images/fig4-2_sonar_positions.png
     :align: center
-    :width: 80%
+    :width: 50%
     :loading: link
 
     Figure 4.2: Ultrasonic Sensor Positioning and Ranges

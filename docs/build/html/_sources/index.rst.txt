@@ -59,6 +59,7 @@ To see the research and resource specifications that went into the development o
    :maxdepth: 1
    :hidden:
 
+   autodoc
    overview
    nvidia_jetson_orin_nano
    interactions_with_the_surroundings
