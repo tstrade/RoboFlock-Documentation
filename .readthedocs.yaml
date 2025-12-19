@@ -4,7 +4,7 @@ python:
   install:
     - requirements: docs/requirements.txt
     - method: pip
-      path: .
+      path: ./docs/
 
 build:
   os: ubuntu-24.04
@@ -19,6 +19,7 @@ build:
       - echo "Successfully installed dependencies!"
     pre_create_environment:
       - echo "Preparing environment..."
+      - pip install --upgrade pip
     pre_build:
       - echo "Building HTML document..."
     post_build:
