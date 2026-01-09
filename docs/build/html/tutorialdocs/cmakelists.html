@@ -1,0 +1,266 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Writing Custom CML Files &mdash; RoboFlock 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=13512c6c" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Using RoboFlock’s Topics" href="roboflock_topics.html" />
+    <link rel="prev" title="Tutorials" href="../tutorials.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            RoboFlock
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorials.html">Tutorials</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Writing Custom CML Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="roboflock_topics.html">Using RoboFlock’s Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rtk_gps.html">Setting up the RTK GPS System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jetson_config.html">Setting up the Nvidia Jetson Orin Nano</a></li>
+<li class="toctree-l2"><a class="reference internal" href="init_dev.html">Initializing RoboFlock (Developers)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="init_users.html">Initializing RoboFlock (Users)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../nvidia_jetson_orin_nano.html">NVIDIA Jetson Orin Nano</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interactions_with_the_surroundings.html">Interactions with the Surroundings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tracking.html">Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software.html">Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chassis_design.html">Chassis Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wiring_specifications.html">Wiring Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../constructing_the_roboflock.html">Constructing the RoboFlock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../future_considerations.html">Future Considerations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix_a.html">Appendix A</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix_b.html">Appendix B</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RoboFlock</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../tutorials.html">Tutorials</a></li>
+      <li class="breadcrumb-item active">Writing Custom CML Files</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/tutorialdocs/cmakelists.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="../tutorials.html" class="btn btn-neutral float-left" title="Tutorials" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="roboflock_topics.html" class="btn btn-neutral float-right" title="Using RoboFlock’s Topics" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="writing-custom-cml-files">
+<h1>Writing Custom CML Files<a class="headerlink" href="#writing-custom-cml-files" title="Link to this heading"></a></h1>
+<p>Creating C++ packages can be difficult to navigate for first-time users of ROS2. This tutorial will explain the basic structure of a CMakeLists.txt file, otherwise known as a CML file. Importantly, we will cover how to properly compile and link pacakages with several files and subdirectories found in the <code class="code docutils literal notranslate"><span class="pre">include/</span></code> and <code class="code docutils literal notranslate"><span class="pre">src/</span></code> directories of the ROS2 package.</p>
+<p>First, we want to guarantee compatibilty by enforcing a lower bound on the CMake version. For example, RoboFlock uses CMake version 3.8, so the first line of the CML file should be:</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">cmake_minimum_required</span><span class="p">(</span><span class="s">VERSION</span><span class="w"> </span><span class="s">3.8</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Next, we need to give our project a name. In the context of ROS2, the project name should be the <em>extactly the same</em> as the package name created in the ROS2 environment. Let’s call our project <code class="code docutils literal notranslate"><span class="pre">hello_world_pkg</span></code>:</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">project</span><span class="p">(</span><span class="s">hello_world_pkg</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The <code class="code docutils literal notranslate"><span class="pre">project()</span></code> command sets certain environmental variables that indicate important information such as the project’s name and the absolute paths to the source and binary directories. Check out the <a class="reference external" href="https://cmake.org/cmake/help/latest/command/project.html#command:project" rel="noreferrer" target="_blank">CMake project() documentation</a> to get an in-depth explanation of the <code class="code docutils literal notranslate"><span class="pre">project()</span></code> command.</p>
+<p>The next few lines sets parameters for the compiler, such as the C++ standard being used and various compiler flags.</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">if</span><span class="p">(</span><span class="s">NOT</span><span class="w"> </span><span class="s">CMAKE_CXX_STANDARD</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_CXX_STANDARD</span><span class="w"> </span><span class="s">14</span><span class="p">)</span>
+<span class="nb">endif</span><span class="p">()</span>
+
+<span class="nb">if</span><span class="p">(</span><span class="s">CMAKE_COMPILER_IS_GNUCXX</span><span class="w"> </span><span class="s">OR</span><span class="w"> </span><span class="s">CMAKE_CXX_COMPILER_ID</span><span class="w"> </span><span class="s">MATCHES</span><span class="w"> </span><span class="s2">&quot;Clang&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">add_compile_options</span><span class="p">(</span><span class="s">-Wall</span><span class="w"> </span><span class="s">-Wextra</span><span class="w"> </span><span class="s">-Wpedantic</span><span class="p">)</span>
+<span class="nb">endif</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>ROS2 allows for a complex network of packages and nodes to interact with one another, and as such, we need to tell the build process what packages have dependencies. In our project, <code class="code docutils literal notranslate"><span class="pre">hello_world_pkg</span></code>, we will use two built-in ROS2 packages, <code class="code docutils literal notranslate"><span class="pre">ament_cmake</span></code> and <code class="code docutils literal notranslate"><span class="pre">rclcpp</span></code>, that are needed for most of RoboFlock’s nodes.</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="c"># Creates variables like rclcpp_LIBRARIES and and std_msgs_INCLUDE_DIRS</span>
+<span class="c">#</span>
+<span class="nb">find_package</span><span class="p">(</span><span class="s">ament_cmake</span><span class="w"> </span><span class="s">REQUIRED</span><span class="p">)</span><span class="w"> </span><span class="c"># ROS2 build system</span>
+<span class="nb">find_package</span><span class="p">(</span><span class="s">rclcpp</span><span class="w"> </span><span class="s">REQUIRED</span><span class="p">)</span><span class="w">      </span><span class="c"># ROS2 C++ client library</span>
+<span class="nb">find_package</span><span class="p">(</span><span class="s">std_msgs</span><span class="w"> </span><span class="s">REQUIRED</span><span class="p">)</span><span class="w">    </span><span class="c"># ROS2 standard msg types</span>
+</pre></div>
+</div>
+<p>Now that we have our compatibility requirements, we need to make sure that the compiler can find all our files and properly link libraries. First, let’s tell the compiler where to search for included files:</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="c"># Adds include/ directory to compiler&#39;s search path for ALL targets</span>
+<span class="c">#   This allows for the preprocessor directive &quot;#include&quot; to work properly for our code</span>
+<span class="c">#</span>
+<span class="nb">include_directories</span><span class="p">(</span>
+<span class="w">    </span><span class="s">include</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Next, we’ll handle our source files. First, let’s organize all the source files into a single variable so we don’t have to repeat commands and file names for every single source file. Then, we’ll ensure that the files exist. The code in our CML file should look similar to this:</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="c"># Creates the variable LIB_SOURCE_FILES used to organize source files for the library</span>
+<span class="c">#</span>
+<span class="nb">set</span><span class="p">(</span><span class="s">LIB_SOURCE_FILES</span>
+<span class="w">    </span><span class="s">src/greetings/hello_source1.cpp</span>
+<span class="w">    </span><span class="s">src/greetings/hello_source2.cpp</span>
+<span class="w">    </span><span class="s">src/salutations/goodbye_source1.cpp</span>
+<span class="w">    </span><span class="s">src/salutations/goodbye_source2.cpp</span>
+<span class="p">)</span>
+
+<span class="c"># Loop through each file in LIB_SOURCE_FILES to make sure that they exist</span>
+<span class="c">#</span>
+<span class="nb">foreach</span><span class="p">(</span><span class="s">src_file</span><span class="w"> </span><span class="o">${</span><span class="nv">LIB_SOURCE_FILES</span><span class="o">}</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">if</span><span class="p">(</span><span class="s">NOT</span><span class="w"> </span><span class="s">EXISTS</span><span class="w"> </span><span class="o">${</span><span class="nv">CMAKE_CURRENT_SOURCE_DIR</span><span class="o">}</span><span class="s">/</span><span class="o">${</span><span class="nv">src_file</span><span class="o">}</span><span class="p">)</span>
+<span class="w">        </span><span class="nb">message</span><span class="p">(</span><span class="s">WARNING</span><span class="w"> </span><span class="s2">&quot;Source file not found: ${src_file}&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">else</span><span class="p">()</span>
+<span class="w">        </span><span class="nb">message</span><span class="p">(</span><span class="s">STATUS</span><span class="w"> </span><span class="s2">&quot;Found source file: ${src_file}&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">endif</span><span class="p">()</span>
+<span class="nb">endforeach</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Libraries are a collections of pre-written code that are helpful with code reusability and scalability. There are a few different types of libraries that we can make:</p>
+<ul class="simple">
+<li><p><em>Static libraries</em> contain compiled code of all the files and is linked directly to an executable at compile time.</p></li>
+<li><p><em>Shared (Dynamic) libraries</em> contain compiled code only for required files and is loaded at runtime</p></li>
+</ul>
+<p>Let’s add a library target to be built from the source files and then link everything together. The heavy-lifters here will be the <code class="code docutils literal notranslate"><span class="pre">target_include_directories()</span></code> and <code class="code docutils literal notranslate"><span class="pre">target_link_libraries()</span></code> commands. We can use the <code class="code docutils literal notranslate"><span class="pre">PUBLIC</span></code> keyword to make our custom library visible to other packages, allowing it to be added as a dependency:</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="c"># Create the library target</span>
+<span class="c">#</span>
+<span class="nb">add_library</span><span class="p">(</span><span class="o">${</span><span class="nv">PROJECT_NAME</span><span class="o">}</span><span class="s">_lib</span><span class="w"> </span><span class="o">${</span><span class="nv">LIB_SOURCE_FILES</span><span class="o">}</span><span class="p">)</span>
+
+<span class="c"># Add the include path to the library target</span>
+<span class="c">#   PUBLIC indicates that both the library target and anything linking to it gets these includes</span>
+<span class="c">#</span>
+<span class="nb">target_include_directories</span><span class="p">(</span><span class="o">${</span><span class="nv">PROJECT_NAME</span><span class="o">}</span><span class="s">_lib</span><span class="w"> </span><span class="s">PUBLIC</span>
+<span class="w">    </span><span class="s">include</span>
+<span class="p">)</span>
+
+<span class="c"># Tell the linker which specific libraries to use when linking the target and its dependents</span>
+<span class="c">#   Usage requirements are propagated</span>
+<span class="c">#</span>
+<span class="nb">target_link_libraries</span><span class="p">(</span><span class="o">${</span><span class="nv">PROJECT_NAME</span><span class="o">}</span><span class="s">_lib</span><span class="w"> </span><span class="s">PUBLIC</span>
+<span class="w">    </span><span class="o">${</span><span class="nv">rclcpp_LIBRARIES</span><span class="o">}</span>
+<span class="w">    </span><span class="o">${</span><span class="nv">std_msgs_LIBRARIES</span><span class="o">}</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>In order to run our ROS2 node, we’re going to need an executable:</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="c"># Add an executable target to be built from our node&#39;s source code</span>
+<span class="c">#</span>
+<span class="nb">add_executable</span><span class="p">(</span><span class="s">hello_world_node</span><span class="w"> </span><span class="s">src/hello_world_node.cpp</span><span class="p">)</span>
+
+<span class="c"># Tell the compiler what include directories we want to use</span>
+<span class="c">#   PRIVATE indicates that our include/ directory is only available to our source code and is not propagated to other targets</span>
+<span class="c">#</span>
+<span class="nb">target_include_directories</span><span class="p">(</span><span class="s">hello_world_node</span><span class="w"> </span><span class="s">PRIVATE</span><span class="w"> </span><span class="s">include</span><span class="p">)</span>
+
+<span class="c"># Tell the linker which specific libraries to use when linking the executable target</span>
+<span class="c">#   Usage requirements are propagated</span>
+<span class="c">#</span>
+<span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">hello_world_node</span><span class="w"> </span><span class="s">PUBLIC</span>
+<span class="w">    </span><span class="o">${</span><span class="nv">PROJECT_NAME</span><span class="o">}</span><span class="s">_lib</span>
+<span class="w">    </span><span class="s">rclcpp::rclcpp</span>
+<span class="w">    </span><span class="o">${</span><span class="nv">std_msgs_TARGETS</span><span class="o">}</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The CML file should specify where our libraries and executable are being installed by generating a set of rules using the <code class="code docutils literal notranslate"><span class="pre">install()</span></code> command. We’ll also create static and shared libraries and executables that can be used by other packages:</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="c"># Specify that our node&#39;s executable and custom library will be installed into lib/hello_world_pkg</span>
+<span class="c">#   Then, we&#39;ll specify options for our output artifacts (compiled binaries generated during the build process)</span>
+<span class="nb">install</span><span class="p">(</span><span class="s">TARGETS</span>
+<span class="w">    </span><span class="s">hello_world_node</span>
+<span class="w">    </span><span class="o">${</span><span class="nv">PROJECT_NAME</span><span class="o">}</span><span class="s">_lib</span>
+<span class="w">    </span><span class="s">DESTINATION</span><span class="w"> </span><span class="s">lib/</span><span class="o">${</span><span class="nv">PROJECT_NAME</span><span class="o">}</span>
+<span class="w">    </span><span class="s">ARCHIVE</span><span class="w"> </span><span class="s">DESTINATION</span><span class="w"> </span><span class="s">lib</span><span class="w">         </span><span class="c"># Static libraries (.a)</span>
+<span class="w">    </span><span class="s">LIBRARY</span><span class="w"> </span><span class="s">DESTINATION</span><span class="w"> </span><span class="s">lib</span><span class="w">         </span><span class="c"># Shared libraries (.so)</span>
+<span class="w">    </span><span class="s">RUNTIME</span><span class="w"> </span><span class="s">DESTINATION</span><span class="w"> </span><span class="s">bin</span><span class="w">         </span><span class="c"># Executables</span>
+<span class="p">)</span>
+
+<span class="c"># Specify that our custom include files will be installed in include</span>
+<span class="nb">install</span><span class="p">(</span><span class="s">DIRECTORY</span><span class="w"> </span><span class="s">include/</span>
+<span class="w">    </span><span class="s">DESTINATION</span><span class="w"> </span><span class="s">include/</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><em>Note: the paths provided here are relative to the project’s directory found in</em> <code class="code docutils literal notranslate"><span class="pre">install/`*.</span> <span class="pre">For</span> <span class="pre">our</span> <span class="pre">example,</span> <span class="pre">the</span> <span class="pre">path</span> <span class="pre">to</span> <span class="pre">our</span> <span class="pre">include</span> <span class="pre">files</span> <span class="pre">looks</span> <span class="pre">like:*</span> <span class="pre">:code:`ros2_environment_root_dir/install/hello_world_pkg/include</span></code></p>
+<p>Finally, we’ll use <code class="code docutils literal notranslate"><span class="pre">ament_cmake</span></code>, which is the build system for C++ packages in ROS2, to make our package discoverable to other ROS2 packages. The last line is <em>essential</em> to the entire CML file because it generates configuration files and setup scripts. It also registers our package in the ROS2 workspace, allowing us to actually run the node.</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">ament_export_include_directories</span><span class="p">(</span><span class="s">include</span><span class="p">)</span>
+<span class="nb">ament_export_libraries</span><span class="p">(</span><span class="o">${</span><span class="nv">PROJECT_NAME</span><span class="o">}</span><span class="s">_lib</span><span class="p">)</span>
+<span class="nb">ament_export_dependencies</span><span class="p">(</span><span class="s">rclcpp</span><span class="w"> </span><span class="s">std_msgs</span><span class="p">)</span>
+
+<span class="c"># Last line of the CML file</span>
+<span class="nb">ament_package</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Now you should be able to write, build, and run your own C++ packages in ROS2 without CMake semantics slowing you down! Simply substitute your directory and file names for the names used in this example.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../tutorials.html" class="btn btn-neutral float-left" title="Tutorials" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="roboflock_topics.html" class="btn btn-neutral float-right" title="Using RoboFlock’s Topics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Thomas Strade, Aditya Challamarad, Marco Bianco, Nicholas Pitsakis, Krish Puwar, Shouvik Das, Andrew Collado.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

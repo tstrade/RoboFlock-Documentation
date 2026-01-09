@@ -16,6 +16,9 @@ Getting Started
 - :doc:`Overview <overview>`
    - RoboFlock background and description
 
+- :doc:`Tutorials <tutorials>`
+   - Learn how to setup and interact with RoboFlock's nodes
+
 - :doc:`NVIDIA Jetson Orin Nano <nvidia_jetson_orin_nano>`
    - Information on the processor chosen for RoboFlock
 
@@ -60,6 +63,7 @@ To see the research and resource specifications that went into the development o
    :hidden:
 
    overview
+   tutorials
    nvidia_jetson_orin_nano
    interactions_with_the_surroundings
    tracking

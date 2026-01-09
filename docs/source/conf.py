@@ -1,9 +1,11 @@
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here.
+import os
 import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 sys.path.append(str(Path('sphinext').resolve()))
+sys.path.insert(0, os.path.abspath('./tutorialdocs'))
 
 
 # Configuration file for the Sphinx documentation builder.
@@ -26,6 +28,7 @@ extensions = [
     'sphinx.ext.duration',
     'sphinx.ext.doctest',
     'sphinx.ext.autodoc',
+    'sphinx.ext.intersphinx',
     'sphinx.ext.autosummary',
     'sphinx_rtd_theme',
     'sphinx_new_tab_link',
@@ -33,7 +36,7 @@ extensions = [
 
 templates_path = ['_templates']
 exclude_patterns = []
-
+highlight_language = 'cmake'
 
 
 # -- Options for HTML output -------------------------------------------------
