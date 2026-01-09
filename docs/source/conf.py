@@ -6,6 +6,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 sys.path.append(str(Path('sphinext').resolve()))
 sys.path.insert(0, os.path.abspath('./tutorialdocs'))
+sys.path.insert(0, os.path.abspath('.'))
 
 
 # Configuration file for the Sphinx documentation builder.

@@ -6,22 +6,29 @@ Creating C++ packages can be difficult to navigate for first-time users of ROS2.
 First, we want to guarantee compatibilty by enforcing a lower bound on the CMake version. For example, RoboFlock uses CMake version 3.8, so the first line of the CML file should be:
 
 .. code-block:: cmake
+    :linenos:
 
     cmake_minimum_required(VERSION 3.8)
 
 
-Next, we need to give our project a name. In the context of ROS2, the project name should be the *extactly the same* as the package name created in the ROS2 environment. Let's call our project :code:`hello_world_pkg`:
+In the context of ROS2, the project name should be the *extactly the same* as the package name created in the ROS2 environment. Let's call our project :code:`hello_world_pkg` and assume it has the following structure:
+
+.. literalinclude:: ./hello_world_tree.txt
+    :language: text
+
+
+We can use the :code:`project()` command to give our project a name and to set environmental variables for the absolute paths to the source and binary directories.
 
 .. code-block:: cmake
+    :lineno-start: 2
 
     project(hello_world_pkg)
 
-The :code:`project()` command sets certain environmental variables that indicate important information such as the project's name and the absolute paths to the source and binary directories. Check out the `CMake project() documentation`_ to get an in-depth explanation of the :code:`project()` command.
 
-
-The next few lines sets parameters for the compiler, such as the C++ standard being used and various compiler flags.
+The next few lines set parameters for the compiler, such as the C++ standard being used and various compiler flags.
 
 .. code-block:: cmake
+    :lineno-start: 3
 
     if(NOT CMAKE_CXX_STANDARD)
         set(CMAKE_CXX_STANDARD 14)
@@ -32,9 +39,10 @@ The next few lines sets parameters for the compiler, such as the C++ standard be
     endif()
 
 
-ROS2 allows for a complex network of packages and nodes to interact with one another, and as such, we need to tell the build process what packages have dependencies. In our project, :code:`hello_world_pkg`, we will use two built-in ROS2 packages, :code:`ament_cmake` and :code:`rclcpp`, that are needed for most of RoboFlock's nodes. 
+ROS2 allows for a complex network of packages and nodes to interact with one another, and as such, we need to tell the build process what packages have dependencies. In our project, we will use three built-in ROS2 packages (:code:`ament_cmake`, :code:`rclcpp`, and :code:`std_msgs`) that are needed for most of RoboFlock's nodes. 
 
 .. code-block:: cmake
+    :lineno-start: 10
 
     # Creates variables like rclcpp_LIBRARIES and and std_msgs_INCLUDE_DIRS
     #
@@ -46,6 +54,7 @@ ROS2 allows for a complex network of packages and nodes to interact with one ano
 Now that we have our compatibility requirements, we need to make sure that the compiler can find all our files and properly link libraries. First, let's tell the compiler where to search for included files:
 
 .. code-block:: cmake
+    :lineno-start: 15
 
     # Adds include/ directory to compiler's search path for ALL targets
     #   This allows for the preprocessor directive "#include" to work properly for our code
@@ -55,9 +64,10 @@ Now that we have our compatibility requirements, we need to make sure that the c
     )
 
 
-Next, we'll handle our source files. First, let's organize all the source files into a single variable so we don't have to repeat commands and file names for every single source file. Then, we'll ensure that the files exist. The code in our CML file should look similar to this:
+Next, we'll handle our source files. We can organize all the source files into a single variable so that we don't have to repeat commands and file names for every single source file. For extra precaution, we'll ensure that these files exist. The code in our CML file should look like this:
 
 .. code-block:: cmake
+    :lineno-start: 21
 
     # Creates the variable LIB_SOURCE_FILES used to organize source files for the library
     #
@@ -89,6 +99,7 @@ Libraries are a collections of pre-written code that are helpful with code reusa
 Let's add a library target to be built from the source files and then link everything together. The heavy-lifters here will be the :code:`target_include_directories()` and :code:`target_link_libraries()` commands. We can use the :code:`PUBLIC` keyword to make our custom library visible to other packages, allowing it to be added as a dependency:
 
 .. code-block:: cmake
+    :lineno-start: 39
 
     # Create the library target
     #
@@ -113,6 +124,7 @@ Let's add a library target to be built from the source files and then link every
 In order to run our ROS2 node, we're going to need an executable:
 
 .. code-block:: cmake
+    :lineno-start: 57
 
     # Add an executable target to be built from our node's source code
     #
@@ -136,6 +148,7 @@ In order to run our ROS2 node, we're going to need an executable:
 The CML file should specify where our libraries and executable are being installed by generating a set of rules using the :code:`install()` command. We'll also create static and shared libraries and executables that can be used by other packages:
 
 .. code-block:: cmake
+    :lineno-start: 74
 
     # Specify that our node's executable and custom library will be installed into lib/hello_world_pkg
     #   Then, we'll specify options for our output artifacts (compiled binaries generated during the build process)
@@ -153,12 +166,13 @@ The CML file should specify where our libraries and executable are being install
         DESTINATION include/
     )
 
-*Note: the paths provided here are relative to the project's directory found in* :code:`install/`*. For our example, the path to our include files looks like:* :code:`ros2_environment_root_dir/install/hello_world_pkg/include`
+*Note: the paths provided here are relative to the project's directory found in* :code:`install/`*. For our example, the path to our include files looks like:* :code:`ros2env_rootdir/install/hello_world_pkg/include`
 
 
 Finally, we'll use :code:`ament_cmake`, which is the build system for C++ packages in ROS2, to make our package discoverable to other ROS2 packages. The last line is *essential* to the entire CML file because it generates configuration files and setup scripts. It also registers our package in the ROS2 workspace, allowing us to actually run the node.
 
 .. code-block:: cmake
+    :lineno-start: 89
 
     ament_export_include_directories(include)
     ament_export_libraries(${PROJECT_NAME}_lib)
@@ -170,6 +184,3 @@ Finally, we'll use :code:`ament_cmake`, which is the build system for C++ packag
 
 Now you should be able to write, build, and run your own C++ packages in ROS2 without CMake semantics slowing you down! Simply substitute your directory and file names for the names used in this example.
 
-
-
-.. _CMake project() documentation: https://cmake.org/cmake/help/latest/command/project.html#command:project
