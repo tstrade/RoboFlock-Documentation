@@ -102,7 +102,7 @@
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="nb">cmake_minimum_required</span><span class="p">(</span><span class="s">VERSION</span><span class="w"> </span><span class="s">3.8</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>In the context of ROS2, the project name should be the <em>extactly the same</em> as the package name created in the ROS2 environment. Let’s call our project <code class="code docutils literal notranslate"><span class="pre">hello_world_pkg</span></code> and assume it has the following structure:</p>
+<p>In the context of ROS2, the project name should be the <em>extactly the same</em> as the package name created in the ROS2 environment. Let’s call our project <code class="code docutils literal notranslate"><span class="pre">hello_world_pkg</span></code> and assume it has the following directory structure:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>.
 ├── build
 ├── install
@@ -173,10 +173,10 @@
 <span class="linenos">38</span><span class="nb">endforeach</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Libraries are a collections of pre-written code that are helpful with code reusability and scalability. There are a few different types of libraries that we can make:</p>
+<p>Libraries are collections of pre-written code that help with code reusability and scalability. There are a few different types of libraries that we can make:</p>
 <ul class="simple">
-<li><p><em>Static libraries</em> contain compiled code of all the files and is linked directly to an executable at compile time.</p></li>
-<li><p><em>Shared (Dynamic) libraries</em> contain compiled code only for required files and is loaded at runtime</p></li>
+<li><p><em>Static libraries</em> contain compiled code of all the files and are linked directly to an executable at compile time.</p></li>
+<li><p><em>Shared (Dynamic) libraries</em> contain compiled code only for required files and are loaded at runtime</p></li>
 </ul>
 <p>Let’s add a library target to be built from the source files and then link everything together. The heavy-lifters here will be the <code class="code docutils literal notranslate"><span class="pre">target_include_directories()</span></code> and <code class="code docutils literal notranslate"><span class="pre">target_link_libraries()</span></code> commands. We can use the <code class="code docutils literal notranslate"><span class="pre">PUBLIC</span></code> keyword to make our custom library visible to other packages, allowing it to be added as a dependency:</p>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="linenos">39</span><span class="c"># Create the library target</span>
@@ -237,7 +237,7 @@
 <span class="linenos">88</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><em>Note: the paths provided here are relative to the project’s directory found in</em> <code class="code docutils literal notranslate"><span class="pre">install/`*.</span> <span class="pre">For</span> <span class="pre">our</span> <span class="pre">example,</span> <span class="pre">the</span> <span class="pre">path</span> <span class="pre">to</span> <span class="pre">our</span> <span class="pre">include</span> <span class="pre">files</span> <span class="pre">looks</span> <span class="pre">like:*</span> <span class="pre">:code:`ros2env_rootdir/install/hello_world_pkg/include</span></code></p>
+<p><em>Note: the paths provided here are relative to the project’s directory found in</em> <code class="code docutils literal notranslate"><span class="pre">install/</span></code> <em>. For our example, the path to our include files looks like:</em> <code class="code docutils literal notranslate"><span class="pre">ros2env_rootdir/install/hello_world_pkg/include</span></code></p>
 <p>Finally, we’ll use <code class="code docutils literal notranslate"><span class="pre">ament_cmake</span></code>, which is the build system for C++ packages in ROS2, to make our package discoverable to other ROS2 packages. The last line is <em>essential</em> to the entire CML file because it generates configuration files and setup scripts. It also registers our package in the ROS2 workspace, allowing us to actually run the node.</p>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="linenos">89</span><span class="nb">ament_export_include_directories</span><span class="p">(</span><span class="s">include</span><span class="p">)</span>
 <span class="linenos">90</span><span class="nb">ament_export_libraries</span><span class="p">(</span><span class="o">${</span><span class="nv">PROJECT_NAME</span><span class="o">}</span><span class="s">_lib</span><span class="p">)</span>

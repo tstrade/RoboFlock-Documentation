@@ -11,7 +11,7 @@ First, we want to guarantee compatibilty by enforcing a lower bound on the CMake
     cmake_minimum_required(VERSION 3.8)
 
 
-In the context of ROS2, the project name should be the *extactly the same* as the package name created in the ROS2 environment. Let's call our project :code:`hello_world_pkg` and assume it has the following structure:
+In the context of ROS2, the project name should be the *extactly the same* as the package name created in the ROS2 environment. Let's call our project :code:`hello_world_pkg` and assume it has the following directory structure:
 
 .. literalinclude:: ./hello_world_tree.txt
     :language: text
@@ -89,11 +89,11 @@ Next, we'll handle our source files. We can organize all the source files into a
     endforeach()
 
 
-Libraries are a collections of pre-written code that are helpful with code reusability and scalability. There are a few different types of libraries that we can make:
+Libraries are collections of pre-written code that help with code reusability and scalability. There are a few different types of libraries that we can make:
 
-- *Static libraries* contain compiled code of all the files and is linked directly to an executable at compile time. 
+- *Static libraries* contain compiled code of all the files and are linked directly to an executable at compile time. 
 
-- *Shared (Dynamic) libraries* contain compiled code only for required files and is loaded at runtime
+- *Shared (Dynamic) libraries* contain compiled code only for required files and are loaded at runtime
 
 
 Let's add a library target to be built from the source files and then link everything together. The heavy-lifters here will be the :code:`target_include_directories()` and :code:`target_link_libraries()` commands. We can use the :code:`PUBLIC` keyword to make our custom library visible to other packages, allowing it to be added as a dependency:
@@ -166,7 +166,7 @@ The CML file should specify where our libraries and executable are being install
         DESTINATION include/
     )
 
-*Note: the paths provided here are relative to the project's directory found in* :code:`install/`*. For our example, the path to our include files looks like:* :code:`ros2env_rootdir/install/hello_world_pkg/include`
+*Note: the paths provided here are relative to the project's directory found in* :code:`install/` *. For our example, the path to our include files looks like:* :code:`ros2env_rootdir/install/hello_world_pkg/include`
 
 
 Finally, we'll use :code:`ament_cmake`, which is the build system for C++ packages in ROS2, to make our package discoverable to other ROS2 packages. The last line is *essential* to the entire CML file because it generates configuration files and setup scripts. It also registers our package in the ROS2 workspace, allowing us to actually run the node.
