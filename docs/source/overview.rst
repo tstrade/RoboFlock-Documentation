@@ -1,23 +1,23 @@
 Overview
 ========
 
-.. _introduction:
+
 
 Introduction
-------------
+^^^^^^^^^^^^
 
 This design document outlines the development and implementation of an autonomous robot system capable of navigating through dynamic and static obstacles while tracking and following a portable beacon. The primary goal of this project is to create a functional robotic platform that can follow a beacon and avoid obstacles. This project combines elements of robotic navigation, obstacle detection, and low-power management to create a practical and adaptable system.
 
-.. _project roboflock:
+
 
 Project RoboFlock
------------------
+^^^^^^^^^^^^^^^^^
 
 The core components of the project include the robot and the homing beacon. Together, these elements enable the robot to maintain its course toward the beacon, safely navigate around obstacles, and provide status updates on its battery health. The system's design allows it to perform reliably in outdoor settings, supporting autonomous movement within defined physical and environmental constraints.
 
 This year's objective is to build upon the previous team’s Dust Runners into a more robust system, with an improved code base using ROS2, tracking technology, computing, and obstacle detection and navigation.
 
-.. _main changes from alpha design:
+
 
 Main Changes From Alpha Design
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

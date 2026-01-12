@@ -6,17 +6,20 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RoboFlock Documentation &mdash; RoboFlock 0.1 documentation</title>
+  <title>RoboFlock Documentation &mdash; RoboFlock 1.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="_static/custom.css?v=13512c6c" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=2709fde1"></script>
+      <script src="_static/documentation_options.js?v=56dcb7b8"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -44,26 +47,18 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tutorialdocs/cmakelists.html">Writing Custom CML Files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorialdocs/roboflock_topics.html">Using RoboFlock’s Topics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorialdocs/rtk_gps.html">Setting up the RTK GPS System</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorialdocs/jetson_config.html">Setting up the Nvidia Jetson Orin Nano</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorialdocs/init_dev.html">Initializing RoboFlock (Developers)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorialdocs/init_users.html">Initializing RoboFlock (Users)</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="nvidia_jetson_orin_nano.html">NVIDIA Jetson Orin Nano</a></li>
-<li class="toctree-l1"><a class="reference internal" href="interactions_with_the_surroundings.html">Interactions with the Surroundings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tracking.html">Tracking</a></li>
-<li class="toctree-l1"><a class="reference internal" href="software.html">Software</a></li>
-<li class="toctree-l1"><a class="reference internal" href="chassis_design.html">Chassis Design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="wiring_specifications.html">Wiring Specifications</a></li>
-<li class="toctree-l1"><a class="reference internal" href="constructing_the_roboflock.html">Constructing the RoboFlock</a></li>
-<li class="toctree-l1"><a class="reference internal" href="future_considerations.html">Future Considerations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
-<li class="toctree-l1"><a class="reference internal" href="appendix_a.html">Appendix A</a></li>
-<li class="toctree-l1"><a class="reference internal" href="appendix_b.html">Appendix B</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial_docs/tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="description_docs/nvidia_jetson_orin_nano.html">NVIDIA Jetson Orin Nano</a></li>
+<li class="toctree-l1"><a class="reference internal" href="description_docs/interactions_with_the_surroundings.html">Interactions with the Surroundings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="description_docs/tracking.html">Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="description_docs/software.html">Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="construction_docs/chassis_design.html">Chassis Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="construction_docs/wiring_specifications.html">Wiring Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="construction_docs/constructing_the_roboflock.html">Constructing the RoboFlock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="description_docs/future_considerations.html">Future Considerations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="citation_docs/bibliography.html">Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="citation_docs/appendix_a.html">Appendix A</a></li>
+<li class="toctree-l1"><a class="reference internal" href="citation_docs/appendix_b.html">Appendix B</a></li>
 </ul>
 
         </div>
@@ -107,56 +102,56 @@
 </dl>
 </li>
 <li><dl class="simple">
-<dt><a class="reference internal" href="tutorials.html"><span class="doc">Tutorials</span></a></dt><dd><ul>
+<dt><a class="reference internal" href="tutorial_docs/tutorials.html"><span class="doc">Tutorials</span></a></dt><dd><ul>
 <li><p>Learn how to setup and interact with RoboFlock’s nodes</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><a class="reference internal" href="nvidia_jetson_orin_nano.html"><span class="doc">NVIDIA Jetson Orin Nano</span></a></dt><dd><ul>
+<dt><a class="reference internal" href="description_docs/nvidia_jetson_orin_nano.html"><span class="doc">NVIDIA Jetson Orin Nano</span></a></dt><dd><ul>
 <li><p>Information on the processor chosen for RoboFlock</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><a class="reference internal" href="interactions_with_the_surroundings.html"><span class="doc">Interactions with the Surroundings</span></a></dt><dd><ul>
+<dt><a class="reference internal" href="description_docs/interactions_with_the_surroundings.html"><span class="doc">Interactions with the Surroundings</span></a></dt><dd><ul>
 <li><p>How is RoboFlock going to get around? With lasers!</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><a class="reference internal" href="tracking.html"><span class="doc">Tracking</span></a></dt><dd><ul>
+<dt><a class="reference internal" href="description_docs/tracking.html"><span class="doc">Tracking</span></a></dt><dd><ul>
 <li><p>High-level explaination of GPS RTK and user-to-robot communication</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><a class="reference internal" href="software.html"><span class="doc">Software</span></a></dt><dd><ul>
+<dt><a class="reference internal" href="description_docs/software.html"><span class="doc">Software</span></a></dt><dd><ul>
 <li><p>ROS2: the backbone of RoboFlock</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><a class="reference internal" href="chassis_design.html"><span class="doc">Chassis Design</span></a></dt><dd><ul>
+<dt><a class="reference internal" href="construction_docs/chassis_design.html"><span class="doc">Chassis Design</span></a></dt><dd><ul>
 <li><p>2-D and 3-D models of RoboFlock’s new exterior</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><a class="reference internal" href="wiring_specifications.html"><span class="doc">Wiring Specifications</span></a></dt><dd><ul>
+<dt><a class="reference internal" href="construction_docs/wiring_specifications.html"><span class="doc">Wiring Specifications</span></a></dt><dd><ul>
 <li><p>RoboFlock has a lot of hardware that needs to be connected, so we made a helpful guide to prevent the headache of debugging electrical connections</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><a class="reference internal" href="future_considerations.html"><span class="doc">Future Considerations</span></a></dt><dd><ul>
+<dt><a class="reference internal" href="description_docs/future_considerations.html"><span class="doc">Future Considerations</span></a></dt><dd><ul>
 <li><p>Project RoboFlock only has so much time and money, but future teams will be able to take our ideas and designs to the next level</p></li>
 </ul>
 </dd>
@@ -169,21 +164,21 @@
 <p>To see the research and resource specifications that went into the development of Project RoboFlock, check out:</p>
 <ul class="simple">
 <li><dl class="simple">
-<dt><a class="reference internal" href="bibliography.html"><span class="doc">Bibliography</span></a></dt><dd><ul>
+<dt><a class="reference internal" href="citation_docs/bibliography.html"><span class="doc">Bibliography</span></a></dt><dd><ul>
 <li><p>References and inspirations</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><a class="reference internal" href="appendix_a.html"><span class="doc">Appendix A</span></a></dt><dd><ul>
+<dt><a class="reference internal" href="citation_docs/appendix_a.html"><span class="doc">Appendix A</span></a></dt><dd><ul>
 <li><p>Electronics, power supplies, and more</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><a class="reference internal" href="appendix_b.html"><span class="doc">Appendix B</span></a></dt><dd><ul>
+<dt><a class="reference internal" href="citation_docs/appendix_b.html"><span class="doc">Appendix B</span></a></dt><dd><ul>
 <li><p>Datasheets and schematics</p></li>
 </ul>
 </dd>

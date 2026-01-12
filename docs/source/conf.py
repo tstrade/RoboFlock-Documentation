@@ -5,7 +5,10 @@ import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 sys.path.append(str(Path('sphinext').resolve()))
-sys.path.insert(0, os.path.abspath('./tutorialdocs'))
+sys.path.insert(0, os.path.abspath('./citation_docs'))
+sys.path.insert(0, os.path.abspath('./construction_docs'))
+sys.path.insert(0, os.path.abspath('./description_docs'))
+sys.path.insert(0, os.path.abspath('./tutorial_docs'))
 sys.path.insert(0, os.path.abspath('.'))
 
 
@@ -20,7 +23,7 @@ sys.path.insert(0, os.path.abspath('.'))
 project = 'RoboFlock'
 copyright = '2025, Thomas Strade, Aditya Challamarad, Marco Bianco, Nicholas Pitsakis, Krish Puwar, Shouvik Das, Andrew Collado'
 author = 'Thomas Strade, Aditya Challamarad, Marco Bianco, Nicholas Pitsakis, Krish Puwar, Shouvik Das, Andrew Collado'
-release = '0.1'
+release = '1.1'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -33,6 +36,7 @@ extensions = [
     'sphinx.ext.autosummary',
     'sphinx_rtd_theme',
     'sphinx_new_tab_link',
+    'sphinx_copybutton',
 ]
 
 templates_path = ['_templates']
@@ -53,7 +57,7 @@ html_css_files = [
     'custom.css',
 ]
 html_theme_options = {
-    'collapse_navigation': False,
+    'collapse_navigation': True,
     'sticky_navigation': False,
     'prev_next_buttons_location': "both",
     'style_external_links': True,

@@ -1,0 +1,237 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Setting up the Nvidia Jetson Orin Nano &mdash; RoboFlock 1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=13512c6c" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=56dcb7b8"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Initializing RoboFlock (Developers)" href="init_dev.html" />
+    <link rel="prev" title="Setting up the RTK GPS System" href="rtk_gps.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            RoboFlock
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="tutorials.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cmakelists.html">Writing Custom CML Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="roboflock_topics.html">Using RoboFlock’s Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rtk_gps.html">Setting up the RTK GPS System</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Setting up the Nvidia Jetson Orin Nano</a></li>
+<li class="toctree-l2"><a class="reference internal" href="init_dev.html">Initializing RoboFlock (Developers)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="init_users.html">Initializing RoboFlock (Users)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../description_docs/nvidia_jetson_orin_nano.html">NVIDIA Jetson Orin Nano</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../description_docs/interactions_with_the_surroundings.html">Interactions with the Surroundings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../description_docs/tracking.html">Tracking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../description_docs/software.html">Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../construction_docs/chassis_design.html">Chassis Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../construction_docs/wiring_specifications.html">Wiring Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../construction_docs/constructing_the_roboflock.html">Constructing the RoboFlock</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../description_docs/future_considerations.html">Future Considerations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../citation_docs/bibliography.html">Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../citation_docs/appendix_a.html">Appendix A</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../citation_docs/appendix_b.html">Appendix B</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RoboFlock</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="tutorials.html">Tutorials</a></li>
+      <li class="breadcrumb-item active">Setting up the Nvidia Jetson Orin Nano</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/tutorial_docs/jetson_config.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="rtk_gps.html" class="btn btn-neutral float-left" title="Setting up the RTK GPS System" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="init_dev.html" class="btn btn-neutral float-right" title="Initializing RoboFlock (Developers)" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="setting-up-the-nvidia-jetson-orin-nano">
+<h1>Setting up the Nvidia Jetson Orin Nano<a class="headerlink" href="#setting-up-the-nvidia-jetson-orin-nano" title="Link to this heading"></a></h1>
+<p><em>This document is based entirely on the</em> <a class="reference external" href="https://developer.nvidia.com/embedded/learn/get-started-jetson-orin-nano-devkit#intro" rel="noreferrer" target="_blank">Jetson Orin Nano Developer Kit Getting Started Guide</a> <em>, and is included here for convenience. All credit belongs to Nvidia.</em></p>
+<p>Before getting started, make sure you have the following items:</p>
+<ul class="simple">
+<li><p>64+ GB microSD card (and adapter if host PC does not have a built-in SD card slot)</p></li>
+<li><p>USB keyboard and mouse</p></li>
+<li><p>Computer display and DisplayPort cable</p></li>
+<li><p>USB cable</p></li>
+</ul>
+<section id="update-firmware-usind-sdk-manager">
+<h2>Update Firmware usind SDK Manager<a class="headerlink" href="#update-firmware-usind-sdk-manager" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>On an x86 PC running Ubuntu 22.04 or 20.04, install Nvidia’s SDK Manager.</p></li>
+</ol>
+<p><strong>For Ubuntu 22.04</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>wget<span class="w"> </span>https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.1-1_all.deb
+<span class="gp">$ </span>sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>cuda-keyring_1.1-1_all.deb
+<span class="gp">$ </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+<span class="gp">$ </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>sdkmanager
+</pre></div>
+</div>
+<p><strong>For Ubuntu 20.04</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>wget<span class="w"> </span>https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.1-1_all.deb
+<span class="gp">$ </span>sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>cuda-keyring_1.1-1_all.deb
+<span class="gp">$ </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+<span class="gp">$ </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>sdkmanager
+</pre></div>
+</div>
+<p>Then launch SDK Manager:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sdkmanager
+</pre></div>
+</div>
+<p><em>If using using SDK Manager for the first time, log in with Nvidia Developer credientials and check “Stay logged in”, then click “LOGIN”</em></p>
+<ol class="arabic simple" start="2">
+<li><p>Connect either the microSD card or NVMe SSD to the host PC.</p></li>
+<li><p>Put the Jetson in recovery mode by shorting <code class="docutils literal notranslate"><span class="pre">pin</span> <span class="pre">9</span></code> and <code class="docutils literal notranslate"><span class="pre">pin</span> <span class="pre">10</span></code> of <code class="docutils literal notranslate"><span class="pre">J14</span></code> with a jumper pin or paper clip, then insert the DC power supply plug into the DC jack of the carrier board to power it on.</p></li>
+<li><p>On the SDK Manager, select the target hardware and click “OK,” then uncheck the host machine and click “Continue”</p></li>
+<li><p>Uncheck all software components except for <strong>“Jetson Linux”</strong> and accept the terms and conditions of the license agreements, then click <strong>“Continue”</strong> and wait for the next prompt to appear.</p></li>
+<li><p>Once the flashing prompt appears, select <strong>“Runtime”</strong> for the OEM Configuration and select the storage type (NVMe SSD or microSD), then click <strong>“Flash”</strong> and wait for the process to complete.</p></li>
+<li><p>Remove the jumper pin or paper clip from the header and connect I/O devices to the Jetson Orin Nano (DisplayPort cable, USB keyboard and mouse). Unplug the power supply and put back in, then finish the software setup with <code class="docutils literal notranslate"><span class="pre">oem-config</span></code></p></li>
+</ol>
+</section>
+<section id="write-image-to-the-microsd-card-etcher-method">
+<h2>Write Image to the microSD Card (Etcher Method)<a class="headerlink" href="#write-image-to-the-microsd-card-etcher-method" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p>Download the Jetson Orin Nano Developer Kit SD Card image from <a class="reference external" href="https://developer.nvidia.com/embedded/jetpack" rel="noreferrer" target="_blank">JetPack SDK Page</a></p></li>
+<li><p>Write the image to your microSD card by following the instructions below (if using Windows or Mac, click <a class="reference external" href="https://developer.nvidia.com/embedded/learn/get-started-jetson-orin-nano-devkit#write" rel="noreferrer" target="_blank">here</a> for instructions).</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p>Download, install, and launch <a class="reference external" href="https://etcher.balena.io/" rel="noreferrer" target="_blank">balenaEtcher</a></p></li>
+<li><p>Click “Select image” and choose the zipped image file downloaded earlier</p></li>
+<li><p>Insert the microSD card and ensure that it is listed as the target device, then click <strong>“Flash!”</strong></p></li>
+<li><p>After Etcher finishes, properly eject the microSD card and then physically remove from the host PC</p></li>
+</ol>
+</div></blockquote>
+</li>
+</ol>
+</section>
+<section id="write-image-to-the-microsd-card-terminal-method">
+<h2>Write Image to the microSD Card (Terminal Method)<a class="headerlink" href="#write-image-to-the-microsd-card-terminal-method" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Open the terminal and insert the microSD card, then enter the following command:</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;$3 == &quot;sd&quot; {print}&#39;</span>
+</pre></div>
+</div>
+<p><em>For example, the microSD card may be assigned as*</em> <code class="docutils literal notranslate"><span class="pre">/dev/sda</span></code></p>
+<ol class="arabic simple" start="2">
+<li><p>Write the zipped SD card image to the microSD card using the following command:</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>/usr/bin/unzip<span class="w"> </span>-p<span class="w"> </span>~/Downloads/jetson_nano_devkit_sd_card.zip<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>/bin/dd<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/sd&lt;x&gt;<span class="w"> </span><span class="nv">bs</span><span class="o">=</span>1M<span class="w"> </span><span class="nv">status</span><span class="o">=</span>progress
+</pre></div>
+</div>
+<p><em>Replace</em> <code class="docutils literal notranslate"><span class="pre">/dev/sd&lt;x&gt;</span></code> <em>with the proper name assigned to the microSD card</em></p>
+<ol class="arabic simple" start="3">
+<li><p>Once the <code class="docutils literal notranslate"><span class="pre">dd</span></code> command finishes, eject the microSD card with the following command:</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>eject<span class="w"> </span>/dev/sd&lt;x&gt;
+</pre></div>
+</div>
+<p><em>Replace</em> <code class="docutils literal notranslate"><span class="pre">/dev/sd&lt;x&gt;</span></code> <em>with the proper name assigned to the microSD card</em></p>
+<p>Then, physically removed the microSD card from the host PC.</p>
+</section>
+<section id="setup-and-first-boot">
+<h2>Setup and First Boot<a class="headerlink" href="#setup-and-first-boot" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p>Insert the microSD card (with the system image already written to it) into the slot on the underside of the Jetson Orin Nano</p></li>
+<li><p>Power on the computer display and connect I/O devices (DisplayPort cable, USB keyboard and mouse). Then connect the power supply to the Jetson Orin Nano Developer Kit.</p></li>
+<li><p>A green LED next to the USB-C connect will light as soon as the developer kit powers on. Follow the initial setup:</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p>Review and accept Nvidia Jetson sofware EULA</p></li>
+<li><p>Select system language, keyboard layout, and time zone</p></li>
+<li><p>Connect to Wireless network</p></li>
+<li><p>Create username, password, and computer name</p></li>
+<li><p>Log in</p></li>
+</ol>
+</div></blockquote>
+</li>
+</ol>
+<p>The Nvidia Jetson Orin Nano is now properly setup! Continue to <a class="reference internal" href="init_dev.html"><span class="doc">Initializing RoboFlock (Developers)</span></a> to set up the environment for ROS2 and RoboFlock.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="rtk_gps.html" class="btn btn-neutral float-left" title="Setting up the RTK GPS System" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="init_dev.html" class="btn btn-neutral float-right" title="Initializing RoboFlock (Developers)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Thomas Strade, Aditya Challamarad, Marco Bianco, Nicholas Pitsakis, Krish Puwar, Shouvik Das, Andrew Collado.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

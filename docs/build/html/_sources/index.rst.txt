@@ -16,28 +16,28 @@ Getting Started
 - :doc:`Overview <overview>`
    - RoboFlock background and description
 
-- :doc:`Tutorials <tutorials>`
+- :doc:`Tutorials <tutorial_docs/tutorials>`
    - Learn how to setup and interact with RoboFlock's nodes
 
-- :doc:`NVIDIA Jetson Orin Nano <nvidia_jetson_orin_nano>`
+- :doc:`NVIDIA Jetson Orin Nano <description_docs/nvidia_jetson_orin_nano>`
    - Information on the processor chosen for RoboFlock
 
-- :doc:`Interactions with the Surroundings <interactions_with_the_surroundings>`
+- :doc:`Interactions with the Surroundings <description_docs/interactions_with_the_surroundings>`
    - How is RoboFlock going to get around? With lasers!
 
-- :doc:`Tracking <tracking>`
+- :doc:`Tracking <description_docs/tracking>`
    - High-level explaination of GPS RTK and user-to-robot communication
 
-- :doc:`Software <software>`
+- :doc:`Software <description_docs/software>`
    - ROS2: the backbone of RoboFlock
 
-- :doc:`Chassis Design <chassis_design>`
+- :doc:`Chassis Design <construction_docs/chassis_design>`
    - 2-D and 3-D models of RoboFlock's new exterior
 
-- :doc:`Wiring Specifications <wiring_specifications>`
+- :doc:`Wiring Specifications <construction_docs/wiring_specifications>`
    - RoboFlock has a lot of hardware that needs to be connected, so we made a helpful guide to prevent the headache of debugging electrical connections
 
-- :doc:`Future Considerations <future_considerations>`
+- :doc:`Future Considerations <description_docs/future_considerations>`
    - Project RoboFlock only has so much time and money, but future teams will be able to take our ideas and designs to the next level
 
 .. _useful information:
@@ -47,13 +47,13 @@ Useful Information
 
 To see the research and resource specifications that went into the development of Project RoboFlock, check out:
 
-- :doc:`Bibliography <bibliography>`
+- :doc:`Bibliography <citation_docs/bibliography>`
    - References and inspirations
 
-- :doc:`Appendix A <appendix_a>`
+- :doc:`Appendix A <citation_docs/appendix_a>`
    - Electronics, power supplies, and more
 
-- :doc:`Appendix B <appendix_b>`
+- :doc:`Appendix B <citation_docs/appendix_b>`
    - Datasheets and schematics
 
 
@@ -63,16 +63,16 @@ To see the research and resource specifications that went into the development o
    :hidden:
 
    overview
-   tutorials
-   nvidia_jetson_orin_nano
-   interactions_with_the_surroundings
-   tracking
-   software
-   chassis_design
-   wiring_specifications
-   constructing_the_roboflock
-   future_considerations
-   bibliography
-   appendix_a
-   appendix_b
+   tutorial_docs/tutorials
+   description_docs/nvidia_jetson_orin_nano
+   description_docs/interactions_with_the_surroundings
+   description_docs/tracking
+   description_docs/software
+   construction_docs/chassis_design
+   construction_docs/wiring_specifications
+   construction_docs/constructing_the_roboflock
+   description_docs/future_considerations
+   citation_docs/bibliography
+   citation_docs/appendix_a
+   citation_docs/appendix_b
 
