@@ -1,5 +1,5 @@
-Constructing the RoboFlock
-==========================
+Step-by-Step Construction Guide
+===============================
 
 The chassis must be fabricated and assembled before drivetrain integration, because the motors, axle pivot points, battery compartment, sensors, and mounts all depend on chassis mounting geometry.
 

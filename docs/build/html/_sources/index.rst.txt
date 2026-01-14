@@ -64,14 +64,9 @@ To see the research and resource specifications that went into the development o
 
    overview
    tutorial_docs/tutorials
-   description_docs/nvidia_jetson_orin_nano
-   description_docs/interactions_with_the_surroundings
-   description_docs/tracking
-   description_docs/software
-   construction_docs/chassis_design
-   construction_docs/wiring_specifications
-   construction_docs/constructing_the_roboflock
-   description_docs/future_considerations
+   hardware_docs/hardware
+   description_docs/functionality
+   construction_docs/construction
    citation_docs/bibliography
    citation_docs/appendix_a
    citation_docs/appendix_b

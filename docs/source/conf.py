@@ -57,7 +57,7 @@ html_css_files = [
     'custom.css',
 ]
 html_theme_options = {
-    'collapse_navigation': True,
+    'collapse_navigation': False,
     'sticky_navigation': False,
     'prev_next_buttons_location': "both",
     'style_external_links': True,
