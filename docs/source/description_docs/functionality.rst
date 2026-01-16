@@ -1,5 +1,5 @@
-RoboFlock Functionality
-=======================
+Functionality
+=============
 
 Explanation of the motivation and methods behind each of RoboFlock's submodules. 
 

@@ -1,14 +1,36 @@
 HC-12 Wireless Serial Port Module
 =================================
 
-Datasheet Link:
+.. include:: ../_templates/constants.rst
 
-Features:
+**Datasheet:** :raw-html:`<br />`
+`HC-12 Wireless RF UART Communication Module User Manual <hc_>`_
 
-Setup:
 
-Interfacing:
+**Features:** :raw-html:`<br />`
+1000m Communication Range at 9600BPS :raw-html:`<br />` 
+433.4MHz to 473.0MHz Operating Frequency Range :raw-html:`<br />`
+Supports up to 100 Channels :raw-html:`<br />`
 
-Dimensions:
 
-Use-Case:
+**Connection:** :raw-html:`<br />`
+*VCC* to 3.3V Supply (or 5V Supply with IN4007 Diode) :raw-html:`<br />`
+*RXD* to Tx Pin :raw-html:`<br />`
+*TXD* to Rx Pin :raw-html:`<br />`
+*GND* to 0V Ground
+
+
+**Interfacing:** :raw-html:`<br />`
+*TBD*
+
+
+**Dimensions:** :raw-html:`<br />`
+27.4mm x 13.2mm x 4mm
+
+
+**Use-Case:** :raw-html:`<br />`
+Communicates GPS data between handheld beacon and robot.
+
+
+.. _hc: https://statics3.seeedstudio.com/assets/file/bazaar/product/HC-12_english_datasheets.pdf
+

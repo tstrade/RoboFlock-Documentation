@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LiPoly/Lilon Fuel Gauge and Battery Monitor &mdash; RoboFlock 1.1 documentation</title>
+  <title>MAX17048 Fuel Gauge and Battery Monitor &mdash; RoboFlock 1.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -23,7 +23,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="RoboFlock Functionality" href="../description_docs/functionality.html" />
+    <link rel="next" title="Functionality" href="../description_docs/functionality.html" />
     <link rel="prev" title="3-Slot Brushed Motor" href="brushed.html" /> 
 </head>
 
@@ -57,22 +57,22 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/init_users.html">Initializing RoboFlock (Users)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal" href="hardware.html">RoboFlock Hardware</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="hardware.html">Hardware Descriptions</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="jetson_devkit.html">Nvidia Jetson Orin Nano Super Developer Kit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="arduino.html">Arduino Nano and Arduino Uno</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arduino.html">Arduino Boards</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rp_lidar.html">RPLIDAR A1M8 Laser Range Scanner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hc_sr04.html">HC-SR04 Ultrasonic Distance Sensor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="imu.html">IMU</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hc_sr04.html">Ultrasonic Distance Sensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imu.html">MPU-6050 Motion Tracking Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="neo_m8p.html">NEO-M8P-2 GNSS/GPS Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="zed_f9p.html">ZED-F9P-02B GNSS/GPS Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hc_12.html">HC-12 Wireless Serial Port Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="esc.html">Brushed Electronic Speed Controller (ESC)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="servo.html">Brushless Digital Servo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="brushed.html">3-Slot Brushed Motor</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">LiPoly/Lilon Fuel Gauge and Battery Monitor</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">MAX17048 Fuel Gauge and Battery Monitor</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../description_docs/functionality.html">RoboFlock Functionality</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../description_docs/functionality.html">Functionality</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../description_docs/nvidia_jetson_orin_nano.html">NVIDIA Jetson Orin Nano</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../description_docs/interactions_with_the_surroundings.html">Interactions with the Surroundings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../description_docs/tracking.html">Tracking</a></li>
@@ -86,9 +86,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../construction_docs/wiring_specifications.html">Wiring Specifications</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../citation_docs/bibliography.html">Bibliography</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../citation_docs/appendix_a.html">Appendix A</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../citation_docs/appendix_b.html">Appendix B</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../citation_docs/additional_info.html">Additional Information</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../citation_docs/bibliography.html">Bibliography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../citation_docs/appendix_a.html">Appendix A</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../citation_docs/appendix_b.html">Appendix B</a></li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -105,28 +108,43 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="hardware.html">RoboFlock Hardware</a></li>
-      <li class="breadcrumb-item active">LiPoly/Lilon Fuel Gauge and Battery Monitor</li>
+          <li class="breadcrumb-item"><a href="hardware.html">Hardware Descriptions</a></li>
+      <li class="breadcrumb-item active">MAX17048 Fuel Gauge and Battery Monitor</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/hardware_docs/max_17048.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
         <a href="brushed.html" class="btn btn-neutral float-left" title="3-Slot Brushed Motor" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../description_docs/functionality.html" class="btn btn-neutral float-right" title="RoboFlock Functionality" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../description_docs/functionality.html" class="btn btn-neutral float-right" title="Functionality" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="lipoly-lilon-fuel-gauge-and-battery-monitor">
-<h1>LiPoly/Lilon Fuel Gauge and Battery Monitor<a class="headerlink" href="#lipoly-lilon-fuel-gauge-and-battery-monitor" title="Link to this heading"></a></h1>
-<p>Datasheet Link:</p>
-<p>Features:</p>
-<p>Setup:</p>
-<p>Interfacing:</p>
-<p>Dimensions:</p>
-<p>Use-Case:</p>
+  <section id="max17048-fuel-gauge-and-battery-monitor">
+<h1>MAX17048 Fuel Gauge and Battery Monitor<a class="headerlink" href="#max17048-fuel-gauge-and-battery-monitor" title="Link to this heading"></a></h1>
+<p><strong>Datasheet:</strong> <span class="raw-html"><br /></span>
+<a class="reference external" href="https://www.analog.com/media/en/technical-documentation/data-sheets/max17048-max17049.pdf" rel="noreferrer" target="_blank">MAX17048/MAX17049 3μA 1-Cell/2-Cell Fuel Gauge with ModelGauge</a></p>
+<p><strong>Features:</strong> <span class="raw-html"><br /></span>
+±7.5mV/Cell Voltage Measurement <span class="raw-html"><br /></span>
+ModelGauge Algorithm <span class="raw-html"><br /></span>
+Automatic Hibernation Mode <span class="raw-html"><br /></span>
+Configurable Alert Indicator</p>
+<p><strong>Connection:</strong> <span class="raw-html"><br /></span>
+<em>CTG</em> to 0V Ground <span class="raw-html"><br /></span>
+<em>VDD</em> to Positive Battery Terminal, 0.1μF Bypass to GND <span class="raw-html"><br /></span>
+<em>GND</em> to  Negative Battery Terminal <span class="raw-html"><br /></span>
+<em>QSTRT</em> to 0V Ground
+<em>SDA</em> to Jetson <em>I2C1_SDA</em> <span class="raw-html"><br /></span>
+<em>SCL</em> to Jetson <em>I2C1_SCL</em> <span class="raw-html"><br /></span>
+<em>EP</em> to GND</p>
+<p><strong>Interfacing:</strong> <span class="raw-html"><br /></span>
+<em>TBD</em></p>
+<p><strong>Dimensions:</strong> <span class="raw-html"><br /></span>
+25.7mm x 20.3mm x 7.2mm</p>
+<p><strong>Use-Case:</strong> <span class="raw-html"><br /></span>
+Monitors RoboFlock battery life.</p>
 </section>
 
 
@@ -134,7 +152,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="brushed.html" class="btn btn-neutral float-left" title="3-Slot Brushed Motor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../description_docs/functionality.html" class="btn btn-neutral float-right" title="RoboFlock Functionality" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../description_docs/functionality.html" class="btn btn-neutral float-right" title="Functionality" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

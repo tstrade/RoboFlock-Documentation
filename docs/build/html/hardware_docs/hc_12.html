@@ -57,22 +57,22 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/init_users.html">Initializing RoboFlock (Users)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal" href="hardware.html">RoboFlock Hardware</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="hardware.html">Hardware Descriptions</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="jetson_devkit.html">Nvidia Jetson Orin Nano Super Developer Kit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="arduino.html">Arduino Nano and Arduino Uno</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arduino.html">Arduino Boards</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rp_lidar.html">RPLIDAR A1M8 Laser Range Scanner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hc_sr04.html">HC-SR04 Ultrasonic Distance Sensor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="imu.html">IMU</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hc_sr04.html">Ultrasonic Distance Sensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imu.html">MPU-6050 Motion Tracking Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="neo_m8p.html">NEO-M8P-2 GNSS/GPS Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="zed_f9p.html">ZED-F9P-02B GNSS/GPS Module</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">HC-12 Wireless Serial Port Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="esc.html">Brushed Electronic Speed Controller (ESC)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="servo.html">Brushless Digital Servo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="brushed.html">3-Slot Brushed Motor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="max_17048.html">LiPoly/Lilon Fuel Gauge and Battery Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="max_17048.html">MAX17048 Fuel Gauge and Battery Monitor</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../description_docs/functionality.html">RoboFlock Functionality</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../description_docs/functionality.html">Functionality</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../description_docs/nvidia_jetson_orin_nano.html">NVIDIA Jetson Orin Nano</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../description_docs/interactions_with_the_surroundings.html">Interactions with the Surroundings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../description_docs/tracking.html">Tracking</a></li>
@@ -86,9 +86,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../construction_docs/wiring_specifications.html">Wiring Specifications</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../citation_docs/bibliography.html">Bibliography</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../citation_docs/appendix_a.html">Appendix A</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../citation_docs/appendix_b.html">Appendix B</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../citation_docs/additional_info.html">Additional Information</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../citation_docs/bibliography.html">Bibliography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../citation_docs/appendix_a.html">Appendix A</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../citation_docs/appendix_b.html">Appendix B</a></li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -105,7 +108,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="hardware.html">RoboFlock Hardware</a></li>
+          <li class="breadcrumb-item"><a href="hardware.html">Hardware Descriptions</a></li>
       <li class="breadcrumb-item active">HC-12 Wireless Serial Port Module</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/hardware_docs/hc_12.rst.txt" rel="nofollow"> View page source</a>
@@ -121,12 +124,23 @@
              
   <section id="hc-12-wireless-serial-port-module">
 <h1>HC-12 Wireless Serial Port Module<a class="headerlink" href="#hc-12-wireless-serial-port-module" title="Link to this heading"></a></h1>
-<p>Datasheet Link:</p>
-<p>Features:</p>
-<p>Setup:</p>
-<p>Interfacing:</p>
-<p>Dimensions:</p>
-<p>Use-Case:</p>
+<p><strong>Datasheet:</strong> <span class="raw-html"><br /></span>
+<a class="reference external" href="https://statics3.seeedstudio.com/assets/file/bazaar/product/HC-12_english_datasheets.pdf" rel="noreferrer" target="_blank">HC-12 Wireless RF UART Communication Module User Manual</a></p>
+<p><strong>Features:</strong> <span class="raw-html"><br /></span>
+1000m Communication Range at 9600BPS <span class="raw-html"><br /></span>
+433.4MHz to 473.0MHz Operating Frequency Range <span class="raw-html"><br /></span>
+Supports up to 100 Channels <span class="raw-html"><br /></span></p>
+<p><strong>Connection:</strong> <span class="raw-html"><br /></span>
+<em>VCC</em> to 3.3V Supply (or 5V Supply with IN4007 Diode) <span class="raw-html"><br /></span>
+<em>RXD</em> to Tx Pin <span class="raw-html"><br /></span>
+<em>TXD</em> to Rx Pin <span class="raw-html"><br /></span>
+<em>GND</em> to 0V Ground</p>
+<p><strong>Interfacing:</strong> <span class="raw-html"><br /></span>
+<em>TBD</em></p>
+<p><strong>Dimensions:</strong> <span class="raw-html"><br /></span>
+27.4mm x 13.2mm x 4mm</p>
+<p><strong>Use-Case:</strong> <span class="raw-html"><br /></span>
+Communicates GPS data between handheld beacon and robot.</p>
 </section>
 
 

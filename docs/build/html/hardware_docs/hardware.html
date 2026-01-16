@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RoboFlock Hardware &mdash; RoboFlock 1.1 documentation</title>
+  <title>Hardware Descriptions &mdash; RoboFlock 1.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -57,22 +57,22 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/init_users.html">Initializing RoboFlock (Users)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">RoboFlock Hardware</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Hardware Descriptions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="jetson_devkit.html">Nvidia Jetson Orin Nano Super Developer Kit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="arduino.html">Arduino Nano and Arduino Uno</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arduino.html">Arduino Boards</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rp_lidar.html">RPLIDAR A1M8 Laser Range Scanner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hc_sr04.html">HC-SR04 Ultrasonic Distance Sensor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="imu.html">IMU</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hc_sr04.html">Ultrasonic Distance Sensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imu.html">MPU-6050 Motion Tracking Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="neo_m8p.html">NEO-M8P-2 GNSS/GPS Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="zed_f9p.html">ZED-F9P-02B GNSS/GPS Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hc_12.html">HC-12 Wireless Serial Port Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="esc.html">Brushed Electronic Speed Controller (ESC)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="servo.html">Brushless Digital Servo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="brushed.html">3-Slot Brushed Motor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="max_17048.html">LiPoly/Lilon Fuel Gauge and Battery Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="max_17048.html">MAX17048 Fuel Gauge and Battery Monitor</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../description_docs/functionality.html">RoboFlock Functionality</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../description_docs/functionality.html">Functionality</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../description_docs/nvidia_jetson_orin_nano.html">NVIDIA Jetson Orin Nano</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../description_docs/interactions_with_the_surroundings.html">Interactions with the Surroundings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../description_docs/tracking.html">Tracking</a></li>
@@ -86,9 +86,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../construction_docs/wiring_specifications.html">Wiring Specifications</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../citation_docs/bibliography.html">Bibliography</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../citation_docs/appendix_a.html">Appendix A</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../citation_docs/appendix_b.html">Appendix B</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../citation_docs/additional_info.html">Additional Information</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../citation_docs/bibliography.html">Bibliography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../citation_docs/appendix_a.html">Appendix A</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../citation_docs/appendix_b.html">Appendix B</a></li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -105,7 +108,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">RoboFlock Hardware</li>
+      <li class="breadcrumb-item active">Hardware Descriptions</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/hardware_docs/hardware.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -118,22 +121,22 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="roboflock-hardware">
-<h1>RoboFlock Hardware<a class="headerlink" href="#roboflock-hardware" title="Link to this heading"></a></h1>
+  <section id="hardware-descriptions">
+<h1>Hardware Descriptions<a class="headerlink" href="#hardware-descriptions" title="Link to this heading"></a></h1>
 <p>Brief descriptions and use-cases of the hardware required by RoboFlock.</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="jetson_devkit.html"><span class="doc">Nvidia Jetson Orin Nano Super Developer Kit</span></a></p></li>
-<li><p><a class="reference internal" href="arduino.html"><span class="doc">Arduino Nano and Arduino Uno</span></a></p></li>
+<li><p><a class="reference internal" href="arduino.html"><span class="doc">Arduino Boards</span></a></p></li>
 <li><p><a class="reference internal" href="rp_lidar.html"><span class="doc">RPLIDAR A1M8 Laser Range Scanner</span></a></p></li>
 <li><p><a class="reference internal" href="hc_sr04.html"><span class="doc">HC-SR04 Ultrasonic Distance Sensor</span></a></p></li>
-<li><p><a class="reference internal" href="imu.html"><span class="doc">Accelerometer/Gyroscope Module</span></a></p></li>
+<li><p><a class="reference internal" href="imu.html"><span class="doc">MPU-6050 Motion Tracking Module</span></a></p></li>
 <li><p><a class="reference internal" href="neo_m8p.html"><span class="doc">NEO-M8P-2 GNSS/GPS Module</span></a></p></li>
 <li><p><a class="reference internal" href="zed_f9p.html"><span class="doc">ZED-F9P-02B GNSS/GPS Module</span></a></p></li>
 <li><p><a class="reference internal" href="hc_12.html"><span class="doc">HC-12 Wireless Serial Port Module</span></a></p></li>
 <li><p><a class="reference internal" href="esc.html"><span class="doc">Brushed Electronic Speed Controller (ESC)</span></a></p></li>
 <li><p><a class="reference internal" href="servo.html"><span class="doc">Brushless Digital Servo</span></a></p></li>
 <li><p><a class="reference internal" href="brushed.html"><span class="doc">3-Slot Brushed Motor</span></a></p></li>
-<li><p><a class="reference internal" href="max_17048.html"><span class="doc">LiPoly/Lilon Fuel Gauge and Battery Monitor</span></a></p></li>
+<li><p><a class="reference internal" href="max_17048.html"><span class="doc">MAX17048 Fuel Gauge and Battery Monitor</span></a></p></li>
 </ul>
 <div class="toctree-wrapper compound">
 </div>

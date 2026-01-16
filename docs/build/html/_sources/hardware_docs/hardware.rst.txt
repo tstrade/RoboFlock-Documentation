@@ -1,17 +1,17 @@
-RoboFlock Hardware
-==================
+Hardware Descriptions
+=====================
 
 Brief descriptions and use-cases of the hardware required by RoboFlock.
 
 - :doc:`Nvidia Jetson Orin Nano Super Developer Kit <jetson_devkit>`
 
-- :doc:`Arduino Nano and Arduino Uno <arduino>`
+- :doc:`Arduino Boards <arduino>`
 
 - :doc:`RPLIDAR A1M8 Laser Range Scanner <rp_lidar>`
 
 - :doc:`HC-SR04 Ultrasonic Distance Sensor <hc_sr04>`
 
-- :doc:`Accelerometer/Gyroscope Module <imu>`
+- :doc:`MPU-6050 Motion Tracking Module <imu>`
 
 - :doc:`NEO-M8P-2 GNSS/GPS Module <neo_m8p>`
 
@@ -25,7 +25,7 @@ Brief descriptions and use-cases of the hardware required by RoboFlock.
 
 - :doc:`3-Slot Brushed Motor <brushed>`
 
-- :doc:`LiPoly/Lilon Fuel Gauge and Battery Monitor <max_17048>`
+- :doc:`MAX17048 Fuel Gauge and Battery Monitor <max_17048>`
 
 
 .. toctree::

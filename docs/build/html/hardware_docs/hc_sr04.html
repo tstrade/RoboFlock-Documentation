@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HC-SR04 Ultrasonic Distance Sensor &mdash; RoboFlock 1.1 documentation</title>
+  <title>Ultrasonic Distance Sensor &mdash; RoboFlock 1.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -23,7 +23,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="IMU" href="imu.html" />
+    <link rel="next" title="MPU-6050 Motion Tracking Module" href="imu.html" />
     <link rel="prev" title="RPLIDAR A1M8 Laser Range Scanner" href="rp_lidar.html" /> 
 </head>
 
@@ -57,22 +57,22 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/init_users.html">Initializing RoboFlock (Users)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal" href="hardware.html">RoboFlock Hardware</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="hardware.html">Hardware Descriptions</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="jetson_devkit.html">Nvidia Jetson Orin Nano Super Developer Kit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="arduino.html">Arduino Nano and Arduino Uno</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arduino.html">Arduino Boards</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rp_lidar.html">RPLIDAR A1M8 Laser Range Scanner</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">HC-SR04 Ultrasonic Distance Sensor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="imu.html">IMU</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Ultrasonic Distance Sensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imu.html">MPU-6050 Motion Tracking Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="neo_m8p.html">NEO-M8P-2 GNSS/GPS Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="zed_f9p.html">ZED-F9P-02B GNSS/GPS Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hc_12.html">HC-12 Wireless Serial Port Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="esc.html">Brushed Electronic Speed Controller (ESC)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="servo.html">Brushless Digital Servo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="brushed.html">3-Slot Brushed Motor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="max_17048.html">LiPoly/Lilon Fuel Gauge and Battery Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="max_17048.html">MAX17048 Fuel Gauge and Battery Monitor</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../description_docs/functionality.html">RoboFlock Functionality</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../description_docs/functionality.html">Functionality</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../description_docs/nvidia_jetson_orin_nano.html">NVIDIA Jetson Orin Nano</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../description_docs/interactions_with_the_surroundings.html">Interactions with the Surroundings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../description_docs/tracking.html">Tracking</a></li>
@@ -86,9 +86,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../construction_docs/wiring_specifications.html">Wiring Specifications</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../citation_docs/bibliography.html">Bibliography</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../citation_docs/appendix_a.html">Appendix A</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../citation_docs/appendix_b.html">Appendix B</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../citation_docs/additional_info.html">Additional Information</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../citation_docs/bibliography.html">Bibliography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../citation_docs/appendix_a.html">Appendix A</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../citation_docs/appendix_b.html">Appendix B</a></li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -105,52 +108,39 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="hardware.html">RoboFlock Hardware</a></li>
-      <li class="breadcrumb-item active">HC-SR04 Ultrasonic Distance Sensor</li>
+          <li class="breadcrumb-item"><a href="hardware.html">Hardware Descriptions</a></li>
+      <li class="breadcrumb-item active">Ultrasonic Distance Sensor</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/hardware_docs/hc_sr04.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
         <a href="rp_lidar.html" class="btn btn-neutral float-left" title="RPLIDAR A1M8 Laser Range Scanner" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="imu.html" class="btn btn-neutral float-right" title="IMU" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="imu.html" class="btn btn-neutral float-right" title="MPU-6050 Motion Tracking Module" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="hc-sr04-ultrasonic-distance-sensor">
-<h1>HC-SR04 Ultrasonic Distance Sensor<a class="headerlink" href="#hc-sr04-ultrasonic-distance-sensor" title="Link to this heading"></a></h1>
-<p><strong>Datasheet Link:</strong></p>
-<p><a class="reference external" href="https://cdn.sparkfun.com/datasheets/Sensors/Proximity/HCSR04.pdf" rel="noreferrer" target="_blank">ELEC Freaks - Ultrasonic Ranging Module HC-SR04</a></p>
-<p><strong>Features:</strong></p>
-<ul class="simple">
-<li><p>2cm to 400cm Measurement Range</p></li>
-<li><p>3mm Ranging Accuracy</p></li>
-<li><p>40Hz Working Frequency</p></li>
-</ul>
-<p><strong>Setup:</strong></p>
-<ul class="simple">
-<li><p>“Vcc” to 5V Supply</p></li>
-<li><p>“Trig” to Digital Pin</p></li>
-<li><p>“Echo” to Digital Pin</p></li>
-<li><p>“Gnd” to 0V Ground</p></li>
-</ul>
-<p><strong>Interfacing:</strong></p>
-<p>The following instructions are designed specifically for RoboFlock, which uses Arduinos with code uploaded from the Arduino IDE. For examples of interacting with hardware through an embedded Linux environment, see our other hardware documents, such as <a class="reference internal" href="neo_m8p.html"><span class="doc">NEO-M8P-2 GNSS/GPS Module</span></a>.</p>
-<ol class="arabic simple">
-<li><p>Connect each of the pins as listed above</p></li>
-<li><p>Include <code class="docutils literal notranslate"><span class="pre">&lt;Servo.h&gt;</span></code> in your program and declare a Servo object(s) for your HC-SR04 module(s)</p></li>
-<li><p>Set the “Trig” pin as an output and the “Echo” pin as an input using the <code class="docutils literal notranslate"><span class="pre">pinMode()</span></code> function</p></li>
-<li><p>Set the “Trig” pin to logic low using the <code class="docutils literal notranslate"><span class="pre">digitalWrite()</span></code> function</p></li>
-<li><p>To make the HC-SR04 take a sample, it needs a 10 microsecond logic-high pulse, which can be done using the <code class="docutils literal notranslate"><span class="pre">digitalWrite()</span></code> and <code class="docutils literal notranslate"><span class="pre">delayMicroseconds()</span></code> functions</p></li>
-<li><p>To read the HC-SR04’s sample, call the <code class="docutils literal notranslate"><span class="pre">pulseIn()</span></code> function and use one of the formulas given in the HC-SR04’s datasheet to find the distance detected by the module</p></li>
-</ol>
-<p>That’s it!</p>
-<p><strong>Dimensions:</strong></p>
-<p>45mm x 20mm x 15mm</p>
-<p><strong>Use-Case:</strong></p>
-<p>Close-range obstacle detection for the front-facing portion of RoboFlock. Acts as a failsafe for objects not detected by the LiDAR module.</p>
+  <section id="ultrasonic-distance-sensor">
+<h1>Ultrasonic Distance Sensor<a class="headerlink" href="#ultrasonic-distance-sensor" title="Link to this heading"></a></h1>
+<p><strong>Datasheet:</strong> <span class="raw-html"><br /></span>
+<a class="reference external" href="https://cdn.sparkfun.com/datasheets/Sensors/Proximity/HCSR04.pdf" rel="noreferrer" target="_blank">Ultrasonic Ranging Module HC-SR04</a></p>
+<p><strong>Features:</strong> <span class="raw-html"><br /></span>
+2cm to 400cm Measurement Range <span class="raw-html"><br /></span>
+3mm Ranging Accuracy <span class="raw-html"><br /></span>
+40Hz Working Frequency</p>
+<p><strong>Connection:</strong> <span class="raw-html"><br /></span>
+<em>VCC</em> to 5V Supply <span class="raw-html"><br /></span>
+<em>TRIG</em> to Arduino Digital Pin <span class="raw-html"><br /></span>
+<em>ECHO</em> to Arduino Digital Pin <span class="raw-html"><br /></span>
+<em>GND</em> to 0V Ground</p>
+<p><strong>Interfacing:</strong> <span class="raw-html"><br /></span>
+<a class="reference external" href="https://github.com/arduino-libraries/Servo" rel="noreferrer" target="_blank">Arduino Servo Library</a></p>
+<p><strong>Dimensions:</strong> <span class="raw-html"><br /></span>
+45mm x 20mm x 15mm</p>
+<p><strong>Use-Case:</strong> <span class="raw-html"><br /></span>
+Detects close-range obstacles for the front-facing portion of RoboFlock. Acts as a failsafe for objects not detected by the LiDAR module.</p>
 </section>
 
 
@@ -158,7 +148,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="rp_lidar.html" class="btn btn-neutral float-left" title="RPLIDAR A1M8 Laser Range Scanner" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="imu.html" class="btn btn-neutral float-right" title="IMU" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="imu.html" class="btn btn-neutral float-right" title="MPU-6050 Motion Tracking Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

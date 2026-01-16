@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Arduino Nano and Arduino Uno &mdash; RoboFlock 1.1 documentation</title>
+  <title>Arduino Boards &mdash; RoboFlock 1.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -57,22 +57,22 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/init_users.html">Initializing RoboFlock (Users)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal" href="hardware.html">RoboFlock Hardware</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="hardware.html">Hardware Descriptions</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="jetson_devkit.html">Nvidia Jetson Orin Nano Super Developer Kit</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Arduino Nano and Arduino Uno</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Arduino Boards</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rp_lidar.html">RPLIDAR A1M8 Laser Range Scanner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hc_sr04.html">HC-SR04 Ultrasonic Distance Sensor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="imu.html">IMU</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hc_sr04.html">Ultrasonic Distance Sensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imu.html">MPU-6050 Motion Tracking Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="neo_m8p.html">NEO-M8P-2 GNSS/GPS Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="zed_f9p.html">ZED-F9P-02B GNSS/GPS Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hc_12.html">HC-12 Wireless Serial Port Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="esc.html">Brushed Electronic Speed Controller (ESC)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="servo.html">Brushless Digital Servo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="brushed.html">3-Slot Brushed Motor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="max_17048.html">LiPoly/Lilon Fuel Gauge and Battery Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="max_17048.html">MAX17048 Fuel Gauge and Battery Monitor</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../description_docs/functionality.html">RoboFlock Functionality</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../description_docs/functionality.html">Functionality</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../description_docs/nvidia_jetson_orin_nano.html">NVIDIA Jetson Orin Nano</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../description_docs/interactions_with_the_surroundings.html">Interactions with the Surroundings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../description_docs/tracking.html">Tracking</a></li>
@@ -86,9 +86,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../construction_docs/wiring_specifications.html">Wiring Specifications</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../citation_docs/bibliography.html">Bibliography</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../citation_docs/appendix_a.html">Appendix A</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../citation_docs/appendix_b.html">Appendix B</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../citation_docs/additional_info.html">Additional Information</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../citation_docs/bibliography.html">Bibliography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../citation_docs/appendix_a.html">Appendix A</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../citation_docs/appendix_b.html">Appendix B</a></li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -105,8 +108,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="hardware.html">RoboFlock Hardware</a></li>
-      <li class="breadcrumb-item active">Arduino Nano and Arduino Uno</li>
+          <li class="breadcrumb-item"><a href="hardware.html">Hardware Descriptions</a></li>
+      <li class="breadcrumb-item active">Arduino Boards</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/hardware_docs/arduino.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -119,25 +122,47 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="arduino-nano-and-arduino-uno">
-<h1>Arduino Nano and Arduino Uno<a class="headerlink" href="#arduino-nano-and-arduino-uno" title="Link to this heading"></a></h1>
-<section id="nano">
-<h2>Nano<a class="headerlink" href="#nano" title="Link to this heading"></a></h2>
-<p>Datasheet Link:</p>
-<p>Features:</p>
-<p>Setup:</p>
-<p>Interfacing:</p>
-<p>Dimensions:</p>
-<p>Use-Case:</p>
+  <section id="arduino-boards">
+<h1>Arduino Boards<a class="headerlink" href="#arduino-boards" title="Link to this heading"></a></h1>
+<section id="arduino-nano">
+<h2>Arduino Nano<a class="headerlink" href="#arduino-nano" title="Link to this heading"></a></h2>
+<p><strong>Datasheet:</strong> <span class="raw-html"><br /></span>
+<a class="reference external" href="https://docs.arduino.cc/resources/datasheets/A000005-datasheet.pdf" rel="noreferrer" target="_blank">Arduino Nano ATmega328 Microcontroller User Manual</a></p>
+<p><strong>Features:</strong> <span class="raw-html"><br /></span>
+16MHz Clock Frequency <span class="raw-html"><br /></span>
+Digital, Analog, PWM, UART, I2C, and SPI Capabilities <span class="raw-html"><br /></span>
+32kB Flash Memory <span class="raw-html"><br /></span>
+2kB Internal SRAM <span class="raw-html"><br /></span>
+1kB EEPROM <span class="raw-html"><br /></span>
+Ideal for Constrained Spaces</p>
+<p><strong>Connection:</strong> <span class="raw-html"><br /></span>
+Mini-B USB to USB Type-A</p>
+<p><strong>Interfacing:</strong> <span class="raw-html"><br /></span>
+<a class="reference external" href="https://docs.arduino.cc/software/ide/" rel="noreferrer" target="_blank">Arduino IDE</a></p>
+<p><strong>Dimensions (with headers):</strong> <span class="raw-html"><br /></span>
+43.2mm x 18mm x 18.5mm</p>
+<p><strong>Use-Case:</strong> <span class="raw-html"><br /></span>
+Controls and processes data for handheld beacon.</p>
 </section>
-<section id="uno">
-<h2>Uno<a class="headerlink" href="#uno" title="Link to this heading"></a></h2>
-<p>Datasheet Link:</p>
-<p>Features:</p>
-<p>Setup:</p>
-<p>Interfacing:</p>
-<p>Dimensions:</p>
-<p>Use-Case:</p>
+<section id="arduino-uno">
+<h2>Arduino Uno<a class="headerlink" href="#arduino-uno" title="Link to this heading"></a></h2>
+<p><strong>Datasheet:</strong> <span class="raw-html"><br /></span>
+<a class="reference external" href="https://docs.arduino.cc/resources/datasheets/A000066-datasheet.pdf?_gl=1*17nach2*_up*MQ..*_ga*MTU0MzE0OTgwMy4xNzY4NTkzNzM2*_ga_NEXN8H46L5*czE3Njg1OTM3MzQkbzEkZzAkdDE3Njg1OTM3MzQkajYwJGwwJGgzNDE5NzM0Njg." rel="noreferrer" target="_blank">Arduino UNO R3 ATmega328P Microcontroller User Manual</a></p>
+<p><strong>Features:</strong> <span class="raw-html"><br /></span>
+16MHz Clock Frequency <span class="raw-html"><br /></span>
+Digital, Analog, PWM, UART, I2C, and SPI Capabilities <span class="raw-html"><br /></span>
+32kB Flash Memory <span class="raw-html"><br /></span>
+2kB Internal SRAM <span class="raw-html"><br /></span>
+1kB EEPROM <span class="raw-html"><br /></span>
+Direct Shield Compatibility</p>
+<p><strong>Connection:</strong> <span class="raw-html"><br /></span>
+USB Type-B to USB Type-A</p>
+<p><strong>Interfacing:</strong> <span class="raw-html"><br /></span>
+<a class="reference external" href="https://docs.arduino.cc/software/ide/" rel="noreferrer" target="_blank">Arduino IDE</a></p>
+<p><strong>Dimensions:</strong> <span class="raw-html"><br /></span>
+68.6mm x 53.4mm x 12.5mm</p>
+<p><strong>Use-Case:</strong> <span class="raw-html"><br /></span>
+Controls and processes data for all three <a class="reference internal" href="hc_sr04.html"><span class="doc">ultrasonic sensors</span></a>.</p>
 </section>
 </section>
 

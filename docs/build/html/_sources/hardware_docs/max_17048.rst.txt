@@ -1,14 +1,39 @@
-LiPoly/Lilon Fuel Gauge and Battery Monitor
+MAX17048 Fuel Gauge and Battery Monitor
 ===========================================
 
-Datasheet Link:
+.. include:: ../_templates/constants.rst
 
-Features:
+**Datasheet:** :raw-html:`<br />`
+`MAX17048/MAX17049 3μA 1-Cell/2-Cell Fuel Gauge with ModelGauge <max_>`_
 
-Setup:
 
-Interfacing:
+**Features:** :raw-html:`<br />`
+±7.5mV/Cell Voltage Measurement :raw-html:`<br />`
+ModelGauge Algorithm :raw-html:`<br />`
+Automatic Hibernation Mode :raw-html:`<br />`
+Configurable Alert Indicator
 
-Dimensions:
 
-Use-Case:
+**Connection:** :raw-html:`<br />`
+*CTG* to 0V Ground :raw-html:`<br />`
+*VDD* to Positive Battery Terminal, 0.1μF Bypass to GND :raw-html:`<br />`
+*GND* to  Negative Battery Terminal :raw-html:`<br />`
+*QSTRT* to 0V Ground
+*SDA* to Jetson *I2C1_SDA* :raw-html:`<br />`
+*SCL* to Jetson *I2C1_SCL* :raw-html:`<br />`
+*EP* to GND
+
+
+**Interfacing:** :raw-html:`<br />`
+*TBD*
+
+
+**Dimensions:** :raw-html:`<br />`
+25.7mm x 20.3mm x 7.2mm
+
+
+**Use-Case:** :raw-html:`<br />`
+Monitors RoboFlock battery life.
+
+
+.. _max: https://www.analog.com/media/en/technical-documentation/data-sheets/max17048-max17049.pdf

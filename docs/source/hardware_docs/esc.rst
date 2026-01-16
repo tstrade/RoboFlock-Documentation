@@ -1,14 +1,21 @@
 Brushed Electronic Speed Controller (ESC)
 =========================================
 
-Datasheet Link:
+.. include:: ../_templates/constants.rst
 
-Features:
+**Datasheet:** :raw-html:`<br />`
 
-Setup:
 
-Interfacing:
+**Features:** :raw-html:`<br />`
 
-Dimensions:
 
-Use-Case:
+**Connection:** :raw-html:`<br />`
+
+
+**Interfacing:** :raw-html:`<br />`
+
+
+**Dimensions:** :raw-html:`<br />`
+
+
+**Use-Case:** :raw-html:`<br />`

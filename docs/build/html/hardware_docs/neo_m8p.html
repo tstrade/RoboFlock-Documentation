@@ -24,7 +24,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="ZED-F9P-02B GNSS/GPS Module" href="zed_f9p.html" />
-    <link rel="prev" title="IMU" href="imu.html" /> 
+    <link rel="prev" title="MPU-6050 Motion Tracking Module" href="imu.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -57,22 +57,22 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/init_users.html">Initializing RoboFlock (Users)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal" href="hardware.html">RoboFlock Hardware</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="hardware.html">Hardware Descriptions</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="jetson_devkit.html">Nvidia Jetson Orin Nano Super Developer Kit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="arduino.html">Arduino Nano and Arduino Uno</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arduino.html">Arduino Boards</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rp_lidar.html">RPLIDAR A1M8 Laser Range Scanner</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hc_sr04.html">HC-SR04 Ultrasonic Distance Sensor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="imu.html">IMU</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hc_sr04.html">Ultrasonic Distance Sensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imu.html">MPU-6050 Motion Tracking Module</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">NEO-M8P-2 GNSS/GPS Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="zed_f9p.html">ZED-F9P-02B GNSS/GPS Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hc_12.html">HC-12 Wireless Serial Port Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="esc.html">Brushed Electronic Speed Controller (ESC)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="servo.html">Brushless Digital Servo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="brushed.html">3-Slot Brushed Motor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="max_17048.html">LiPoly/Lilon Fuel Gauge and Battery Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="max_17048.html">MAX17048 Fuel Gauge and Battery Monitor</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../description_docs/functionality.html">RoboFlock Functionality</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../description_docs/functionality.html">Functionality</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../description_docs/nvidia_jetson_orin_nano.html">NVIDIA Jetson Orin Nano</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../description_docs/interactions_with_the_surroundings.html">Interactions with the Surroundings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../description_docs/tracking.html">Tracking</a></li>
@@ -86,9 +86,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../construction_docs/wiring_specifications.html">Wiring Specifications</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../citation_docs/bibliography.html">Bibliography</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../citation_docs/appendix_a.html">Appendix A</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../citation_docs/appendix_b.html">Appendix B</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../citation_docs/additional_info.html">Additional Information</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../citation_docs/bibliography.html">Bibliography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../citation_docs/appendix_a.html">Appendix A</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../citation_docs/appendix_b.html">Appendix B</a></li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -105,13 +108,13 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="hardware.html">RoboFlock Hardware</a></li>
+          <li class="breadcrumb-item"><a href="hardware.html">Hardware Descriptions</a></li>
       <li class="breadcrumb-item active">NEO-M8P-2 GNSS/GPS Module</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/hardware_docs/neo_m8p.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
-        <a href="imu.html" class="btn btn-neutral float-left" title="IMU" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="imu.html" class="btn btn-neutral float-left" title="MPU-6050 Motion Tracking Module" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="zed_f9p.html" class="btn btn-neutral float-right" title="ZED-F9P-02B GNSS/GPS Module" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
   <hr/>
@@ -121,19 +124,33 @@
              
   <section id="neo-m8p-2-gnss-gps-module">
 <h1>NEO-M8P-2 GNSS/GPS Module<a class="headerlink" href="#neo-m8p-2-gnss-gps-module" title="Link to this heading"></a></h1>
-<p>Datasheet Link:</p>
-<p>Features:</p>
-<p>Setup:</p>
-<p>Interfacing:</p>
-<p>Dimensions:</p>
-<p>Use-Case:</p>
+<p><strong>Datasheet:</strong> <span class="raw-html"><br /></span>
+<a class="reference external" href="https://cdn.sparkfun.com/assets/2/f/6/8/3/NEO-M8P_DataSheet__UBX-15016656_.pdf" rel="noreferrer" target="_blank">NEO-M8P u-blox M8 High Precision GNSS Module Data Sheet</a></p>
+<p><strong>Features:</strong> <span class="raw-html"><br /></span>
+Moving Baseline Support <span class="raw-html"><br /></span>
+0.025m + 1ppm CEP Horizontal Position Accuracy <span class="raw-html"><br /></span>
+8Hz RTK Navigation Update Rate <span class="raw-html"><br /></span>
+UART, USB, SPI, and I2C Capabilities</p>
+<p><strong>Connection:</strong> <span class="raw-html"><br /></span>
+<em>VCC</em> to 3.3V Supply <span class="raw-html"><br /></span>
+<em>SDA</em> to Jetson <em>I2C0_SDA</em> <span class="raw-html"><br /></span>
+<em>SCL</em> to Jetson <em>I2C0_SCL</em> <span class="raw-html"><br /></span>
+<em>TXD</em> to HC-12 <em>RXD</em> <span class="raw-html"><br /></span>
+<em>RXD</em> to HC-12 <em>TXD</em> <span class="raw-html"><br /></span>
+<em>GND</em> to 0V Ground</p>
+<p><strong>Interfacing:</strong> <span class="raw-html"><br /></span>
+<em>TBD</em></p>
+<p><strong>Dimensions:</strong> <span class="raw-html"><br /></span>
+12.2mm x 16.0mm x 2.4mm</p>
+<p><strong>Use-Case:</strong> <span class="raw-html"><br /></span>
+Records GPS data of robot for tracking RoboFlock position within Nav2’s map of the environment.</p>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="imu.html" class="btn btn-neutral float-left" title="IMU" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="imu.html" class="btn btn-neutral float-left" title="MPU-6050 Motion Tracking Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="zed_f9p.html" class="btn btn-neutral float-right" title="ZED-F9P-02B GNSS/GPS Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

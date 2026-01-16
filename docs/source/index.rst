@@ -67,7 +67,5 @@ To see the research and resource specifications that went into the development o
    hardware_docs/hardware
    description_docs/functionality
    construction_docs/construction
-   citation_docs/bibliography
-   citation_docs/appendix_a
-   citation_docs/appendix_b
+   citation_docs/additional_info
 
