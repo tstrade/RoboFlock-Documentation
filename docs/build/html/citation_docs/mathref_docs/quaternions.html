@@ -1,0 +1,239 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rotations with Quaternions &mdash; RoboFlock 1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=2ae993db" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=56dcb7b8"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Bibliography" href="../bibliography.html" />
+    <link rel="prev" title="Mathematics References" href="mathref.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            RoboFlock
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial_docs/tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial_docs/cmakelists.html">Writing Custom CML Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial_docs/roboflock_topics.html">Using RoboFlock’s Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial_docs/rtk_gps.html">Setting up the RTK GPS System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial_docs/jetson_config.html">Setting up the Nvidia Jetson Orin Nano</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial_docs/init_dev.html">Initializing RoboFlock (Developers)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial_docs/init_users.html">Initializing RoboFlock (Users)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware_docs/hardware.html">Hardware Descriptions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/jetson_devkit.html">Nvidia Jetson Orin Nano Super Developer Kit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/arduino.html">Arduino Boards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/rp_lidar.html">RPLIDAR A1M8 Laser Range Scanner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/hc_sr04.html">Ultrasonic Distance Sensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/imu.html">MPU-6050 Motion Tracking Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/neo_m8p.html">NEO-M8P-2 GNSS/GPS Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/zed_f9p.html">ZED-F9P-02B GNSS/GPS Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/hc_12.html">HC-12 Wireless Serial Port Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/esc.html">Brushed Electronic Speed Controller (ESC)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/servo.html">Brushless Digital Servo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/brushed.html">3-Slot Brushed Motor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/max_17048.html">MAX17048 Fuel Gauge and Battery Monitor</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../description_docs/functionality.html">Functionality</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../description_docs/nvidia_jetson_orin_nano.html">NVIDIA Jetson Orin Nano</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../description_docs/interactions_with_the_surroundings.html">Interactions with the Surroundings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../description_docs/tracking.html">Tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../description_docs/software.html">Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../description_docs/future_considerations.html">Future Considerations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../construction_docs/construction.html">Constructing RoboFlock</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../construction_docs/constructing_the_roboflock.html">Step-by-Step Construction Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../construction_docs/chassis_design.html">Chassis Design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../construction_docs/wiring_specifications.html">Wiring Specifications</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../additional_info.html">Additional Information</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="mathref.html">Mathematics References</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Rotations with Quaternions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix_a.html">Appendix A</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../appendix_b.html">Appendix B</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">RoboFlock</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../additional_info.html">Additional Information</a></li>
+          <li class="breadcrumb-item"><a href="mathref.html">Mathematics References</a></li>
+      <li class="breadcrumb-item active">Rotations with Quaternions</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/citation_docs/mathref_docs/quaternions.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="mathref.html" class="btn btn-neutral float-left" title="Mathematics References" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../bibliography.html" class="btn btn-neutral float-right" title="Bibliography" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="rotations-with-quaternions">
+<h1>Rotations with Quaternions<a class="headerlink" href="#rotations-with-quaternions" title="Link to this heading"></a></h1>
+<p>Transformation matrices are an essential component to TF2. They allow for all the different components in a robot to use different reference axes (or <em>frames</em>) and their relationships. <em>A Concise Introduction to Robot Programming with ROS2</em> (Rico 2023, pg. 65-66) gives a good overview of the general process that TF2 uses:</p>
+<div class="colored-quote docutils container">
+<p>Algebraically, [relating frames] is done using homogeneous coordinates of a point <span class="math notranslate nohighlight">\(P\)</span> in a frame <span class="math notranslate nohighlight">\(A\)</span>, this is <span class="math notranslate nohighlight">\(P_{A}\)</span>, we can calculate <span class="math notranslate nohighlight">\(P_{B}\)</span> in frame <span class="math notranslate nohighlight">\(B\)</span> using the transformation matrix <span class="math notranslate nohighlight">\(RT_{A \rightarrow B}\)</span> as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{align} P_{B} &amp;= RT_{A \rightarrow B} * P_{A} &amp; (4.1) \end{align}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align} \begin{pmatrix} x_{B} \\ y_{B} \\ z_{B} \\ 1 \end{pmatrix} &amp;= \begin{pmatrix} R^{xx}_{A \rightarrow B} &amp; R^{xy}_{A \rightarrow B} &amp; R^{xz}_{A \rightarrow B} &amp; T^{x}_{A \rightarrow B} \\ R^{yx}_{A \rightarrow B} &amp; R^{yy}_{A \rightarrow B} &amp; R^{yz}_{A \rightarrow B} &amp; T^{y}_{A \rightarrow B} \\ R^{zx}_{A \rightarrow B} &amp; R^{zy}_{A \rightarrow B} &amp; R^{zz}_{A \rightarrow B} &amp; T^{z}_{A \rightarrow B}  \\ 0 &amp; 0 &amp; 0 &amp; 1\end{pmatrix} * \begin{pmatrix} x_{A} \\ y_{A} \\ z_{A} \\ 1 \end{pmatrix} &amp; (4.2) \end{align}\end{split}\]</div>
+</div>
+<p><span class="raw-html"><br /></span>
+TF2 uses messages of type <code class="code docutils literal notranslate"><span class="pre">tf2_msgs/msg/TFMessage</span></code>, which holds the following data:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ros2<span class="w"> </span>interface<span class="w"> </span>show<span class="w"> </span>tf2_msgs/msg/TFMessage
+
+<span class="go">geometry_msgs/TransformStamped[] transforms</span>
+<span class="go">    std_msgs/Header header</span>
+<span class="go">    string child_frame_id</span>
+<span class="go">    Transform transform</span>
+<span class="go">        Vector3 translation</span>
+<span class="go">            float64 x</span>
+<span class="go">            float64 y</span>
+<span class="go">            float64 z</span>
+<span class="go">        Quaternion rotation</span>
+<span class="go">            float64 x 0</span>
+<span class="go">            float64 y 0</span>
+<span class="go">            float64 z 0</span>
+<span class="go">            float64 w 1</span>
+</pre></div>
+</div>
+<p>As transformations are propagated through a system’s TF tree, it is standard for the output header to match the input header. The child frame ID is the ID of the new frame to be created by a given transformation.</p>
+<p>The transform itself consists of a translation and a rotation. The translation describes the Euclidean distance between the “origin” of each frame. For example, this could be the distance from the robot’s center to the center of one of its sensors. The rotation describes how the frame is rotated after the translation is applied. For example, two of RoboFlock’s ultrasonic sensor’s do not face the same direction as the robot’s “forward” direction, so a rotation would need to be applied.</p>
+<p>This message definition contains an interesting term: <em>quaternion</em>. Quaternions are mathematical objects used to described 3D orientations and rotations. From <em>Quaternions: Theory and Applications</em> (Griffin 2017, pg.88-89):</p>
+<div class="colored-quote docutils container">
+<p>[The] attitude of a rigid body can be represented by unit quaternion, consisting of a unit vector <span class="math notranslate nohighlight">\(\vec{e}\)</span> known as the Euler axis, and a rotation angle <span class="math notranslate nohighlight">\(\beta\)</span> about this axis. The quaternion <span class="math notranslate nohighlight">\(q\)</span> is the defined as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align} q &amp;= \begin{pmatrix} \cos \frac{\beta}{2} \\ \vec{e} \sin \frac{\beta}{2} \end{pmatrix} = \begin{pmatrix} q_{0} \\ \vec{q} \end{pmatrix} \in \mathbb{H} &amp; (1) \end{align}\end{split}\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align} \mathbb{H} &amp;= \ \ \begin{array}{ll} \qquad \ \{ \ q \ | \ q_{0}^{2} + \vec{q}^{\ T} \ \vec{q} = 1 \\ q = [ \ q_{0} \ \vec{q}^{\ T} \ ]^{\ T}, \ q_{0} \in \mathbb{R}, \ \vec{q} \in \mathbb{R}^{3} \ \} \end{array} &amp; (2) \end{align}\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(\vec{q} = [q_{1} \ q_{2} \ q_{3}]^{T}\)</span> and <span class="math notranslate nohighlight">\(q_{0}\)</span> are known as the vector and scalar parts of the quaternion respectively. In attitude control applications, the unit quaternion represents the rotation from an inertial coordinate systen <span class="math notranslate nohighlight">\(N(x_{n}, \ y_{n}, \ z_{n})\)</span> located at some point in the space (for instance, the earth NED frame), to the body coordinate system <span class="math notranslate nohighlight">\(B(x_{b}, \ y_{b}, \ z_{b})\)</span> located on the center of mass of a rigid body.</p>
+<p>If <span class="math notranslate nohighlight">\(\vec{r}\)</span> is a vector expressed in <span class="math notranslate nohighlight">\(N\)</span>, then its coordinates in <span class="math notranslate nohighlight">\(B\)</span> are expressed by:</p>
+<div class="math notranslate nohighlight">
+\[\begin{align} b &amp;= \overline{q} \otimes r \otimes q &amp; (3) \end{align}\]</div>
+<p>where <span class="math notranslate nohighlight">\(b = [0 \ \vec{b}^{\ T}]^{T}\)</span> and <span class="math notranslate nohighlight">\(r = [0 \ \vec{r}^{\ T}]^{T}\)</span> are the quaternions associated to vectors <span class="math notranslate nohighlight">\(\vec{b}\)</span> and <span class="math notranslate nohighlight">\(\vec{r}\)</span> respectively. <span class="math notranslate nohighlight">\(\otimes\)</span> denotes the quaternion multiplication and <span class="math notranslate nohighlight">\(\overline{q}\)</span> is the conjugate quaternion multiplication of <span class="math notranslate nohighlight">\(q\)</span>, defined as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{align} \overline{q} &amp;= [q_{0} - \vec{q}^{\ T}]^{T} &amp; (4) \end{align}\]</div>
+<p>The rotation matrix <span class="math notranslate nohighlight">\(C(q)\)</span> corresponding to the attitude quaternion <span class="math notranslate nohighlight">\(q\)</span>, is computed as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{align} C(q) &amp;= (q_{0}^{2} - \vec{q}^{\ T} \ \vec{q})I_{3} + 2(\vec{q} \vec{q}^{\ T} - q_{0} [\vec{q}^{x}]) &amp; (5) \end{align}\]</div>
+<p>where <span class="math notranslate nohighlight">\(I_{3}\)</span> is the identity matrix and <span class="math notranslate nohighlight">\([\xi^{x}]\)</span> is a skew symmetric tensor associated with the axis vector <span class="math notranslate nohighlight">\(\xi\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align} [\xi^{x}] &amp;= \begin{pmatrix} \xi_{1} \\ \xi_{2} \\ \xi_{3} \end{pmatrix}^{x} = \begin{pmatrix} 0 &amp; -\xi_{3} &amp; \xi_{2} \\ \xi_{3} &amp; 0 &amp; -\xi_{1} \\ -\xi_{2} &amp; \xi_{1} &amp; 0 \end{pmatrix} &amp; (6) \end{align}\end{split}\]</div>
+<p>Thus, the coordinate of vector <span class="math notranslate nohighlight">\(\vec{r}\)</span> expressed in the <span class="math notranslate nohighlight">\(B\)</span> frame is given by:</p>
+<div class="math notranslate nohighlight">
+\[\begin{align} \vec{b} &amp;= C(q)\vec{r} &amp; (7) \end{align}\]</div>
+</div>
+<p><span class="raw-html"><br /></span>
+Here, we can see that Griffin’s Eq. 7 is equivelent to Rico’s Eq. 4.1. Thanks to TF2, we don’t have to worry about computing any of these intermediate steps. However, understanding the underlying mechanics helps us appreciate the work that TF2 does behind the scenes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbb{H}\)</span> is the set of all quaternions. <span class="raw-html"><br /></span></p></li>
+<li><p><em>Euler’s Rotation Theorem</em> says that any displacement of a rigid body in 3D space such that a point on said body remains fixed, is equivalent to a single rotation about some axis that runs through the fixed point. This axis is known as an <em>Euler axis</em>, denoted as <span class="math notranslate nohighlight">\(\vec{e}\)</span> or <span class="math notranslate nohighlight">\(\hat{e}\)</span>. <span class="raw-html"><br /></span></p></li>
+<li><p><em>Quaternion multiplication</em> is a non-commutative operation that applies the first rotation followed by the second rotation. <span class="raw-html"><br /></span></p></li>
+<li><p><em>Conjugate quaternion multiplication</em> first inverses the vector of a quaternion and then multiplies, which effectively reverse the direction of rotation. <span class="raw-html"><br /></span></p></li>
+<li><p><em>Rotation matrices</em> are use in multiplication with column vectors to enact some rotation in the vector’s plane by some angle <span class="math notranslate nohighlight">\(\theta\)</span>. <span class="raw-html"><br /></span></p></li>
+<li><p><em>Tensors</em> are algebraic objects that describe multilinear relationships between sets of algebraic objects associated with a vector space, such as vectors, scalars, matrices, and other tensors. <span class="raw-html"><br /></span></p></li>
+<li><p><em>Skew-symmetric tensors</em> are tensors whose components change signs when any two indices are swapped, i.e., for some tensor <span class="math notranslate nohighlight">\(T\)</span>, we have <span class="math notranslate nohighlight">\(T^{T} = -T\)</span>.</p></li>
+</ul>
+</div>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading"></a></h2>
+<p>Rico, F. (2023). <em>A Concise Introduction to Robot Programming with ROS2.</em> CRC Press.</p>
+<p>Griffin, S. (Ed.). (2017). <em>Quaternions : Theory and applications.</em> Nova Science Publishers, Incorporated.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="mathref.html" class="btn btn-neutral float-left" title="Mathematics References" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../bibliography.html" class="btn btn-neutral float-right" title="Bibliography" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Thomas Strade, Aditya Challamarad, Marco Bianco, Nicholas Pitsakis, Krish Puwar, Shouvik Das, Andrew Collado.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

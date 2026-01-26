@@ -12,6 +12,8 @@ Additional Information
     :titlesonly:
     :maxdepth: 1
 
+    mathref_docs/mathref
     bibliography
     appendix_a
     appendix_b
+    

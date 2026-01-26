@@ -11,3 +11,8 @@ body {
     font-size: 15pt;
     line-height: 2.5;
 }
+
+.colored-quote {
+    background-color: #f0f0f0;
+    padding: 10px;
+}

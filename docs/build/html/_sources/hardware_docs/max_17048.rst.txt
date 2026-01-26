@@ -18,7 +18,7 @@ Configurable Alert Indicator
 *CTG* to 0V Ground :raw-html:`<br />`
 *VDD* to Positive Battery Terminal, 0.1μF Bypass to GND :raw-html:`<br />`
 *GND* to  Negative Battery Terminal :raw-html:`<br />`
-*QSTRT* to 0V Ground
+*QSTRT* to 0V Ground :raw-html:`<br />`
 *SDA* to Jetson *I2C1_SDA* :raw-html:`<br />`
 *SCL* to Jetson *I2C1_SCL* :raw-html:`<br />`
 *EP* to GND
