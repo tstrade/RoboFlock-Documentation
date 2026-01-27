@@ -185,19 +185,58 @@ TF2 uses messages of type <code class="code docutils literal notranslate"><span 
 \[\begin{align} \vec{b} &amp;= C(q)\vec{r} &amp; (7) \end{align}\]</div>
 </div>
 <p><span class="raw-html"><br /></span>
-Here, we can see that Griffin’s Eq. 7 is equivelent to Rico’s Eq. 4.1. Thanks to TF2, we don’t have to worry about computing any of these intermediate steps. However, understanding the underlying mechanics helps us appreciate the work that TF2 does behind the scenes.</p>
+Let’s break this down, one equation at a time:</p>
+<ol class="arabic simple">
+<li><p><strong>The Quaternion Definition</strong></p></li>
+</ol>
+<p>A quaternion <span class="math notranslate nohighlight">\(q\)</span> can also be described by <span class="math notranslate nohighlight">\(a + b \hat{\imath} + c \hat{\jmath} + d \hat{k}; \ a, b, c, d \in \mathbb{R}\)</span> with <span class="math notranslate nohighlight">\(a\)</span> being its rotational scalar and <span class="math notranslate nohighlight">\(b, c, d\)</span> being the coefficients of its basis vectors. We can also visualize this as a <span class="math notranslate nohighlight">\(4 \times 1\)</span> column vector, but we’ll use the given coefficients instead of <span class="math notranslate nohighlight">\(a,b,c,d\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{pmatrix} \cos \frac{\beta}{2} \\ e_{1} \sin \frac{\beta}{2} \\ e_{2} \sin \frac{\beta}{2} \\ e_{3} \sin \frac{\beta}{2} \end{pmatrix}\end{split}\]</div>
+<ol class="arabic simple" start="2">
+<li><p><strong>The Set of All Quaternions</strong></p></li>
+</ol>
+<p>We can think of <span class="math notranslate nohighlight">\(q_{0}^{2} + \vec{q}^{T} \vec{q} = 1\)</span> in a similar way as the definition of a unit circle, <span class="math notranslate nohighlight">\(x^{2} + y^{2} = 1\)</span>. Remember that the dot prouct <span class="math notranslate nohighlight">\(\vec{q}^{T} \vec{q}\)</span> (which is equivalent to <span class="math notranslate nohighlight">\(\vec{q} \vec{q}^{T}\)</span>) produces a scalar value. If we expand this notation out, our equation looks like this:</p>
+<div class="math notranslate nohighlight">
+\[q_{0}^{2} + \sin^{2} \frac{\beta}{2} \cdot (e_{1}^{2} + e_{2}^{2} + e_{3}^{2}) = 1\]</div>
+<p>The other rule, <span class="math notranslate nohighlight">\(q = [q_{0} \vec{q}^{T}]^{T}\)</span>, simply means that the quaternion <span class="math notranslate nohighlight">\(q\)</span> is a column vector in which the first entry is the rotational scalar <span class="math notranslate nohighlight">\(q_{0}\)</span>, and the following three entries correspond to quaternion’s 3D vector.</p>
+<ol class="arabic simple" start="3">
+<li><p><strong>Quaternion Multiplication</strong></p></li>
+</ol>
+<p>Quaternion multiplication is a non-commutative (i.e., order matters) operation that essentially applies each quaternion’s rotation in succession. Consider quaternions <span class="math notranslate nohighlight">\(q = [a b c d]^{T}\)</span> and <span class="math notranslate nohighlight">\(p = [e f g h]^{T}\)</span>. We define their product, <span class="math notranslate nohighlight">\(t\)</span>, as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}q \otimes p = \begin{pmatrix} ae - bf - cg -dh \\ af + be + ch + dg \\ ag - bh + ce + df \\ ah + bg - cf + de \end{pmatrix} = \begin{pmatrix} t_{0} \\ t_{1} \\ t_{2} \\ t_{3} \end{pmatrix}\end{split}\]</div>
+<ol class="arabic simple" start="4">
+<li><p><strong>Conjugate Quaternion Multiplication</strong></p></li>
+</ol>
+<p>Here we refer to the quaternion’s conjugate, which is obtained by negating each of the vector’s entries, effectively inverting the direction of the quaternion’s vector component. In our case, the conjugate is:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\overline{q} = \begin{pmatrix} q_{0} \\ -e_{1} \sin \frac{\beta}{2} \\ -e_{2} \sin \frac{\beta}{2} \\ -e_{3} \sin \frac{\beta}{2} \end{pmatrix}\end{split}\]</div>
+<ol class="arabic simple" start="5">
+<li><p><strong>Rotation Matrices</strong></p></li>
+</ol>
+<p>Rotation matrices are use in matrix multiplication with column vectors to enact some rotation in the vector’s plane by some angle. Here, we are given the rotation matrix <span class="math notranslate nohighlight">\(C(q)\)</span> that is made up of four components:</p>
+<blockquote>
+<div><ol class="lowerroman simple">
+<li><p><span class="math notranslate nohighlight">\(q_{0}^{2} - \vec{q}^{\ T} \vec{q}\)</span> results in an arbitrary scalar value that we’ll denote as <span class="math notranslate nohighlight">\(\omega\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(I_{3}\)</span> is the <span class="math notranslate nohighlight">\(3 \times 3\)</span> identity matrix, i.e., its diagonal entries are all 1 and all other entries are 0.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\vec{q} \ \vec{q}^{\ T}\)</span> is the dot product between the quaternion’s vector component and itself, which we will denote as <span class="math notranslate nohighlight">\(\alpha\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\([\vec{q}^{\ x}]\)</span> is a skew symmetric tensor with axis vector <span class="math notranslate nohighlight">\(\vec{q}\)</span>. Tensors are a whole beast of their own, so for sanity’s sake, we won’t go into depth about tensors.</p></li>
+</ol>
+</div></blockquote>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\mathbb{H}\)</span> is the set of all quaternions. <span class="raw-html"><br /></span></p></li>
-<li><p><em>Euler’s Rotation Theorem</em> says that any displacement of a rigid body in 3D space such that a point on said body remains fixed, is equivalent to a single rotation about some axis that runs through the fixed point. This axis is known as an <em>Euler axis</em>, denoted as <span class="math notranslate nohighlight">\(\vec{e}\)</span> or <span class="math notranslate nohighlight">\(\hat{e}\)</span>. <span class="raw-html"><br /></span></p></li>
-<li><p><em>Quaternion multiplication</em> is a non-commutative operation that applies the first rotation followed by the second rotation. <span class="raw-html"><br /></span></p></li>
-<li><p><em>Conjugate quaternion multiplication</em> first inverses the vector of a quaternion and then multiplies, which effectively reverse the direction of rotation. <span class="raw-html"><br /></span></p></li>
-<li><p><em>Rotation matrices</em> are use in multiplication with column vectors to enact some rotation in the vector’s plane by some angle <span class="math notranslate nohighlight">\(\theta\)</span>. <span class="raw-html"><br /></span></p></li>
 <li><p><em>Tensors</em> are algebraic objects that describe multilinear relationships between sets of algebraic objects associated with a vector space, such as vectors, scalars, matrices, and other tensors. <span class="raw-html"><br /></span></p></li>
 <li><p><em>Skew-symmetric tensors</em> are tensors whose components change signs when any two indices are swapped, i.e., for some tensor <span class="math notranslate nohighlight">\(T\)</span>, we have <span class="math notranslate nohighlight">\(T^{T} = -T\)</span>.</p></li>
 </ul>
 </div>
+<p><span class="raw-html"><br /></span>
+Given each of these components, the resulting rotation matrix should look like:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}C(q) = \begin{pmatrix} \omega &amp; -2(\alpha - q_{0})q_{3} &amp; 2(\alpha - q_{0})q_{2} \\ 2(\alpha - q_{0})q_{3} &amp; \omega &amp; -2(\alpha - q_{0})q_{1} \\ -2(\alpha - q_{0})q_{2} &amp; 2(\alpha - q_{0})q_{1} &amp; \omega \end{pmatrix}\end{split}\]</div>
+<p><span class="raw-html"><br /></span>
+The difference between Griffin’s Eq. 7 and Rico’s Eq. 4.1 is merely notational. <span class="math notranslate nohighlight">\(\vec{b}\)</span> is equivalent to <span class="math notranslate nohighlight">\(P_{B}\)</span>, <span class="math notranslate nohighlight">\(C(q)\)</span> is equivalent to <span class="math notranslate nohighlight">\(RT_{A\rightarrow B}\)</span>, and <span class="math notranslate nohighlight">\(\vec{r}\)</span> is equivalent to <span class="math notranslate nohighlight">\(P_{A}\)</span>.</p>
+<p>Thanks to TF2, we don’t have to worry about computing any of these intermediate steps. However, understanding the underlying mechanics helps us demystify and appreciate the work that goes on behind the scenes.</p>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Link to this heading"></a></h2>
 <p>Rico, F. (2023). <em>A Concise Introduction to Robot Programming with ROS2.</em> CRC Press.</p>

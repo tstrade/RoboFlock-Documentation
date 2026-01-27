@@ -83,29 +83,71 @@ This message definition contains an interesting term: *quaternion*. Quaternions 
         \begin{align} \vec{b} &= C(q)\vec{r} & (7) \end{align}
 
 :raw-html:`<br />`
-Here, we can see that Griffin's Eq. 7 is equivelent to Rico's Eq. 4.1. Thanks to TF2, we don't have to worry about computing any of these intermediate steps. However, understanding the underlying mechanics helps us appreciate the work that TF2 does behind the scenes. 
+Let's break this down, one equation at a time:
 
+1. **The Quaternion Definition**
+
+A quaternion :math:`q` can also be described by :math:`a + b \hat{\imath} + c \hat{\jmath} + d \hat{k}; \ a, b, c, d \in \mathbb{R}` with :math:`a` being its rotational scalar and :math:`b, c, d` being the coefficients of its basis vectors. We can also visualize this as a :math:`4 \times 1` column vector, but we'll use the given coefficients instead of :math:`a,b,c,d`:
+
+.. math::
+    \begin{pmatrix} \cos \frac{\beta}{2} \\ e_{1} \sin \frac{\beta}{2} \\ e_{2} \sin \frac{\beta}{2} \\ e_{3} \sin \frac{\beta}{2} \end{pmatrix}
+
+
+2. **The Set of All Quaternions**
+
+We can think of :math:`q_{0}^{2} + \vec{q}^{T} \vec{q} = 1` in a similar way as the definition of a unit circle, :math:`x^{2} + y^{2} = 1`. Remember that the dot prouct :math:`\vec{q}^{T} \vec{q}` (which is equivalent to :math:`\vec{q} \vec{q}^{T}`) produces a scalar value. If we expand this notation out, our equation looks like this:
+
+.. math::
+    q_{0}^{2} + \sin^{2} \frac{\beta}{2} \cdot (e_{1}^{2} + e_{2}^{2} + e_{3}^{2}) = 1
+
+The other rule, :math:`q = [q_{0} \vec{q}^{T}]^{T}`, simply means that the quaternion :math:`q` is a column vector in which the first entry is the rotational scalar :math:`q_{0}`, and the following three entries correspond to quaternion's 3D vector. 
+
+
+3. **Quaternion Multiplication**
+
+Quaternion multiplication is a non-commutative (i.e., order matters) operation that essentially applies each quaternion's rotation in succession. Consider quaternions :math:`q = [a b c d]^{T}` and :math:`p = [e f g h]^{T}`. We define their product, :math:`t`, as follows:
+
+.. math::
+    q \otimes p = \begin{pmatrix} ae - bf - cg -dh \\ af + be + ch + dg \\ ag - bh + ce + df \\ ah + bg - cf + de \end{pmatrix} = \begin{pmatrix} t_{0} \\ t_{1} \\ t_{2} \\ t_{3} \end{pmatrix}
+
+
+4. **Conjugate Quaternion Multiplication**
+
+Here we refer to the quaternion's conjugate, which is obtained by negating each of the vector's entries, effectively inverting the direction of the quaternion's vector component. In our case, the conjugate is:
+
+.. math::
+    \overline{q} = \begin{pmatrix} q_{0} \\ -e_{1} \sin \frac{\beta}{2} \\ -e_{2} \sin \frac{\beta}{2} \\ -e_{3} \sin \frac{\beta}{2} \end{pmatrix}
+
+
+5. **Rotation Matrices**
+
+Rotation matrices are use in matrix multiplication with column vectors to enact some rotation in the vector's plane by some angle. Here, we are given the rotation matrix :math:`C(q)` that is made up of four components:
+
+    i. :math:`q_{0}^{2} - \vec{q}^{\ T} \vec{q}` results in an arbitrary scalar value that we'll denote as :math:`\omega`.
+
+    ii. :math:`I_{3}` is the :math:`3 \times 3` identity matrix, i.e., its diagonal entries are all 1 and all other entries are 0.
+
+    iii. :math:`\vec{q} \ \vec{q}^{\ T}` is the dot product between the quaternion's vector component and itself, which we will denote as :math:`\alpha`
+
+    iv. :math:`[\vec{q}^{\ x}]` is a skew symmetric tensor with axis vector :math:`\vec{q}`. Tensors are a whole beast of their own, so for sanity's sake, we won't go into depth about tensors.
+    
 .. note::
-
-    - :math:`\mathbb{H}` is the set of all quaternions. :raw-html:`<br />`
-
-
-    - *Euler's Rotation Theorem* says that any displacement of a rigid body in 3D space such that a point on said body remains fixed, is equivalent to a single rotation about some axis that runs through the fixed point. This axis is known as an *Euler axis*, denoted as :math:`\vec{e}` or :math:`\hat{e}`. :raw-html:`<br />`
-
-
-    - *Quaternion multiplication* is a non-commutative operation that applies the first rotation followed by the second rotation. :raw-html:`<br />`
-
-
-    - *Conjugate quaternion multiplication* first inverses the vector of a quaternion and then multiplies, which effectively reverse the direction of rotation. :raw-html:`<br />`
-
-
-    - *Rotation matrices* are use in multiplication with column vectors to enact some rotation in the vector's plane by some angle :math:`\theta`. :raw-html:`<br />`
-
 
     - *Tensors* are algebraic objects that describe multilinear relationships between sets of algebraic objects associated with a vector space, such as vectors, scalars, matrices, and other tensors. :raw-html:`<br />`
 
-
     - *Skew-symmetric tensors* are tensors whose components change signs when any two indices are swapped, i.e., for some tensor :math:`T`, we have :math:`T^{T} = -T`. 
+
+:raw-html:`<br />`
+Given each of these components, the resulting rotation matrix should look like:
+
+.. math::
+    C(q) = \begin{pmatrix} \omega & -2(\alpha - q_{0})q_{3} & 2(\alpha - q_{0})q_{2} \\ 2(\alpha - q_{0})q_{3} & \omega & -2(\alpha - q_{0})q_{1} \\ -2(\alpha - q_{0})q_{2} & 2(\alpha - q_{0})q_{1} & \omega \end{pmatrix}
+
+:raw-html:`<br />`
+The difference between Griffin's Eq. 7 and Rico's Eq. 4.1 is merely notational. :math:`\vec{b}` is equivalent to :math:`P_{B}`, :math:`C(q)` is equivalent to :math:`RT_{A\rightarrow B}`, and :math:`\vec{r}` is equivalent to :math:`P_{A}`. 
+
+Thanks to TF2, we don't have to worry about computing any of these intermediate steps. However, understanding the underlying mechanics helps us demystify and appreciate the work that goes on behind the scenes. 
+
 
 
 References
