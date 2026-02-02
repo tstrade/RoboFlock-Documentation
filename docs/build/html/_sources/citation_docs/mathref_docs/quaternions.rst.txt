@@ -98,9 +98,9 @@ A quaternion :math:`q` can also be described by :math:`a + b \hat{\imath} + c \h
 We can think of :math:`q_{0}^{2} + \vec{q}^{T} \vec{q} = 1` in a similar way as the definition of a unit circle, :math:`x^{2} + y^{2} = 1`. Remember that the dot prouct :math:`\vec{q}^{T} \vec{q}` (which is equivalent to :math:`\vec{q} \vec{q}^{T}`) produces a scalar value. If we expand this notation out, our equation looks like this:
 
 .. math::
-    q_{0}^{2} + \sin^{2} \frac{\beta}{2} \cdot (e_{1}^{2} + e_{2}^{2} + e_{3}^{2}) = 1
+    \cos^{2} \frac{\beta}{2} + \sin^{2} \frac{\beta}{2} \cdot (e_{1}^{2} + e_{2}^{2} + e_{3}^{2}) = 1
 
-The other rule, :math:`q = [q_{0} \vec{q}^{T}]^{T}`, simply means that the quaternion :math:`q` is a column vector in which the first entry is the rotational scalar :math:`q_{0}`, and the following three entries correspond to quaternion's 3D vector. 
+The other rule, :math:`q = [q_{0} \vec{q}^{T}]^{T}`, simply means that the quaternion :math:`q` is a column vector in which the first entry is the rotational scalar :math:`q_{0}`, and the following three entries corresponding to quaternion's 3D vector. 
 
 
 3. **Quaternion Multiplication**
@@ -116,7 +116,7 @@ Quaternion multiplication is a non-commutative (i.e., order matters) operation t
 Here we refer to the quaternion's conjugate, which is obtained by negating each of the vector's entries, effectively inverting the direction of the quaternion's vector component. In our case, the conjugate is:
 
 .. math::
-    \overline{q} = \begin{pmatrix} q_{0} \\ -e_{1} \sin \frac{\beta}{2} \\ -e_{2} \sin \frac{\beta}{2} \\ -e_{3} \sin \frac{\beta}{2} \end{pmatrix}
+    \overline{q} = \begin{pmatrix} \cos \frac{\beta}{2} \\ -e_{1} \sin \frac{\beta}{2} \\ -e_{2} \sin \frac{\beta}{2} \\ -e_{3} \sin \frac{\beta}{2} \end{pmatrix}
 
 
 5. **Rotation Matrices**
@@ -127,13 +127,14 @@ Rotation matrices are use in matrix multiplication with column vectors to enact 
 
     ii. :math:`I_{3}` is the :math:`3 \times 3` identity matrix, i.e., its diagonal entries are all 1 and all other entries are 0.
 
-    iii. :math:`\vec{q} \ \vec{q}^{\ T}` is the dot product between the quaternion's vector component and itself, which we will denote as :math:`\alpha`
+    iii. :math:`\vec{q} \ \vec{q}^{\ T}` is the dot product between the quaternion's vector component and itself, which we will denote as :math:`\alpha`.
 
-    iv. :math:`[\vec{q}^{\ x}]` is a skew symmetric tensor with axis vector :math:`\vec{q}`. Tensors are a whole beast of their own, so for sanity's sake, we won't go into depth about tensors.
-    
+    iv. :math:`[\vec{q}^{\ x}]` is a skew symmetric tensor with axis vector :math:`\vec{q}`.
+
 .. note::
-
-    - *Tensors* are algebraic objects that describe multilinear relationships between sets of algebraic objects associated with a vector space, such as vectors, scalars, matrices, and other tensors. :raw-html:`<br />`
+    Tensors are a whole discussion of their own, so we won't go into depth about them, but here's a broad overview:
+    
+    - *Tensors* are algebraic objects that describe multilinear relationships (i.e., relationships between multiple linear variables) between sets of algebraic objects associated with a vector space, such as vectors, scalars, matrices, and other tensors. :raw-html:`<br />`
 
     - *Skew-symmetric tensors* are tensors whose components change signs when any two indices are swapped, i.e., for some tensor :math:`T`, we have :math:`T^{T} = -T`. 
 
@@ -144,9 +145,9 @@ Given each of these components, the resulting rotation matrix should look like:
     C(q) = \begin{pmatrix} \omega & -2(\alpha - q_{0})q_{3} & 2(\alpha - q_{0})q_{2} \\ 2(\alpha - q_{0})q_{3} & \omega & -2(\alpha - q_{0})q_{1} \\ -2(\alpha - q_{0})q_{2} & 2(\alpha - q_{0})q_{1} & \omega \end{pmatrix}
 
 :raw-html:`<br />`
-The difference between Griffin's Eq. 7 and Rico's Eq. 4.1 is merely notational. :math:`\vec{b}` is equivalent to :math:`P_{B}`, :math:`C(q)` is equivalent to :math:`RT_{A\rightarrow B}`, and :math:`\vec{r}` is equivalent to :math:`P_{A}`. 
+Notice the symmetry between the columns and the rows. Each axis moves in its own plane by the scalar :math:`\omega`. In the remaining two planes, the axis moves by the scalar :math:`(\alpha - q_{0})` times the respective vector component :math:`q_{i}`. This is how quaternions end up describing 3D rotations! The rotation angle :math:`\beta`, which controls the value of :math:`q_{0}`, ultimately decides how a quaternion acts on a 3D object. 
 
-Thanks to TF2, we don't have to worry about computing any of these intermediate steps. However, understanding the underlying mechanics helps us demystify and appreciate the work that goes on behind the scenes. 
+In the context of ROS2, we can think of our :code:`odom` frame as being the Euler axis, :math:`\vec{e}`. Describing our translations between frames is essentially defining a value of :math:`\beta` that can enact the necessary rotations between any two frames. By setting up the relationships between frames, we are giving TF2 the information it needs to use dynamic translations that update as the robot moves around. In other words, TF2 gives the robot a sense of its surroundings. 
 
 
 

@@ -13,7 +13,7 @@ Before getting started, make sure you have the following items:
 
 - USB cable
 
-Update Firmware usind SDK Manager
+Update Firmware using SDK Manager
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. On an x86 PC running Ubuntu 22.04 or 20.04, install Nvidia's SDK Manager. 

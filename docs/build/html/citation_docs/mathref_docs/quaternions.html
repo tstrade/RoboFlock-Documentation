@@ -197,8 +197,8 @@ Let’s break this down, one equation at a time:</p>
 </ol>
 <p>We can think of <span class="math notranslate nohighlight">\(q_{0}^{2} + \vec{q}^{T} \vec{q} = 1\)</span> in a similar way as the definition of a unit circle, <span class="math notranslate nohighlight">\(x^{2} + y^{2} = 1\)</span>. Remember that the dot prouct <span class="math notranslate nohighlight">\(\vec{q}^{T} \vec{q}\)</span> (which is equivalent to <span class="math notranslate nohighlight">\(\vec{q} \vec{q}^{T}\)</span>) produces a scalar value. If we expand this notation out, our equation looks like this:</p>
 <div class="math notranslate nohighlight">
-\[q_{0}^{2} + \sin^{2} \frac{\beta}{2} \cdot (e_{1}^{2} + e_{2}^{2} + e_{3}^{2}) = 1\]</div>
-<p>The other rule, <span class="math notranslate nohighlight">\(q = [q_{0} \vec{q}^{T}]^{T}\)</span>, simply means that the quaternion <span class="math notranslate nohighlight">\(q\)</span> is a column vector in which the first entry is the rotational scalar <span class="math notranslate nohighlight">\(q_{0}\)</span>, and the following three entries correspond to quaternion’s 3D vector.</p>
+\[\cos^{2} \frac{\beta}{2} + \sin^{2} \frac{\beta}{2} \cdot (e_{1}^{2} + e_{2}^{2} + e_{3}^{2}) = 1\]</div>
+<p>The other rule, <span class="math notranslate nohighlight">\(q = [q_{0} \vec{q}^{T}]^{T}\)</span>, simply means that the quaternion <span class="math notranslate nohighlight">\(q\)</span> is a column vector in which the first entry is the rotational scalar <span class="math notranslate nohighlight">\(q_{0}\)</span>, and the following three entries corresponding to quaternion’s 3D vector.</p>
 <ol class="arabic simple" start="3">
 <li><p><strong>Quaternion Multiplication</strong></p></li>
 </ol>
@@ -210,7 +210,7 @@ Let’s break this down, one equation at a time:</p>
 </ol>
 <p>Here we refer to the quaternion’s conjugate, which is obtained by negating each of the vector’s entries, effectively inverting the direction of the quaternion’s vector component. In our case, the conjugate is:</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\overline{q} = \begin{pmatrix} q_{0} \\ -e_{1} \sin \frac{\beta}{2} \\ -e_{2} \sin \frac{\beta}{2} \\ -e_{3} \sin \frac{\beta}{2} \end{pmatrix}\end{split}\]</div>
+\[\begin{split}\overline{q} = \begin{pmatrix} \cos \frac{\beta}{2} \\ -e_{1} \sin \frac{\beta}{2} \\ -e_{2} \sin \frac{\beta}{2} \\ -e_{3} \sin \frac{\beta}{2} \end{pmatrix}\end{split}\]</div>
 <ol class="arabic simple" start="5">
 <li><p><strong>Rotation Matrices</strong></p></li>
 </ol>
@@ -219,14 +219,15 @@ Let’s break this down, one equation at a time:</p>
 <div><ol class="lowerroman simple">
 <li><p><span class="math notranslate nohighlight">\(q_{0}^{2} - \vec{q}^{\ T} \vec{q}\)</span> results in an arbitrary scalar value that we’ll denote as <span class="math notranslate nohighlight">\(\omega\)</span>.</p></li>
 <li><p><span class="math notranslate nohighlight">\(I_{3}\)</span> is the <span class="math notranslate nohighlight">\(3 \times 3\)</span> identity matrix, i.e., its diagonal entries are all 1 and all other entries are 0.</p></li>
-<li><p><span class="math notranslate nohighlight">\(\vec{q} \ \vec{q}^{\ T}\)</span> is the dot product between the quaternion’s vector component and itself, which we will denote as <span class="math notranslate nohighlight">\(\alpha\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\([\vec{q}^{\ x}]\)</span> is a skew symmetric tensor with axis vector <span class="math notranslate nohighlight">\(\vec{q}\)</span>. Tensors are a whole beast of their own, so for sanity’s sake, we won’t go into depth about tensors.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\vec{q} \ \vec{q}^{\ T}\)</span> is the dot product between the quaternion’s vector component and itself, which we will denote as <span class="math notranslate nohighlight">\(\alpha\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\([\vec{q}^{\ x}]\)</span> is a skew symmetric tensor with axis vector <span class="math notranslate nohighlight">\(\vec{q}\)</span>.</p></li>
 </ol>
 </div></blockquote>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
+<p>Tensors are a whole discussion of their own, so we won’t go into depth about them, but here’s a broad overview:</p>
 <ul class="simple">
-<li><p><em>Tensors</em> are algebraic objects that describe multilinear relationships between sets of algebraic objects associated with a vector space, such as vectors, scalars, matrices, and other tensors. <span class="raw-html"><br /></span></p></li>
+<li><p><em>Tensors</em> are algebraic objects that describe multilinear relationships (i.e., relationships between multiple linear variables) between sets of algebraic objects associated with a vector space, such as vectors, scalars, matrices, and other tensors. <span class="raw-html"><br /></span></p></li>
 <li><p><em>Skew-symmetric tensors</em> are tensors whose components change signs when any two indices are swapped, i.e., for some tensor <span class="math notranslate nohighlight">\(T\)</span>, we have <span class="math notranslate nohighlight">\(T^{T} = -T\)</span>.</p></li>
 </ul>
 </div>
@@ -235,8 +236,8 @@ Given each of these components, the resulting rotation matrix should look like:<
 <div class="math notranslate nohighlight">
 \[\begin{split}C(q) = \begin{pmatrix} \omega &amp; -2(\alpha - q_{0})q_{3} &amp; 2(\alpha - q_{0})q_{2} \\ 2(\alpha - q_{0})q_{3} &amp; \omega &amp; -2(\alpha - q_{0})q_{1} \\ -2(\alpha - q_{0})q_{2} &amp; 2(\alpha - q_{0})q_{1} &amp; \omega \end{pmatrix}\end{split}\]</div>
 <p><span class="raw-html"><br /></span>
-The difference between Griffin’s Eq. 7 and Rico’s Eq. 4.1 is merely notational. <span class="math notranslate nohighlight">\(\vec{b}\)</span> is equivalent to <span class="math notranslate nohighlight">\(P_{B}\)</span>, <span class="math notranslate nohighlight">\(C(q)\)</span> is equivalent to <span class="math notranslate nohighlight">\(RT_{A\rightarrow B}\)</span>, and <span class="math notranslate nohighlight">\(\vec{r}\)</span> is equivalent to <span class="math notranslate nohighlight">\(P_{A}\)</span>.</p>
-<p>Thanks to TF2, we don’t have to worry about computing any of these intermediate steps. However, understanding the underlying mechanics helps us demystify and appreciate the work that goes on behind the scenes.</p>
+Notice the symmetry between the columns and the rows. Each axis moves in its own plane by the scalar <span class="math notranslate nohighlight">\(\omega\)</span>. In the remaining two planes, the axis moves by the scalar <span class="math notranslate nohighlight">\((\alpha - q_{0})\)</span> times the respective vector component <span class="math notranslate nohighlight">\(q_{i}\)</span>. This is how quaternions end up describing 3D rotations! The rotation angle <span class="math notranslate nohighlight">\(\beta\)</span>, which controls the value of <span class="math notranslate nohighlight">\(q_{0}\)</span>, ultimately decides how a quaternion acts on a 3D object.</p>
+<p>In the context of ROS2, we can think of our <code class="code docutils literal notranslate"><span class="pre">odom</span></code> frame as being the Euler axis, <span class="math notranslate nohighlight">\(\vec{e}\)</span>. Describing our translations between frames is essentially defining a value of <span class="math notranslate nohighlight">\(\beta\)</span> that can enact the necessary rotations between any two frames. By setting up the relationships between frames, we are giving TF2 the information it needs to use dynamic translations that update as the robot moves around. In other words, TF2 gives the robot a sense of its surroundings.</p>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Link to this heading"></a></h2>
 <p>Rico, F. (2023). <em>A Concise Introduction to Robot Programming with ROS2.</em> CRC Press.</p>

@@ -129,11 +129,11 @@ dumping search index in English (code: en)... done
 dumping object inventory... done
 
 ====================== slowest reading durations =======================
-0.052 index
-0.031 hardware_docs/rp_lidar
-0.030 citation_docs/mathref_docs/quaternions
-0.027 description_docs/tracking
-0.024 tutorial_docs/cmakelists
+0.028 hardware_docs/rp_lidar
+0.025 citation_docs/mathref_docs/quaternions
+0.024 index
+0.024 description_docs/tracking
+0.020 citation_docs/additional_info
 build succeeded.
 
 The HTML pages are in build/html.
