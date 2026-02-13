@@ -154,6 +154,7 @@ In the context of ROS2, we can think of our :code:`odom` frame as being the Eule
 References
 ^^^^^^^^^^
 
+Griffin, S. (Ed.). (2017). *Quaternions : Theory and applications.* Nova Science Publishers, Incorporated.
+
 Rico, F. (2023). *A Concise Introduction to Robot Programming with ROS2.* CRC Press. 
 
-Griffin, S. (Ed.). (2017). *Quaternions : Theory and applications.* Nova Science Publishers, Incorporated.

@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mathematics References &mdash; RoboFlock 1.1 documentation</title>
+  <title>Real-Time Kinematic Positioning &mdash; RoboFlock 1.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -20,11 +20,12 @@
       <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Rotations with Quaternions" href="quaternions.html" />
-    <link rel="prev" title="Additional Information" href="../additional_info.html" /> 
+    <link rel="next" title="Bibliography" href="../bibliography.html" />
+    <link rel="prev" title="Rotations with Quaternions" href="quaternions.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -87,9 +88,9 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../additional_info.html">Additional Information</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Mathematics References</a><ul>
+<li class="toctree-l2 current"><a class="reference internal" href="mathref.html">Mathematics References</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="quaternions.html">Rotations with Quaternions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="rtk.html">Real-Time Kinematic Positioning</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Real-Time Kinematic Positioning</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
@@ -114,35 +115,58 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../additional_info.html">Additional Information</a></li>
-      <li class="breadcrumb-item active">Mathematics References</li>
+          <li class="breadcrumb-item"><a href="mathref.html">Mathematics References</a></li>
+      <li class="breadcrumb-item active">Real-Time Kinematic Positioning</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../../_sources/citation_docs/mathref_docs/mathref.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/citation_docs/mathref_docs/rtk.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
-        <a href="../additional_info.html" class="btn btn-neutral float-left" title="Additional Information" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="quaternions.html" class="btn btn-neutral float-right" title="Rotations with Quaternions" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="quaternions.html" class="btn btn-neutral float-left" title="Rotations with Quaternions" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../bibliography.html" class="btn btn-neutral float-right" title="Bibliography" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="mathematics-references">
-<h1>Mathematics References<a class="headerlink" href="#mathematics-references" title="Link to this heading"></a></h1>
+  <section id="real-time-kinematic-positioning">
+<h1>Real-Time Kinematic Positioning<a class="headerlink" href="#real-time-kinematic-positioning" title="Link to this heading"></a></h1>
+<p>Reliable GPS data is a necessity for RoboFlock. Without it, the robot wouldn’t be able to find its user. Using the NEO-N8P and ZED-F9P GNSS modules, which have integrated RTK, we can obtain centimeter-level accuracy about the location of the robot and its user.</p>
+<p>GNSS uses signals from multiple satellites that a receiver can use to pinpoint its location in 3D space through a process called <em>trilateration</em>. The receiver measures the ToF from any given satellite and then generates a copy of the signal. The amount of time required to align the signals, based on the receiver’s internal frequency, eventually produces the receiver’s <em>pseudorange observation</em>. We use the prefix <em>pseudo</em> because the data is still noisy and needs further processing.</p>
+<p>The receiver also measures the the phase difference between the original signal and its copied version using a PLL. This is the receiver’s <em>carrier-phase measurement</em>. Since the signal has a very small wavelength, this measurement is more precise the the pseudorange observation.</p>
+<p>Without combining these observations or correcting for error, we can mathematically represent the pseudorange, <span class="math notranslate nohighlight">\(P_{r,j}^{s}\)</span>, and the carrier-phase, <span class="math notranslate nohighlight">\(\Phi_{r,j}^{k}\)</span>, for receiver <span class="math notranslate nohighlight">\(r\)</span> and satellite <span class="math notranslate nohighlight">\(s\)</span> with frequency <span class="math notranslate nohighlight">\(f\)</span> at epoch <span class="math notranslate nohighlight">\(k\)</span> as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align} P_{r, j}^{s} (k) &amp;= \varrho_{r}^{s} (k, k - \delta) + cdt_{r}(k) - cdt^{2}(k - \delta) + D_{r, j}(k) \\ &amp;- d_{j}^{s} (k - \delta) + \mathcal{E}_{r,j}^{s} \\ \\ \Phi_{r,j}^{s} &amp;= \varrho_{r}^{s} (k, k - \delta) + cdt_{r}(k) - cdt^{2}(k - \delta) + B_{r, j}(k) \\ &amp;- b_{j}^{s} (k - \delta) + \lambda_{j}a_{r,j}^{s} + \mathcal{e}_{r,j}^{s} \end{align}\end{split}\]</div>
+<p>where</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="quaternions.html"><span class="doc">Rotations with Quaternions</span></a></p></li>
-<li><p><a class="reference internal" href="rtk.html"><span class="doc">Real-Time Kinematic Positioning</span></a></p></li>
+<li><p><span class="math notranslate nohighlight">\(\varrho_{r}^{s}\)</span> is the satellite-to-receiver range (m),</p></li>
+<li><p><span class="math notranslate nohighlight">\(c\)</span> is the speed of light in a vacuum (m/s),</p></li>
+<li><p><span class="math notranslate nohighlight">\(\delta\)</span> is the signal travel time (s),</p></li>
+<li><p><span class="math notranslate nohighlight">\(dt_{r}\)</span> / <span class="math notranslate nohighlight">\(dt^{s}\)</span> is the receiver/satellite clock offset (s),</p></li>
+<li><p><span class="math notranslate nohighlight">\(D_{r,j}\)</span> / <span class="math notranslate nohighlight">\(d_{j}^{s}\)</span> is the receiver/satellite code hardware delay (m),</p></li>
+<li><p><span class="math notranslate nohighlight">\(B_{r,j}^{s}\)</span> / <span class="math notranslate nohighlight">\(b_{j}^{s}\)</span> is the receiver/satellite phase hardware delay (m),</p></li>
+<li><p><span class="math notranslate nohighlight">\(\lambda_{j}\)</span> is the signal’s wavelength (m/cycle), and</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathcal{E}_{r,j}^{s}\)</span> / <span class="math notranslate nohighlight">\(\mathcal{e}_{r,j}^{s}\)</span> is a substitute for additional error factors, e.g. atmospheric delay, which have been condensed here for simplicity.</p></li>
 </ul>
-<div class="toctree-wrapper compound">
-</div>
+<p>All the different symbols may make these equations look complex, but they each describe exactly what was discussed above. Synchronization delay and ToF data, along with some physical constants like the speed of light and signal wavelength, are used to generate the values of the pseudorange and carrier-phase observations.</p>
+<p>RTK uses a <em>double differenced (DD) operator</em>, which uses data between two satellites and two receivers to effectively eliminate error caused by hardware delays.</p>
+<p>For a more in-depth discussion about the error factors, and GNSS RTK in general, check out “GNSS Real-Time Kinematic Positioning: Theory and Applications” (Li, 2025).</p>
+<p class="colored-definitions"><strong>GNSS</strong> - Global Navigation Satellite System</p>
+<p class="colored-definitions"><strong>RTK</strong> - Real-Time Kinematic</p>
+<p class="colored-definitions"><strong>ToF</strong> - Time of Flight</p>
+<p class="colored-definitions"><strong>PLL</strong> - Phase-Locked Loop</p>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading"></a></h2>
+<p>Li, Bofeng, et al. (2025). GNSS Real-Time Kinematic Positioning: Theory and Applications. Springer, 2025.</p>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../additional_info.html" class="btn btn-neutral float-left" title="Additional Information" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="quaternions.html" class="btn btn-neutral float-right" title="Rotations with Quaternions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="quaternions.html" class="btn btn-neutral float-left" title="Rotations with Quaternions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../bibliography.html" class="btn btn-neutral float-right" title="Bibliography" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

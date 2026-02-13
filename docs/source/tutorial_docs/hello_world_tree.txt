@@ -3,15 +3,23 @@
 ├── install
 ├── log
 └── src
-    ├── build
-    ├── hello_world_pkg
-    │   ├── include
-    │   │   └── hello_world_pkg
-    │   │       ├── greetings
-    │   │       └── salutations
-    │   └── src
-    │       ├── greetings
-    │       └── salutations
-    ├── install
-    └── log
-
+    └── hello_world_pkg
+        ├── CMakeLists.txt
+        ├── include
+        │   └── hello_world_pkg
+        │       ├── greetings
+        │       │   ├── hello_source1.hpp
+        │       │   └── hello_source2.hpp
+        │       └── salutations
+        │           ├── goodbye_source1.hpp
+        │           └── goodbye_source2.hpp
+        ├── LICENSE
+        ├── package.xml
+        └── src
+            ├── greetings
+            │   ├── hello_source1.cpp
+            │   └── hello_source2.cpp
+            ├── hello_world_node.cpp
+            └── salutations
+                ├── goodbye_source1.cpp
+                └── goodbye_source2.cpp

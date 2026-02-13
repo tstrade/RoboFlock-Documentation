@@ -51,16 +51,16 @@ ROS2 allows for a complex network of packages and nodes to interact with one ano
     find_package(std_msgs REQUIRED)    # ROS2 standard msg types
 
 
-Now that we have our compatibility requirements, we need to make sure that the compiler can find all our files and properly link libraries. First, let's tell the compiler where to search for included files:
+Now that we have our compatibility requirements, we need to make sure that the compiler can find all our files, properly link libraries, etc. First, let's tell the compiler where to search for included files:
 
 .. code-block:: cmake
     :lineno-start: 15
 
     # Adds include/ directory to compiler's search path for ALL targets
-    #   This allows for the preprocessor directive "#include" to work properly for our code
+    #   This is what allows for the preprocessor directive "#include" to work on our files
     #
     include_directories(
-        include
+        include/${PROJECT_NAME}/
     )
 
 
@@ -68,6 +68,26 @@ Next, we'll handle our source files. We can organize all the source files into a
 
 .. code-block:: cmake
     :lineno-start: 21
+
+    # Creates the variable LIB_HEADER_FILES used to organize header files for the library
+    #
+    set (LIB_HEADER_FILES
+        include/${PROJECT_NAME}/greetings/hello_source1.hpp
+        include/${PROJECT_NAME}/greetings/hello_source2.hpp
+        include/${PROJECT_NAME}/salutations/goodbye_source1.hpp
+        include/${PROJECT_NAME}/salutations/goodbye_source2.hpp
+
+    )
+
+    # Loop through each file in LIB_HEADER_FILES to make sure that they exist
+    #
+    foreach(hdr_file ${LIB_HEADER_FILES})
+        if(NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${hdr_file})
+            message(WARNING "Header file not found: ${hdr_file}")
+        else()
+            message(STATUS "Found header file: ${hdr_file}")
+        endif()
+    endforeach()
 
     # Creates the variable LIB_SOURCE_FILES used to organize source files for the library
     #
@@ -95,21 +115,21 @@ Libraries are collections of pre-written code that help with code reusability an
 
 - *Shared (Dynamic) libraries* contain compiled code only for required files and are loaded at runtime
 
-
-Let's add a library target to be built from the source files and then link everything together. The heavy-lifters here will be the :code:`target_include_directories()` and :code:`target_link_libraries()` commands. We can use the :code:`PUBLIC` keyword to make our custom library visible to other packages, allowing it to be added as a dependency:
+If this package is intended to be used by downstream packages, we can create our own library. To add a library, there are configuration rules that need to be defined so that it uses the correct source code and that everything is properly linked together. The heavy-lifters here will be the :code:`target_include_directories()` and :code:`target_link_libraries()` commands:
 
 .. code-block:: cmake
-    :lineno-start: 39
+    :lineno-start: 56
 
     # Create the library target
     #
-    add_library(${PROJECT_NAME}_lib ${LIB_SOURCE_FILES})
+    add_library(${PROJECT_NAME}_lib ${LIB_SOURCE_FILES} ${LIB_HEADER_FILES})
 
     # Add the include path to the library target
     #   PUBLIC indicates that both the library target and anything linking to it gets these includes
     #
     target_include_directories(${PROJECT_NAME}_lib PUBLIC
-        include
+	    "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+	    "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>"
     )
 
     # Tell the linker which specific libraries to use when linking the target and its dependents
@@ -120,11 +140,41 @@ Let's add a library target to be built from the source files and then link every
         ${std_msgs_LIBRARIES}
     )
 
+    # Specify that our library's include directory is installed into the workspace's include directory
+    #
+    install(DIRECTORY include/${PROJECT_NAME}
+        DESTINATION include
+    )
 
-In order to run our ROS2 node, we're going to need an executable:
+    # Specify that our library will be installed as a shared library, a static library, and as a binary
+    #   Also, export the library so that it can be used downstream and provide correct environment variables
+    install(TARGETS ${PROJECT_NAME}_lib
+        EXPORT ${PROJECT_NAME}_lib_targets
+        LIBRARY DESTINATION lib # shared library (.so)
+        ARCHIVE DESTINATION lib # static library (.a)
+        RUNTIME DESTINATION bin # executable
+        INCLUDES DESTINATION include/${PROJECT_NAME}
+    )
+
+
+Next, we'll use :code:`ament_cmake`, which is the build system for C++ packages in ROS2, to make our package discoverable to other ROS2 packages:
 
 .. code-block:: cmake
-    :lineno-start: 57
+    :lineno-start: 91
+
+    # Export the corresponding objects for CMake, allowing the library's clients to use the
+    #   `target_link_libraries(client hello_world_pkg_lib::hello_world_pkg_lib)` syntax
+    #
+    ament_export_include_directories(include)
+    ament_export_libraries(${PROJECT_NAME}_lib)
+    ament_export_targets(${PROJECT_NAME}_lib_targets HAS_LIBRARY_TARGET)
+    ament_export_dependencies(rclcpp std_msgs)
+
+
+In order for us to use our ROS2 node, we're going to need an executable. This is the first step to getting the command :code:`ros2 run [package name] [node name]` to work. The executable's name should be the same as the node's name. Then we'll set the visibility, configuration, and installation rules.
+
+.. code-block:: cmake
+    :lineno-start: 98
 
     # Add an executable target to be built from our node's source code
     #
@@ -133,54 +183,33 @@ In order to run our ROS2 node, we're going to need an executable:
     # Tell the compiler what include directories we want to use
     #   PRIVATE indicates that our include/ directory is only available to our source code and is not propagated to other targets
     #
-    target_include_directories(hello_world_node PRIVATE include)
+    target_include_directories(hello_world_node PRIVATE
+        "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+	    "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>"
+    )
 
     # Tell the linker which specific libraries to use when linking the executable target
-    #   Usage requirements are propagated
     #
-    target_link_libraries(hello_world_node PUBLIC
+    target_link_libraries(hello_world_node 
         ${PROJECT_NAME}_lib
         rclcpp::rclcpp
         ${std_msgs_TARGETS}
     )
 
-
-The CML file should specify where our libraries and executable are being installed by generating a set of rules using the :code:`install()` command. We'll also create static and shared libraries and executables that can be used by other packages:
-
-.. code-block:: cmake
-    :lineno-start: 74
-
-    # Specify that our node's executable and custom library will be installed into lib/hello_world_pkg
-    #   Then, we'll specify options for our output artifacts (compiled binaries generated during the build process)
-    install(TARGETS 
-        hello_world_node 
-        ${PROJECT_NAME}_lib 
+    # Specify that our node's executable will be installed into lib/hello_world_pkg
+    # 
+    install(TARGETS hello_world_node 
         DESTINATION lib/${PROJECT_NAME}
-        ARCHIVE DESTINATION lib         # Static libraries (.a)
-        LIBRARY DESTINATION lib         # Shared libraries (.so)
-        RUNTIME DESTINATION bin         # Executables
     )
 
-    # Specify that our custom include files will be installed in include
-    install(DIRECTORY include/
-        DESTINATION include/
-    )
 
-*Note: the paths provided here are relative to the project's directory found in* :code:`install/` *. For our example, the path to our include files looks like:* :code:`ros2env_rootdir/install/hello_world_pkg/include`
-
-
-Finally, we'll use :code:`ament_cmake`, which is the build system for C++ packages in ROS2, to make our package discoverable to other ROS2 packages. The last line is *essential* to the entire CML file because it generates configuration files and setup scripts. It also registers our package in the ROS2 workspace, allowing us to actually run the node.
+This last line is *essential* to the entire CML file because it generates all of the configuration files and setup scripts. It also registers our package in the ROS2 workspace, allowing us to run the node.
 
 .. code-block:: cmake
-    :lineno-start: 89
-
-    ament_export_include_directories(include)
-    ament_export_libraries(${PROJECT_NAME}_lib)
-    ament_export_dependencies(rclcpp std_msgs)
+    :lineno-start: 123
 
     # Last line of the CML file
     ament_package()
         
 
-Now you should be able to write, build, and run your own C++ packages in ROS2 without CMake semantics slowing you down! Simply substitute your directory and file names for the names used in this example.
-
+Now you should be able to write, build, and run your own C++ packages in ROS2 without CMake semantics slowing you down! Simply substitute your directory and file names for the names used in this example. 

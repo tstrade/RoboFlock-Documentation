@@ -64,7 +64,7 @@ Write Image to the microSD Card (Etcher Method)
 
 1. Download the Jetson Orin Nano Developer Kit SD Card image from `JetPack SDK Page <jpsdk_>`_
 
-2. Write the image to your microSD card by following the instructions below (if using Windows or Mac, click `here <writesd_>`_ for instructions).
+2. Write the image to your microSD card by following the instructions below (if using Windows or Mac, click `here for instructions <writesd_>`_).
 
     a. Download, install, and launch `balenaEtcher <etcher_>`_
 
@@ -131,7 +131,7 @@ The Nvidia Jetson Orin Nano is now properly setup! Continue to :doc:`init_dev` t
 
 .. _gettingstarted: https://developer.nvidia.com/embedded/learn/get-started-jetson-orin-nano-devkit#intro
 
-.. _jpsdk: https://developer.nvidia.com/embedded/jetpack
+.. _jpsdk: https://developer.nvidia.com/downloads/embedded/l4t/r36_release_v4.3/jp62-orin-nano-sd-card-image.zip
 
 .. _writesd: https://developer.nvidia.com/embedded/learn/get-started-jetson-orin-nano-devkit#write
 

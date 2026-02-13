@@ -16,3 +16,16 @@ body {
     background-color: #f0f0f0;
     padding: 10px;
 }
+
+.colored-definitions {
+    background-color: #eef2f5;
+    border: 1px solid #c9d2d9;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.color-definitions dl dt {
+    color: #2980b9;
+    font-weight: bold;
+}

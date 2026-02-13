@@ -10,7 +10,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=2ae993db" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=8f3c863a" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
@@ -89,6 +89,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../citation_docs/additional_info.html">Additional Information</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../citation_docs/mathref_docs/mathref.html">Mathematics References</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../citation_docs/mathref_docs/quaternions.html">Rotations with Quaternions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../citation_docs/mathref_docs/rtk.html">Real-Time Kinematic Positioning</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../citation_docs/bibliography.html">Bibliography</a></li>
@@ -128,6 +129,65 @@
              
   <section id="initializing-roboflock-developers">
 <h1>Initializing RoboFlock (Developers)<a class="headerlink" href="#initializing-roboflock-developers" title="Link to this heading"></a></h1>
+<p>Installing ROS2</p>
+<p>Roboflock Repo</p>
+<section id="managing-usb-devices">
+<h2>Managing USB Devices<a class="headerlink" href="#managing-usb-devices" title="Link to this heading"></a></h2>
+<p>RoboFlock reads from multiple USB devices and it is important that these do not get mixed up. When a USB device is plugged in, Linux adds an entry for the device to the <code class="code docutils literal notranslate"><span class="pre">/dev/</span></code> directory and gives it a name such as <code class="code docutils literal notranslate"><span class="pre">/dev/ttyUSB0</span></code>. The issue here is that we can’t guarantee that our devices will be given the same entry name everytime. The solution is to create a Udev rule that assigns a <em>symbolic link</em> to the device based on details such as the product ID.</p>
+<p>To do this, first plug in the device and find its entry name by either manually checking the <code class="code docutils literal notranslate"><span class="pre">/dev/</span></code> directory, or by running the command <code class="code docutils literal notranslate"><span class="pre">dmesg</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">ttyUSB*</span></code>. Next, we need to grab some identifiers about the USB device. To do this, run the following using the appropriate name for your device:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>udevadm<span class="w"> </span>info<span class="w"> </span>--name<span class="o">=</span>/dev/ttyUSB0<span class="w"> </span>--attribute-walk
+</pre></div>
+</div>
+<p>You can either scroll through the output or use the command <code class="code docutils literal notranslate"><span class="pre">grep</span></code> to find the correct values from <code class="code docutils literal notranslate"><span class="pre">ATTRS{idVendor}==&quot;xxxx&quot;</span></code>, <code class="code docutils literal notranslate"><span class="pre">ATTRS{idProduct}==&quot;yyyy&quot;</span></code>, and <code class="code docutils literal notranslate"><span class="pre">ATTRS{serial}=&quot;zzzzzzzz&quot;</span></code>. Now we can write our custom rule for the USB device. Create the rules file:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>gedit<span class="w"> </span>/etc/udev/rules.d/99-my-serial.rules
+</pre></div>
+</div>
+<p>and write the following content:</p>
+<blockquote>
+<div><p>SUBSYSTEM==”tty”, ATTRS{idVendor}==”xxxx”, ATTRS{idProduct}==”yyyy”, ATTRS{serial}==”zzzzzzzz”, SYMLINK+=”my_usb”</p>
+</div></blockquote>
+</section>
+<section id="configuring-the-40-pin-header">
+<h2>Configuring the 40-Pin Header<a class="headerlink" href="#configuring-the-40-pin-header" title="Link to this heading"></a></h2>
+<p><strong>Graphical User Interface</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>/opt/nvidia/jetson-io/jetson-io.py
+</pre></div>
+</div>
+<p>Export as Device-Tree Overlay (DTBO) - stores file in <code class="code docutils literal notranslate"><span class="pre">/boot/</span></code> directory</p>
+<p><strong>Command Line Interface</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Display<span class="w"> </span>current<span class="w"> </span>config<span class="w"> </span>&gt;&gt;<span class="w"> </span>config-by-pin.py<span class="w"> </span><span class="o">[</span>&lt;options&gt;<span class="o">]</span>
+
+<span class="gp"># </span>Ex.<span class="o">)</span><span class="w"> </span>Display<span class="w"> </span>config<span class="w"> </span>of<span class="w"> </span>pin<span class="w"> </span><span class="m">10</span><span class="w"> </span>on<span class="w"> </span>expansion<span class="w"> </span>header<span class="w"> </span><span class="m">2</span>
+<span class="gp">$ </span>sudo<span class="w"> </span>/opt/nvidia/jetson-io/config-by-pin.py<span class="w"> </span>-p<span class="w"> </span><span class="m">10</span><span class="w"> </span>-n<span class="w"> </span><span class="m">2</span>
+
+<span class="gp"># </span>Displays<span class="w"> </span>and<span class="w"> </span>configures<span class="w"> </span>I/O<span class="w"> </span>functions<span class="w"> </span>&gt;&gt;<span class="w"> </span>config-by-function.py<span class="w"> </span><span class="o">[</span>&lt;options&gt;<span class="o">]</span>
+
+<span class="gp"># </span>Ex.<span class="o">)</span><span class="w"> </span>Create<span class="w"> </span>new<span class="w"> </span>overlay<span class="w"> </span>with<span class="w"> </span>header<span class="w"> </span>pin<span class="w"> </span><span class="m">1</span><span class="w"> </span>configured
+<span class="gp">#   </span><span class="k">for</span><span class="w"> </span>i2s4/spi1<span class="w"> </span>and<span class="w"> </span>header<span class="w"> </span>pin<span class="w"> </span><span class="m">2</span><span class="w"> </span>configured<span class="w"> </span><span class="k">for</span><span class="w"> </span>dmic2
+<span class="gp">$ </span>sudo<span class="w"> </span>/opt/nvidia/jetson-io/config-by-function.py<span class="w"> </span>-o<span class="w"> </span>dtbo<span class="w"> </span><span class="nv">1</span><span class="o">=</span><span class="s2">&quot;i2s4 spi1&quot;</span><span class="w"> </span><span class="nv">2</span><span class="o">=</span>dmic2
+
+<span class="gp"># </span>Displays<span class="w"> </span>and<span class="w"> </span>configures<span class="w"> </span>hardware<span class="w"> </span>modules<span class="w"> </span>&gt;&gt;<span class="w"> </span>config-by-hardware.py<span class="w"> </span><span class="o">[</span>&lt;options&gt;<span class="o">]</span>
+
+<span class="gp"># </span>Ex.<span class="o">)</span><span class="w"> </span>Configure<span class="w"> </span>header<span class="w"> </span>pin<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>the<span class="w"> </span>Adafruit<span class="w"> </span>SPH0645LM4H
+<span class="gp">$ </span>sudo<span class="w"> </span>/opt/nvidia/jetson-io/config-by-hardware.py<span class="w"> </span>-n<span class="w"> </span><span class="nv">1</span><span class="o">=</span><span class="s2">&quot;Adafruit SPH0645LM4H&quot;</span>
+</pre></div>
+</div>
+<p><strong>Device Tree Overlays</strong></p>
+<p>Device tree overlay files (<code class="code docutils literal notranslate"><span class="pre">.dtbo</span></code> files) allow for custom hardware support and must define the following properties:</p>
+<ul>
+<li><p><code class="code docutils literal notranslate"><span class="pre">overlay-name</span></code>: Unique name to distinguish overlay from others</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">jetson-header-name</span></code>: Associates device with the following hardware:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><em>40-Pin Expansion Header</em> = “Jetson 40pin Header”</p></li>
+<li><p><em>M.2 Key E Slot</em> = “Jetson M.2 Key E Slot”</p></li>
+<li><p><em>CSI Connector</em> = “Jetson AGX Xavier CSI Connector”</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">compatible</span></code>: Indicates which Jetson modules and carrier board the overlay supports. The correct string for your device can be found using the command <code class="code docutils literal notranslate"><span class="pre">cat</span> <span class="pre">/sys/firmware/devicetree/base/compatible</span></code>, or see here for the <a class="reference external" href="https://docs.nvidia.com/jetson/archives/r35.3.1/DeveloperGuide/text/HR/ConfiguringTheJetsonExpansionHeaders.html" rel="noreferrer" target="_blank">complete table of valid property values</a>.</p></li>
+</ul>
+</section>
 </section>
 
 

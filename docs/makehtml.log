@@ -1,44 +1,45 @@
 Running Sphinx v8.2.3
 loading translations [en]... done
-[autosummary] generating autosummary for: citation_docs/additional_info.rst, citation_docs/appendix_a.rst, citation_docs/appendix_b.rst, citation_docs/bibliography.rst, citation_docs/mathref_docs/mathref.rst, citation_docs/mathref_docs/quaternions.rst, construction_docs/chassis_design.rst, construction_docs/constructing_the_roboflock.rst, construction_docs/construction.rst, construction_docs/wiring_specifications.rst, ..., hardware_docs/zed_f9p.rst, index.rst, overview.rst, tutorial_docs/cmakelists.rst, tutorial_docs/init_dev.rst, tutorial_docs/init_users.rst, tutorial_docs/jetson_config.rst, tutorial_docs/roboflock_topics.rst, tutorial_docs/rtk_gps.rst, tutorial_docs/tutorials.rst
+[autosummary] generating autosummary for: citation_docs/additional_info.rst, citation_docs/appendix_a.rst, citation_docs/appendix_b.rst, citation_docs/bibliography.rst, citation_docs/mathref_docs/mathref.rst, citation_docs/mathref_docs/quaternions.rst, citation_docs/mathref_docs/rtk.rst, construction_docs/chassis_design.rst, construction_docs/constructing_the_roboflock.rst, construction_docs/construction.rst, ..., hardware_docs/zed_f9p.rst, index.rst, overview.rst, tutorial_docs/cmakelists.rst, tutorial_docs/init_dev.rst, tutorial_docs/init_users.rst, tutorial_docs/jetson_config.rst, tutorial_docs/roboflock_topics.rst, tutorial_docs/rtk_gps.rst, tutorial_docs/tutorials.rst
 building [mo]: targets for 0 po files that are out of date
 writing output... 
-building [html]: targets for 38 source files that are out of date
-updating environment: [new config] 38 added, 0 changed, 0 removed
+building [html]: targets for 39 source files that are out of date
+updating environment: [new config] 39 added, 0 changed, 0 removed
 reading sources... [  3%] citation_docs/additional_info
 reading sources... [  5%] citation_docs/appendix_a
 reading sources... [  8%] citation_docs/appendix_b
-reading sources... [ 11%] citation_docs/bibliography
+reading sources... [ 10%] citation_docs/bibliography
 reading sources... [ 13%] citation_docs/mathref_docs/mathref
-reading sources... [ 16%] citation_docs/mathref_docs/quaternions
-reading sources... [ 18%] construction_docs/chassis_design
-reading sources... [ 21%] construction_docs/constructing_the_roboflock
-reading sources... [ 24%] construction_docs/construction
-reading sources... [ 26%] construction_docs/wiring_specifications
-reading sources... [ 29%] description_docs/functionality
-reading sources... [ 32%] description_docs/future_considerations
-reading sources... [ 34%] description_docs/interactions_with_the_surroundings
-reading sources... [ 37%] description_docs/nvidia_jetson_orin_nano
-reading sources... [ 39%] description_docs/software
-reading sources... [ 42%] description_docs/tracking
-reading sources... [ 45%] hardware_docs/arduino
-reading sources... [ 47%] hardware_docs/brushed
-reading sources... [ 50%] hardware_docs/esc
-reading sources... [ 53%] hardware_docs/hardware
-reading sources... [ 55%] hardware_docs/hc_12
-reading sources... [ 58%] hardware_docs/hc_sr04
-reading sources... [ 61%] hardware_docs/imu
-reading sources... [ 63%] hardware_docs/jetson_devkit
-reading sources... [ 66%] hardware_docs/max_17048
-reading sources... [ 68%] hardware_docs/neo_m8p
-reading sources... [ 71%] hardware_docs/rp_lidar
+reading sources... [ 15%] citation_docs/mathref_docs/quaternions
+reading sources... [ 18%] citation_docs/mathref_docs/rtk
+reading sources... [ 21%] construction_docs/chassis_design
+reading sources... [ 23%] construction_docs/constructing_the_roboflock
+reading sources... [ 26%] construction_docs/construction
+reading sources... [ 28%] construction_docs/wiring_specifications
+reading sources... [ 31%] description_docs/functionality
+reading sources... [ 33%] description_docs/future_considerations
+reading sources... [ 36%] description_docs/interactions_with_the_surroundings
+reading sources... [ 38%] description_docs/nvidia_jetson_orin_nano
+reading sources... [ 41%] description_docs/software
+reading sources... [ 44%] description_docs/tracking
+reading sources... [ 46%] hardware_docs/arduino
+reading sources... [ 49%] hardware_docs/brushed
+reading sources... [ 51%] hardware_docs/esc
+reading sources... [ 54%] hardware_docs/hardware
+reading sources... [ 56%] hardware_docs/hc_12
+reading sources... [ 59%] hardware_docs/hc_sr04
+reading sources... [ 62%] hardware_docs/imu
+reading sources... [ 64%] hardware_docs/jetson_devkit
+reading sources... [ 67%] hardware_docs/max_17048
+reading sources... [ 69%] hardware_docs/neo_m8p
+reading sources... [ 72%] hardware_docs/rp_lidar
 reading sources... [ 74%] hardware_docs/servo
-reading sources... [ 76%] hardware_docs/zed_f9p
+reading sources... [ 77%] hardware_docs/zed_f9p
 reading sources... [ 79%] index
 reading sources... [ 82%] overview
-reading sources... [ 84%] tutorial_docs/cmakelists
+reading sources... [ 85%] tutorial_docs/cmakelists
 reading sources... [ 87%] tutorial_docs/init_dev
-reading sources... [ 89%] tutorial_docs/init_users
+reading sources... [ 90%] tutorial_docs/init_users
 reading sources... [ 92%] tutorial_docs/jetson_config
 reading sources... [ 95%] tutorial_docs/roboflock_topics
 reading sources... [ 97%] tutorial_docs/rtk_gps
@@ -62,37 +63,38 @@ copying assets: done
 writing output... [  3%] citation_docs/additional_info
 writing output... [  5%] citation_docs/appendix_a
 writing output... [  8%] citation_docs/appendix_b
-writing output... [ 11%] citation_docs/bibliography
+writing output... [ 10%] citation_docs/bibliography
 writing output... [ 13%] citation_docs/mathref_docs/mathref
-writing output... [ 16%] citation_docs/mathref_docs/quaternions
-writing output... [ 18%] construction_docs/chassis_design
-writing output... [ 21%] construction_docs/constructing_the_roboflock
-writing output... [ 24%] construction_docs/construction
-writing output... [ 26%] construction_docs/wiring_specifications
-writing output... [ 29%] description_docs/functionality
-writing output... [ 32%] description_docs/future_considerations
-writing output... [ 34%] description_docs/interactions_with_the_surroundings
-writing output... [ 37%] description_docs/nvidia_jetson_orin_nano
-writing output... [ 39%] description_docs/software
-writing output... [ 42%] description_docs/tracking
-writing output... [ 45%] hardware_docs/arduino
-writing output... [ 47%] hardware_docs/brushed
-writing output... [ 50%] hardware_docs/esc
-writing output... [ 53%] hardware_docs/hardware
-writing output... [ 55%] hardware_docs/hc_12
-writing output... [ 58%] hardware_docs/hc_sr04
-writing output... [ 61%] hardware_docs/imu
-writing output... [ 63%] hardware_docs/jetson_devkit
-writing output... [ 66%] hardware_docs/max_17048
-writing output... [ 68%] hardware_docs/neo_m8p
-writing output... [ 71%] hardware_docs/rp_lidar
+writing output... [ 15%] citation_docs/mathref_docs/quaternions
+writing output... [ 18%] citation_docs/mathref_docs/rtk
+writing output... [ 21%] construction_docs/chassis_design
+writing output... [ 23%] construction_docs/constructing_the_roboflock
+writing output... [ 26%] construction_docs/construction
+writing output... [ 28%] construction_docs/wiring_specifications
+writing output... [ 31%] description_docs/functionality
+writing output... [ 33%] description_docs/future_considerations
+writing output... [ 36%] description_docs/interactions_with_the_surroundings
+writing output... [ 38%] description_docs/nvidia_jetson_orin_nano
+writing output... [ 41%] description_docs/software
+writing output... [ 44%] description_docs/tracking
+writing output... [ 46%] hardware_docs/arduino
+writing output... [ 49%] hardware_docs/brushed
+writing output... [ 51%] hardware_docs/esc
+writing output... [ 54%] hardware_docs/hardware
+writing output... [ 56%] hardware_docs/hc_12
+writing output... [ 59%] hardware_docs/hc_sr04
+writing output... [ 62%] hardware_docs/imu
+writing output... [ 64%] hardware_docs/jetson_devkit
+writing output... [ 67%] hardware_docs/max_17048
+writing output... [ 69%] hardware_docs/neo_m8p
+writing output... [ 72%] hardware_docs/rp_lidar
 writing output... [ 74%] hardware_docs/servo
-writing output... [ 76%] hardware_docs/zed_f9p
+writing output... [ 77%] hardware_docs/zed_f9p
 writing output... [ 79%] index
 writing output... [ 82%] overview
-writing output... [ 84%] tutorial_docs/cmakelists
+writing output... [ 85%] tutorial_docs/cmakelists
 writing output... [ 87%] tutorial_docs/init_dev
-writing output... [ 89%] tutorial_docs/init_users
+writing output... [ 90%] tutorial_docs/init_users
 writing output... [ 92%] tutorial_docs/jetson_config
 writing output... [ 95%] tutorial_docs/roboflock_topics
 writing output... [ 97%] tutorial_docs/rtk_gps
@@ -129,11 +131,11 @@ dumping search index in English (code: en)... done
 dumping object inventory... done
 
 ====================== slowest reading durations =======================
-0.028 hardware_docs/rp_lidar
-0.025 citation_docs/mathref_docs/quaternions
-0.024 index
-0.024 description_docs/tracking
-0.020 citation_docs/additional_info
+0.027 citation_docs/mathref_docs/quaternions
+0.025 index
+0.025 hardware_docs/neo_m8p
+0.024 description_docs/interactions_with_the_surroundings
+0.024 citation_docs/additional_info
 build succeeded.
 
 The HTML pages are in build/html.
