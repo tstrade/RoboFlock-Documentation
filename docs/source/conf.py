@@ -1,7 +1,10 @@
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here.
+import itertools
 import os
+import re
 import sys
+import time
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 sys.path.append(str(Path('sphinext').resolve()))
@@ -21,10 +24,10 @@ sys.path.insert(0, os.path.abspath('.'))
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'RoboFlock'
-copyright = '2025, Thomas Strade, Aditya Challamarad, Marco Bianco, Nicholas Pitsakis, Krish Puwar, Shouvik Das, Andrew Collado'
+copyright = '2025, Project RoboFlock'
 author = 'Thomas Strade, Aditya Challamarad, Marco Bianco, Nicholas Pitsakis, Krish Puwar, Shouvik Das, Andrew Collado'
 release = '1.1'
-
+language = 'en'
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
@@ -34,11 +37,13 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.intersphinx',
     'sphinx.ext.autosummary',
+    'sphinx_tabs.tabs',
     'sphinx_rtd_theme',
     'sphinx_new_tab_link',
     'sphinx_copybutton',
 ]
 
+copybutton_exclue = '.linenos, .gp, .go'
 templates_path = ['_templates']
 exclude_patterns = []
 highlight_language = 'cmake'
@@ -52,13 +57,16 @@ html_static_path = [
     '_static',
     '_images',
 ]
-
+html_logo = "_images/Robo.png"
 html_css_files = [
     'custom.css',
 ]
+
 html_theme_options = {
+    'logo_only': True,
     'collapse_navigation': False,
-    'sticky_navigation': False,
+    'sticky_navigation': True,
+    'navigation_depth': -1,
     'prev_next_buttons_location': "both",
     'style_external_links': True,
     'body_max_width': 'none',

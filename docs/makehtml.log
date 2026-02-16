@@ -131,11 +131,11 @@ dumping search index in English (code: en)... done
 dumping object inventory... done
 
 ====================== slowest reading durations =======================
-0.027 citation_docs/mathref_docs/quaternions
-0.025 index
-0.025 hardware_docs/neo_m8p
-0.024 description_docs/interactions_with_the_surroundings
-0.024 citation_docs/additional_info
+0.030 description_docs/tracking
+0.028 index
+0.025 hardware_docs/max_17048
+0.024 citation_docs/mathref_docs/quaternions
+0.020 description_docs/interactions_with_the_surroundings
 build succeeded.
 
 The HTML pages are in build/html.

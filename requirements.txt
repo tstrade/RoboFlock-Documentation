@@ -18,6 +18,9 @@ setuptools==80.9.0
 snowballstemmer==3.0.1
 Sphinx==8.2.3
 sphinx-new-tab-link==0.8.1
+sphinx-tabs==3.4.7
+sphinx-lint==1.0.2
+sphinx-tamer==0.2.0
 sphinx-rtd-theme==3.0.2
 sphinx-copybutton==0.5.2
 sphinxcontrib-applehelp==2.0.0
@@ -27,5 +30,6 @@ sphinxcontrib-htmlhelp==2.1.0
 sphinxcontrib-jquery==4.1
 sphinxcontrib-jsmath==1.0.1
 sphinxcontrib-qthelp==2.0.0
+sphinxcontrib-googleanalytics==0.5
 sphinxcontrib-serializinghtml==2.0.0
 urllib3==2.6.2
