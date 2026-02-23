@@ -1,0 +1,312 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Obstacle Detection &mdash; RoboFlock 1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=8f3c863a" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=56dcb7b8"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Navigation" href="navigation.html" />
+    <link rel="prev" title="Concepts" href="concepts.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/Robo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started_docs/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="concepts.html">Concepts</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Obstacle Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navigation.html">Navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="communication.html">Communication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ros2.html">ROS2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial_docs/tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/rtk_gps.html">Setting up the RTK GPS System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/jetson_config.html">Setting up the Nvidia Jetson Orin Nano</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/cmakelists.html">Writing CML Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/launch.html">Making Launch Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/urdf.html">Creating the URDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/nav2.html">Working with Nav2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial_docs/tf2.html">tf2</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/roboflock_topics.html">Using RoboFlock’s Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/init_dev.html">Initializing RoboFlock (Developers)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../codebase_docs/codebase.html">RoboFlock Codebase</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../codebase_docs/ultrasonic_code.html">Ultrasonic Sensor Code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../hardware_docs/hardware.html">Hardware Components</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../hardware_docs/jetson_devkit.html">Nvidia Jetson Orin Nano Super Developer Kit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware_docs/arduino.html">Arduino Boards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware_docs/rp_lidar.html">RPLIDAR A1M8 Laser Range Scanner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware_docs/hc_sr04.html">Ultrasonic Distance Sensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware_docs/imu.html">MPU-6050 Motion Tracking Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware_docs/neo_m8p.html">NEO-M8P-2 GNSS/GPS Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware_docs/zed_f9p.html">ZED-F9P-02B GNSS/GPS Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware_docs/hc_12.html">HC-12 Wireless Serial Port Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware_docs/esc.html">Brushed Electronic Speed Controller (ESC)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware_docs/servo.html">Brushless Digital Servo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware_docs/brushed.html">3-Slot Brushed Motor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware_docs/max_17048.html">MAX17048 Fuel Gauge and Battery Monitor</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../construction_docs/construction.html">Construction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../construction_docs/constructing_the_roboflock.html">Step-by-Step Construction Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../construction_docs/chassis_design.html">Chassis Design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../construction_docs/wiring_specifications.html">Wiring Specifications</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../future_considerations.html">Future Considerations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../citation_docs/additional_info.html">Additional Information</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../citation_docs/mathref_docs/mathref.html">Mathematics References</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../citation_docs/mathref_docs/quaternions.html">Rotations with Quaternions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../citation_docs/mathref_docs/rtk.html">Real-Time Kinematic Positioning</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../citation_docs/bibliography.html">Bibliography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../citation_docs/appendix_a.html">Appendix A</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../citation_docs/appendix_b.html">Appendix B</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RoboFlock</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="concepts.html">Concepts</a></li>
+      <li class="breadcrumb-item active">Obstacle Detection</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/concepts_docs/obstacle_detection.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="concepts.html" class="btn btn-neutral float-left" title="Concepts" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="navigation.html" class="btn btn-neutral float-right" title="Navigation" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="obstacle-detection">
+<h1>Obstacle Detection<a class="headerlink" href="#obstacle-detection" title="Link to this heading"></a></h1>
+<section id="navigation">
+<h2>Navigation<a class="headerlink" href="#navigation" title="Link to this heading"></a></h2>
+<p>In order to navigate through the chaotic environment of Burning Man, the robot uses an onboard, 360° 2-D LiDAR. A near-infrared laser diode creates a beam that is swept around the environment by a rotating mirror and reflected off of any in-range objects back to the sensor. Time-of-flight (ToF) data is used by the LiDAR sensor to measure the relative distance of surrounding objects and produce a continuous stream of polar coordinates. These measurements are then sent to the Nvidia Jetson through USB-A connection.</p>
+</section>
+<section id="id1">
+<h2>Obstacle Detection<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p>To complement the location mapping provided by the LiDAR sensor, three ultrasonic sensors will provide data for short-distance obstacle avoidance. This system acts as a fail-safe to the LiDAR’s obstacle avoidance in the case that there are environmental factors that hinder the functionality of the LiDAR sensor. Furthermore, they are positioned at the ground different from the angle of the LiDAR and can be used to detect obstacles that are not detected by the LiDAR.</p>
+</section>
+<section id="hardware-specifications">
+<h2>Hardware Specifications<a class="headerlink" href="#hardware-specifications" title="Link to this heading"></a></h2>
+<p>These features are implemented with the RPLIDAR A1 and the LV-MaxSonar Range Finder.</p>
+<p>Table 2: LiDAR and Ultrasonic Sensor Specifications</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Part Name</p></th>
+<th class="head"><p>Range</p></th>
+<th class="head"><p>Quantity</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>SLAMTEC RPLiDAR A1</p></td>
+<td><p>0.15 - 12.00 meters</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>HC-SR04 Ultrasonic Sensor</p></td>
+<td><p>2.0 - 400.0 centimeters</p></td>
+<td><p>3</p></td>
+</tr>
+</tbody>
+</table>
+<p>See <a class="reference internal" href="../citation_docs/appendix_b.html"><span class="doc">Appendix B</span></a> for further details.</p>
+<p>The LiDAR sensor is mounted on top of the robot’s chassis, giving it the full 360° required to navigate Burning Man. Its dimensions are shown in Figure 3.1 below. The LiDAR sensor’s output is attached to a UART-to-USB adapter, which is then plugged into one of the Nvidia Jeton’s onboard USB-A ports. The adapter and its corresponding connections are shown below in Figure 3.2 and Table 3, respectively.</p>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="../_images/fig3-1_lidar_dims.png"><img alt="../_images/fig3-1_lidar_dims.png" src="../_images/fig3-1_lidar_dims.png" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 3.1: RPLiDAR A1 Dimensions</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="../_images/fig3-2_lidar_usb_adapter.png"><img alt="../_images/fig3-2_lidar_usb_adapter.png" src="../_images/fig3-2_lidar_usb_adapter.png" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 3.2: RPLiDAR A1 UART to USB Adapter</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Table 3: RPLiDAR A1 USB Adapter Pin Descriptions</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Interface</p></th>
+<th class="head"><p>Signal Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Min</p></th>
+<th class="head"><p>Typical</p></th>
+<th class="head"><p>Max</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td rowspan="4"><p>Motor
+Interface</p></td>
+<td><p>5V MOTO</p></td>
+<td><p>Power</p></td>
+<td><p>Power for RPLiDAR A1 Motor</p></td>
+<td><p>–</p></td>
+<td><p>5V</p></td>
+<td><p>9V</p></td>
+</tr>
+<tr class="row-odd"><td><p>CTRL_MOTO</p></td>
+<td><p>Input</p></td>
+<td><p>Enable signal for
+RPLidAR A1 Motor/PWM
+Control Signal</p></td>
+<td><p>0V</p></td>
+<td><p>–</p></td>
+<td><p>5V_MOTO</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>GND_MOTO</p></td>
+<td rowspan="2"><p>Power</p></td>
+<td rowspan="2"><p>GND for RPLIDAR A1 Motor</p></td>
+<td rowspan="2"><p>–</p></td>
+<td rowspan="2"><p>0V</p></td>
+<td rowspan="2"><p>–</p></td>
+</tr>
+<tr class="row-odd"></tr>
+<tr class="row-even"><td rowspan="4"><p>Core
+Interface</p></td>
+<td><p>VCC_5</p></td>
+<td><p>Power</p></td>
+<td><p>Power for RPLIDAR A1
+Range Scanner Core</p></td>
+<td><p>4.9V</p></td>
+<td><p>5V</p></td>
+<td><p>5.5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>TX</p></td>
+<td><p>Output</p></td>
+<td><p>Serial output for Range
+Scanner Core</p></td>
+<td><p>0V</p></td>
+<td><p>–</p></td>
+<td><p>5V</p></td>
+</tr>
+<tr class="row-even"><td><p>RX</p></td>
+<td><p>Input</p></td>
+<td><p>Serial input for Range
+Scanner Core</p></td>
+<td><p>0V</p></td>
+<td><p>–</p></td>
+<td><p>5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>GND</p></td>
+<td><p>Power</p></td>
+<td><p>GND for RPLIDAR A1 Range
+Scanner Core</p></td>
+<td><p>–</p></td>
+<td><p>0V</p></td>
+<td><p>V5.0</p></td>
+</tr>
+</tbody>
+</table>
+<p>The ultrasonic sensors are mounted on the front of the robot’s chassis and angled to give the maximum possible range for reliable obstacle detection. For the correct angular positioning, see Figure 4.2 below. The LV-MaxSonar Range Finder is capable of multiple communication protocols, but for the purposes of this design, the PWM signals will be used.</p>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="../_images/fig4-1_sonar_phys_design.png"><img alt="../_images/fig4-1_sonar_phys_design.png" src="../_images/fig4-1_sonar_phys_design.png" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 4.1: Physical Design of the LV-MaxSonar Range Finder</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id5">
+<a class="reference internal image-reference" href="../_images/fig4-2_sonar_positions.png"><img alt="../_images/fig4-2_sonar_positions.png" src="../_images/fig4-2_sonar_positions.png" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 4.2: Ultrasonic Sensor Positioning and Ranges</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="concepts.html" class="btn btn-neutral float-left" title="Concepts" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="navigation.html" class="btn btn-neutral float-right" title="Navigation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Project RoboFlock.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

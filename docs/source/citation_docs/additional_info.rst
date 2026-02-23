@@ -1,6 +1,8 @@
 Additional Information
 ======================
 
+- :doc:`Mathematics References <mathref_docs/mathref>`
+
 - :doc:`Bibliography <bibliography>`
 
 - :doc:`Component List <appendix_a>`

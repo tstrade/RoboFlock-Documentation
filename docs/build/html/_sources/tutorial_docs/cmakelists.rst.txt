@@ -1,5 +1,5 @@
-Writing Custom CML Files
-========================
+Writing CML Files
+=================
 
 Creating C++ packages can be difficult to navigate for first-time users of ROS2. This tutorial will explain the basic structure of a CMakeLists.txt file, otherwise known as a CML file. Importantly, we will cover how to properly compile and link pacakages with several files and subdirectories found in the :code:`include/` and :code:`src/` directories of the ROS2 package.
 

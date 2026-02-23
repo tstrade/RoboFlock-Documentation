@@ -24,7 +24,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Arduino Boards" href="arduino.html" />
-    <link rel="prev" title="Hardware Descriptions" href="hardware.html" /> 
+    <link rel="prev" title="Hardware Components" href="hardware.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -48,17 +48,33 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorial_docs/tutorials.html">Tutorials</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/cmakelists.html">Writing Custom CML Files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/roboflock_topics.html">Using RoboFlock’s Topics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/rtk_gps.html">Setting up the RTK GPS System</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/jetson_config.html">Setting up the Nvidia Jetson Orin Nano</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/init_dev.html">Initializing RoboFlock (Developers)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/init_users.html">Initializing RoboFlock (Users)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started_docs/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts_docs/concepts.html">Concepts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts_docs/obstacle_detection.html">Obstacle Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts_docs/navigation.html">Navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts_docs/communication.html">Communication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts_docs/ros2.html">ROS2</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal" href="hardware.html">Hardware Descriptions</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../tutorial_docs/tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/rtk_gps.html">Setting up the RTK GPS System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/jetson_config.html">Setting up the Nvidia Jetson Orin Nano</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/cmakelists.html">Writing CML Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/launch.html">Making Launch Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/urdf.html">Creating the URDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/nav2.html">Working with Nav2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../tutorial_docs/tf2.html">tf2</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/roboflock_topics.html">Using RoboFlock’s Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/init_dev.html">Initializing RoboFlock (Developers)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../codebase_docs/codebase.html">RoboFlock Codebase</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../codebase_docs/ultrasonic_code.html">Ultrasonic Sensor Code</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="hardware.html">Hardware Components</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Nvidia Jetson Orin Nano Super Developer Kit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="arduino.html">Arduino Boards</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rp_lidar.html">RPLIDAR A1M8 Laser Range Scanner</a></li>
@@ -73,20 +89,13 @@
 <li class="toctree-l2"><a class="reference internal" href="max_17048.html">MAX17048 Fuel Gauge and Battery Monitor</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../description_docs/functionality.html">Functionality</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../description_docs/nvidia_jetson_orin_nano.html">NVIDIA Jetson Orin Nano</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../description_docs/interactions_with_the_surroundings.html">Interactions with the Surroundings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../description_docs/tracking.html">Tracking</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../description_docs/software.html">Software</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../description_docs/future_considerations.html">Future Considerations</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../construction_docs/construction.html">Constructing RoboFlock</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../construction_docs/construction.html">Construction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../construction_docs/constructing_the_roboflock.html">Step-by-Step Construction Guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../construction_docs/chassis_design.html">Chassis Design</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../construction_docs/wiring_specifications.html">Wiring Specifications</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../future_considerations.html">Future Considerations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../citation_docs/additional_info.html">Additional Information</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../citation_docs/mathref_docs/mathref.html">Mathematics References</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../citation_docs/mathref_docs/quaternions.html">Rotations with Quaternions</a></li>
@@ -114,13 +123,13 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="hardware.html">Hardware Descriptions</a></li>
+          <li class="breadcrumb-item"><a href="hardware.html">Hardware Components</a></li>
       <li class="breadcrumb-item active">Nvidia Jetson Orin Nano Super Developer Kit</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/hardware_docs/jetson_devkit.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
-        <a href="hardware.html" class="btn btn-neutral float-left" title="Hardware Descriptions" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hardware.html" class="btn btn-neutral float-left" title="Hardware Components" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="arduino.html" class="btn btn-neutral float-right" title="Arduino Boards" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
   <hr/>
@@ -130,6 +139,116 @@
              
   <section id="nvidia-jetson-orin-nano-super-developer-kit">
 <h1>Nvidia Jetson Orin Nano Super Developer Kit<a class="headerlink" href="#nvidia-jetson-orin-nano-super-developer-kit" title="Link to this heading"></a></h1>
+<section id="motivation">
+<h2>Motivation<a class="headerlink" href="#motivation" title="Link to this heading"></a></h2>
+<p>In the alpha design, multiple Teensy 4.1s were used to process and transmit sensor data. Much of the codebase was built from scratch, with other portions consisting of modified versions of existing libraries. This patchwork solution led to multiple issues, such as race conditions that would occur when starting up the beacon system. The new RoboFlock design implements new hardware and new software frameworks that require more processing power and better synchronization.</p>
+<p>The Nvidia Jetson Orin Nano is an affordable, yet powerful, mini-computer that will act as the brains of this operation. The Jetson boasts a powerful 6-core Arm Cortex 64-bit CPU, a GPU with 1024 CUDA cores and 32 tensor cores, and 8GB of low-power DDR5 RAM. These features (and more) are powered within the range of 7W to 25W — a rating comparable to many motors used within RC cars. Further details are shown in Figure 2.1 below.</p>
+<p>Additionally, the new RoboFlock design makes use of the Jetson’s carrier board that provides a 40-pin expansion header with UART, SPI, I2S, I2C, and GPIO connections, as well as other useful features shown in Figure 2.2 below. Almost all the hardware in the new design makes use of this expansion header. To accommodate the overlap in protocols that the design requires, an Arduino Nano will be used as essentially another expansion header. More details about these connections are given Table 1 below.</p>
+<p>Although this seems like overkill (and it probably is), using the Jetson leaves ample space for future teams to implement more advanced hardware such as 4-D LiDAR sensors, cameras, L5 GPS modules, or other solutions that have not yet been considered. The current motivation is centered on the software frameworks that are used in the design. The Jetson’s embedded Linux environment provides the new RoboFlock design with the ability to process data and synchronize communication using ROS2, a set of software libraries and tools for building robot applications.</p>
+</section>
+<section id="hardware-specifications">
+<h2>Hardware Specifications<a class="headerlink" href="#hardware-specifications" title="Link to this heading"></a></h2>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="../_images/fig2-1_jetson_block_diagram.png"><img alt="../_images/fig2-1_jetson_block_diagram.png" src="../_images/fig2-1_jetson_block_diagram.png" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 2-1: Jetson Orin Nano Block Diagram (citation here)</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="../_images/fig2-2_jetson_carrier_connections.png"><img alt="../_images/fig2-2_jetson_carrier_connections.png" src="../_images/fig2-2_jetson_carrier_connections.png" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 2-2: Jetson Orin Nano Carrier Board Connections</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Table 1: Pins Used on the Carrier Board’s 40-Pin Expansion Header</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pin #</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Connection</p></th>
+<th class="head"><p>Comments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>3.3V Power</p></td>
+<td><p>Power Bus</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>5V Power</p></td>
+<td><p>Power Bus</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>I2C1_SDA</p></td>
+<td><p>MAX17048 SDA</p></td>
+<td><p>Power Guage</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>I2C1_SCL</p></td>
+<td><p>MAX17048 SCL</p></td>
+<td><p>Power Guage</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>GND</p></td>
+<td><p>Ground Bus</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>UART1_TXD</p></td>
+<td><p>HC-12.1a RXD</p></td>
+<td><p>GPS Error Correction</p></td>
+</tr>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>UART1_RXD</p></td>
+<td><p>HC-12.1a TXD</p></td>
+<td><p>GPS Error Correction</p></td>
+</tr>
+<tr class="row-odd"><td><p>15</p></td>
+<td><p>GPIO12</p></td>
+<td><p>ESC PWM Signal</p></td>
+<td><p>Drive System</p></td>
+</tr>
+<tr class="row-even"><td><p>27</p></td>
+<td><p>I2C0_SDA</p></td>
+<td><p>NEO-M8P Pin 18</p></td>
+<td><p>GPS Coordinates</p></td>
+</tr>
+<tr class="row-odd"><td><p>28</p></td>
+<td><p>I2C0_SCL</p></td>
+<td><p>NEO-M8P Pin 19</p></td>
+<td><p>GPS Coordinates</p></td>
+</tr>
+<tr class="row-even"><td><p>29</p></td>
+<td><p>GPIO01</p></td>
+<td><p>Arduino Nano Pin 16</p></td>
+<td><p>Sonar 1</p></td>
+</tr>
+<tr class="row-odd"><td><p>30</p></td>
+<td><p>GND</p></td>
+<td><p>Ground Bus</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>31</p></td>
+<td><p>GPIO11</p></td>
+<td><p>Arduino Nano Pin 15</p></td>
+<td><p>Sonar 2</p></td>
+</tr>
+<tr class="row-odd"><td><p>32</p></td>
+<td><p>GPIO7</p></td>
+<td><p>INJ5235 PWM Signal</p></td>
+<td><p>Steering System</p></td>
+</tr>
+<tr class="row-even"><td><p>33</p></td>
+<td><p>GPIO13</p></td>
+<td><p>Arduino Nano Pin 14</p></td>
+<td><p>Sonar 3</p></td>
+</tr>
+</tbody>
+</table>
 <p><strong>Datasheet:</strong> <span class="raw-html"><br /></span></p>
 <p><strong>Features:</strong> <span class="raw-html"><br /></span></p>
 <p><strong>Connection:</strong> <span class="raw-html"><br /></span></p>
@@ -137,12 +256,13 @@
 <p><strong>Dimensions:</strong> <span class="raw-html"><br /></span></p>
 <p><strong>Use-Case:</strong> <span class="raw-html"><br /></span></p>
 </section>
+</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="hardware.html" class="btn btn-neutral float-left" title="Hardware Descriptions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hardware.html" class="btn btn-neutral float-left" title="Hardware Components" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="arduino.html" class="btn btn-neutral float-right" title="Arduino Boards" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

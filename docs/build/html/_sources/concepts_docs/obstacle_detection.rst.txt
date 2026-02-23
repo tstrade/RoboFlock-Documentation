@@ -1,0 +1,95 @@
+Obstacle Detection
+==================
+
+
+Navigation
+^^^^^^^^^^
+
+In order to navigate through the chaotic environment of Burning Man, the robot uses an onboard, 360° 2-D LiDAR. A near-infrared laser diode creates a beam that is swept around the environment by a rotating mirror and reflected off of any in-range objects back to the sensor. Time-of-flight (ToF) data is used by the LiDAR sensor to measure the relative distance of surrounding objects and produce a continuous stream of polar coordinates. These measurements are then sent to the Nvidia Jetson through USB-A connection. 
+
+
+
+Obstacle Detection
+^^^^^^^^^^^^^^^^^^
+
+To complement the location mapping provided by the LiDAR sensor, three ultrasonic sensors will provide data for short-distance obstacle avoidance. This system acts as a fail-safe to the LiDAR’s obstacle avoidance in the case that there are environmental factors that hinder the functionality of the LiDAR sensor. Furthermore, they are positioned at the ground different from the angle of the LiDAR and can be used to detect obstacles that are not detected by the LiDAR.
+
+
+
+Hardware Specifications
+^^^^^^^^^^^^^^^^^^^^^^^
+
+These features are implemented with the RPLIDAR A1 and the LV-MaxSonar Range Finder.
+
+Table 2: LiDAR and Ultrasonic Sensor Specifications
+
++--------------------------------+--------------------------+----------+
+| Part Name                      | Range                    | Quantity |
++================================+==========================+==========+
+| SLAMTEC RPLiDAR A1             | 0.15 - 12.00 meters      | 1        |
++--------------------------------+--------------------------+----------+
+| HC-SR04 Ultrasonic Sensor      | 2.0 - 400.0 centimeters  | 3        |
++--------------------------------+--------------------------+----------+
+
+
+See :doc:`../citation_docs/appendix_b` for further details.
+
+The LiDAR sensor is mounted on top of the robot’s chassis, giving it the full 360° required to navigate Burning Man. Its dimensions are shown in Figure 3.1 below. The LiDAR sensor’s output is attached to a UART-to-USB adapter, which is then plugged into one of the Nvidia Jeton’s onboard USB-A ports. The adapter and its corresponding connections are shown below in Figure 3.2 and Table 3, respectively.
+
+.. figure:: ../_images/fig3-1_lidar_dims.png
+    :align: center
+    :width: 50%
+    :loading: link
+
+    Figure 3.1: RPLiDAR A1 Dimensions
+
+.. figure:: ../_images/fig3-2_lidar_usb_adapter.png
+    :align: center
+    :width: 50%
+    :loading: link
+
+    Figure 3.2: RPLiDAR A1 UART to USB Adapter
+
+Table 3: RPLiDAR A1 USB Adapter Pin Descriptions
+
++-----------+-------------+--------+-----------------------------+------+---------+---------+
+| Interface | Signal Name | Type   | Description                 | Min  | Typical | Max     |
++===========+=============+========+=============================+======+=========+=========+
+|           | 5V MOTO     | Power  | Power for RPLiDAR A1 Motor  | --   | 5V      | 9V      |
++           +-------------+--------+-----------------------------+------+---------+---------+
+|           |             |        | Enable signal for           |      |         |         |
+| Motor     | CTRL_MOTO   | Input  | RPLidAR A1 Motor/PWM        | 0V   | --      | 5V_MOTO |
+| Interface |             |        | Control Signal              |      |         |         |
++           +-------------+--------+-----------------------------+------+---------+---------+
+|           | GND_MOTO    | Power  | GND for RPLIDAR A1 Motor    | --   + 0V      | --      |
++-----------+-------------+--------+-----------------------------+------+---------+---------+
+|           | VCC_5       | Power  | Power for RPLIDAR A1        | 4.9V | 5V      | 5.5V    |
+|           |             |        | Range Scanner Core          |      |         |         |
++           +-------------+--------+-----------------------------+------+---------+---------+
+|           | TX          | Output | Serial output for Range     | 0V   | --      | 5V      |
+| Core      |             |        | Scanner Core                |      |         |         |
++ Interface +-------------+--------+-----------------------------+------+---------+---------+
+|           | RX          | Input  | Serial input for Range      | 0V   | --      | 5V      |
+|           |             |        | Scanner Core                |      |         |         |
++           +-------------+--------+-----------------------------+------+---------+---------+
+|           | GND         | Power  | GND for RPLIDAR A1 Range    | --   | 0V      | V5.0    |
+|           |             |        | Scanner Core                |      |         |         |
++-----------+-------------+--------+-----------------------------+------+---------+---------+
+
+
+
+The ultrasonic sensors are mounted on the front of the robot’s chassis and angled to give the maximum possible range for reliable obstacle detection. For the correct angular positioning, see Figure 4.2 below. The LV-MaxSonar Range Finder is capable of multiple communication protocols, but for the purposes of this design, the PWM signals will be used. 
+
+.. figure:: ../_images/fig4-1_sonar_phys_design.png
+    :align: center
+    :width: 50%
+    :loading: link
+
+    Figure 4.1: Physical Design of the LV-MaxSonar Range Finder
+
+.. figure:: ../_images/fig4-2_sonar_positions.png
+    :align: center
+    :width: 50%
+    :loading: link
+
+    Figure 4.2: Ultrasonic Sensor Positioning and Ranges

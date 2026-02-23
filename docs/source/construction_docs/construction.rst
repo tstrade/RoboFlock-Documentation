@@ -1,5 +1,5 @@
-Constructing RoboFlock
-======================
+Construction
+============
 
 Everything needed to build the RoboFlock from scratch.
 

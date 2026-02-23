@@ -23,7 +23,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Overview" href="overview.html" /> 
+    <link rel="next" title="Getting Started" href="getting_started_docs/getting_started.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -47,17 +47,33 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorial_docs/tutorials.html">Tutorials</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tutorial_docs/cmakelists.html">Writing Custom CML Files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial_docs/roboflock_topics.html">Using RoboFlock’s Topics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial_docs/rtk_gps.html">Setting up the RTK GPS System</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial_docs/jetson_config.html">Setting up the Nvidia Jetson Orin Nano</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial_docs/init_dev.html">Initializing RoboFlock (Developers)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial_docs/init_users.html">Initializing RoboFlock (Users)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started_docs/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts_docs/concepts.html">Concepts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="concepts_docs/obstacle_detection.html">Obstacle Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts_docs/navigation.html">Navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts_docs/communication.html">Communication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concepts_docs/ros2.html">ROS2</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="hardware_docs/hardware.html">Hardware Descriptions</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorial_docs/tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial_docs/rtk_gps.html">Setting up the RTK GPS System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial_docs/jetson_config.html">Setting up the Nvidia Jetson Orin Nano</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial_docs/cmakelists.html">Writing CML Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial_docs/launch.html">Making Launch Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial_docs/urdf.html">Creating the URDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial_docs/nav2.html">Working with Nav2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorial_docs/tf2.html">tf2</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial_docs/roboflock_topics.html">Using RoboFlock’s Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial_docs/init_dev.html">Initializing RoboFlock (Developers)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="codebase_docs/codebase.html">RoboFlock Codebase</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="codebase_docs/ultrasonic_code.html">Ultrasonic Sensor Code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hardware_docs/hardware.html">Hardware Components</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="hardware_docs/jetson_devkit.html">Nvidia Jetson Orin Nano Super Developer Kit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hardware_docs/arduino.html">Arduino Boards</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hardware_docs/rp_lidar.html">RPLIDAR A1M8 Laser Range Scanner</a></li>
@@ -72,20 +88,13 @@
 <li class="toctree-l2"><a class="reference internal" href="hardware_docs/max_17048.html">MAX17048 Fuel Gauge and Battery Monitor</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="description_docs/functionality.html">Functionality</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="description_docs/nvidia_jetson_orin_nano.html">NVIDIA Jetson Orin Nano</a></li>
-<li class="toctree-l2"><a class="reference internal" href="description_docs/interactions_with_the_surroundings.html">Interactions with the Surroundings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="description_docs/tracking.html">Tracking</a></li>
-<li class="toctree-l2"><a class="reference internal" href="description_docs/software.html">Software</a></li>
-<li class="toctree-l2"><a class="reference internal" href="description_docs/future_considerations.html">Future Considerations</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="construction_docs/construction.html">Constructing RoboFlock</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="construction_docs/construction.html">Construction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="construction_docs/constructing_the_roboflock.html">Step-by-Step Construction Guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="construction_docs/chassis_design.html">Chassis Design</a></li>
 <li class="toctree-l2"><a class="reference internal" href="construction_docs/wiring_specifications.html">Wiring Specifications</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="future_considerations.html">Future Considerations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="citation_docs/additional_info.html">Additional Information</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="citation_docs/mathref_docs/mathref.html">Mathematics References</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="citation_docs/mathref_docs/quaternions.html">Rotations with Quaternions</a></li>
@@ -118,7 +127,7 @@
             <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
-        <a href="overview.html" class="btn btn-neutral float-right" title="Overview" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="getting_started_docs/getting_started.html" class="btn btn-neutral float-right" title="Getting Started" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
   <hr/>
 </div>
@@ -129,100 +138,70 @@
 <h1>RoboFlock Documentation<a class="headerlink" href="#roboflock-documentation" title="Link to this heading"></a></h1>
 <p><strong>The RoboFlock Project is an autonomous robot design that follows its user.</strong> From LiDAR-based obstacle detection and GPS Real-Time Kinematic tracking to robust process management and powerful computational capabilities, RoboFlock is a reliable companion that will follow you for life (or until the battery gives out).</p>
 <p>Previously known as Project Dust Runners, the RoboFlock Project has made a lot of changes to its design. <strong>The goal of the RoboFlock Project is to improve obstacle detection, response time, user accessibility, and environmental resistance.</strong> These changes will take advantage of the foundation laid by Project Dust Runners and leverage new technology to improve the design.</p>
-<section id="getting-started">
-<span id="id1"></span><h2>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h2>
-<ul class="simple">
-<li><dl class="simple">
-<dt><a class="reference internal" href="overview.html"><span class="doc">Overview</span></a></dt><dd><ul>
-<li><p>RoboFlock background and description</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><a class="reference internal" href="tutorial_docs/tutorials.html"><span class="doc">Tutorials</span></a></dt><dd><ul>
-<li><p>Learn how to setup and interact with RoboFlock’s nodes</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><a class="reference internal" href="description_docs/nvidia_jetson_orin_nano.html"><span class="doc">NVIDIA Jetson Orin Nano</span></a></dt><dd><ul>
-<li><p>Information on the processor chosen for RoboFlock</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><a class="reference internal" href="description_docs/interactions_with_the_surroundings.html"><span class="doc">Interactions with the Surroundings</span></a></dt><dd><ul>
-<li><p>How is RoboFlock going to get around? With lasers!</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><a class="reference internal" href="description_docs/tracking.html"><span class="doc">Tracking</span></a></dt><dd><ul>
-<li><p>High-level explaination of GPS RTK and user-to-robot communication</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><a class="reference internal" href="description_docs/software.html"><span class="doc">Software</span></a></dt><dd><ul>
-<li><p>ROS2: the backbone of RoboFlock</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><a class="reference internal" href="construction_docs/chassis_design.html"><span class="doc">Chassis Design</span></a></dt><dd><ul>
-<li><p>2-D and 3-D models of RoboFlock’s new exterior</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><a class="reference internal" href="construction_docs/wiring_specifications.html"><span class="doc">Wiring Specifications</span></a></dt><dd><ul>
-<li><p>RoboFlock has a lot of hardware that needs to be connected, so we made a helpful guide to prevent the headache of debugging electrical connections</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><a class="reference internal" href="description_docs/future_considerations.html"><span class="doc">Future Considerations</span></a></dt><dd><ul>
-<li><p>Project RoboFlock only has so much time and money, but future teams will be able to take our ideas and designs to the next level</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>This design document outlines the development and implementation of an autonomous robot system capable of navigating through dynamic and static obstacles while tracking and following a portable beacon. The primary goal of this project is to create a functional robotic platform that can follow a beacon and avoid obstacles. This project combines elements of robotic navigation, obstacle detection, and low-power management to create a practical and adaptable system.</p>
 </section>
-<section id="useful-information">
-<span id="id2"></span><h2>Useful Information<a class="headerlink" href="#useful-information" title="Link to this heading"></a></h2>
-<p>To see the research and resource specifications that went into the development of Project RoboFlock, check out:</p>
-<ul class="simple">
+<section id="project-roboflock">
+<h2>Project RoboFlock<a class="headerlink" href="#project-roboflock" title="Link to this heading"></a></h2>
+<p>The core components of the project include the robot and the homing beacon. Together, these elements enable the robot to maintain its course toward the beacon, safely navigate around obstacles, and provide status updates on its battery health. The system’s design allows it to perform reliably in outdoor settings, supporting autonomous movement within defined physical and environmental constraints.</p>
+<p>This year’s objective is to build upon the previous team’s Dust Runners into a more robust system, with an improved code base using ROS2, tracking technology, computing, and obstacle detection and navigation.</p>
+</section>
+<section id="main-changes-from-alpha-design">
+<h2>Main Changes From Alpha Design<a class="headerlink" href="#main-changes-from-alpha-design" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
 <li><dl class="simple">
-<dt><a class="reference internal" href="citation_docs/bibliography.html"><span class="doc">Bibliography</span></a></dt><dd><ul>
-<li><p>References and inspirations</p></li>
+<dt>Tracking Technology</dt><dd><ul class="simple">
+<li><p>Dust Runners utilized UWB anchors and tags to calculate time of flight for distance and bearing information.</p></li>
+<li><p>RoboFlock will utilize Real-Time Kinetic (RTK) GPS for centimeter level accuracy. It calculates position vector difference between a base and the robot using high precision GNSS chips for tracking the robot’s global position relative to the beacon.</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><a class="reference internal" href="citation_docs/appendix_a.html"><span class="doc">Appendix A</span></a></dt><dd><ul>
-<li><p>Electronics, power supplies, and more</p></li>
+<dt>Computational Power</dt><dd><ul class="simple">
+<li><p>Dust Runners used a distributed system with multiple Teensy 4.1 microcontrollers for handling sensor, drive, and beacon logic.</p></li>
+<li><p>RoboFlock uses a centralized Nvidia Jetson Orin Nano running ROS2 which handles perception, planning, and navigation of the robot. One Arduino will be used for motor control.</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><a class="reference internal" href="citation_docs/appendix_b.html"><span class="doc">Appendix B</span></a></dt><dd><ul>
-<li><p>Datasheets and schematics</p></li>
+<dt>Obstacle Detection</dt><dd><ul class="simple">
+<li><p>Dust Runners used 3 ultrasonic sensors for obstacle avoidance ahead of the robot.</p></li>
+<li><p>RoboFlock will use a LiDAR connected to the Jetson for longer-range obstacle detection, improved accuracy, avoidance, and planning, with the three ultrasonic sensors still being used as a fail-safe.</p></li>
 </ul>
 </dd>
 </dl>
 </li>
+<li><dl class="simple">
+<dt>Visualization</dt><dd><ul class="simple">
+<li><p>Using the GPS information, we will visualize robot and beacon positions on a map of Black Rock City where Burning Man takes place to aid in retrieval of robots.  The visualization will be visible on a laptop or handlheld device.</p></li>
 </ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Beacon Communication</dt><dd><ul class="simple">
+<li><p>Using Meshtastic devices we create a mesh network by which communication with the beacon will be accomplished.  This allows us to request beacon holders to return robots to the base, to communicate vital system information such as low battery levels or stuck robots, or simply send text messages to the beacon.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="_images/fig1_finalprod_overview.png"><img alt="_images/fig1_finalprod_overview.png" src="_images/fig1_finalprod_overview.png" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 1: Overview of Final Product</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="getting-started">
+<h2><a class="reference internal" href="getting_started_docs/getting_started.html"><span class="doc">Getting Started</span></a><a class="headerlink" href="#getting-started" title="Link to this heading"></a></h2>
+</section>
+<section id="additional-information">
+<h2><a class="reference internal" href="citation_docs/additional_info.html"><span class="doc">Additional Information</span></a><a class="headerlink" href="#additional-information" title="Link to this heading"></a></h2>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -232,7 +211,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="overview.html" class="btn btn-neutral float-right" title="Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="getting_started_docs/getting_started.html" class="btn btn-neutral float-right" title="Getting Started" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

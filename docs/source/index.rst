@@ -8,64 +8,71 @@ RoboFlock Documentation
 
 Previously known as Project Dust Runners, the RoboFlock Project has made a lot of changes to its design. **The goal of the RoboFlock Project is to improve obstacle detection, response time, user accessibility, and environmental resistance.** These changes will take advantage of the foundation laid by Project Dust Runners and leverage new technology to improve the design.
 
-.. _getting_started:
 
-Getting Started
-^^^^^^^^^^^^^^^
 
-- :doc:`Overview <overview>`
-   - RoboFlock background and description
+Overview
+^^^^^^^^
 
-- :doc:`Tutorials <tutorial_docs/tutorials>`
-   - Learn how to setup and interact with RoboFlock's nodes
+This design document outlines the development and implementation of an autonomous robot system capable of navigating through dynamic and static obstacles while tracking and following a portable beacon. The primary goal of this project is to create a functional robotic platform that can follow a beacon and avoid obstacles. This project combines elements of robotic navigation, obstacle detection, and low-power management to create a practical and adaptable system.
 
-- :doc:`NVIDIA Jetson Orin Nano <description_docs/nvidia_jetson_orin_nano>`
-   - Information on the processor chosen for RoboFlock
 
-- :doc:`Interactions with the Surroundings <description_docs/interactions_with_the_surroundings>`
-   - How is RoboFlock going to get around? With lasers!
 
-- :doc:`Tracking <description_docs/tracking>`
-   - High-level explaination of GPS RTK and user-to-robot communication
+Project RoboFlock
+^^^^^^^^^^^^^^^^^
 
-- :doc:`Software <description_docs/software>`
-   - ROS2: the backbone of RoboFlock
+The core components of the project include the robot and the homing beacon. Together, these elements enable the robot to maintain its course toward the beacon, safely navigate around obstacles, and provide status updates on its battery health. The system's design allows it to perform reliably in outdoor settings, supporting autonomous movement within defined physical and environmental constraints.
 
-- :doc:`Chassis Design <construction_docs/chassis_design>`
-   - 2-D and 3-D models of RoboFlock's new exterior
+This year's objective is to build upon the previous team’s Dust Runners into a more robust system, with an improved code base using ROS2, tracking technology, computing, and obstacle detection and navigation.
 
-- :doc:`Wiring Specifications <construction_docs/wiring_specifications>`
-   - RoboFlock has a lot of hardware that needs to be connected, so we made a helpful guide to prevent the headache of debugging electrical connections
 
-- :doc:`Future Considerations <description_docs/future_considerations>`
-   - Project RoboFlock only has so much time and money, but future teams will be able to take our ideas and designs to the next level
 
-.. _useful information:
+Main Changes From Alpha Design
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Useful Information
-^^^^^^^^^^^^^^^^^^
+1. Tracking Technology
+    * Dust Runners utilized UWB anchors and tags to calculate time of flight for distance and bearing information.
+    * RoboFlock will utilize Real-Time Kinetic (RTK) GPS for centimeter level accuracy. It calculates position vector difference between a base and the robot using high precision GNSS chips for tracking the robot's global position relative to the beacon.
 
-To see the research and resource specifications that went into the development of Project RoboFlock, check out:
+2. Computational Power
+    * Dust Runners used a distributed system with multiple Teensy 4.1 microcontrollers for handling sensor, drive, and beacon logic.
+    * RoboFlock uses a centralized Nvidia Jetson Orin Nano running ROS2 which handles perception, planning, and navigation of the robot. One Arduino will be used for motor control.
 
-- :doc:`Bibliography <citation_docs/bibliography>`
-   - References and inspirations
+3. Obstacle Detection
+    * Dust Runners used 3 ultrasonic sensors for obstacle avoidance ahead of the robot.
+    * RoboFlock will use a LiDAR connected to the Jetson for longer-range obstacle detection, improved accuracy, avoidance, and planning, with the three ultrasonic sensors still being used as a fail-safe.
 
-- :doc:`Appendix A <citation_docs/appendix_a>`
-   - Electronics, power supplies, and more
+4. Visualization
+    * Using the GPS information, we will visualize robot and beacon positions on a map of Black Rock City where Burning Man takes place to aid in retrieval of robots.  The visualization will be visible on a laptop or handlheld device.
 
-- :doc:`Appendix B <citation_docs/appendix_b>`
-   - Datasheets and schematics
+5. Beacon Communication
+    * Using Meshtastic devices we create a mesh network by which communication with the beacon will be accomplished.  This allows us to request beacon holders to return robots to the base, to communicate vital system information such as low battery levels or stuck robots, or simply send text messages to the beacon.
 
+.. figure:: _images/fig1_finalprod_overview.png
+    :align: center
+    :width: 50%
+    :loading: link
+
+    Figure 1: Overview of Final Product
+
+
+
+:doc:`Getting Started <getting_started_docs/getting_started>`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+:doc:`Additional Information <citation_docs/additional_info>`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. toctree::
    :titlesonly:
    :maxdepth: 1
    :hidden:
 
-   overview
+   getting_started_docs/getting_started
+   concepts_docs/concepts
    tutorial_docs/tutorials
+   codebase_docs/codebase
    hardware_docs/hardware
-   description_docs/functionality
    construction_docs/construction
+   future_considerations
    citation_docs/additional_info
 

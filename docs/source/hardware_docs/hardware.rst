@@ -1,5 +1,5 @@
-Hardware Descriptions
-=====================
+Hardware Components
+===================
 
 Brief descriptions and use-cases of the hardware required by RoboFlock.
 
