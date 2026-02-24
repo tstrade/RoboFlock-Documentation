@@ -139,8 +139,11 @@
              
   <section id="ultrasonic-sensor-code">
 <h1>Ultrasonic Sensor Code<a class="headerlink" href="#ultrasonic-sensor-code" title="Link to this heading"></a></h1>
-<section id="custom-data-packet">
-<h2>Custom Data Packet<a class="headerlink" href="#custom-data-packet" title="Link to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As with all code, there is likely a better way to execute this process. Through our own testing (and online Nvidia Jetson forums), we found that using the Jetson to directly control the ultrasonic sensors is not ideal. Additionally, that would be 6 pins on the Jetson’s expansion header that could be better used elsewhere. Instead, the ultrasonic sensors are controlled with an Arduino Uno, which takes care of the data collection and preprocessing. Future iterations of RoboFlock may choose to exclude the ultrasonic sensors completely in lieu of more powerful sensors (See <a class="reference internal" href="../future_considerations.html"><span class="doc">Future Considerations</span></a>)</p>
+</div>
+<p>Since we are dealing with three separate ultrasonic sensors that are all sending data through a single USB cable, we are using a custom data packet to make sure that the Jetson is receiving complete and parseable messages from the Arduino. Here is the packet’s structure:</p>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>START</p></th>
@@ -165,45 +168,145 @@
 </tr>
 </tbody>
 </table>
+<p>The bytes chosen to represent each field are first motivated by the fact that the ultrasonic sensors are meant as a backup for the LiDAR scanner, so we only care about closer values. A single byte gives a range of 0 to 255 centimeters. This is already more than we need, which is good because we also need to reserve at least 5 unique bytes to use as our field labels. We also reserve the byte <code class="code docutils literal notranslate"><span class="pre">0xFF</span></code> to represent out-of-range or invalid data, as well as the byte <code class="code docutils literal notranslate"><span class="pre">0xBE</span></code> our request message. As long as these contraints are met, the actual labels themselves are arbitrary.</p>
+<p>The current cutoff is 200 centimeters, but if you want to maximize the distances that the Arduino will transfer, you can simply change the reserved bytes to <code class="code docutils literal notranslate"><span class="pre">0xF9</span> <span class="pre">-</span> <span class="pre">0xFF</span></code>. This works out to a new maximum distance of 248 centimeters.</p>
+<section id="reading-and-writing">
+<h2>Reading and Writing<a class="headerlink" href="#reading-and-writing" title="Link to this heading"></a></h2>
+<p>When dealing with devices (USB, I2C, etc.), it is important to understand that in the Linux filesystem, <em>everything is a file or a directory</em>. This means that by using the Standard C Library, we can call functions like <code class="code docutils literal notranslate"><span class="pre">open()</span></code>, <code class="code docutils literal notranslate"><span class="pre">close()</span></code>, <code class="code docutils literal notranslate"><span class="pre">read()</span></code>, and <code class="code docutils literal notranslate"><span class="pre">write()</span></code> to interact with our USB device in the same we would with any other file. Check out <a class="reference external" href="https://tldp.org/LDP/Linux-Filesystem-Hierarchy/html/dev.html" rel="noreferrer" target="_blank">Linux Filesystem Hierarchy: Chapter 1</a> to learn more.</p>
+<p>To start, we will need the absolute path to the device, which in our case is <code class="code docutils literal notranslate"><span class="pre">/dev/ttyACM0</span></code>. There are a few ways to figure this out, with the simplest being to just look at the entries in <code class="code docutils literal notranslate"><span class="pre">/dev/</span></code> before and after plugging in the USB device. The new entry, which usually falls with the other <code class="code docutils literal notranslate"><span class="pre">tty</span></code> devices, is the entry corresponding to the USB device. When using multiple USB ports, it’s not guaranteed that a given device will be assigned the same filename each time its connected, so it’s important to make sure you are actually interfacing with the correct one. Check out <a class="reference internal" href="../tutorial_docs/init_dev.html"><span class="doc">Managing USB Devices</span></a> to learn about assigned static names to your devices via symbolic links.</p>
+<p>The basic structure of interfacing with the Arduino via USB connection is as follows:</p>
+<ol class="arabic simple">
+<li><p><em>Open</em> the file as read-write without it becoming the process’s controlling terminal (<cite>open(2) - Linux manual page &lt;open_&gt;</cite>)</p></li>
+</ol>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/* `O_RDWR` and `O_NOCTTY` are argument flags that we can use */</span>
+<span class="cm">/*   to specify access modes, file creation, and file status  */</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">open</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;/dev/ttyACM0&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">O_RDWR</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">O_NOCTTY</span><span class="p">);</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p><em>Write</em> the request message to the file (<cite>write(2) - Linux manual page &lt;write_&gt;</cite>)</p></li>
+</ol>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/* Writes `sizeof(REQUEST)` bytes to the file     */</span>
+<span class="cm">/*  starting at the address provided by `REQUEST` */</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">REQUEST</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mh">0xBE</span><span class="w"> </span><span class="p">};</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">bytes_written</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">write</span><span class="w"> </span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">REQUEST</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="w"> </span><span class="p">(</span><span class="n">REQUEST</span><span class="p">));</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p><em>Read</em> the response message from the file (<cite>read(2) - Linux manual page &lt;read_&gt;</cite>)</p></li>
+</ol>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/* Reads `sizeof(read_buf)` bytes from the file and stores */</span>
+<span class="cm">/*  them at the starting address provided by `read_buf`    */</span>
+<span class="kt">char</span><span class="w"> </span><span class="n">read_buf</span><span class="p">[</span><span class="n">PACKETLEN</span><span class="p">];</span>
+<span class="n">memset</span><span class="w"> </span><span class="p">(</span><span class="n">read_buf</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="w"> </span><span class="p">(</span><span class="n">read_buf</span><span class="p">));</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">bytes_read</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">read_buf</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="w"> </span><span class="p">(</span><span class="n">read_buf</span><span class="p">));</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p><em>Close</em> the file so that the file descriptor may be reused (<cite>close(2) - Linux manual page &lt;close_&gt;</cite>)</p></li>
+</ol>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">close</span><span class="w"> </span><span class="p">(</span><span class="n">fd</span><span class="p">)</span>
+</pre></div>
+</div>
 </section>
 <section id="usb-configuration">
 <h2>USB Configuration<a class="headerlink" href="#usb-configuration" title="Link to this heading"></a></h2>
-<ul class="simple">
-<li><p>/dev/</p></li>
-<li><p>termios</p></li>
-<li><p>Baud rate (cfsetispeed/cfsetospeed)</p></li>
-<li><p>Control modes</p></li>
-<li><dl class="simple">
-<dt>Raw/non-canonical mode</dt><dd><ul>
-<li><p>Input modes</p></li>
-<li><p>Output modes</p></li>
-<li><p>Local modes</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><p>Special</p></li>
-<li><p>tcsetattr</p></li>
-</ul>
+<p>Since we are using our own request-receive protocol, we need to use the <code class="code docutils literal notranslate"><span class="pre">termios</span></code> structure to provide the means to control the asynchronous communications. It allows for the configuration of baud rates, I/O modes, timeouts, etc. In terms of the number of lines of code, the configuration is fairly simple. Most flags, or parameters, are a single bit or small bit field that can be set or unset via predefined masks given by the standard C library. We want complete control over the data movement, so it will mostly just be clearing default flags to put the device into <em>noncanonical mode</em>. Checkout <a class="reference external" href="https://en.wikibooks.org/wiki/Serial_Programming/termios" rel="noreferrer" target="_blank">Serial Programming/termios</a> and <a class="reference external" href="https://man7.org/linux/man-pages/man3/termios.3.html" rel="noreferrer" target="_blank">termios(3) - Linux manual page</a> to learn more.</p>
+<p>The USB setup is as follows:</p>
+<ol class="arabic simple">
+<li><p>Set the baud rate for the input and output</p></li>
+</ol>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/* `tty` is the name (arbitrarily) assigned to our `struct termios` */</span>
+<span class="cm">/* The I/O baud rates MUST match the Arduino&#39;s baud rate            */</span>
+<span class="n">cfsetispeed</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="n">tty</span><span class="p">,</span><span class="w"> </span><span class="n">B9600</span><span class="p">);</span>
+<span class="n">cfsetospeed</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="n">tty</span><span class="p">,</span><span class="w"> </span><span class="n">B9600</span><span class="p">);</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Configure the control mode</p></li>
+</ol>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/* Define a character to be 8 bits (remember, type size is not    */</span>
+<span class="cm">/*  necessarily standard across different systems, so be explicit */</span>
+<span class="cm">/* Enable receiving and ignore modem control lines                */</span>
+<span class="n">tty</span><span class="p">.</span><span class="n">c_cflag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CS8</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">CREAD</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">CLOCAL</span><span class="p">;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Configure the input, output, and local modes to be non-canonical</p></li>
+</ol>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/* Non-canonical mode allows for characters to be immediately available */</span>
+<span class="cm">/*  instead of having to wait for a line-ending character, no input     */</span>
+<span class="cm">/*  processing is performed, and line editing is disabled               */</span>
+<span class="n">tty</span><span class="p">.</span><span class="n">c_iflag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="n">tty</span><span class="p">.</span><span class="n">c_oflag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="n">tty</span><span class="p">.</span><span class="n">c_lflag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Define our own “end-of-line” parameters</p></li>
+</ol>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/* `read()` will block until at least PACKETLEN (8) characters have */</span>
+<span class="cm">/*  been received, or until it hits the 0.5 second timeout          */</span>
+<span class="n">tty</span><span class="p">.</span><span class="n">c_cc</span><span class="p">[</span><span class="n">VMIN</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PACKETLEN</span><span class="p">;</span>
+<span class="n">tty</span><span class="p">.</span><span class="n">c_cc</span><span class="p">[</span><span class="n">VTIME</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Apply the new attributes</p></li>
+</ol>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/* `TCSANOW` applies the configuration immediately, and then we &quot;flush&quot; */</span>
+<span class="cm">/*  the internal filesystem buffer for our file descriptor just to make */</span>
+<span class="cm">/*  sure that there isn&#39;t garbage data sitting around                   */</span>
+<span class="n">tcsetattr</span><span class="w"> </span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">TCSANOW</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">tty</span><span class="p">);</span>
+<span class="n">tcflush</span><span class="w"> </span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">TCIOFLUSH</span><span class="p">);</span>
+</pre></div>
+</div>
 </section>
-<section id="reading-and-writing">
-<h2>Reading and Writing<a class="headerlink" href="#reading-and-writing" title="Link to this heading"></a></h2>
-<ul class="simple">
-<li><p>open/close</p></li>
-<li><p>tcflush</p></li>
-<li><p>writing/reading</p></li>
-<li><p>arduino code</p></li>
-</ul>
+<section id="arduino-uno-control">
+<h2>Arduino Uno Control<a class="headerlink" href="#arduino-uno-control" title="Link to this heading"></a></h2>
+<p>The code that actually controls the ultrasonic sensors is simple. The HC-SR04 is <em>triggered</em> by a digital pulse and then, based on the time it took for the ultrasonic waves to <em>echo</em>, outputs a digital pulse to the Arduino that can be used to find the distance of the detected object. Currently, a simple averaging filter is used on a set of samples to produce a less noisy sample for RoboFlock to use. Any data that surpasses our maximum distance of 200 centimeters is filtered out and marked with our “out-of-range” byte, <code class="code docutils literal notranslate"><span class="pre">0xFF</span></code>.</p>
+<p>The important part here is our main loop. A data packet containing samples from all 3 ultrasonic sensors is only built once per loop because it takes about 300-400 microseconds to collect and filter all the data. Then, we move to our request-receive system, which includes using the onboard LED to indicate whether or not the Arduino is waiting on a request. This all relies on just a few key functions from the Arduino’s serial library, which you can read more about in the documentation: <a class="reference external" href="https://docs.arduino.cc/language-reference/en/functions/communication/serial/" rel="noreferrer" target="_blank">Language Reference - Communication Functions</a>.</p>
+<p>The main loop is as follows:</p>
+<ol class="arabic simple">
+<li><p>Wait for the Jetson to send the request byte</p></li>
+</ol>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">digitalWrite</span><span class="w"> </span><span class="p">(</span><span class="n">LED_BUILTIN</span><span class="p">,</span><span class="w"> </span><span class="n">HIGH</span><span class="p">);</span>
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">Serial</span><span class="p">.</span><span class="n">available</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">delay</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="n">digitalWrite</span><span class="w"> </span><span class="p">(</span><span class="n">LED_BUILTIN</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Once the Jetson sends data, read until the buffer is empty (which realistically, should only be one byte, but better safe than sorry)</p></li>
+</ol>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">byte</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Serial</span><span class="p">.</span><span class="n">read</span><span class="w"> </span><span class="p">();</span>
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">Serial</span><span class="p">.</span><span class="n">available</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">read</span><span class="w"> </span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>If the request is valid, send the Jetson the new data packet</p></li>
+</ol>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">request</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mh">0xBE</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">write</span><span class="w"> </span><span class="p">(</span><span class="n">BDP</span><span class="p">,</span><span class="w"> </span><span class="n">PACKETLEN</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">flush</span><span class="w"> </span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </section>
 <section id="ultrasonic-publisher">
 <h2>Ultrasonic Publisher<a class="headerlink" href="#ultrasonic-publisher" title="Link to this heading"></a></h2>
-<ul class="simple">
-<li><p>inits (usb, msg type, topic name)</p></li>
-<li><p>callback</p></li>
-<li><p>data filtering</p></li>
-<li><p>QoS</p></li>
-</ul>
-<p><a class="reference external" href="https://man7.org/linux/man-pages/man3/termios.3.html" rel="noreferrer" target="_blank">https://man7.org/linux/man-pages/man3/termios.3.html</a></p>
+<p>The last part is to get the data published to RoboFlock’s ROS2 workspace. Currently, there are 3 separate publishers contained in a single node. ROS2 provides a message type called <code class="code docutils literal notranslate"><span class="pre">sensor_msgs/msg/Range</span></code>, which you can read more about in <a class="reference internal" href="../tutorial_docs/roboflock_topics.html"><span class="doc">RoboFlock Topics</span></a>. The node first sets up the connection with the Arduino: if this fails, the ultrasonic publishers <em>do not get initialized</em>.  Upon success, the node logs its progress and then creates the three publishers and their corresponding topics.</p>
+<p>Each time <code class="code docutils literal notranslate"><span class="pre">UltrasonicPublisher::timer_callback()</span></code> runs, the Jetson sends a request to the Arduino Uno and receives the data packet, only creating a message for valid measurements. A <code class="code docutils literal notranslate"><span class="pre">sensor_msgs/msg/Range</span></code> message is defined by a timestamp, frame ID, radiation type (in this case, ULTRASOUND), field of view (in radians), minimum range (meters), maximum range (meters), and the distance data obtained from the corresponding ultrasonic sensor.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Arduino sends the distance as an integer value with centimeters as the corresponding unit, whereas the ROS2 message uses a floating point value with meters as the corresponding unit. This conversion is made by the ROS2 node to maintain simplicity and minimal size in terms of our data packet; otherwise, the size of the data packet would quadruple!</p>
+</div>
 </section>
 </section>
 

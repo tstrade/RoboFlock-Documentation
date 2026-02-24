@@ -141,11 +141,11 @@ dumping search index in English (code: en)... done
 dumping object inventory... done
 
 ====================== slowest reading durations =======================
-0.036 hardware_docs/hc_sr04
+0.034 codebase_docs/ultrasonic_code
 0.033 citation_docs/mathref_docs/quaternions
+0.032 hardware_docs/esc
 0.029 citation_docs/additional_info
-0.025 concepts_docs/obstacle_detection
-0.024 tutorial_docs/jetson_config
+0.026 tutorial_docs/jetson_config
 build succeeded.
 
 The HTML pages are in build/html.
