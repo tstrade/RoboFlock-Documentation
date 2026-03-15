@@ -27,7 +27,7 @@ UART to USB Type-A Adapter
 
 
 **Use-Case:** :raw-html:`<br />`
-Detects obstacles and collects data for mapping RoboFlock's environment in Nav2.
+Detects obstacles and collects data for mapping RoboFlock's environment.
 
 
 

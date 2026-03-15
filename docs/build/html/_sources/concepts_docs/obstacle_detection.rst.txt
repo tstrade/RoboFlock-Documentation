@@ -19,7 +19,7 @@ To complement the location mapping provided by the LiDAR sensor, three ultrasoni
 Hardware Specifications
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-These features are implemented with the RPLIDAR A1 and the LV-MaxSonar Range Finder.
+These features are implemented with the RPLIDAR A1 and the HC-SR04.
 
 Table 2: LiDAR and Ultrasonic Sensor Specifications
 
@@ -42,13 +42,6 @@ The LiDAR sensor is mounted on top of the robot’s chassis, giving it the full 
     :loading: link
 
     Figure 3.1: RPLiDAR A1 Dimensions
-
-.. figure:: ../_images/fig3-2_lidar_usb_adapter.png
-    :align: center
-    :width: 50%
-    :loading: link
-
-    Figure 3.2: RPLiDAR A1 UART to USB Adapter
 
 Table 3: RPLiDAR A1 USB Adapter Pin Descriptions
 
@@ -78,14 +71,14 @@ Table 3: RPLiDAR A1 USB Adapter Pin Descriptions
 
 
 
-The ultrasonic sensors are mounted on the front of the robot’s chassis and angled to give the maximum possible range for reliable obstacle detection. For the correct angular positioning, see Figure 4.2 below. The LV-MaxSonar Range Finder is capable of multiple communication protocols, but for the purposes of this design, the PWM signals will be used. 
+The ultrasonic sensors are mounted on the front of the robot’s chassis and angled to give the maximum possible range for reliable obstacle detection. For the correct angular positioning, see Figure 4.2 below. The HC-SR04 is simply controlled by "triggering" short, digital pulses and measuring the length of the "echoed" signal. The process is handled by an Arduino Uno, which then sends data packets to the Nvidia Jetson via USB-A connection.
 
 .. figure:: ../_images/fig4-1_sonar_phys_design.png
     :align: center
     :width: 50%
     :loading: link
 
-    Figure 4.1: Physical Design of the LV-MaxSonar Range Finder
+    Figure 4.1: Physical Design of the HC-SR04 Ultrasonic Sensor
 
 .. figure:: ../_images/fig4-2_sonar_positions.png
     :align: center

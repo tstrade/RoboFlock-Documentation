@@ -147,57 +147,8 @@
 <li><p>Computer display and DisplayPort cable</p></li>
 <li><p>USB cable</p></li>
 </ul>
-<section id="update-firmware-using-sdk-manager">
-<h2>Update Firmware using SDK Manager<a class="headerlink" href="#update-firmware-using-sdk-manager" title="Link to this heading"></a></h2>
-<ol class="arabic simple">
-<li><p>On an x86 PC running Ubuntu 22.04 or 20.04, install Nvidia’s SDK Manager.</p></li>
-</ol>
-<p><strong>For Ubuntu 22.04</strong></p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>wget<span class="w"> </span>https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.1-1_all.deb
-<span class="gp">$ </span>sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>cuda-keyring_1.1-1_all.deb
-<span class="gp">$ </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
-<span class="gp">$ </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>sdkmanager
-</pre></div>
-</div>
-<p><strong>For Ubuntu 20.04</strong></p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>wget<span class="w"> </span>https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.1-1_all.deb
-<span class="gp">$ </span>sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>cuda-keyring_1.1-1_all.deb
-<span class="gp">$ </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
-<span class="gp">$ </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>sdkmanager
-</pre></div>
-</div>
-<p>Then launch SDK Manager:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sdkmanager
-</pre></div>
-</div>
-<p><em>If using using SDK Manager for the first time, log in with Nvidia Developer credientials and check “Stay logged in”, then click “LOGIN”</em></p>
-<ol class="arabic simple" start="2">
-<li><p>Connect either the microSD card or NVMe SSD to the host PC.</p></li>
-<li><p>Put the Jetson in recovery mode by shorting <code class="docutils literal notranslate"><span class="pre">pin</span> <span class="pre">9</span></code> and <code class="docutils literal notranslate"><span class="pre">pin</span> <span class="pre">10</span></code> of <code class="docutils literal notranslate"><span class="pre">J14</span></code> with a jumper pin or paper clip, then insert the DC power supply plug into the DC jack of the carrier board to power it on.</p></li>
-<li><p>On the SDK Manager, select the target hardware and click “OK,” then uncheck the host machine and click “Continue”</p></li>
-<li><p>Uncheck all software components except for <strong>“Jetson Linux”</strong> and accept the terms and conditions of the license agreements, then click <strong>“Continue”</strong> and wait for the next prompt to appear.</p></li>
-<li><p>Once the flashing prompt appears, select <strong>“Runtime”</strong> for the OEM Configuration and select the storage type (NVMe SSD or microSD), then click <strong>“Flash”</strong> and wait for the process to complete.</p></li>
-<li><p>Remove the jumper pin or paper clip from the header and connect I/O devices to the Jetson Orin Nano (DisplayPort cable, USB keyboard and mouse). Unplug the power supply and put back in, then finish the software setup with <code class="docutils literal notranslate"><span class="pre">oem-config</span></code></p></li>
-</ol>
-</section>
-<section id="write-image-to-the-microsd-card-etcher-method">
-<h2>Write Image to the microSD Card (Etcher Method)<a class="headerlink" href="#write-image-to-the-microsd-card-etcher-method" title="Link to this heading"></a></h2>
-<ol class="arabic">
-<li><p>Download the Jetson Orin Nano Developer Kit SD Card image from <a class="reference external" href="https://developer.nvidia.com/downloads/embedded/l4t/r36_release_v4.3/jp62-orin-nano-sd-card-image.zip" rel="noreferrer" target="_blank">JetPack SDK Page</a></p></li>
-<li><p>Write the image to your microSD card by following the instructions below (if using Windows or Mac, click <a class="reference external" href="https://developer.nvidia.com/embedded/learn/get-started-jetson-orin-nano-devkit#write" rel="noreferrer" target="_blank">here for instructions</a>).</p>
-<blockquote>
-<div><ol class="loweralpha simple">
-<li><p>Download, install, and launch <a class="reference external" href="https://etcher.balena.io/" rel="noreferrer" target="_blank">balenaEtcher</a></p></li>
-<li><p>Click “Select image” and choose the zipped image file downloaded earlier</p></li>
-<li><p>Insert the microSD card and ensure that it is listed as the target device, then click <strong>“Flash!”</strong></p></li>
-<li><p>After Etcher finishes, properly eject the microSD card and then physically remove from the host PC</p></li>
-</ol>
-</div></blockquote>
-</li>
-</ol>
-</section>
-<section id="write-image-to-the-microsd-card-terminal-method">
-<h2>Write Image to the microSD Card (Terminal Method)<a class="headerlink" href="#write-image-to-the-microsd-card-terminal-method" title="Link to this heading"></a></h2>
+<section id="write-image-to-the-microsd-card">
+<h2>Write Image to the microSD Card<a class="headerlink" href="#write-image-to-the-microsd-card" title="Link to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>Open the terminal and insert the microSD card, then enter the following command:</p></li>
 </ol>
@@ -220,6 +171,10 @@
 </div>
 <p><em>Replace</em> <code class="docutils literal notranslate"><span class="pre">/dev/sd&lt;x&gt;</span></code> <em>with the proper name assigned to the microSD card</em></p>
 <p>Then, physically removed the microSD card from the host PC.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Image flashing tools like <a class="reference external" href="https://etcher.balena.io/" rel="noreferrer" target="_blank">balenaEtcher</a> also work, but we prefer the terminal to relying on 3rd-party software.</p>
+</div>
 </section>
 <section id="setup-and-first-boot">
 <h2>Setup and First Boot<a class="headerlink" href="#setup-and-first-boot" title="Link to this heading"></a></h2>

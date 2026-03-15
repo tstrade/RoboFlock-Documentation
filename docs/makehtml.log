@@ -113,27 +113,26 @@ writing output... [100%] tutorial_docs/urdf
 generating indices... genindex done
 writing additional pages... search done
 copying images... [  4%] _images/fig5_beacon_rover_datastream.png
-copying images... [  8%] _images/fig6_ex_gps_visuals.png
-copying images... [ 12%] _images/fig7-1_beacon_robo_comms.png
+copying images... [  9%] _images/fig6_ex_gps_visuals.png
+copying images... [ 13%] _images/fig7-1_beacon_robo_comms.png
 copying images... [ 17%] _images/fig7-2_beacon_robo_dataflow.png
-copying images... [ 21%] _images/fig8_neo_pinout.png
-copying images... [ 25%] _images/fig9_zed_pinout.png
-copying images... [ 29%] _images/fig10_hc12_pinout.png
-copying images... [ 33%] _images/fig3-1_lidar_dims.png
-copying images... [ 38%] _images/fig3-2_lidar_usb_adapter.png
-copying images... [ 42%] _images/fig4-1_sonar_phys_design.png
-copying images... [ 46%] _images/fig4-2_sonar_positions.png
-copying images... [ 50%] _images/fig11_ros2_overview.png
-copying images... [ 54%] _images/fig12_chassis_design_proto.png
-copying images... [ 58%] _images/fig13_chassis_frame.png
-copying images... [ 62%] _images/fig14_chassis_frame_dims.png
-copying images... [ 67%] _images/fig15_chassis_shell.png
-copying images... [ 71%] _images/fig16_chassis_shell_dims.png
-copying images... [ 75%] _images/fig17_airless_tires.png
-copying images... [ 79%] _images/fig18_airless_tires_dims.png
+copying images... [ 22%] _images/fig8_neo_pinout.png
+copying images... [ 26%] _images/fig9_zed_pinout.png
+copying images... [ 30%] _images/fig10_hc12_pinout.png
+copying images... [ 35%] _images/fig3-1_lidar_dims.png
+copying images... [ 39%] _images/fig4-1_sonar_phys_design.png
+copying images... [ 43%] _images/fig4-2_sonar_positions.png
+copying images... [ 48%] _images/fig11_ros2_overview.png
+copying images... [ 52%] _images/fig12_chassis_design_proto.png
+copying images... [ 57%] _images/fig13_chassis_frame.png
+copying images... [ 61%] _images/fig14_chassis_frame_dims.png
+copying images... [ 65%] _images/fig15_chassis_shell.png
+copying images... [ 70%] _images/fig16_chassis_shell_dims.png
+copying images... [ 74%] _images/fig17_airless_tires.png
+copying images... [ 78%] _images/fig18_airless_tires_dims.png
 copying images... [ 83%] _images/fig19_beacon_wiring_diagram.png
-copying images... [ 88%] _images/fig21_internal_wiring_diagram.png
-copying images... [ 92%] _images/fig2-1_jetson_block_diagram.png
+copying images... [ 87%] _images/fig21_internal_wiring_diagram.png
+copying images... [ 91%] _images/fig2-1_jetson_block_diagram.png
 copying images... [ 96%] _images/fig2-2_jetson_carrier_connections.png
 copying images... [100%] _images/fig1_finalprod_overview.png
 
@@ -141,11 +140,11 @@ dumping search index in English (code: en)... done
 dumping object inventory... done
 
 ====================== slowest reading durations =======================
-0.034 codebase_docs/ultrasonic_code
-0.033 citation_docs/mathref_docs/quaternions
-0.032 hardware_docs/esc
-0.029 citation_docs/additional_info
-0.026 tutorial_docs/jetson_config
+0.025 codebase_docs/ultrasonic_code
+0.023 citation_docs/mathref_docs/quaternions
+0.023 hardware_docs/esc
+0.019 concepts_docs/navigation
+0.019 construction_docs/chassis_design
 build succeeded.
 
 The HTML pages are in build/html.

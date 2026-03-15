@@ -13,71 +13,9 @@ Before getting started, make sure you have the following items:
 
 - USB cable
 
-Update Firmware using SDK Manager
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. On an x86 PC running Ubuntu 22.04 or 20.04, install Nvidia's SDK Manager. 
-
-**For Ubuntu 22.04**
-
-.. code-block:: console
-
-    $ wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.1-1_all.deb
-    $ sudo dpkg -i cuda-keyring_1.1-1_all.deb
-    $ sudo apt-get update
-    $ sudo apt-get -y install sdkmanager
-
-**For Ubuntu 20.04**
-
-.. code-block:: console
-
-    $ wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.1-1_all.deb
-    $ sudo dpkg -i cuda-keyring_1.1-1_all.deb
-    $ sudo apt-get update
-    $ sudo apt-get -y install sdkmanager
-
-Then launch SDK Manager:
-
-.. code-block:: console
-
-    $ sdkmanager
-
-*If using using SDK Manager for the first time, log in with Nvidia Developer credientials and check "Stay logged in", then click "LOGIN"*
-
-
-2. Connect either the microSD card or NVMe SSD to the host PC. 
-
-3. Put the Jetson in recovery mode by shorting ``pin 9`` and ``pin 10`` of ``J14`` with a jumper pin or paper clip, then insert the DC power supply plug into the DC jack of the carrier board to power it on.
-
-4. On the SDK Manager, select the target hardware and click "OK," then uncheck the host machine and click "Continue"
-
-5. Uncheck all software components except for **"Jetson Linux"** and accept the terms and conditions of the license agreements, then click **"Continue"** and wait for the next prompt to appear.
-
-6. Once the flashing prompt appears, select **"Runtime"** for the OEM Configuration and select the storage type (NVMe SSD or microSD), then click **"Flash"** and wait for the process to complete.
-
-7. Remove the jumper pin or paper clip from the header and connect I/O devices to the Jetson Orin Nano (DisplayPort cable, USB keyboard and mouse). Unplug the power supply and put back in, then finish the software setup with ``oem-config``
-
-
-
-Write Image to the microSD Card (Etcher Method)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-1. Download the Jetson Orin Nano Developer Kit SD Card image from `JetPack SDK Page <jpsdk_>`_
-
-2. Write the image to your microSD card by following the instructions below (if using Windows or Mac, click `here for instructions <writesd_>`_).
-
-    a. Download, install, and launch `balenaEtcher <etcher_>`_
-
-    b. Click "Select image" and choose the zipped image file downloaded earlier
-
-    c. Insert the microSD card and ensure that it is listed as the target device, then click **"Flash!"**
-
-    d. After Etcher finishes, properly eject the microSD card and then physically remove from the host PC
-
-
-
-Write Image to the microSD Card (Terminal Method)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Write Image to the microSD Card
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. Open the terminal and insert the microSD card, then enter the following command:
 
@@ -104,6 +42,11 @@ Write Image to the microSD Card (Terminal Method)
 *Replace* ``/dev/sd<x>`` *with the proper name assigned to the microSD card*
 
 Then, physically removed the microSD card from the host PC.
+
+
+.. note::
+
+    Image flashing tools like `balenaEtcher <etcher_>`_ also work, but we prefer the terminal to relying on 3rd-party software.
 
 
 
