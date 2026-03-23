@@ -11,4 +11,3 @@ Mathematics References
     :maxdepth: 1
 
     quaternions
-    rtk

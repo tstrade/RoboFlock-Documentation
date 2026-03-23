@@ -11,7 +11,7 @@ Arduino Nano
 `Arduino Nano ATmega328 Microcontroller User Manual <nano_>`_
 
 
-**Features:** :raw-html:`<br />`
+**Features:** 
 16MHz Clock Frequency :raw-html:`<br />`
 Digital, Analog, PWM, UART, I2C, and SPI Capabilities :raw-html:`<br />`
 32kB Flash Memory :raw-html:`<br />`
