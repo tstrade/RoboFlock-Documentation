@@ -19,7 +19,7 @@
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/clipboard.min.js?v=a7894cd8"></script>
-      <script src="_static/copybutton.js?v=f281be69"></script>
+      <script src="_static/copybutton.js?v=6dbb43f8"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -82,9 +82,6 @@
 <li class="toctree-l2"><a class="reference internal" href="hardware_docs/neo_m8p.html">NEO-M8P-2 GNSS/GPS Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hardware_docs/zed_f9p.html">ZED-F9P-02B GNSS/GPS Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hardware_docs/hc_12.html">HC-12 Wireless Serial Port Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hardware_docs/esc.html">Brushed Electronic Speed Controller (ESC)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hardware_docs/servo.html">Brushless Digital Servo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hardware_docs/brushed.html">3-Slot Brushed Motor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hardware_docs/max_17048.html">MAX17048 Fuel Gauge and Battery Monitor</a></li>
 </ul>
 </li>
@@ -98,7 +95,6 @@
 <li class="toctree-l1"><a class="reference internal" href="citation_docs/additional_info.html">Additional Information</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="citation_docs/mathref_docs/mathref.html">Mathematics References</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="citation_docs/mathref_docs/quaternions.html">Rotations with Quaternions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="citation_docs/mathref_docs/rtk.html">Real-Time Kinematic Positioning</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="citation_docs/bibliography.html">Bibliography</a></li>
@@ -138,29 +134,21 @@
 <h1>RoboFlock Documentation<a class="headerlink" href="#roboflock-documentation" title="Link to this heading"></a></h1>
 <p><strong>The RoboFlock Project is an autonomous robot design that follows its user.</strong> From LiDAR-based obstacle detection and GPS Real-Time Kinematic tracking to robust process management and powerful computational capabilities, RoboFlock is a reliable companion that will follow you for life (or until the battery gives out).</p>
 <p>Previously known as Project Dust Runners, the RoboFlock Project has made a lot of changes to its design. <strong>The goal of the RoboFlock Project is to improve obstacle detection, response time, user accessibility, and environmental resistance.</strong> These changes will take advantage of the foundation laid by Project Dust Runners and leverage new technology to improve the design.</p>
-<section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
-<p>This design document outlines the development and implementation of an autonomous robot system capable of navigating through dynamic and static obstacles while tracking and following a portable beacon. The primary goal of this project is to create a functional robotic platform that can follow a beacon and avoid obstacles. This project combines elements of robotic navigation, obstacle detection, and low-power management to create a practical and adaptable system.</p>
-</section>
-<section id="project-roboflock">
-<h2>Project RoboFlock<a class="headerlink" href="#project-roboflock" title="Link to this heading"></a></h2>
-<p>The core components of the project include the robot and the homing beacon. Together, these elements enable the robot to maintain its course toward the beacon, safely navigate around obstacles, and provide status updates on its battery health. The system’s design allows it to perform reliably in outdoor settings, supporting autonomous movement through difficult terrain.</p>
-<p>This year’s objective is to build upon the previous team’s Dust Runners into a more robust system, with an improved code base using ROS2, tracking technology, computing, and obstacle detection and navigation.</p>
-</section>
+<p>The core components of the project include the robot and the beacon. Using the Robot Operating System 2 (ROS2), the whole system can be defined as an interconnected collection of nodes that run tasks in parallel. With most of the process management, sensor data fusion, and navigation being handled by ROS2, Project Roboflock essentially turns into writing a series of drivers and configuration files. This framework allows us to improve the codebase to support better tracking technology, obstacle detection, and navigation.</p>
 <section id="main-changes-from-alpha-design">
 <h2>Main Changes From Alpha Design<a class="headerlink" href="#main-changes-from-alpha-design" title="Link to this heading"></a></h2>
 <ol class="arabic simple">
 <li><dl class="simple">
 <dt>Tracking Technology</dt><dd><ul class="simple">
-<li><p>Dust Runners utilized UWB anchors and tags to calculate time of flight for distance and bearing information.</p></li>
-<li><p>RoboFlock will utilize Global Positioning System (GPS) data from both the robot and the beacon to calculate the distance and direction the robot needs to travel to reach the beacon.</p></li>
+<li><p>Dust Runners used UWB anchors and tags to calculate time of flight for distance and bearing information.</p></li>
+<li><p>RoboFlock uses Global Positioning System (GPS) data from both the robot and the beacon to calculate the distance and direction the robot needs to travel to reach the beacon.</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
 <dt>Computational Power</dt><dd><ul class="simple">
-<li><p>Dust Runners used a distributed system with multiple Teensy 4.1 microcontrollers for handling sensor, drive, and beacon logic.</p></li>
+<li><p>Dust Runners used a distributed system with multiple Teensy 4.1 microcontrollers for handling sensor, motor, and beacon logic.</p></li>
 <li><p>RoboFlock uses a centralized Nvidia Jetson Orin Nano running ROS2 which handles perception, navigation, and motor control.</p></li>
 </ul>
 </dd>
@@ -169,21 +157,21 @@
 <li><dl class="simple">
 <dt>Obstacle Detection</dt><dd><ul class="simple">
 <li><p>Dust Runners used 3 ultrasonic sensors for obstacle avoidance ahead of the robot.</p></li>
-<li><p>RoboFlock will use a LiDAR connected to the Jetson for longer-range obstacle detection, improved accuracy, avoidance, and planning, with the three ultrasonic sensors still being used as a fail-safe.</p></li>
+<li><p>RoboFlock uses a LiDAR module for longer-range obstacle detection, improved accuracy, avoidance, and planning, with the three ultrasonic sensors still being used as a fail-safe.</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
 <dt>Visualization</dt><dd><ul class="simple">
-<li><p>Using the GPS information, we will visualize robot and beacon positions on a map of Black Rock City where Burning Man takes place to aid in retrieval of robots.  The visualization will be visible on a laptop or handlheld device.</p></li>
+<li><p>Using the GPS information, the robot and beacon positions can be projected onto map of Black Rock City, where Burning Man takes place, to aid in the retrieval of a robot. This visualization can be viewed on a laptop or handlheld device.</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
 <dt>Beacon Communication</dt><dd><ul class="simple">
-<li><p>Using Meshtastic devices, we create a line of communication over a mesh network.  This allows us to request beacon holders to return robots to the base, to communicate vital system information such as low battery levels or stuck robots, or simply send text messages to the beacon.</p></li>
+<li><p>Using Meshtastic devices, a mesh network is established, allowing us to communicate messages such as requesting that a robot returns to base or receiving vital system status information.</p></li>
 </ul>
 </dd>
 </dl>

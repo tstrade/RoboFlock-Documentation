@@ -4,11 +4,11 @@ Getting Started
 Installation
 ^^^^^^^^^^^^
 
-- ROS2
+- `ROS2 <humbledownload_>`_
 
-- RoboFlock repository
+- `RoboFlock GitHub Repository <roboflockrepo_>`_
 
-- Startup scripts
+- Startup Scripts
 
 
 User Manual
@@ -19,3 +19,9 @@ User Manual
 - Usage
 
 - Maintenance
+
+
+
+.. _humbledownload: https://docs.ros.org/en/humble/Installation.html
+
+.. _roboflockrepo: https://github.com/shouvik-d/RoboFlock

@@ -41,7 +41,4 @@ Brief descriptions and use-cases of the hardware required by RoboFlock.
     neo_m8p
     zed_f9p
     hc_12
-    esc
-    servo
-    brushed
     max_17048

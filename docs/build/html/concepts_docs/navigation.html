@@ -19,7 +19,7 @@
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/copybutton.js?v=6dbb43f8"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -83,9 +83,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../hardware_docs/neo_m8p.html">NEO-M8P-2 GNSS/GPS Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../hardware_docs/zed_f9p.html">ZED-F9P-02B GNSS/GPS Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../hardware_docs/hc_12.html">HC-12 Wireless Serial Port Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../hardware_docs/esc.html">Brushed Electronic Speed Controller (ESC)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../hardware_docs/servo.html">Brushless Digital Servo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../hardware_docs/brushed.html">3-Slot Brushed Motor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../hardware_docs/max_17048.html">MAX17048 Fuel Gauge and Battery Monitor</a></li>
 </ul>
 </li>
@@ -99,7 +96,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../citation_docs/additional_info.html">Additional Information</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../citation_docs/mathref_docs/mathref.html">Mathematics References</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../citation_docs/mathref_docs/quaternions.html">Rotations with Quaternions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../citation_docs/mathref_docs/rtk.html">Real-Time Kinematic Positioning</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../citation_docs/bibliography.html">Bibliography</a></li>
@@ -139,10 +135,7 @@
              
   <section id="navigation">
 <h1>Navigation<a class="headerlink" href="#navigation" title="Link to this heading"></a></h1>
-<section id="beacon">
-<h2>Beacon<a class="headerlink" href="#beacon" title="Link to this heading"></a></h2>
-<p>The beacon will be a portable-handheld device. It will act as a homing system for the robot, and the robot will follow it at a certain distance to the best of its ability in an outdoor environment. The beacon consists of a battery system, GPS module, and LEDs to make it exciting to possess. It will also alert the user if the robot has any problems, such as getting stuck or low battery power.</p>
-</section>
+<p>For RoboFlock to follow the user, they must be holding a beacon. This beacon is a portable-handheld device that acts as a homing system for the robot, and the robot will follow within a few meters to the best of its ability in an outdoor environment. The beacon consists of a battery system, GPS module, wireless RF communication module, and LEDs to make it exciting to possess. It will also alert the user if the robot has any problems, such as getting stuck or low battery power.</p>
 <section id="architectural-block-diagram">
 <h2>Architectural Block Diagram<a class="headerlink" href="#architectural-block-diagram" title="Link to this heading"></a></h2>
 <figure class="align-center" id="id1">
@@ -160,7 +153,7 @@
 </section>
 <section id="gps-visualization-simulation">
 <h2>GPS Visualization Simulation<a class="headerlink" href="#gps-visualization-simulation" title="Link to this heading"></a></h2>
-<p>As an intermediate step between fully implementing and starting to test the GPS visualization functionality, we will simulate the expected outputs from the Beacon and Robot GPS modules to the Jetson Orin Nano.  By simulating this network traffic under assumption of NMEA data format used for the GPS data we will write a script in Python that extracts latitude and longitude information from each module’s raw NMEA data stream and using this position information we visualize the location of the Robot and Beacon on a map using the Folium mapping library.</p>
+<p>As an intermediate step between testing and fully implementing the GPS visualization functionality, we will simulate the expected outputs from the beacon and robot GPS modules to the Jetson Orin Nano. By simulating this network traffic under assumption of NMEA data format used for the GPS data, we will write a script in Python that extracts latitude and longitude information from each module’s raw NMEA data stream and using this position information we visualize the location of the Robot and Beacon on a map using the Folium mapping library.</p>
 <figure class="align-center" id="id2">
 <a class="reference internal image-reference" href="../_images/fig6_ex_gps_visuals.png"><img alt="../_images/fig6_ex_gps_visuals.png" src="../_images/fig6_ex_gps_visuals.png" style="width: 50%;" />
 </a>
@@ -192,47 +185,6 @@
 <p><span class="caption-text">Figure 7.2: Beacon-to-Robot GPS Data Flowchart</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-</section>
-<section id="neo-m8p-2">
-<h2>NEO-M8P-2<a class="headerlink" href="#neo-m8p-2" title="Link to this heading"></a></h2>
-<p>The NEO-M8P-2 module is an RTK capable GPS module with L1 satellite constellations mounted on the Robot which will accept RTCM correction data from the ZED-F9P GPS module in order to achieve centimeter level position coordinate accuracy in Rover configuration relative to the Beacon’s moving baseline configuration.  We will use this module to obtain position coordinates of the Robot which in combination with the position coordinates of the Beacon obtained via the ZED-F9P will allow us to track the Beacon and Robot positions relative to one another.</p>
-<figure class="align-center" id="id5">
-<a class="reference internal image-reference" href="../_images/fig8_neo_pinout.png"><img alt="../_images/fig8_neo_pinout.png" src="../_images/fig8_neo_pinout.png" style="width: 50%;" />
-</a>
-<figcaption>
-<p><span class="caption-text">Figure 8: u-blox NEO-M8P Pinout</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
-</figcaption>
-</figure>
-</section>
-<section id="zed-f9p">
-<h2>ZED-F9P<a class="headerlink" href="#zed-f9p" title="Link to this heading"></a></h2>
-<p>The ZED-F9P GPS module is a RTK capable module with access to the L1 and L2 satellite constellations.  We will use this module on the Beacon as a moving baseline, allowing for GPS correction data to be determined relative to the Beacon’s position and sent to the Robot’s NEO-M8P-2 GPS module resulting in centimeter level position coordinate accuracy for both Beacon and Robot.</p>
-<figure class="align-center" id="id6">
-<a class="reference internal image-reference" href="../_images/fig9_zed_pinout.png"><img alt="../_images/fig9_zed_pinout.png" src="../_images/fig9_zed_pinout.png" style="width: 50%;" />
-</a>
-<figcaption>
-<p><span class="caption-text">Figure 9: u-blox ZED-F9P Pinout</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
-</figcaption>
-</figure>
-<section id="hc-12">
-<h3>HC-12<a class="headerlink" href="#hc-12" title="Link to this heading"></a></h3>
-<p>The HC-12 wireless serial port communication module is a new-generation multichannel embedded wireless data transmission module. Its wireless working frequency band is 433.4-473.0MHz, multiple channels can be set, with the stepping of 400 KHz, and there are totally 100 channels. The maximum transmitting power of the module is 100mW (20dBm), the receiving sensitivity is -117dBm at a baud rate of 5,000bps in the air, and the communication distance is 1,000m in open space.</p>
-<figure class="align-center" id="id7">
-<a class="reference internal image-reference" href="../_images/fig10_hc12_pinout.png"><img alt="../_images/fig10_hc12_pinout.png" src="../_images/fig10_hc12_pinout.png" style="width: 50%;" />
-</a>
-<figcaption>
-<p><span class="caption-text">Figure 10: HC-12 Pinout</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
-</figcaption>
-</figure>
-<p><strong>*HC-12 Pin Layout*</strong></p>
-<ul class="simple">
-<li><p>3: RXD, UART input port</p></li>
-<li><p>4: TXD, UART output port</p></li>
-<li><p>5: SET, config control port</p></li>
-<li><p>6: ANT, external antenna for transmission and reception</p></li>
-</ul>
-<p>This module interfaces seamlessly with microcontrollers via the UART hardware interface, enabling reliable communication through the RXD and TXD pins.</p>
-</section>
 </section>
 </section>
 

@@ -68,35 +68,39 @@ Table 1: Pins Used on the Carrier Board's 40-Pin Expansion Header
 +-------+------------+---------------------+----------------------+
 |  28   | I2C0_SCL   | NEO-M8P Pin 19      | GPS Coordinates      |
 +-------+------------+---------------------+----------------------+
-|  29   | GPIO01     | Arduino Nano Pin 16 | Sonar 1              |
-+-------+------------+---------------------+----------------------+
 |  30   | GND        | Ground Bus          |                      |
 +-------+------------+---------------------+----------------------+
-|  31   | GPIO11     | Arduino Nano Pin 15 | Sonar 2              |
-+-------+------------+---------------------+----------------------+
-|  32   | GPIO7      | INJ5235 PWM Signal  | Steering System      |
-+-------+------------+---------------------+----------------------+
-|  33   | GPIO13     | Arduino Nano Pin 14 | Sonar 3              |
-+-------+------------+---------------------+----------------------+
+
 
 **Datasheet:** :raw-html:`<br />`
 `NVIDIA Jetson Orin Nano Series Modules: Ampere GPU + Arm Cortex-A78AE CPU + LPDDR5 Data Sheet <nvidia_>`_
 
 **Features:** :raw-html:`<br />`
+6-core Arm Cortex-A78AE CPU :raw-html:`<br />`
+8GB LPDDR5 :raw-html:`<br />`
+External NVMe Slot :raw-html:`<br />`
+4xUSB-A and 1xUSB-C Ports :raw-html:`<br />`
+Video and Audio Connectors 
 
 
 **Connection:** :raw-html:`<br />`
+DC Power Supply, Display Port, USB Keyboard/Mouse
 
 
 **Interfacing:** :raw-html:`<br />`
+`Jetson Linux <jetsonlinux_>`_
 
 
 **Dimensions:** :raw-html:`<br />`
+102mm x 90.5mm x 34.77mm
 
 
 **Use-Case:** :raw-html:`<br />`
-
+Central processor for running ROS2 and all corresponding computations, controls, etc.
 
 
 
 .. _nvidia: https://developer.download.nvidia.com/assets/embedded/secure/jetson/orin_nano/docs/Jetson-Orin-Nano-Series-Modules-Datasheet_DS-11105-001_v1.7.pdf?__token__=exp=1773603870~hmac=a5ab250a60add7ab6548a64051da8d337176d999af47904c3690beb59c7a2bad&t=eyJscyI6IndlYnNpdGUiLCJsc2QiOiJkZXZlbG9wZXIubnZpZGlhLmNvbS9sb2dpbiJ9
+
+
+.. _jetsonlinux: https://developer.nvidia.com/embedded/jetson-linux-r3561

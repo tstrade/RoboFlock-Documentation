@@ -19,7 +19,7 @@
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/copybutton.js?v=6dbb43f8"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -83,9 +83,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../hardware_docs/neo_m8p.html">NEO-M8P-2 GNSS/GPS Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../hardware_docs/zed_f9p.html">ZED-F9P-02B GNSS/GPS Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../hardware_docs/hc_12.html">HC-12 Wireless Serial Port Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../hardware_docs/esc.html">Brushed Electronic Speed Controller (ESC)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../hardware_docs/servo.html">Brushless Digital Servo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../hardware_docs/brushed.html">3-Slot Brushed Motor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../hardware_docs/max_17048.html">MAX17048 Fuel Gauge and Battery Monitor</a></li>
 </ul>
 </li>
@@ -99,7 +96,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../citation_docs/additional_info.html">Additional Information</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../citation_docs/mathref_docs/mathref.html">Mathematics References</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../citation_docs/mathref_docs/quaternions.html">Rotations with Quaternions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../citation_docs/mathref_docs/rtk.html">Real-Time Kinematic Positioning</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../citation_docs/bibliography.html">Bibliography</a></li>
@@ -139,38 +135,59 @@
              
   <section id="ros2">
 <h1>ROS2<a class="headerlink" href="#ros2" title="Link to this heading"></a></h1>
-<section id="architectural-block-diagram">
-<h2>Architectural Block Diagram<a class="headerlink" href="#architectural-block-diagram" title="Link to this heading"></a></h2>
-<figure class="align-center" id="id1">
-<a class="reference internal image-reference" href="../_images/fig11_ros2_overview.png"><img alt="../_images/fig11_ros2_overview.png" src="../_images/fig11_ros2_overview.png" style="width: 50%;" />
-</a>
-<figcaption>
-<p><span class="caption-text">Figure 11: Overview of ROS2 Setup</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
-</figcaption>
-</figure>
-</section>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
 <p>ROS2 is the main software framework for the robot. It handles message passing, timing, and modularity. Each sensor, controller, and algorithm runs as a ROS2 node. These nodes will use one of the following communication methods provided by the framework:</p>
 <ol class="arabic simple">
 <li><p><em>Topics</em> are used for continuous streams of data. Nodes can publish messages via topics and nodes can subscribe to messages via topics.</p></li>
 <li><p><em>Services</em> are used for call-and-response communication. Many nodes can act as the service client, each capable of sending requests to the node acting as the service server.</p></li>
+<li><p><em>Actions</em> are used for long-term communications that consist of a goal, feedback, and a result. One node acts as the action server that responds to requests about the goal and result, in addition to providing feedback information to the action client, which is another node that sends out the information requests.</p></li>
 </ol>
-<p>Simpler tasks, such as collecting the ultrasonic data or telling the motors how fast to move, will be communicated via topics. More complex tasks, such as obtaining the beacon’s location, will be communicated via services.</p>
 </section>
-<section id="perception">
-<h2>Perception<a class="headerlink" href="#perception" title="Link to this heading"></a></h2>
-<p>The LiDAR node publishes range data at its native scan rate. The ultrasonic nodes publish short range distance readings. The GPS node publishes the robot’s global position. The HC-12 module publishes relative range data when available. The motor controller node accepts velocity commands and drives the ESC.</p>
-<p>The ultrasonic sensors are added as a safety feature for immediate obstacle detection.</p>
+<section id="architectural-block-diagram">
+<h2>Architectural Block Diagram<a class="headerlink" href="#architectural-block-diagram" title="Link to this heading"></a></h2>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="../_images/fig11_ros2_overview.png"><img alt="../_images/fig11_ros2_overview.png" src="../_images/fig11_ros2_overview.png" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Overview of ROS2 Setup</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
 </section>
-<section id="planning">
-<h2>Planning<a class="headerlink" href="#planning" title="Link to this heading"></a></h2>
-<p>The navigation system uses Nav2 to move the robot toward the beacon while avoiding obstacles by computing a target waypoint from the GPS position of the beacon. The robot updates this waypoint as the beacon moves.</p>
-<p>Nav2 builds a local cost map from LiDAR and ultrasonic data, showing both free space and blocked space around the robot. This map is updated at a high rate, giving it smooth motion around obstacles, even when they appear without warning.</p>
-<p>Nav2 runs two planners:</p>
+<section id="data-collection">
+<h2>Data Collection<a class="headerlink" href="#data-collection" title="Link to this heading"></a></h2>
+<p>The first step to any autonomous system is to collect all relevant sensor data. In ROS2, we can represent each sensor as a <em>node</em> that is within a <em>package</em>, which is just a collection of source code, configuration files, and compiler rules. These nodes then publish their data to a topic, making it available to any nodes subscribed to said topic. ROS2 supports a wide variety of message types, many of which are conveniently crafted to carry specific sensor data. Message types used in RoboFlock are discussed further in <a class="reference internal" href="../tutorial_docs/roboflock_topics.html"><span class="doc">Using RoboFlock’s Topics</span></a>.</p>
+<p>The naming conventions for topics is also important. A topic’s name can impact its place in the naming hierarchy. For example, LiDAR data is typically published to a topic named <code class="code docutils literal notranslate"><span class="pre">scan</span></code>, which is considered to be <em>relative</em> (to its original package), whereas a topic named <code class="code docutils literal notranslate"><span class="pre">/scan</span></code> is considered to be <em>absolute</em> (to the whole workspace). This can be useful when multiple packages are working with the same types of data but at different scopes. Topic names can also be <em>remapped</em>, which is especially useful when working with internal ROS2 packages, such as the Robot Localization package. RoboFlock generally sticks to using absolute names and remappings to avoid conflicts. For more details on naming conventions, check out <a class="reference external" href="https://design.ros2.org/articles/topic_and_service_names.html" rel="noreferrer" target="_blank">Topic and Service name mapping to DDS</a>.</p>
+</section>
+<section id="transformations">
+<h2>Transformations<a class="headerlink" href="#transformations" title="Link to this heading"></a></h2>
+<p>An important concept to understand in ROS2’s navigation system is the <em>frame of reference</em>. Each component on the robot is considered to have its own frame of reference, which is a 3D space at which the component is the origin and the <em>x</em>, <em>y</em>, and <em>z</em> axes are aligned with the component’s front, left side, and top, respectively. <a class="reference external" href="https://www.ros.org/reps/rep-0145.html" rel="noreferrer" target="_blank">REP 145</a> defines the conventions used for frame of references and IMU orientations.</p>
+<p>In order for the sensor data to be used accurately, it needs to be in the robot’s frame of reference. Let’s say that RoboFlock’s left ultrasonic sensor detects an object 1 meter in front of itself. If taken at face value, then this data is incorrect to the robot because the object is actually 1 meter to the robot’s left. The data needs to be transformed from the ultrasonic sensor’s frame of reference to the robot’s frame of reference.</p>
+<p>Fortunately, ROS2 can handle the translational and rotational math needed to move data between different frames of reference; however, it still needs a starting point. This is where the URDF file comes in. It gives a spatial description of each component in the robot relative to the robot’s center of mass. Using the left ultrasonic example, we might describe its translational offset as being 10 centimeters above and 15 centimeters to the left of the robot’s center, and its rotational offset would be 90 degrees about the <em>z</em>-axis. The file can be manually written or automatically generated from CAD models using tools such as <strong>LIST CAD-URDF TOOL HERE</strong>. For more details on the URDF file, check out <a class="reference internal" href="../tutorial_docs/urdf.html"><span class="doc">Creating the URDF</span></a>.</p>
+</section>
+<section id="sensor-fusion">
+<h2>Sensor Fusion<a class="headerlink" href="#sensor-fusion" title="Link to this heading"></a></h2>
+<p>So now we have all our sensor data publishing to their respective topics and all physical aspects of the robots defined in a URDF file. The next step for ROS2 to perform is fusing all this data together so that calculations for the motor drivers can be made. There are 15 variables that ROS2 cares about:</p>
 <ul class="simple">
-<li><p>The global planner draws a simple route toward the target point.</p></li>
-<li><p>The local planner produces velocity commands that steer the robot along the route without hitting obstacles. It adjusts speed when space becomes tight. It slows or stops when the ultrasonic sensors report close-range hazards.</p></li>
+<li><p><em>x</em>, <em>y</em>, <em>z</em> positions</p></li>
+<li><p>roll, pitch, and yaw</p></li>
+<li><p><em>x</em>, <em>y</em>, <em>z</em> velocities</p></li>
+<li><p>change in roll, pitch, and yaw</p></li>
+<li><p><em>x</em>, <em>y</em>, <em>z</em> accelerations</p></li>
+</ul>
+<p>Since RoboFlock is (currently) only concered with planar motion, we can disregard any roll, pitch, or <em>z</em>-axis values. The remaining variables are ultimately controlled by how the sensor fusion is configured. The <a class="reference external" href="https://docs.ros.org/en/noetic/api/robot_localization/html/index.html" rel="noreferrer" target="_blank">robot_localization</a> package processes sensor data needed to understand the robot’s physical location in the environment. In the case of RoboFlock, this data comes from the IMU, LiDAR scanner, and GPS module. The result is an odometry message that contains information on the robot’s frame of reference, position on the global map, linear velocity, and angular velocity. This updates the transform between the global frame of reference and the robot’s frame of reference, which will be the main transform that data is moved through when navigational calculations are made.</p>
+</section>
+<section id="navigation">
+<h2>Navigation<a class="headerlink" href="#navigation" title="Link to this heading"></a></h2>
+<p>Nav2. That’s it.</p>
+</section>
+<section id="tl-dr">
+<h2>TL;DR<a class="headerlink" href="#tl-dr" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Publish sensor data to a topic</p></li>
+<li><p>Define the robot’s spatial characteristics</p></li>
+<li><p>Configure which data is getting fused</p></li>
+<li><p>Configure</p></li>
 </ul>
 </section>
 </section>

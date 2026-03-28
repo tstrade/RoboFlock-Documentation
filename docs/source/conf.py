@@ -43,7 +43,7 @@ extensions = [
     'sphinx_copybutton',
 ]
 
-copybutton_exclue = '.linenos, .gp, .go'
+copybutton_exclude = '.linenos, .gp, .go'
 templates_path = ['_templates']
 exclude_patterns = []
 highlight_language = 'cmake'
@@ -71,5 +71,4 @@ html_theme_options = {
     'style_external_links': True,
     'body_max_width': 'none',
 }
-
 
