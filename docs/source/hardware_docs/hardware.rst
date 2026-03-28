@@ -19,12 +19,6 @@ Brief descriptions and use-cases of the hardware required by RoboFlock.
 
 - :doc:`HC-12 Wireless Serial Port Module <hc_12>`
 
-- :doc:`Brushed Electronic Speed Controller (ESC) <esc>`
-
-- :doc:`Brushless Digital Servo <servo>`
-
-- :doc:`3-Slot Brushed Motor <brushed>`
-
 - :doc:`MAX17048 Fuel Gauge and Battery Monitor <max_17048>`
 
 
