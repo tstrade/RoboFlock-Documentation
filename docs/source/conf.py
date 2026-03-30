@@ -8,11 +8,11 @@ import time
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 sys.path.append(str(Path('sphinext').resolve()))
-sys.path.insert(0, os.path.abspath('./citation_docs'))
-sys.path.insert(0, os.path.abspath('./construction_docs'))
-sys.path.insert(0, os.path.abspath('./description_docs'))
-sys.path.insert(0, os.path.abspath('./tutorial_docs'))
-sys.path.insert(0, os.path.abspath('.'))
+#sys.path.insert(0, os.path.abspath('./citation_docs'))
+#sys.path.insert(0, os.path.abspath('./construction_docs'))
+#sys.path.insert(0, os.path.abspath('./description_docs'))
+#sys.path.insert(0, os.path.abspath('./tutorial_docs'))
+#sys.path.insert(0, os.path.abspath('.'))
 
 
 # Configuration file for the Sphinx documentation builder.
@@ -26,6 +26,7 @@ sys.path.insert(0, os.path.abspath('.'))
 project = 'RoboFlock'
 copyright = '2025, Project RoboFlock'
 author = 'Thomas Strade, Aditya Challamarad, Marco Bianco, Nicholas Pitsakis, Krish Puwar, Shouvik Das, Andrew Collado'
+version = '1.1'
 release = '1.1'
 language = 'en'
 # -- General configuration ---------------------------------------------------
@@ -45,9 +46,8 @@ extensions = [
 
 copybutton_exclude = '.linenos, .gp, .go'
 templates_path = ['_templates']
-exclude_patterns = []
+exclude_patterns = ['citation_docs/mathref_docs/kalmanfilters.rst']
 highlight_language = 'cmake'
-
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
@@ -66,7 +66,7 @@ html_theme_options = {
     'logo_only': True,
     'collapse_navigation': False,
     'sticky_navigation': True,
-    'navigation_depth': -1,
+    'navigation_depth': 2,
     'prev_next_buttons_location': "both",
     'style_external_links': True,
     'body_max_width': 'none',

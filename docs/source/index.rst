@@ -53,7 +53,7 @@ Main Changes From Alpha Design
 
 .. toctree::
    :titlesonly:
-   :maxdepth: 1
+   :maxdepth: 2
    :hidden:
 
    getting_started_docs/getting_started

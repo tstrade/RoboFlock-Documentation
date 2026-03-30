@@ -1,4 +1,4 @@
-Running Sphinx v8.2.3
+Running Sphinx v9.1.0
 loading translations [en]... done
 [autosummary] generating autosummary for: citation_docs/additional_info.rst, citation_docs/appendix_a.rst, citation_docs/appendix_b.rst, citation_docs/bibliography.rst, citation_docs/mathref_docs/mathref.rst, citation_docs/mathref_docs/quaternions.rst, codebase_docs/codebase.rst, codebase_docs/ultrasonic_code.rst, concepts_docs/communication.rst, concepts_docs/concepts.rst, ..., tutorial_docs/cmakelists.rst, tutorial_docs/init_dev.rst, tutorial_docs/jetson_config.rst, tutorial_docs/launch.rst, tutorial_docs/nav2.rst, tutorial_docs/roboflock_topics.rst, tutorial_docs/rtk_gps.rst, tutorial_docs/tf2.rst, tutorial_docs/tutorials.rst, tutorial_docs/urdf.rst
 building [mo]: targets for 0 po files that are out of date
@@ -128,12 +128,17 @@ copying images... [100%] _images/fig1_finalprod_overview.png
 dumping search index in English (code: en)... done
 dumping object inventory... done
 
+====================== total reading duration ==========================
+Total time reading 40 files: 0m 0.357s
+
+
 ====================== slowest reading durations =======================
-0.048 hardware_docs/jetson_devkit
-0.026 citation_docs/mathref_docs/quaternions
-0.026 codebase_docs/ultrasonic_code
-0.021 citation_docs/additional_info
-0.017 hardware_docs/rp_lidar
+0.030s hardware_docs/arduino
+0.026s codebase_docs/ultrasonic_code
+0.025s citation_docs/mathref_docs/quaternions
+0.020s concepts_docs/ros2
+0.018s hardware_docs/jetson_devkit
+
 build succeeded.
 
 The HTML pages are in build/html.

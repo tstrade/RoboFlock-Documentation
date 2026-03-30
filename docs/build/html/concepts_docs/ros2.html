@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ROS2 &mdash; RoboFlock 1.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=8f3c863a" />
 
@@ -16,8 +16,8 @@
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../_static/documentation_options.js?v=56dcb7b8"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="../_static/copybutton.js?v=6dbb43f8"></script>
     <script src="../_static/js/theme.js"></script>
@@ -62,10 +62,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/cmakelists.html">Writing CML Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/launch.html">Making Launch Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/urdf.html">Creating the URDF</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/nav2.html">Working with Nav2</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../tutorial_docs/tf2.html">tf2</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/nav2.html">Working with Nav2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/roboflock_topics.html">Using RoboFlock’s Topics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/init_dev.html">Initializing RoboFlock (Developers)</a></li>
 </ul>
@@ -94,10 +91,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../future_considerations.html">Future Considerations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../citation_docs/additional_info.html">Additional Information</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../citation_docs/mathref_docs/mathref.html">Mathematics References</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../citation_docs/mathref_docs/quaternions.html">Rotations with Quaternions</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../citation_docs/mathref_docs/mathref.html">Mathematics References</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../citation_docs/bibliography.html">Bibliography</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../citation_docs/appendix_a.html">Appendix A</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../citation_docs/appendix_b.html">Appendix B</a></li>
@@ -156,14 +150,18 @@
 </section>
 <section id="data-collection">
 <h2>Data Collection<a class="headerlink" href="#data-collection" title="Link to this heading"></a></h2>
-<p>The first step to any autonomous system is to collect all relevant sensor data. In ROS2, we can represent each sensor as a <em>node</em> that is within a <em>package</em>, which is just a collection of source code, configuration files, and compiler rules. These nodes then publish their data to a topic, making it available to any nodes subscribed to said topic. ROS2 supports a wide variety of message types, many of which are conveniently crafted to carry specific sensor data. Message types used in RoboFlock are discussed further in <a class="reference internal" href="../tutorial_docs/roboflock_topics.html"><span class="doc">Using RoboFlock’s Topics</span></a>.</p>
-<p>The naming conventions for topics is also important. A topic’s name can impact its place in the naming hierarchy. For example, LiDAR data is typically published to a topic named <code class="code docutils literal notranslate"><span class="pre">scan</span></code>, which is considered to be <em>relative</em> (to its original package), whereas a topic named <code class="code docutils literal notranslate"><span class="pre">/scan</span></code> is considered to be <em>absolute</em> (to the whole workspace). This can be useful when multiple packages are working with the same types of data but at different scopes. Topic names can also be <em>remapped</em>, which is especially useful when working with internal ROS2 packages, such as the Robot Localization package. RoboFlock generally sticks to using absolute names and remappings to avoid conflicts. For more details on naming conventions, check out <a class="reference external" href="https://design.ros2.org/articles/topic_and_service_names.html" rel="noreferrer" target="_blank">Topic and Service name mapping to DDS</a>.</p>
+<p>The first step to any autonomous system is to collect all relevant sensor data. In ROS2, we can represent each sensor as a <em>node</em> that is within a <em>package</em>, which is just a collection of source code, configuration files, and compiler rules.</p>
+<p>These nodes then publish their data to a topic, making it available to any nodes subscribed to said topic. ROS2 supports a wide variety of message types, many of which are conveniently crafted to carry specific sensor data. Message types used in RoboFlock are discussed further in <a class="reference internal" href="../tutorial_docs/roboflock_topics.html"><span class="doc">Using RoboFlock’s Topics</span></a>.</p>
+<p>The naming conventions for topics is also important. A topic’s name can impact its place in the naming hierarchy. For example, LiDAR data is typically published to a topic named <code class="code docutils literal notranslate"><span class="pre">scan</span></code>, which is considered to be <em>relative</em> (to its original package), whereas a topic named <code class="code docutils literal notranslate"><span class="pre">/scan</span></code> is considered to be <em>absolute</em> (to the whole workspace).</p>
+<p>The naming hierarchy can be useful when multiple, independently-developed packages unknowingly reference the same topic name. Since ROS2 is open-source with lots of publically contributed packages, naming conflicts will happen.</p>
+<p>Topic names can also be <em>remapped</em>, which is especially useful when working with internal ROS2 packages, such as the Robot Localization package. RoboFlock generally sticks to using absolute names and remappings to avoid conflicts.</p>
 </section>
 <section id="transformations">
 <h2>Transformations<a class="headerlink" href="#transformations" title="Link to this heading"></a></h2>
-<p>An important concept to understand in ROS2’s navigation system is the <em>frame of reference</em>. Each component on the robot is considered to have its own frame of reference, which is a 3D space at which the component is the origin and the <em>x</em>, <em>y</em>, and <em>z</em> axes are aligned with the component’s front, left side, and top, respectively. <a class="reference external" href="https://www.ros.org/reps/rep-0145.html" rel="noreferrer" target="_blank">REP 145</a> defines the conventions used for frame of references and IMU orientations.</p>
+<p>An important concept to understand in ROS2’s navigation system is the <em>frame of reference</em>. Each component on the robot is considered to have its own frame of reference, which is a 3D space at which the component is the origin and the <em>x</em>, <em>y</em>, and <em>z</em> axes are aligned with the component’s front, left side, and top, respectively.</p>
 <p>In order for the sensor data to be used accurately, it needs to be in the robot’s frame of reference. Let’s say that RoboFlock’s left ultrasonic sensor detects an object 1 meter in front of itself. If taken at face value, then this data is incorrect to the robot because the object is actually 1 meter to the robot’s left. The data needs to be transformed from the ultrasonic sensor’s frame of reference to the robot’s frame of reference.</p>
-<p>Fortunately, ROS2 can handle the translational and rotational math needed to move data between different frames of reference; however, it still needs a starting point. This is where the URDF file comes in. It gives a spatial description of each component in the robot relative to the robot’s center of mass. Using the left ultrasonic example, we might describe its translational offset as being 10 centimeters above and 15 centimeters to the left of the robot’s center, and its rotational offset would be 90 degrees about the <em>z</em>-axis. The file can be manually written or automatically generated from CAD models using tools such as <strong>LIST CAD-URDF TOOL HERE</strong>. For more details on the URDF file, check out <a class="reference internal" href="../tutorial_docs/urdf.html"><span class="doc">Creating the URDF</span></a>.</p>
+<p>Fortunately, ROS2 can handle the translational and rotational math needed to move data between different frames of reference; however, it still needs a starting point. This is where the URDF file comes in. It gives a spatial description of each component in the robot relative to the robot’s center of mass.</p>
+<p>Using the left ultrasonic example, we might describe its translational offset as being 10 centimeters above and 15 centimeters to the left of the robot’s center, and its rotational offset would be 90 degrees about the <em>z</em>-axis. The file can be manually written or automatically generated from CAD models using tools such as <strong>LIST CAD-URDF TOOL HERE</strong>.</p>
 </section>
 <section id="sensor-fusion">
 <h2>Sensor Fusion<a class="headerlink" href="#sensor-fusion" title="Link to this heading"></a></h2>
@@ -175,7 +173,8 @@
 <li><p>change in roll, pitch, and yaw</p></li>
 <li><p><em>x</em>, <em>y</em>, <em>z</em> accelerations</p></li>
 </ul>
-<p>Since RoboFlock is (currently) only concered with planar motion, we can disregard any roll, pitch, or <em>z</em>-axis values. The remaining variables are ultimately controlled by how the sensor fusion is configured. The <a class="reference external" href="https://docs.ros.org/en/noetic/api/robot_localization/html/index.html" rel="noreferrer" target="_blank">robot_localization</a> package processes sensor data needed to understand the robot’s physical location in the environment. In the case of RoboFlock, this data comes from the IMU, LiDAR scanner, and GPS module. The result is an odometry message that contains information on the robot’s frame of reference, position on the global map, linear velocity, and angular velocity. This updates the transform between the global frame of reference and the robot’s frame of reference, which will be the main transform that data is moved through when navigational calculations are made.</p>
+<p>Since RoboFlock is (currently) only concered with planar motion, we can disregard any roll, pitch, or <em>z</em>-axis values. The remaining variables are ultimately controlled by how the sensor fusion is configured. The <code class="code docutils literal notranslate"><span class="pre">robot_localization</span></code> package processes sensor data needed to understand the robot’s physical location in the environment.</p>
+<p>In the case of RoboFlock, this data comes from the IMU, LiDAR scanner, and GPS module. The result is an odometry message that contains information on the robot’s frame of reference, position on the global map, linear velocity, and angular velocity. The <code class="code docutils literal notranslate"><span class="pre">robot_localization</span></code> package also updates the transform between the global frame of reference and the robot’s frame of reference, which will be the main transform that data is moved through when navigational calculations are made.</p>
 </section>
 <section id="navigation">
 <h2>Navigation<a class="headerlink" href="#navigation" title="Link to this heading"></a></h2>
@@ -187,8 +186,25 @@
 <li><p>Publish sensor data to a topic</p></li>
 <li><p>Define the robot’s spatial characteristics</p></li>
 <li><p>Configure which data is getting fused</p></li>
-<li><p>Configure</p></li>
+<li><p>Configure the costmaps, movement constraints, and action/reaction parameters</p></li>
 </ul>
+<details class="admonition seealso" open="open">
+<summary class="admonition-title">See also</summary>
+<dl class="simple">
+<dt><a class="reference external" href="https://wiki.ros.org/geometry/CoordinateFrameConventions#Naming" rel="noreferrer" target="_blank">geometry/CoordinateFrameConventions</a></dt><dd><p>Coordinate Frame Naming Conventions</p>
+</dd>
+<dt><a class="reference external" href="https://www.ros.org/reps/rep-0103.html" rel="noreferrer" target="_blank">REP 103</a></dt><dd><p>Standard Units of Measure and Coordinate Conventions</p>
+</dd>
+<dt><a class="reference external" href="https://www.ros.org/reps/rep-0117.html" rel="noreferrer" target="_blank">REP 117</a></dt><dd><p>Informational Distance Measurements Conventions</p>
+</dd>
+<dt><a class="reference external" href="https://www.ros.org/reps/rep-0144.html" rel="noreferrer" target="_blank">REP 144</a></dt><dd><p>Package Naming Conventions</p>
+</dd>
+<dt><a class="reference external" href="https://www.ros.org/reps/rep-0145.html" rel="noreferrer" target="_blank">REP 145</a></dt><dd><p>IMU Sensor Driver Conventions</p>
+</dd>
+<dt><a class="reference external" href="https://docs.ros.org/en/noetic/api/robot_localization/html/index.html" rel="noreferrer" target="_blank">robot_localization</a></dt><dd><p>Documentation for the <code class="code docutils literal notranslate"><span class="pre">robot_localization</span></code> package</p>
+</dd>
+</dl>
+</details>
 </section>
 </section>
 

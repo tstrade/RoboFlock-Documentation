@@ -27,19 +27,27 @@ Architectural Block Diagram
 Data Collection
 ---------------
 
-The first step to any autonomous system is to collect all relevant sensor data. In ROS2, we can represent each sensor as a *node* that is within a *package*, which is just a collection of source code, configuration files, and compiler rules. These nodes then publish their data to a topic, making it available to any nodes subscribed to said topic. ROS2 supports a wide variety of message types, many of which are conveniently crafted to carry specific sensor data. Message types used in RoboFlock are discussed further in :doc:`../tutorial_docs/roboflock_topics`.
+The first step to any autonomous system is to collect all relevant sensor data. In ROS2, we can represent each sensor as a *node* that is within a *package*, which is just a collection of source code, configuration files, and compiler rules. 
 
-The naming conventions for topics is also important. A topic's name can impact its place in the naming hierarchy. For example, LiDAR data is typically published to a topic named :code:`scan`, which is considered to be *relative* (to its original package), whereas a topic named :code:`/scan` is considered to be *absolute* (to the whole workspace). This can be useful when multiple packages are working with the same types of data but at different scopes. Topic names can also be *remapped*, which is especially useful when working with internal ROS2 packages, such as the Robot Localization package. RoboFlock generally sticks to using absolute names and remappings to avoid conflicts. For more details on naming conventions, check out `Topic and Service name mapping to DDS <conventions_>`_.
+These nodes then publish their data to a topic, making it available to any nodes subscribed to said topic. ROS2 supports a wide variety of message types, many of which are conveniently crafted to carry specific sensor data. Message types used in RoboFlock are discussed further in :doc:`../tutorial_docs/roboflock_topics`.
+
+The naming conventions for topics is also important. A topic's name can impact its place in the naming hierarchy. For example, LiDAR data is typically published to a topic named :code:`scan`, which is considered to be *relative* (to its original package), whereas a topic named :code:`/scan` is considered to be *absolute* (to the whole workspace). 
+
+The naming hierarchy can be useful when multiple, independently-developed packages unknowingly reference the same topic name. Since ROS2 is open-source with lots of publically contributed packages, naming conflicts will happen. 
+
+Topic names can also be *remapped*, which is especially useful when working with internal ROS2 packages, such as the Robot Localization package. RoboFlock generally sticks to using absolute names and remappings to avoid conflicts. 
 
 
 Transformations
 ---------------
 
-An important concept to understand in ROS2's navigation system is the *frame of reference*. Each component on the robot is considered to have its own frame of reference, which is a 3D space at which the component is the origin and the *x*, *y*, and *z* axes are aligned with the component's front, left side, and top, respectively. `REP 145 <rep145_>`_ defines the conventions used for frame of references and IMU orientations.
+An important concept to understand in ROS2's navigation system is the *frame of reference*. Each component on the robot is considered to have its own frame of reference, which is a 3D space at which the component is the origin and the *x*, *y*, and *z* axes are aligned with the component's front, left side, and top, respectively.
 
 In order for the sensor data to be used accurately, it needs to be in the robot's frame of reference. Let's say that RoboFlock's left ultrasonic sensor detects an object 1 meter in front of itself. If taken at face value, then this data is incorrect to the robot because the object is actually 1 meter to the robot's left. The data needs to be transformed from the ultrasonic sensor's frame of reference to the robot's frame of reference. 
 
-Fortunately, ROS2 can handle the translational and rotational math needed to move data between different frames of reference; however, it still needs a starting point. This is where the URDF file comes in. It gives a spatial description of each component in the robot relative to the robot's center of mass. Using the left ultrasonic example, we might describe its translational offset as being 10 centimeters above and 15 centimeters to the left of the robot's center, and its rotational offset would be 90 degrees about the *z*-axis. The file can be manually written or automatically generated from CAD models using tools such as **LIST CAD-URDF TOOL HERE**. For more details on the URDF file, check out :doc:`../tutorial_docs/urdf`.
+Fortunately, ROS2 can handle the translational and rotational math needed to move data between different frames of reference; however, it still needs a starting point. This is where the URDF file comes in. It gives a spatial description of each component in the robot relative to the robot's center of mass. 
+
+Using the left ultrasonic example, we might describe its translational offset as being 10 centimeters above and 15 centimeters to the left of the robot's center, and its rotational offset would be 90 degrees about the *z*-axis. The file can be manually written or automatically generated from CAD models using tools such as **LIST CAD-URDF TOOL HERE**.
 
 
 Sensor Fusion
@@ -58,7 +66,9 @@ So now we have all our sensor data publishing to their respective topics and all
 * *x*, *y*, *z* accelerations
 
 
-Since RoboFlock is (currently) only concered with planar motion, we can disregard any roll, pitch, or *z*-axis values. The remaining variables are ultimately controlled by how the sensor fusion is configured. The `robot_localization <roboloc_>`_ package processes sensor data needed to understand the robot's physical location in the environment. In the case of RoboFlock, this data comes from the IMU, LiDAR scanner, and GPS module. The result is an odometry message that contains information on the robot's frame of reference, position on the global map, linear velocity, and angular velocity. This updates the transform between the global frame of reference and the robot's frame of reference, which will be the main transform that data is moved through when navigational calculations are made.
+Since RoboFlock is (currently) only concered with planar motion, we can disregard any roll, pitch, or *z*-axis values. The remaining variables are ultimately controlled by how the sensor fusion is configured. The :code:`robot_localization` package processes sensor data needed to understand the robot's physical location in the environment. 
+
+In the case of RoboFlock, this data comes from the IMU, LiDAR scanner, and GPS module. The result is an odometry message that contains information on the robot's frame of reference, position on the global map, linear velocity, and angular velocity. The :code:`robot_localization` package also updates the transform between the global frame of reference and the robot's frame of reference, which will be the main transform that data is moved through when navigational calculations are made.
 
 
 Navigation
@@ -77,14 +87,27 @@ TL;DR
 
 * Configure which data is getting fused
 
-* Configure 
+* Configure the costmaps, movement constraints, and action/reaction parameters
 
 
-.. _conventions: https://design.ros2.org/articles/topic_and_service_names.html
+.. seealso::
+    :collapsible:
 
+    `geometry/CoordinateFrameConventions <https://wiki.ros.org/geometry/CoordinateFrameConventions#Naming>`_
+        Coordinate Frame Naming Conventions
 
-.. _rep145: https://www.ros.org/reps/rep-0145.html 
+    `REP 103 <https://www.ros.org/reps/rep-0103.html>`_
+        Standard Units of Measure and Coordinate Conventions
 
+    `REP 117 <https://www.ros.org/reps/rep-0117.html>`_
+        Informational Distance Measurements Conventions
 
-.. _roboloc: https://docs.ros.org/en/noetic/api/robot_localization/html/index.html
+    `REP 144 <https://www.ros.org/reps/rep-0144.html>`_
+        Package Naming Conventions
+
+    `REP 145 <https://www.ros.org/reps/rep-0145.html>`_
+        IMU Sensor Driver Conventions
+
+    `robot_localization <https://docs.ros.org/en/noetic/api/robot_localization/html/index.html>`_
+        Documentation for the :code:`robot_localization` package
 

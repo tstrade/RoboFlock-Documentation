@@ -16,12 +16,12 @@ roman-numerals==4.1.0
 roman-numerals-py==4.1.0
 setuptools==80.9.0
 snowballstemmer==3.0.1
-Sphinx==8.2.3
+Sphinx==9.1.0
 sphinx-new-tab-link==0.8.1
 sphinx-tabs==3.4.7
 sphinx-lint==1.0.2
 sphinx-tamer==0.2.0
-sphinx-rtd-theme==3.0.2
+sphinx-rtd-theme==3.1.0
 sphinx-copybutton==0.5.2
 sphinxcontrib-applehelp==2.0.0
 sphinxcontrib-devhelp==2.0.0
