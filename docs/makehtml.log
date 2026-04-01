@@ -129,15 +129,15 @@ dumping search index in English (code: en)... done
 dumping object inventory... done
 
 ====================== total reading duration ==========================
-Total time reading 40 files: 0m 0.357s
+Total time reading 40 files: 0m 0.386s
 
 
 ====================== slowest reading durations =======================
-0.030s hardware_docs/arduino
+0.034s hardware_docs/arduino
+0.027s tutorial_docs/cmakelists
 0.026s codebase_docs/ultrasonic_code
-0.025s citation_docs/mathref_docs/quaternions
+0.026s citation_docs/mathref_docs/quaternions
 0.020s concepts_docs/ros2
-0.018s hardware_docs/jetson_devkit
 
 build succeeded.
 

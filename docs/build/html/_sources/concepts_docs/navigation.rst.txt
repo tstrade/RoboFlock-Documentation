@@ -14,7 +14,7 @@ Architectural Block Diagram
 
 .. figure:: ../_images/fig5_beacon_rover_datastream.png
     :align: center
-    :width: 80%
+    :width: 40%
     :loading: link
 
     Figure 5: Block Diagram for the Beacon to Rover Correction Data Stream

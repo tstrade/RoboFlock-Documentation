@@ -10,7 +10,7 @@ To complement the location mapping provided by the LiDAR sensor, three ultrasoni
 
 .. figure:: ../_images/fig4-2_sonar_positions.png
     :align: center
-    :width: 50%
+    :width: 35%
     :loading: link
 
     Ultrasonic Sensor Positioning and Ranges
