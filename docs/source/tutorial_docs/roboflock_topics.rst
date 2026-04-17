@@ -1,3 +1,4 @@
+========================
 Using RoboFlock's Topics
 ========================
 
@@ -16,8 +17,9 @@ Optionally, if you want to copy the output to your clipboard, make sure :code:`x
 All messages share a :code:`header` element, which consists of the time the message was created (in both seconds and nanoseconds) and of a frame ID, which is how the navigation system keeps track of where each component is in 3D space, tying the incoming data to the appropriate transformations. The following sections describe the key components of each message type used by RoboFlock. Irrelevant components (e.g., z-axis information) are excluded.
 
 
+++++++++++++++++++
 Ultrasonic Sensors
-^^^^^^^^^^^^^^^^^^
+++++++++++++++++++
 
 :code:`sensor_msgs/msg/Range`
 
@@ -38,8 +40,9 @@ Ultrasonic Sensors
 
 
 
++++++
 LiDAR
-^^^^^
++++++
 
 :code:`sensor_msgs/msg/LaserScan`
 
@@ -61,8 +64,9 @@ LiDAR
                                 # (Note: values < range_min or > range_max should be discarded)
 
 
++++++++++++++
 Accelerometer
-^^^^^^^^^^^^^
++++++++++++++
 
 :code:`sensor_msgs/msg/Imu` 
 
@@ -83,8 +87,9 @@ Accelerometer
 
 
 
+++++++
 Motors
-^^^^^^
+++++++
 
 :code:`geometry_msgs/msg/Twist`
 
@@ -99,9 +104,9 @@ Motors
         float64 y
 
 
-
+++++++++++
 Navigation
-^^^^^^^^^^
+++++++++++
 
 :code:`sensor_msgs/msg/nav_sat_fix`
 

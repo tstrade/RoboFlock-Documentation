@@ -1,12 +1,13 @@
+==============
 Chassis Design
 ==============
 
 The chassis is designed around a rounded “delivery-robot” form similar to the reference image, with an upper pod and a lower hull mounted on a custom designed frame. It supports the LiDAR, ultrasonic sensors, battery, Jetson Orin Nano, and wiring while maintaining high ground clearance and stability for outdoor environments like Burning Man.
 
 
-
++++++++++++++++++
 Design Objectives
-^^^^^^^^^^^^^^^^^
++++++++++++++++++
 
 - **Stable Sensor Integration:** Provide a clear 360° view for the LiDAR and fixed forward placement for the ultrasonic sensors.
 
@@ -17,9 +18,9 @@ Design Objectives
 - **Modularity for Future Teams:** Use a fully parametric Fusion design so dimensions, mounts, and structural features can be easily updated.
 
 
-
+++++++++++++++++
 Fabrication Plan
-^^^^^^^^^^^^^^^^
+++++++++++++++++
 
 The fabrication will occur in two major phases:
 
@@ -62,9 +63,9 @@ Following successful testing of the 3D-printed version, the final chassis will b
 Our Fusion design files will include fully constrained sketches, an updated bill of materials, and annotated 2D drawings so the next team can transition directly into fabrication without re-engineering the system.
 
 
-
+++++++++++++++++++++++++++++++++++++++
 Integration with Mechanical Components
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+++++++++++++++++++++++++++++++++++++++
 
 The chassis interfaces with the drivetrain and motors listed in :doc:`Appendix A <../citation_docs/appendix_a>`. It includes:
 

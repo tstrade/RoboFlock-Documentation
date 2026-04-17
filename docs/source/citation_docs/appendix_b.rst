@@ -1,10 +1,11 @@
+==========
 Appendix B
 ==========
 
 
-
+++++++++++
 Datasheets
-^^^^^^^^^^
+++++++++++
 
 - `HC-12 Wireless RF UART Communication Module User Manual rev.2.4 <DS1_>`_
 

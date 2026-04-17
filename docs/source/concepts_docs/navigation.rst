@@ -1,3 +1,4 @@
+==========
 Navigation
 ==========
 
@@ -5,9 +6,9 @@ Navigation
 For RoboFlock to follow the user, they must be holding a beacon. This beacon is a portable-handheld device that acts as a homing system for the robot, and the robot will follow within a few meters to the best of its ability in an outdoor environment. The beacon consists of a battery system, GPS module, wireless RF communication module, and LEDs to make it exciting to possess. It will also alert the user if the robot has any problems, such as getting stuck or low battery power.
 
 
-
++++++++++++++++++++++++++++
 Architectural Block Diagram
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
++++++++++++++++++++++++++++
 
 .. @todo: Update figure
 
@@ -31,9 +32,9 @@ Real-time kinematic (RTK) positioning is a form of differential GPS that uses a 
 The setup involves a “rover” and “base” module, which are analogous to the robot and beacon, respectively. Each module obtains GPS coordinates individually, with the addition that the beacon also provides error corrections that are sent out to the robot. Using the beacon’s location as the frame of reference, a position vector in the direction of the beacon will guide the robot from its current position to its next position.
 
 
-
+++++++++++++++++++++++++++++
 GPS Visualization Simulation
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+++++++++++++++++++++++++++++
 
 .. @todo: is this still relevant?
 
@@ -47,9 +48,9 @@ As an intermediate step between testing and fully implementing the GPS visualiza
     Figure 6: Example of GPS Visualization of Robot's Position on Map of Black Rock City (Burning Man Site)
 
 
-
+++++++
 Design
-^^^^^^
+++++++
 
 The beacon is designed to be portable, allowing users to carry it around and pass the beacon off to others without having to reset the system. No user input is required; a simple LED indicates the beacon’s status to its user. 
 

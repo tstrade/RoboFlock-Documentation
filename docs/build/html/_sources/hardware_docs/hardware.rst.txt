@@ -1,3 +1,4 @@
+===================
 Hardware Components
 ===================
 
@@ -5,7 +6,7 @@ Brief descriptions and use-cases of the hardware required by RoboFlock.
 
 - :doc:`Nvidia Jetson Orin Nano Super Developer Kit <jetson_devkit>`
 
-- :doc:`Arduino Boards <arduino>`
+- :doc:`Arduino Nano <arduino>`
 
 - :doc:`RPLIDAR A1M8 Laser Range Scanner <rp_lidar>`
 

@@ -1,3 +1,4 @@
+======================================
 Setting up the Nvidia Jetson Orin Nano
 ======================================
 
@@ -14,8 +15,9 @@ Before getting started, make sure you have the following items:
 - USB cable
 
 
++++++++++++++++++++++++++++++++
 Write Image to the microSD Card
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
++++++++++++++++++++++++++++++++
 
 1. Open the terminal and insert the microSD card, then enter the following command:
 
@@ -49,9 +51,9 @@ Then, physically removed the microSD card from the host PC.
     Image flashing tools like `balenaEtcher <etcher_>`_ also work, but we prefer the terminal to relying on 3rd-party software.
 
 
-
+++++++++++++++++++++
 Setup and First Boot
-^^^^^^^^^^^^^^^^^^^^
+++++++++++++++++++++
 
 1. Insert the microSD card (with the system image already written to it) into the slot on the underside of the Jetson Orin Nano
 

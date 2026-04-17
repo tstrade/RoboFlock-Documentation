@@ -57,13 +57,13 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial_docs/tutorials.html">Tutorials</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/rtk_gps.html">Setting up the RTK GPS System</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/jetson_config.html">Setting up the Nvidia Jetson Orin Nano</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/cmakelists.html">Writing CML Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/launch.html">Making Launch Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/urdf.html">Creating the URDF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/nav2.html">Working with Nav2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/roboflock_topics.html">Using RoboFlock’s Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/odesc.html">ODESC V4.2 Motor Configuration and Setup</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/init_dev.html">Initializing RoboFlock (Developers)</a></li>
 </ul>
 </li>
@@ -73,7 +73,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware_docs/hardware.html">Hardware Components</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../hardware_docs/jetson_devkit.html">Nvidia Jetson Orin Nano Super Developer Kit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../hardware_docs/arduino.html">Arduino Boards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware_docs/arduino.html">Arduino Nano</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../hardware_docs/rp_lidar.html">RPLIDAR A1M8 Laser Range Scanner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../hardware_docs/hc_sr04.html">Ultrasonic Distance Sensor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../hardware_docs/imu.html">MPU-6050 Motion Tracking Module</a></li>
@@ -163,14 +163,14 @@
 <section id="reading-and-writing">
 <h2>Reading and Writing<a class="headerlink" href="#reading-and-writing" title="Link to this heading"></a></h2>
 <p>When dealing with devices (USB, I2C, etc.), it is important to understand that in the Linux filesystem, <em>everything is a file or a directory</em>. This means that by using the Standard C Library, we can call functions like <code class="code docutils literal notranslate"><span class="pre">open()</span></code>, <code class="code docutils literal notranslate"><span class="pre">close()</span></code>, <code class="code docutils literal notranslate"><span class="pre">read()</span></code>, and <code class="code docutils literal notranslate"><span class="pre">write()</span></code> to interact with our USB device in the same we would with any other file. Check out <a class="reference external" href="https://tldp.org/LDP/Linux-Filesystem-Hierarchy/html/dev.html" rel="noreferrer" target="_blank">Linux Filesystem Hierarchy: Chapter 1</a> to learn more.</p>
-<p>To start, we will need the absolute path to the device, which in our case is <code class="code docutils literal notranslate"><span class="pre">/dev/ttyACM0</span></code>. There are a few ways to figure this out, with the simplest being to just look at the entries in <code class="code docutils literal notranslate"><span class="pre">/dev/</span></code> before and after plugging in the USB device. The new entry, which usually falls with the other <code class="code docutils literal notranslate"><span class="pre">tty</span></code> devices, is the entry corresponding to the USB device. When using multiple USB ports, it’s not guaranteed that a given device will be assigned the same filename each time its connected, so it’s important to make sure you are actually interfacing with the correct one. Check out <a class="reference internal" href="../tutorial_docs/init_dev.html"><span class="doc">Managing USB Devices</span></a> to learn about assigned static names to your devices via symbolic links.</p>
+<p>To start, we will need the absolute path to the device, which in our case is <code class="code docutils literal notranslate"><span class="pre">/dev/ttyACM0</span></code>. There are a few ways to figure this out, with the simplest being to just look at the entries in <code class="code docutils literal notranslate"><span class="pre">/dev/</span></code> before and after plugging in the USB device. The new entry, which usually falls with the other <code class="code docutils literal notranslate"><span class="pre">tty</span></code> devices, is the entry corresponding to the USB device. When using multiple USB ports, it’s not guaranteed that a given device will be assigned the same filename each time its connected, so it’s important to make sure you are actually interfacing with the correct one. <a class="reference internal" href="../tutorial_docs/init_dev.html"><span class="doc">Managing USB Devices</span></a> goes through the process of assigning static names to your devices via symbolic links.</p>
 <p>The basic structure of interfacing with the Arduino via USB connection is as follows:</p>
 <ol class="arabic simple">
 <li><p><em>Open</em> the file as read-write without it becoming the process’s controlling terminal (<cite>open(2) - Linux manual page &lt;open_&gt;</cite>)</p></li>
 </ol>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/* `O_RDWR` and `O_NOCTTY` are argument flags that we can use */</span>
 <span class="cm">/*   to specify access modes, file creation, and file status  */</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">open</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;/dev/ttyACM0&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">O_RDWR</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">O_NOCTTY</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">open</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;/dev/arduino_nano&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">O_RDWR</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">O_NOCTTY</span><span class="p">);</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
@@ -252,8 +252,8 @@
 </pre></div>
 </div>
 </section>
-<section id="arduino-uno-control">
-<h2>Arduino Uno Control<a class="headerlink" href="#arduino-uno-control" title="Link to this heading"></a></h2>
+<section id="arduino-nano-control">
+<h2>Arduino Nano Control<a class="headerlink" href="#arduino-nano-control" title="Link to this heading"></a></h2>
 <p>The code that actually controls the ultrasonic sensors is simple. The HC-SR04 is <em>triggered</em> by a digital pulse and then, based on the time it took for the ultrasonic waves to <em>echo</em>, outputs a digital pulse to the Arduino that can be used to find the distance of the detected object. Currently, a simple averaging filter is used on a set of samples to produce a less noisy sample for RoboFlock to use. Any data that surpasses our maximum distance of 200 centimeters is filtered out and marked with our “out-of-range” byte, <code class="code docutils literal notranslate"><span class="pre">0xFF</span></code>.</p>
 <p>The important part here is our main loop. A data packet containing samples from all 3 ultrasonic sensors is only built once per loop because it takes about 300-400 microseconds to collect and filter all the data. Then, we move to our request-receive system, which includes using the onboard LED to indicate whether or not the Arduino is waiting on a request. This all relies on just a few key functions from the Arduino’s serial library, which you can read more about in the documentation: <a class="reference external" href="https://docs.arduino.cc/language-reference/en/functions/communication/serial/" rel="noreferrer" target="_blank">Language Reference - Communication Functions</a>.</p>
 <p>The main loop is as follows:</p>
@@ -269,7 +269,7 @@
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
-<li><p>Once the Jetson sends data, read until the buffer is empty (which realistically, should only be one byte, but better safe than sorry)</p></li>
+<li><p>Once the Jetson sends data, read until the buffer is empty (realistically, this should only be one byte, but better safe than sorry)</p></li>
 </ol>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">byte</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Serial</span><span class="p">.</span><span class="n">read</span><span class="w"> </span><span class="p">();</span>
 <span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">Serial</span><span class="p">.</span><span class="n">available</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
@@ -292,10 +292,10 @@
 <section id="ultrasonic-publisher">
 <h2>Ultrasonic Publisher<a class="headerlink" href="#ultrasonic-publisher" title="Link to this heading"></a></h2>
 <p>The last part is to get the data published to RoboFlock’s ROS2 workspace. Currently, there are 3 separate publishers contained in a single node. ROS2 provides a message type called <code class="code docutils literal notranslate"><span class="pre">sensor_msgs/msg/Range</span></code>, which you can read more about in <a class="reference internal" href="../tutorial_docs/roboflock_topics.html"><span class="doc">RoboFlock Topics</span></a>. The node first sets up the connection with the Arduino: if this fails, the ultrasonic publishers <em>do not get initialized</em>.  Upon success, the node logs its progress and then creates the three publishers and their corresponding topics.</p>
-<p>Each time <code class="code docutils literal notranslate"><span class="pre">UltrasonicPublisher::timer_callback()</span></code> runs, the Jetson sends a request to the Arduino Uno and receives the data packet, only creating a message for valid measurements. A <code class="code docutils literal notranslate"><span class="pre">sensor_msgs/msg/Range</span></code> message is defined by a timestamp, frame ID, radiation type (in this case, ULTRASOUND), field of view (in radians), minimum range (meters), maximum range (meters), and the distance data obtained from the corresponding ultrasonic sensor.</p>
+<p>Each time <code class="code docutils literal notranslate"><span class="pre">UltrasonicPublisher::timer_callback()</span></code> runs, the Jetson sends a request to the Arduino Nano and receives a data packet, only creating a message for valid measurements. A <code class="code docutils literal notranslate"><span class="pre">sensor_msgs/msg/Range</span></code> message is defined by a timestamp, frame ID, radiation type (in this case, ULTRASOUND), field of view (in radians), minimum range (meters), maximum range (meters), and the distance data obtained from the corresponding ultrasonic sensor.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The Arduino sends the distance as an integer value with centimeters as the corresponding unit, whereas the ROS2 message uses a floating point value with meters as the corresponding unit. This conversion is made by the ROS2 node to maintain simplicity and minimal size in terms of our data packet; otherwise, the size of the data packet would quadruple!</p>
+<p>The Arduino sends the distance as an 8-bit integer value with centimeters as the corresponding unit, whereas the ROS2 message uses a floating point value with meters as the corresponding unit. This conversion is made by the ROS2 node to maintain simplicity and minimal size in terms of our data packet; otherwise, the size of the data packet would quadruple.</p>
 </div>
 </section>
 </section>

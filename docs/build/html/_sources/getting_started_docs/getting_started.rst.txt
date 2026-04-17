@@ -1,8 +1,10 @@
+===============
 Getting Started
 ===============
 
+++++++++++++
 Installation
-^^^^^^^^^^^^
+++++++++++++
 
 - `ROS2 <humbledownload_>`_
 
@@ -10,9 +12,9 @@ Installation
 
 - Startup Scripts
 
-
++++++++++++
 User Manual
-^^^^^^^^^^^
++++++++++++
 
 - Setup
 

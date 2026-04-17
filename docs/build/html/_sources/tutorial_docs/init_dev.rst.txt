@@ -1,3 +1,4 @@
+===================================
 Initializing RoboFlock (Developers)
 ===================================
 
@@ -5,8 +6,9 @@ Installing ROS2
 
 Roboflock Repo
 
+++++++++++++++++++++
 Managing USB Devices
-^^^^^^^^^^^^^^^^^^^^
+++++++++++++++++++++
 
 RoboFlock reads from multiple USB devices and it is important that these do not get mixed up. When a USB device is plugged in, Linux adds an entry for the device to the :code:`/dev/` directory and gives it a name such as :code:`/dev/ttyUSB0`. The issue here is that we can't guarantee that our devices will be given the same entry name everytime. The solution is to create a Udev rule that assigns a *symbolic link* to the device based on details such as the product ID. 
 
@@ -27,8 +29,9 @@ and write the following content:
     SUBSYSTEM=="tty", ATTRS{idVendor}=="xxxx", ATTRS{idProduct}=="yyyy", ATTRS{serial}=="zzzzzzzz", SYMLINK+="my_usb"
 
 
++++++++++++++++++++++++++++++
 Configuring the 40-Pin Header
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
++++++++++++++++++++++++++++++
 
 **Graphical User Interface**
 

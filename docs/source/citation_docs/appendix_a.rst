@@ -1,10 +1,11 @@
+==========
 Appendix A
 ==========
 
 
-
++++++++++++++++++++++
 Electronic Components
-^^^^^^^^^^^^^^^^^^^^^
++++++++++++++++++++++
 
 - NVIDIA Jetson Orin Nano Super Developer Kit (1x)
 
@@ -21,9 +22,9 @@ Electronic Components
 - Arduino Nano (1x)
 
 
-
++++++++++++++++++++++++
 Power Supply Components
-^^^^^^^^^^^^^^^^^^^^^^^
++++++++++++++++++++++++
 
 - ZEE 11.1V 80C 3S 6000mAh Battery (2x)
 
@@ -42,9 +43,9 @@ Power Supply Components
 - 22 AWG Stranded Tinned Copper Wire - 10 Color Silicone Wire Kit (25 ft. ea.)
 
 
-
++++++++++++++++++++++++
 Drive System Components
-^^^^^^^^^^^^^^^^^^^^^^^
++++++++++++++++++++++++
 
 - INJORA Hobbywing QUICRUN 1060 60A Waterproof Brushed ESC Speed Controller with 6V/3A BEC for 1/10 RC Car (1x)
 

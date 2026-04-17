@@ -1,9 +1,8 @@
+=========
 Tutorials
 =========
 
 A quick guide to RoboFlock's internal mechanisms and how to use, edit, and run the project.
-
-- :doc:`Setting up the RTK GPS System <rtk_gps>`
 
 - :doc:`Setting up the Nvidia Jetson Orin Nano <jetson_config>`
 
@@ -17,6 +16,8 @@ A quick guide to RoboFlock's internal mechanisms and how to use, edit, and run t
 
 - :doc:`Using RoboFlock's Topics <roboflock_topics>`
 
+- :doc:`ODESC V4.2 Motor Configuration and Setup <odesc>`
+
 - :doc:`Initializing RoboFlock (Developers) <init_dev>`
 
 
@@ -24,11 +25,11 @@ A quick guide to RoboFlock's internal mechanisms and how to use, edit, and run t
     :hidden:
     :maxdepth: 2
 
-    rtk_gps
     jetson_config
     cmakelists
     launch
     urdf
     nav2
     roboflock_topics
+    odesc
     init_dev
