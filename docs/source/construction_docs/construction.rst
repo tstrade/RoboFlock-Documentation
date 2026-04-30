@@ -7,12 +7,12 @@ that holds it together, and a step-by-step build order.
 
 The robot is organized into six mechanical assemblies:
 
-- **Chassis** — the structural frame and the 4080 extrusion rails it sits on
-- **Drive System** — BLDC motors, brackets, couplings driving each corner
-- **Wheels** — airless wheels and the printed adapters that drive them
-- **Suspension** — rocker-differential linkage that couples left and right sides
-- **Hull / Body** — outer enclosures, top cover, sensor mounts
-- **Electronics** — printed brackets and mounts for sensors and compute
+- **Chassis** - the structural frame and the 4080 extrusion rails it sits on
+- **Drive System** - BLDC motors, brackets, couplings driving each corner
+- **Wheels** - pneumatic wheels and the printed adapters that drive them
+- **Suspension** - rocker-differential linkage that couples left and right sides
+- **Hull / Body** - outer enclosures, top cover, sensor mounts
+- **Electronics** - printed brackets and mounts for sensors and compute
 
 Each assembly has its own subsystem page; every part across all assemblies is
 catalogued (with files, hardware BOM, and sourcing) in the
