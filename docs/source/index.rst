@@ -13,7 +13,6 @@ Previously known as Project Dust Runners, the RoboFlock Project has made a lot o
 The core components of the project include the robot and the beacon. Using the Robot Operating System 2 (ROS2), the whole system can be defined as an interconnected collection of nodes that run tasks in parallel. With most of the process management, sensor data fusion, and navigation being handled by ROS2, Project Roboflock essentially turns into writing a series of drivers and configuration files. This framework allows us to improve the codebase to support better tracking technology, obstacle detection, and navigation.
 
 
-++++++++++++++++++++++++++++++
 Main Changes From Alpha Design
 ++++++++++++++++++++++++++++++
 
@@ -48,13 +47,16 @@ Main Changes From Alpha Design
 
 
 
-:doc:`Getting Started <getting_started_docs/getting_started>`
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+:doc:`Installation <getting_started_docs/getting_started>`
+----------------------------------------------------------
 
 
 :doc:`Additional Information <citation_docs/additional_info>`
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-------------------------------------------------------------
 
+
+:doc:`Contact Us <contact>`
+---------------------------
 
 .. toctree::
    :titlesonly:
@@ -69,4 +71,6 @@ Main Changes From Alpha Design
    construction_docs/construction
    future_considerations
    citation_docs/additional_info
+   photo_video
+   contact
 

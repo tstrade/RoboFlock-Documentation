@@ -1,18 +1,7 @@
-# If extensions (or modules to document with autodoc) are in another directory,
-# add these directories to sys.path here.
-import itertools
-import os
-import re
 import sys
-import time
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 sys.path.append(str(Path('sphinext').resolve()))
-#sys.path.insert(0, os.path.abspath('./citation_docs'))
-#sys.path.insert(0, os.path.abspath('./construction_docs'))
-#sys.path.insert(0, os.path.abspath('./description_docs'))
-#sys.path.insert(0, os.path.abspath('./tutorial_docs'))
-#sys.path.insert(0, os.path.abspath('.'))
 
 
 # Configuration file for the Sphinx documentation builder.
@@ -42,6 +31,9 @@ extensions = [
     'sphinx_rtd_theme',
     'sphinx_new_tab_link',
     'sphinx_copybutton',
+    'sphinx_carousel.carousel',
+    'sphinxcontrib.video',
+    'sphinx_design',
 ]
 
 copybutton_exclude = '.linenos, .gp, .go'
@@ -59,7 +51,7 @@ html_static_path = [
 ]
 html_logo = "_images/Robo.png"
 html_css_files = [
-    'custom.css',
+    ('custom.css', {'priority': 800}),
 ]
 
 html_theme_options = {
@@ -72,3 +64,17 @@ html_theme_options = {
     'body_max_width': 'none',
 }
 
+def skip_carousel_nodes(app, doctree):
+    from sphinx_carousel.nodes import CarouselMainNode, CarouselItemNode
+    
+    for node in doctree.traverse(CarouselMainNode):
+        if 'classes' not in node:
+            node['classes'] = []
+        node['classes'].append('no-search')
+    for node in doctree.traverse(CarouselItemNode):
+        if 'classes' not in node:
+            node['classes'] = []
+        node['classes'].append('no-search')
+
+def setup(app):
+    app.connect('doctree-read', skip_carousel_nodes)
