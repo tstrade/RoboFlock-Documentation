@@ -10,6 +10,7 @@
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/tabs.css?v=a5c4661c" />
       <link rel="stylesheet" type="text/css" href="_static/custom.css?v=8f3c863a" />
 
   
@@ -20,6 +21,7 @@
       <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="_static/copybutton.js?v=6dbb43f8"></script>
+      <script src="_static/tabs.js?v=3030b3cb"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -47,7 +49,16 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="getting_started_docs/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started_docs/getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started_docs/jetson_config.html">Setting up the Nvidia Jetson Orin Nano</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started_docs/install_guide.html">Installation Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started_docs/gps_config.html">GPS Module Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started_docs/meshtastic_config.html">Meshtastic Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started_docs/visuals_setup.html">GPS Visualization Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started_docs/odesc.html">ODESC V4.2 Motor Configuration and Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started_docs/manage_usb.html">Managing USB Devices</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="concepts_docs/concepts.html">Concepts</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="concepts_docs/obstacle_detection.html">Obstacle Detection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="concepts_docs/navigation.html">Navigation</a></li>
@@ -56,14 +67,11 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tutorial_docs/tutorials.html">Tutorials</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tutorial_docs/jetson_config.html">Setting up the Nvidia Jetson Orin Nano</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorial_docs/cmakelists.html">Writing CML Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorial_docs/launch.html">Making Launch Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorial_docs/urdf.html">Creating the URDF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorial_docs/nav2.html">Working with Nav2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tutorial_docs/roboflock_topics.html">Using RoboFlock’s Topics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial_docs/odesc.html">ODESC V4.2 Motor Configuration and Setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial_docs/init_dev.html">Initializing RoboFlock (Developers)</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="codebase_docs/codebase.html">RoboFlock Codebase</a><ul>
@@ -90,10 +98,11 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="future_considerations.html">Future Considerations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="citation_docs/additional_info.html">Additional Information</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="citation_docs/mathref_docs/mathref.html">Mathematics References</a></li>
-<li class="toctree-l2"><a class="reference internal" href="citation_docs/bibliography.html">Bibliography</a></li>
 <li class="toctree-l2"><a class="reference internal" href="citation_docs/appendix_a.html">Appendix A</a></li>
 <li class="toctree-l2"><a class="reference internal" href="citation_docs/appendix_b.html">Appendix B</a></li>
+<li class="toctree-l2"><a class="reference internal" href="citation_docs/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="citation_docs/bibliography.html">Bibliography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="citation_docs/mathref_docs/mathref.html">Mathematics References</a></li>
 </ul>
 </li>
 </ul>
@@ -126,7 +135,7 @@
              
   <section id="roboflock-documentation">
 <h1>RoboFlock Documentation<a class="headerlink" href="#roboflock-documentation" title="Link to this heading"></a></h1>
-<p><strong>The RoboFlock Project is an autonomous robot design that follows its user.</strong> From LiDAR-based obstacle detection and GPS Real-Time Kinematic tracking to robust process management and powerful computational capabilities, RoboFlock is a reliable companion that will follow you for life (or until the battery gives out).</p>
+<p><strong>The RoboFlock Project is an autonomous robot design that follows its user.</strong> From LiDAR-based obstacle detection and GPS tracking to robust process management and powerful computational capabilities, RoboFlock is a reliable companion that will follow you for life (or until the battery gives out).</p>
 <p>Previously known as Project Dust Runners, the RoboFlock Project has made a lot of changes to its design. <strong>The goal of the RoboFlock Project is to improve obstacle detection, response time, user accessibility, and environmental resistance.</strong> These changes will take advantage of the foundation laid by Project Dust Runners and leverage new technology to improve the design.</p>
 <p>The core components of the project include the robot and the beacon. Using the Robot Operating System 2 (ROS2), the whole system can be defined as an interconnected collection of nodes that run tasks in parallel. With most of the process management, sensor data fusion, and navigation being handled by ROS2, Project Roboflock essentially turns into writing a series of drivers and configuration files. This framework allows us to improve the codebase to support better tracking technology, obstacle detection, and navigation.</p>
 <section id="main-changes-from-alpha-design">
@@ -135,7 +144,7 @@
 <li><dl class="simple">
 <dt>Tracking Technology</dt><dd><ul class="simple">
 <li><p>Dust Runners used UWB anchors and tags to calculate time of flight for distance and bearing information.</p></li>
-<li><p>RoboFlock uses Global Positioning System (GPS) data from both the robot and the beacon to calculate the distance and direction the robot needs to travel to reach the beacon.</p></li>
+<li><p>RoboFlock uses GPS data from both the robot and the beacon to calculate the distance and direction the robot needs to travel to reach the beacon.</p></li>
 </ul>
 </dd>
 </dl>
@@ -178,14 +187,14 @@
 <p><span class="caption-text">Figure 1: Overview of Final Product</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-</section>
 <section id="getting-started">
-<h2><a class="reference internal" href="getting_started_docs/getting_started.html"><span class="doc">Getting Started</span></a><a class="headerlink" href="#getting-started" title="Link to this heading"></a></h2>
+<h3><a class="reference internal" href="getting_started_docs/getting_started.html"><span class="doc">Getting Started</span></a><a class="headerlink" href="#getting-started" title="Link to this heading"></a></h3>
 </section>
 <section id="additional-information">
-<h2><a class="reference internal" href="citation_docs/additional_info.html"><span class="doc">Additional Information</span></a><a class="headerlink" href="#additional-information" title="Link to this heading"></a></h2>
+<h3><a class="reference internal" href="citation_docs/additional_info.html"><span class="doc">Additional Information</span></a><a class="headerlink" href="#additional-information" title="Link to this heading"></a></h3>
 <div class="toctree-wrapper compound">
 </div>
+</section>
 </section>
 </section>
 

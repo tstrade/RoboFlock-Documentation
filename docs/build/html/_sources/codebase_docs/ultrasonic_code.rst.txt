@@ -4,7 +4,7 @@ Ultrasonic Sensor Code
 
 .. note::
 
-    As with all code, there is likely a better way to execute this process. Through our own testing (and online Nvidia Jetson forums), we found that using the Jetson to directly control the ultrasonic sensors is not ideal. Additionally, that would be 6 pins on the Jetson's expansion header that could be better used elsewhere. Instead, the ultrasonic sensors are controlled with an Arduino Uno, which takes care of the data collection and preprocessing. Future iterations of RoboFlock may choose to exclude the ultrasonic sensors completely in lieu of more powerful sensors (See :doc:`Future Considerations <../future_considerations>`)
+    As with all code, there is likely a better way to execute this process. Through our own testing (and online Nvidia Jetson forums), we found that using the Jetson to directly control the ultrasonic sensors is not ideal. Instead, the ultrasonic sensors are controlled with an Arduino Nano, which takes care of the data collection and preprocessing. Future iterations of RoboFlock may choose to exclude the ultrasonic sensors completely in lieu of more powerful sensors (See :doc:`Future Considerations <../future_considerations>`)
 
 Since we are dealing with three separate ultrasonic sensors that are all sending data through a single USB cable, we are using a custom data packet to make sure that the Jetson is receiving complete and parseable messages from the Arduino. Here is the packet's structure:
 
@@ -20,17 +20,16 @@ The current cutoff is 200 centimeters, but if you want to maximize the distances
 
 
 
-+++++++++++++++++++
 Reading and Writing
 +++++++++++++++++++
 
 When dealing with devices (USB, I2C, etc.), it is important to understand that in the Linux filesystem, *everything is a file or a directory*. This means that by using the Standard C Library, we can call functions like :code:`open()`, :code:`close()`, :code:`read()`, and :code:`write()` to interact with our USB device in the same we would with any other file. Check out `Linux Filesystem Hierarchy: Chapter 1 <dev_>`_ to learn more.
 
-To start, we will need the absolute path to the device, which in our case is :code:`/dev/ttyACM0`. There are a few ways to figure this out, with the simplest being to just look at the entries in :code:`/dev/` before and after plugging in the USB device. The new entry, which usually falls with the other :code:`tty` devices, is the entry corresponding to the USB device. When using multiple USB ports, it's not guaranteed that a given device will be assigned the same filename each time its connected, so it's important to make sure you are actually interfacing with the correct one. :doc:`Managing USB Devices <../tutorial_docs/init_dev>` goes through the process of assigning static names to your devices via symbolic links. 
+To start, we will need the absolute path to the device, which in our case is :code:`/dev/ttyACM0`. There are a few ways to figure this out, with the simplest being to just look at the entries in :code:`/dev/` before and after plugging in the USB device. The new entry, which usually falls with the other :code:`tty` devices, is the entry corresponding to the USB device. When using multiple USB ports, it's not guaranteed that a given device will be assigned the same filename each time its connected, so it's important to make sure you are actually interfacing with the correct one. :doc:`Managing USB Devices <../getting_started_docs/manage_usb>` goes through the process of assigning static names to your devices via symbolic links. 
 
 The basic structure of interfacing with the Arduino via USB connection is as follows:
 
-1. *Open* the file as read-write without it becoming the process's controlling terminal (`open(2) - Linux manual page <open_>`)
+1. *Open* the file as read-write without it becoming the process's controlling terminal (`open(2) - Linux manual page <open_>`_)
 
 .. code-block:: cpp
 
@@ -39,7 +38,7 @@ The basic structure of interfacing with the Arduino via USB connection is as fol
     int fd = open ("/dev/arduino_nano", O_RDWR | O_NOCTTY);
 
 
-2. *Write* the request message to the file (`write(2) - Linux manual page <write_>`)
+2. *Write* the request message to the file (`write(2) - Linux manual page <write_>`_)
 
 .. code-block:: cpp
 
@@ -49,7 +48,7 @@ The basic structure of interfacing with the Arduino via USB connection is as fol
     int bytes_written = write (fd, REQUEST, sizeof (REQUEST));
 
 
-3. *Read* the response message from the file (`read(2) - Linux manual page <read_>`)
+3. *Read* the response message from the file (`read(2) - Linux manual page <read_>`_)
 
 .. code-block:: cpp
 
@@ -60,7 +59,7 @@ The basic structure of interfacing with the Arduino via USB connection is as fol
     int bytes_read = read (fd, read_buf, sizeof (read_buf));
 
         
-4. *Close* the file so that the file descriptor may be reused (`close(2) - Linux manual page <close_>`)
+4. *Close* the file so that the file descriptor may be reused (`close(2) - Linux manual page <close_>`_)
 
 .. code-block:: cpp
 
@@ -68,7 +67,6 @@ The basic structure of interfacing with the Arduino via USB connection is as fol
 
 
 
-+++++++++++++++++
 USB Configuration
 +++++++++++++++++
 
@@ -130,7 +128,6 @@ The USB setup is as follows:
 
 
 
-++++++++++++++++++++
 Arduino Nano Control
 ++++++++++++++++++++
 
@@ -174,7 +171,7 @@ The main loop is as follows:
     }
 
 
-++++++++++++++++++++
+
 Ultrasonic Publisher
 ++++++++++++++++++++
 

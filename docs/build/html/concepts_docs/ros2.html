@@ -10,6 +10,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=8f3c863a" />
 
   
@@ -20,6 +21,7 @@
       <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="../_static/copybutton.js?v=6dbb43f8"></script>
+      <script src="../_static/tabs.js?v=3030b3cb"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -48,7 +50,16 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../getting_started_docs/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started_docs/getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started_docs/jetson_config.html">Setting up the Nvidia Jetson Orin Nano</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started_docs/install_guide.html">Installation Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started_docs/gps_config.html">GPS Module Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started_docs/meshtastic_config.html">Meshtastic Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started_docs/visuals_setup.html">GPS Visualization Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started_docs/odesc.html">ODESC V4.2 Motor Configuration and Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started_docs/manage_usb.html">Managing USB Devices</a></li>
+</ul>
+</li>
 <li class="toctree-l1 current"><a class="reference internal" href="concepts.html">Concepts</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="obstacle_detection.html">Obstacle Detection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="navigation.html">Navigation</a></li>
@@ -57,14 +68,11 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial_docs/tutorials.html">Tutorials</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/jetson_config.html">Setting up the Nvidia Jetson Orin Nano</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/cmakelists.html">Writing CML Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/launch.html">Making Launch Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/urdf.html">Creating the URDF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/nav2.html">Working with Nav2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/roboflock_topics.html">Using RoboFlock’s Topics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/odesc.html">ODESC V4.2 Motor Configuration and Setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/init_dev.html">Initializing RoboFlock (Developers)</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../codebase_docs/codebase.html">RoboFlock Codebase</a><ul>
@@ -91,10 +99,11 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../future_considerations.html">Future Considerations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../citation_docs/additional_info.html">Additional Information</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../citation_docs/mathref_docs/mathref.html">Mathematics References</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../citation_docs/bibliography.html">Bibliography</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../citation_docs/appendix_a.html">Appendix A</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../citation_docs/appendix_b.html">Appendix B</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../citation_docs/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../citation_docs/bibliography.html">Bibliography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../citation_docs/mathref_docs/mathref.html">Mathematics References</a></li>
 </ul>
 </li>
 </ul>
@@ -129,17 +138,12 @@
              
   <section id="ros2">
 <h1>ROS2<a class="headerlink" href="#ros2" title="Link to this heading"></a></h1>
-<section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
 <p>ROS2 is the main software framework for the robot. It handles message passing, timing, and modularity. Each sensor, controller, and algorithm runs as a ROS2 node. These nodes will use one of the following communication methods provided by the framework:</p>
 <ol class="arabic simple">
 <li><p><em>Topics</em> are used for continuous streams of data. Nodes can publish messages via topics and nodes can subscribe to messages via topics.</p></li>
 <li><p><em>Services</em> are used for call-and-response communication. Many nodes can act as the service client, each capable of sending requests to the node acting as the service server.</p></li>
 <li><p><em>Actions</em> are used for long-term communications that consist of a goal, feedback, and a result. One node acts as the action server that responds to requests about the goal and result, in addition to providing feedback information to the action client, which is another node that sends out the information requests.</p></li>
 </ol>
-</section>
-<section id="architectural-block-diagram">
-<h2>Architectural Block Diagram<a class="headerlink" href="#architectural-block-diagram" title="Link to this heading"></a></h2>
 <figure class="align-center" id="id1">
 <a class="reference internal image-reference" href="../_images/fig11_ros2_overview.png"><img alt="../_images/fig11_ros2_overview.png" src="../_images/fig11_ros2_overview.png" style="width: 50%;" />
 </a>
@@ -147,7 +151,6 @@
 <p><span class="caption-text">Overview of ROS2 Setup</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-</section>
 <section id="data-collection">
 <h2>Data Collection<a class="headerlink" href="#data-collection" title="Link to this heading"></a></h2>
 <p>The first step to any autonomous system is to collect all relevant sensor data. In ROS2, we can represent each sensor as a <em>node</em> that is within a <em>package</em>, which is just a collection of source code, configuration files, and compiler rules.</p>
@@ -174,7 +177,7 @@
 <li><p><em>x</em>, <em>y</em>, <em>z</em> accelerations</p></li>
 </ul>
 <p>Since RoboFlock is (currently) only concered with planar motion, we can disregard any roll, pitch, or <em>z</em>-axis values. The remaining variables are ultimately controlled by how the sensor fusion is configured. The <code class="code docutils literal notranslate"><span class="pre">robot_localization</span></code> package processes sensor data needed to understand the robot’s physical location in the environment.</p>
-<p>In the case of RoboFlock, this data comes from the IMU, LiDAR scanner, and GPS module. The result is an odometry message that contains information on the robot’s frame of reference, position on the global map, linear velocity, and angular velocity. The <code class="code docutils literal notranslate"><span class="pre">robot_localization</span></code> package also updates the transform between the global frame of reference and the robot’s frame of reference, which will be the main transform that data is moved through when navigational calculations are made.</p>
+<p>In the case of RoboFlock, this data comes from the inertial measurement unit (IMU), LiDAR scanner, and GPS module. The result is an odometry message that contains information on the robot’s frame of reference, position on the global map, linear velocity, and angular velocity. The <code class="code docutils literal notranslate"><span class="pre">robot_localization</span></code> package also updates the transform between the global frame of reference and the robot’s frame of reference, which will be the main transform that data is moved through when navigational calculations are made.</p>
 </section>
 <section id="navigation">
 <h2>Navigation<a class="headerlink" href="#navigation" title="Link to this heading"></a></h2>
@@ -188,23 +191,33 @@
 <li><p>Configure which data is getting fused</p></li>
 <li><p>Configure the costmaps, movement constraints, and action/reaction parameters</p></li>
 </ul>
-<details class="admonition seealso" open="open">
-<summary class="admonition-title">See also</summary>
-<dl class="simple">
-<dt><a class="reference external" href="https://wiki.ros.org/geometry/CoordinateFrameConventions#Naming" rel="noreferrer" target="_blank">geometry/CoordinateFrameConventions</a></dt><dd><p>Coordinate Frame Naming Conventions</p>
-</dd>
-<dt><a class="reference external" href="https://www.ros.org/reps/rep-0103.html" rel="noreferrer" target="_blank">REP 103</a></dt><dd><p>Standard Units of Measure and Coordinate Conventions</p>
-</dd>
-<dt><a class="reference external" href="https://www.ros.org/reps/rep-0117.html" rel="noreferrer" target="_blank">REP 117</a></dt><dd><p>Informational Distance Measurements Conventions</p>
-</dd>
-<dt><a class="reference external" href="https://www.ros.org/reps/rep-0144.html" rel="noreferrer" target="_blank">REP 144</a></dt><dd><p>Package Naming Conventions</p>
-</dd>
-<dt><a class="reference external" href="https://www.ros.org/reps/rep-0145.html" rel="noreferrer" target="_blank">REP 145</a></dt><dd><p>IMU Sensor Driver Conventions</p>
-</dd>
-<dt><a class="reference external" href="https://docs.ros.org/en/noetic/api/robot_localization/html/index.html" rel="noreferrer" target="_blank">robot_localization</a></dt><dd><p>Documentation for the <code class="code docutils literal notranslate"><span class="pre">robot_localization</span></code> package</p>
-</dd>
-</dl>
-</details>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Coordinate Frame Naming Conventions</p>
+<blockquote>
+<div><p><a class="reference external" href="https://wiki.ros.org/geometry/CoordinateFrameConventions#Naming" rel="noreferrer" target="_blank">geometry/CoordinateFrameConventions</a></p>
+</div></blockquote>
+<p>Standard Units of Measure and Coordinate Conventions</p>
+<blockquote>
+<div><p><a class="reference external" href="https://www.ros.org/reps/rep-0103.html" rel="noreferrer" target="_blank">REP 103</a></p>
+</div></blockquote>
+<p>Informational Distance Measurements Conventions</p>
+<blockquote>
+<div><p><a class="reference external" href="https://www.ros.org/reps/rep-0117.html" rel="noreferrer" target="_blank">REP 117</a></p>
+</div></blockquote>
+<p>Package Naming Conventions</p>
+<blockquote>
+<div><p><a class="reference external" href="https://www.ros.org/reps/rep-0144.html" rel="noreferrer" target="_blank">REP 144</a></p>
+</div></blockquote>
+<p>IMU Sensor Driver Conventions</p>
+<blockquote>
+<div><p><a class="reference external" href="https://www.ros.org/reps/rep-0145.html" rel="noreferrer" target="_blank">REP 145</a></p>
+</div></blockquote>
+<p>Documentation for the <code class="code docutils literal notranslate"><span class="pre">robot_localization</span></code> package</p>
+<blockquote>
+<div><p><a class="reference external" href="https://docs.ros.org/en/noetic/api/robot_localization/html/index.html" rel="noreferrer" target="_blank">robot_localization</a></p>
+</div></blockquote>
+</div>
 </section>
 </section>
 

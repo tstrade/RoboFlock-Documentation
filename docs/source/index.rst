@@ -6,7 +6,7 @@ RoboFlock Documentation
 =======================
 
 
-**The RoboFlock Project is an autonomous robot design that follows its user.** From LiDAR-based obstacle detection and GPS Real-Time Kinematic tracking to robust process management and powerful computational capabilities, RoboFlock is a reliable companion that will follow you for life (or until the battery gives out).
+**The RoboFlock Project is an autonomous robot design that follows its user.** From LiDAR-based obstacle detection and GPS tracking to robust process management and powerful computational capabilities, RoboFlock is a reliable companion that will follow you for life (or until the battery gives out).
 
 Previously known as Project Dust Runners, the RoboFlock Project has made a lot of changes to its design. **The goal of the RoboFlock Project is to improve obstacle detection, response time, user accessibility, and environmental resistance.** These changes will take advantage of the foundation laid by Project Dust Runners and leverage new technology to improve the design.
 
@@ -19,7 +19,7 @@ Main Changes From Alpha Design
 
 1. Tracking Technology
     * Dust Runners used UWB anchors and tags to calculate time of flight for distance and bearing information.
-    * RoboFlock uses Global Positioning System (GPS) data from both the robot and the beacon to calculate the distance and direction the robot needs to travel to reach the beacon.
+    * RoboFlock uses GPS data from both the robot and the beacon to calculate the distance and direction the robot needs to travel to reach the beacon.
 
 2. Computational Power
     * Dust Runners used a distributed system with multiple Teensy 4.1 microcontrollers for handling sensor, motor, and beacon logic.
@@ -47,11 +47,11 @@ Main Changes From Alpha Design
 
 
 
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 :doc:`Getting Started <getting_started_docs/getting_started>`
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 :doc:`Additional Information <citation_docs/additional_info>`
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 

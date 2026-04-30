@@ -1,48 +1,53 @@
 Running Sphinx v9.1.0
 loading translations [en]... done
-[autosummary] generating autosummary for: citation_docs/additional_info.rst, citation_docs/appendix_a.rst, citation_docs/appendix_b.rst, citation_docs/bibliography.rst, citation_docs/mathref_docs/mathref.rst, citation_docs/mathref_docs/quaternions.rst, codebase_docs/codebase.rst, codebase_docs/ultrasonic_code.rst, concepts_docs/communication.rst, concepts_docs/concepts.rst, ..., tutorial_docs/cmakelists.rst, tutorial_docs/init_dev.rst, tutorial_docs/jetson_config.rst, tutorial_docs/launch.rst, tutorial_docs/nav2.rst, tutorial_docs/odesc.rst, tutorial_docs/roboflock_topics.rst, tutorial_docs/tf2.rst, tutorial_docs/tutorials.rst, tutorial_docs/urdf.rst
+[autosummary] generating autosummary for: citation_docs/additional_info.rst, citation_docs/appendix_a.rst, citation_docs/appendix_b.rst, citation_docs/bibliography.rst, citation_docs/glossary.rst, citation_docs/mathref_docs/mathref.rst, citation_docs/mathref_docs/quaternions.rst, codebase_docs/codebase.rst, codebase_docs/ultrasonic_code.rst, concepts_docs/communication.rst, ..., hardware_docs/rp_lidar.rst, hardware_docs/zed_f9p.rst, index.rst, tutorial_docs/cmakelists.rst, tutorial_docs/launch.rst, tutorial_docs/nav2.rst, tutorial_docs/roboflock_topics.rst, tutorial_docs/tf2.rst, tutorial_docs/tutorials.rst, tutorial_docs/urdf.rst
 building [mo]: targets for 0 po files that are out of date
 writing output... 
-building [html]: targets for 40 source files that are out of date
-updating environment: [new config] 40 added, 0 changed, 0 removed
+building [html]: targets for 45 source files that are out of date
+updating environment: [new config] 45 added, 0 changed, 0 removed
 reading sources... [  2%] citation_docs/additional_info
-reading sources... [  5%] citation_docs/appendix_a
-reading sources... [  8%] citation_docs/appendix_b
-reading sources... [ 10%] citation_docs/bibliography
-reading sources... [ 12%] citation_docs/mathref_docs/mathref
-reading sources... [ 15%] citation_docs/mathref_docs/quaternions
+reading sources... [  4%] citation_docs/appendix_a
+reading sources... [  7%] citation_docs/appendix_b
+reading sources... [  9%] citation_docs/bibliography
+reading sources... [ 11%] citation_docs/glossary
+reading sources... [ 13%] citation_docs/mathref_docs/mathref
+reading sources... [ 16%] citation_docs/mathref_docs/quaternions
 reading sources... [ 18%] codebase_docs/codebase
 reading sources... [ 20%] codebase_docs/ultrasonic_code
 reading sources... [ 22%] concepts_docs/communication
-reading sources... [ 25%] concepts_docs/concepts
-reading sources... [ 28%] concepts_docs/navigation
-reading sources... [ 30%] concepts_docs/obstacle_detection
-reading sources... [ 32%] concepts_docs/ros2
-reading sources... [ 35%] construction_docs/chassis_design
-reading sources... [ 38%] construction_docs/constructing_the_roboflock
-reading sources... [ 40%] construction_docs/construction
-reading sources... [ 42%] construction_docs/wiring_specifications
-reading sources... [ 45%] future_considerations
-reading sources... [ 48%] getting_started_docs/getting_started
-reading sources... [ 50%] hardware_docs/arduino
-reading sources... [ 52%] hardware_docs/hardware
-reading sources... [ 55%] hardware_docs/hc_12
-reading sources... [ 57%] hardware_docs/hc_sr04
-reading sources... [ 60%] hardware_docs/imu
-reading sources... [ 62%] hardware_docs/jetson_devkit
-reading sources... [ 65%] hardware_docs/max_17048
-reading sources... [ 68%] hardware_docs/neo_m8p
-reading sources... [ 70%] hardware_docs/rp_lidar
-reading sources... [ 72%] hardware_docs/zed_f9p
-reading sources... [ 75%] index
-reading sources... [ 78%] tutorial_docs/cmakelists
-reading sources... [ 80%] tutorial_docs/init_dev
-reading sources... [ 82%] tutorial_docs/jetson_config
-reading sources... [ 85%] tutorial_docs/launch
-reading sources... [ 88%] tutorial_docs/nav2
-reading sources... [ 90%] tutorial_docs/odesc
-reading sources... [ 92%] tutorial_docs/roboflock_topics
-reading sources... [ 95%] tutorial_docs/tf2
+reading sources... [ 24%] concepts_docs/concepts
+reading sources... [ 27%] concepts_docs/navigation
+reading sources... [ 29%] concepts_docs/obstacle_detection
+reading sources... [ 31%] concepts_docs/ros2
+reading sources... [ 33%] construction_docs/chassis_design
+reading sources... [ 36%] construction_docs/constructing_the_roboflock
+reading sources... [ 38%] construction_docs/construction
+reading sources... [ 40%] construction_docs/wiring_specifications
+reading sources... [ 42%] future_considerations
+reading sources... [ 44%] getting_started_docs/getting_started
+reading sources... [ 47%] getting_started_docs/gps_config
+reading sources... [ 49%] getting_started_docs/install_guide
+reading sources... [ 51%] getting_started_docs/jetson_config
+reading sources... [ 53%] getting_started_docs/manage_usb
+reading sources... [ 56%] getting_started_docs/meshtastic_config
+reading sources... [ 58%] getting_started_docs/odesc
+reading sources... [ 60%] getting_started_docs/visuals_setup
+reading sources... [ 62%] hardware_docs/arduino
+reading sources... [ 64%] hardware_docs/hardware
+reading sources... [ 67%] hardware_docs/hc_12
+reading sources... [ 69%] hardware_docs/hc_sr04
+reading sources... [ 71%] hardware_docs/imu
+reading sources... [ 73%] hardware_docs/jetson_devkit
+reading sources... [ 76%] hardware_docs/max_17048
+reading sources... [ 78%] hardware_docs/neo_m8p
+reading sources... [ 80%] hardware_docs/rp_lidar
+reading sources... [ 82%] hardware_docs/zed_f9p
+reading sources... [ 84%] index
+reading sources... [ 87%] tutorial_docs/cmakelists
+reading sources... [ 89%] tutorial_docs/launch
+reading sources... [ 91%] tutorial_docs/nav2
+reading sources... [ 93%] tutorial_docs/roboflock_topics
+reading sources... [ 96%] tutorial_docs/tf2
 reading sources... [ 98%] tutorial_docs/tutorials
 reading sources... [100%] tutorial_docs/urdf
 
@@ -62,82 +67,85 @@ copying extra files...
 copying extra files: done
 copying assets: done
 writing output... [  2%] citation_docs/additional_info
-writing output... [  5%] citation_docs/appendix_a
-writing output... [  8%] citation_docs/appendix_b
-writing output... [ 10%] citation_docs/bibliography
-writing output... [ 12%] citation_docs/mathref_docs/mathref
-writing output... [ 15%] citation_docs/mathref_docs/quaternions
+writing output... [  4%] citation_docs/appendix_a
+writing output... [  7%] citation_docs/appendix_b
+writing output... [  9%] citation_docs/bibliography
+writing output... [ 11%] citation_docs/glossary
+writing output... [ 13%] citation_docs/mathref_docs/mathref
+writing output... [ 16%] citation_docs/mathref_docs/quaternions
 writing output... [ 18%] codebase_docs/codebase
 writing output... [ 20%] codebase_docs/ultrasonic_code
 writing output... [ 22%] concepts_docs/communication
-writing output... [ 25%] concepts_docs/concepts
-writing output... [ 28%] concepts_docs/navigation
-writing output... [ 30%] concepts_docs/obstacle_detection
-writing output... [ 32%] concepts_docs/ros2
-writing output... [ 35%] construction_docs/chassis_design
-writing output... [ 38%] construction_docs/constructing_the_roboflock
-writing output... [ 40%] construction_docs/construction
-writing output... [ 42%] construction_docs/wiring_specifications
-writing output... [ 45%] future_considerations
-writing output... [ 48%] getting_started_docs/getting_started
-writing output... [ 50%] hardware_docs/arduino
-writing output... [ 52%] hardware_docs/hardware
-writing output... [ 55%] hardware_docs/hc_12
-writing output... [ 57%] hardware_docs/hc_sr04
-writing output... [ 60%] hardware_docs/imu
-writing output... [ 62%] hardware_docs/jetson_devkit
-writing output... [ 65%] hardware_docs/max_17048
-writing output... [ 68%] hardware_docs/neo_m8p
-writing output... [ 70%] hardware_docs/rp_lidar
-writing output... [ 72%] hardware_docs/zed_f9p
-writing output... [ 75%] index
-writing output... [ 78%] tutorial_docs/cmakelists
-writing output... [ 80%] tutorial_docs/init_dev
-writing output... [ 82%] tutorial_docs/jetson_config
-writing output... [ 85%] tutorial_docs/launch
-writing output... [ 88%] tutorial_docs/nav2
-writing output... [ 90%] tutorial_docs/odesc
-writing output... [ 92%] tutorial_docs/roboflock_topics
-writing output... [ 95%] tutorial_docs/tf2
+writing output... [ 24%] concepts_docs/concepts
+writing output... [ 27%] concepts_docs/navigation
+writing output... [ 29%] concepts_docs/obstacle_detection
+writing output... [ 31%] concepts_docs/ros2
+writing output... [ 33%] construction_docs/chassis_design
+writing output... [ 36%] construction_docs/constructing_the_roboflock
+writing output... [ 38%] construction_docs/construction
+writing output... [ 40%] construction_docs/wiring_specifications
+writing output... [ 42%] future_considerations
+writing output... [ 44%] getting_started_docs/getting_started
+writing output... [ 47%] getting_started_docs/gps_config
+writing output... [ 49%] getting_started_docs/install_guide
+writing output... [ 51%] getting_started_docs/jetson_config
+writing output... [ 53%] getting_started_docs/manage_usb
+writing output... [ 56%] getting_started_docs/meshtastic_config
+writing output... [ 58%] getting_started_docs/odesc
+writing output... [ 60%] getting_started_docs/visuals_setup
+writing output... [ 62%] hardware_docs/arduino
+writing output... [ 64%] hardware_docs/hardware
+writing output... [ 67%] hardware_docs/hc_12
+writing output... [ 69%] hardware_docs/hc_sr04
+writing output... [ 71%] hardware_docs/imu
+writing output... [ 73%] hardware_docs/jetson_devkit
+writing output... [ 76%] hardware_docs/max_17048
+writing output... [ 78%] hardware_docs/neo_m8p
+writing output... [ 80%] hardware_docs/rp_lidar
+writing output... [ 82%] hardware_docs/zed_f9p
+writing output... [ 84%] index
+writing output... [ 87%] tutorial_docs/cmakelists
+writing output... [ 89%] tutorial_docs/launch
+writing output... [ 91%] tutorial_docs/nav2
+writing output... [ 93%] tutorial_docs/roboflock_topics
+writing output... [ 96%] tutorial_docs/tf2
 writing output... [ 98%] tutorial_docs/tutorials
 writing output... [100%] tutorial_docs/urdf
 
 generating indices... genindex done
 writing additional pages... search done
-copying images... [  5%] _images/fig5_beacon_rover_datastream.png
-copying images... [ 10%] _images/fig6_ex_gps_visuals.png
-copying images... [ 15%] _images/fig7-1_beacon_robo_comms.png
-copying images... [ 20%] _images/fig7-2_beacon_robo_dataflow.png
-copying images... [ 25%] _images/fig4-2_sonar_positions.png
-copying images... [ 30%] _images/fig11_ros2_overview.png
-copying images... [ 35%] _images/fig12_chassis_design_proto.png
-copying images... [ 40%] _images/fig13_chassis_frame.png
-copying images... [ 45%] _images/fig14_chassis_frame_dims.png
-copying images... [ 50%] _images/fig15_chassis_shell.png
-copying images... [ 55%] _images/fig16_chassis_shell_dims.png
-copying images... [ 60%] _images/fig17_airless_tires.png
-copying images... [ 65%] _images/fig18_airless_tires_dims.png
-copying images... [ 70%] _images/fig19_beacon_wiring_diagram.png
-copying images... [ 75%] _images/fig21_internal_wiring_diagram.png
-copying images... [ 80%] _images/fig2-1_jetson_block_diagram.png
-copying images... [ 85%] _images/fig2-2_jetson_carrier_connections.png
-copying images... [ 90%] _images/fig3-2_lidar_usb_adapter.png
-copying images... [ 95%] _images/fig3-1_lidar_dims.png
+copying images... [  6%] _images/fig5_beacon_rover_datastream.png
+copying images... [ 11%] _images/fig6_ex_gps_visuals.png
+copying images... [ 17%] _images/fig4-2_sonar_positions.png
+copying images... [ 22%] _images/fig11_ros2_overview.png
+copying images... [ 28%] _images/fig12_chassis_design_proto.png
+copying images... [ 33%] _images/fig13_chassis_frame.png
+copying images... [ 39%] _images/fig14_chassis_frame_dims.png
+copying images... [ 44%] _images/fig15_chassis_shell.png
+copying images... [ 50%] _images/fig16_chassis_shell_dims.png
+copying images... [ 56%] _images/fig17_airless_tires.png
+copying images... [ 61%] _images/fig18_airless_tires_dims.png
+copying images... [ 67%] _images/fig19_beacon_wiring_diagram.png
+copying images... [ 72%] _images/fig21_internal_wiring_diagram.png
+copying images... [ 78%] _images/fig2-1_jetson_block_diagram.png
+copying images... [ 83%] _images/fig2-2_jetson_carrier_connections.png
+copying images... [ 89%] _images/fig3-2_lidar_usb_adapter.png
+copying images... [ 94%] _images/fig3-1_lidar_dims.png
 copying images... [100%] _images/fig1_finalprod_overview.png
 
 dumping search index in English (code: en)... done
 dumping object inventory... done
 
 ====================== total reading duration ==========================
-Total time reading 40 files: 0m 0.401s
+Total time reading 45 files: 0m 0.425s
 
 
 ====================== slowest reading durations =======================
+0.043s getting_started_docs/jetson_config
 0.027s codebase_docs/ultrasonic_code
 0.026s citation_docs/mathref_docs/quaternions
-0.026s hardware_docs/hardware
-0.024s construction_docs/chassis_design
-0.020s concepts_docs/ros2
+0.019s hardware_docs/rp_lidar
+0.018s hardware_docs/jetson_devkit
 
 build succeeded.
 

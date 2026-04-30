@@ -2,28 +2,29 @@
 Getting Started
 ===============
 
-++++++++++++
-Installation
-++++++++++++
+- :doc:`Setting up the Nvidia Jetson Orin Nano <jetson_config>`
 
-- `ROS2 <humbledownload_>`_
+- :doc:`Installation Guide <install_guide>`
 
-- `RoboFlock GitHub Repository <roboflockrepo_>`_
+- :doc:`GPS Module Configuration <gps_config>`
 
-- Startup Scripts
+- :doc:`Meshtastic Configuration <meshtastic_config>`
 
-+++++++++++
-User Manual
-+++++++++++
+- :doc:`GPS Visualization Setup <visuals_setup>`
 
-- Setup
+- :doc:`ODESC V4.2 Motor Configuration and Setup <odesc>`
 
-- Usage
-
-- Maintenance
+- :doc:`Managing USB Devices <manage_usb>`
 
 
+.. toctree::
+    :hidden:
+    :maxdepth: 2
 
-.. _humbledownload: https://docs.ros.org/en/humble/Installation.html
-
-.. _roboflockrepo: https://github.com/shouvik-d/RoboFlock
+    jetson_config
+    install_guide
+    gps_config
+    meshtastic_config
+    visuals_setup
+    odesc
+    manage_usb

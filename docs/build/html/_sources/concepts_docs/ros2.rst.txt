@@ -3,10 +3,6 @@ ROS2
 ====
 
 
-++++++++
-Overview
-++++++++
-
 ROS2 is the main software framework for the robot. It handles message passing, timing, and modularity. Each sensor, controller, and algorithm runs as a ROS2 node. These nodes will use one of the following communication methods provided by the framework:
 
 1. *Topics* are used for continuous streams of data. Nodes can publish messages via topics and nodes can subscribe to messages via topics.
@@ -15,9 +11,7 @@ ROS2 is the main software framework for the robot. It handles message passing, t
 
 3. *Actions* are used for long-term communications that consist of a goal, feedback, and a result. One node acts as the action server that responds to requests about the goal and result, in addition to providing feedback information to the action client, which is another node that sends out the information requests. 
 
-+++++++++++++++++++++++++++
-Architectural Block Diagram
-+++++++++++++++++++++++++++
+
 
 .. figure:: ../_images/fig11_ros2_overview.png
     :align: center
@@ -27,7 +21,7 @@ Architectural Block Diagram
     Overview of ROS2 Setup
 
 
-+++++++++++++++
+
 Data Collection
 +++++++++++++++
 
@@ -42,7 +36,7 @@ The naming hierarchy can be useful when multiple, independently-developed packag
 Topic names can also be *remapped*, which is especially useful when working with internal ROS2 packages, such as the Robot Localization package. RoboFlock generally sticks to using absolute names and remappings to avoid conflicts. 
 
 
-+++++++++++++++
+
 Transformations
 +++++++++++++++
 
@@ -55,7 +49,6 @@ Fortunately, ROS2 can handle the translational and rotational math needed to mov
 Using the left ultrasonic example, we might describe its translational offset as being 10 centimeters above and 15 centimeters to the left of the robot's center, and its rotational offset would be 90 degrees about the *z*-axis. The file can be manually written or automatically generated from CAD models using tools such as **LIST CAD-URDF TOOL HERE**.
 
 
-+++++++++++++
 Sensor Fusion
 +++++++++++++
 
@@ -74,17 +67,15 @@ So now we have all our sensor data publishing to their respective topics and all
 
 Since RoboFlock is (currently) only concered with planar motion, we can disregard any roll, pitch, or *z*-axis values. The remaining variables are ultimately controlled by how the sensor fusion is configured. The :code:`robot_localization` package processes sensor data needed to understand the robot's physical location in the environment. 
 
-In the case of RoboFlock, this data comes from the IMU, LiDAR scanner, and GPS module. The result is an odometry message that contains information on the robot's frame of reference, position on the global map, linear velocity, and angular velocity. The :code:`robot_localization` package also updates the transform between the global frame of reference and the robot's frame of reference, which will be the main transform that data is moved through when navigational calculations are made.
+In the case of RoboFlock, this data comes from the inertial measurement unit (IMU), LiDAR scanner, and GPS module. The result is an odometry message that contains information on the robot's frame of reference, position on the global map, linear velocity, and angular velocity. The :code:`robot_localization` package also updates the transform between the global frame of reference and the robot's frame of reference, which will be the main transform that data is moved through when navigational calculations are made.
 
 
-++++++++++
 Navigation
 ++++++++++
 
 Nav2. That's it.
 
 
-+++++
 TL;DR
 +++++
 
@@ -98,23 +89,29 @@ TL;DR
 
 
 .. seealso::
-    :collapsible:
 
-    `geometry/CoordinateFrameConventions <https://wiki.ros.org/geometry/CoordinateFrameConventions#Naming>`_
-        Coordinate Frame Naming Conventions
+    Coordinate Frame Naming Conventions
 
-    `REP 103 <https://www.ros.org/reps/rep-0103.html>`_
-        Standard Units of Measure and Coordinate Conventions
+        `geometry/CoordinateFrameConventions <https://wiki.ros.org/geometry/CoordinateFrameConventions#Naming>`_
 
-    `REP 117 <https://www.ros.org/reps/rep-0117.html>`_
-        Informational Distance Measurements Conventions
+    Standard Units of Measure and Coordinate Conventions
 
-    `REP 144 <https://www.ros.org/reps/rep-0144.html>`_
-        Package Naming Conventions
+        `REP 103 <https://www.ros.org/reps/rep-0103.html>`_
 
-    `REP 145 <https://www.ros.org/reps/rep-0145.html>`_
-        IMU Sensor Driver Conventions
+    Informational Distance Measurements Conventions
 
-    `robot_localization <https://docs.ros.org/en/noetic/api/robot_localization/html/index.html>`_
-        Documentation for the :code:`robot_localization` package
+        `REP 117 <https://www.ros.org/reps/rep-0117.html>`_
+
+    Package Naming Conventions
+
+        `REP 144 <https://www.ros.org/reps/rep-0144.html>`_
+
+    IMU Sensor Driver Conventions  
+
+        `REP 145 <https://www.ros.org/reps/rep-0145.html>`_
+        
+    Documentation for the :code:`robot_localization` package
+    
+        `robot_localization <https://docs.ros.org/en/noetic/api/robot_localization/html/index.html>`_
+        
 

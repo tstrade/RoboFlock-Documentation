@@ -1,0 +1,269 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meshtastic Configuration &mdash; RoboFlock 1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=8f3c863a" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=56dcb7b8"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=6dbb43f8"></script>
+      <script src="../_static/tabs.js?v=3030b3cb"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="GPS Visualization Setup" href="visuals_setup.html" />
+    <link rel="prev" title="GPS Module Configuration" href="gps_config.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/Robo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="getting_started.html">Getting Started</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="jetson_config.html">Setting up the Nvidia Jetson Orin Nano</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install_guide.html">Installation Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gps_config.html">GPS Module Configuration</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Meshtastic Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="visuals_setup.html">GPS Visualization Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="odesc.html">ODESC V4.2 Motor Configuration and Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manage_usb.html">Managing USB Devices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts_docs/concepts.html">Concepts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts_docs/obstacle_detection.html">Obstacle Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts_docs/navigation.html">Navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts_docs/communication.html">Communication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts_docs/ros2.html">ROS2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial_docs/tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/cmakelists.html">Writing CML Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/launch.html">Making Launch Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/urdf.html">Creating the URDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/nav2.html">Working with Nav2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/roboflock_topics.html">Using RoboFlock’s Topics</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../codebase_docs/codebase.html">RoboFlock Codebase</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../codebase_docs/ultrasonic_code.html">Ultrasonic Sensor Code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../hardware_docs/hardware.html">Hardware Components</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../hardware_docs/jetson_devkit.html">Nvidia Jetson Orin Nano Super Developer Kit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware_docs/arduino.html">Arduino Nano</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware_docs/rp_lidar.html">RPLIDAR A1M8 Laser Range Scanner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware_docs/hc_sr04.html">Ultrasonic Distance Sensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware_docs/imu.html">MPU-6050 Motion Tracking Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware_docs/neo_m8p.html">NEO-M8P-2 GNSS/GPS Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware_docs/zed_f9p.html">ZED-F9P-02B GNSS/GPS Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware_docs/hc_12.html">HC-12 Wireless Serial Port Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware_docs/max_17048.html">MAX17048 Fuel Gauge and Battery Monitor</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../construction_docs/construction.html">Construction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../construction_docs/constructing_the_roboflock.html">Step-by-Step Construction Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../construction_docs/chassis_design.html">Chassis Design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../construction_docs/wiring_specifications.html">Wiring Specifications</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../future_considerations.html">Future Considerations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../citation_docs/additional_info.html">Additional Information</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../citation_docs/appendix_a.html">Appendix A</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../citation_docs/appendix_b.html">Appendix B</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../citation_docs/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../citation_docs/bibliography.html">Bibliography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../citation_docs/mathref_docs/mathref.html">Mathematics References</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RoboFlock</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="getting_started.html">Getting Started</a></li>
+      <li class="breadcrumb-item active">Meshtastic Configuration</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/getting_started_docs/meshtastic_config.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="gps_config.html" class="btn btn-neutral float-left" title="GPS Module Configuration" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="visuals_setup.html" class="btn btn-neutral float-right" title="GPS Visualization Setup" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="meshtastic-configuration">
+<h1>Meshtastic Configuration<a class="headerlink" href="#meshtastic-configuration" title="Link to this heading"></a></h1>
+<p>RoboFlock uses three distinct Meshtastic devices: one for the beacon, one for the robot, and one for a Windows tablet.</p>
+<section id="beacon">
+<h2>Beacon<a class="headerlink" href="#beacon" title="Link to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Current Configured Device Info:</p>
+<blockquote>
+<div><p>Name = d700 <span class="raw-html"><br /></span>
+Node # = 1819531008 <span class="raw-html"><br /></span>
+User ID = !6c73d700 <span class="raw-html"><br /></span></p>
+</div></blockquote>
+</div>
+<p>1. Download the Meshtastic App on your phone from it’s native app marketplace.
+<span class="raw-html"><br /></span></p>
+<p>2. Make sure your phone’s bluetooth is on, then open the Meshtastic app and click “Connect”.
+<span class="raw-html"><br /></span></p>
+<p>3. In the “Available Radios” section, select the radio labeled “d700” (the device name).
+<span class="raw-html"><br /></span></p>
+<p>4. Click on the “Settings” button, then the “Channels” option. From here, select “Add Channel”.
+<span class="raw-html"><br /></span></p>
+<p>5. In the “Channel Details” page, name the channel “from Jetson” and assign it a “Key Size” of 128 bits.
+<span class="raw-html"><br /></span></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Copy the generated key from the “Key” value and save it to use for later setup of other devices.</p>
+</div>
+<p>6. Set the “Channel Role” to “Secondary”.
+<span class="raw-html"><br /></span></p>
+<p>7. Under the “Position” section, turn off “Allow Position Requests”.
+<span class="raw-html"><br /></span></p>
+<p>8. Under the “MQTT” section, turn off “Uplink Enabled” and “Downlink Enabled”. Click save at the bottom of the page.
+<span class="raw-html"><br /></span></p>
+<p>9. Repeat Steps 4 - 8 to create a channel named “from Tom” and another channel named “gps Coords”. Click save at the bottom of the page.
+<span class="raw-html"><br /></span></p>
+<p>10. Click on the “Settings” button again and then the “Bluetooth” option.
+<span class="raw-html"><br /></span></p>
+<p>11. Under the “Options” section, click the “Enabled” button. Click save at the bottom of the page.
+<span class="raw-html"><br /></span></p>
+<p>12. Click on the “Settings” button again and then the “Device Config” option.
+<span class="raw-html"><br /></span></p>
+<p>13. Set “Device Role” to “Client Mute”, “Rebroadcast Mode” to “Local Only”, and “Node Info Broadcast Interval” to “Three Hours”. Click save at the bottom of the page.
+<span class="raw-html"><br /></span></p>
+<p>14. Click on the “Settings” button again and then the “Position Config” option.
+<span class="raw-html"><br /></span></p>
+<p>15. Set “Broadcast Interval” to “Never” and turn off “Smart Position”. Under the “Device GPS” section, set to “Disabled” and turn off “Fixed Position”. Click save at the bottom of the page.
+<span class="raw-html"><br /></span></p>
+<p>16. Click on the “Settings” button again and then the “LoRa Config” option.
+<span class="raw-html"><br /></span></p>
+<p>17. Set “Region” to “United States” and turn on “Use Preset”. Under the “Presets” section, select “Long Range - Fast”. Under “Advanced” turn on “Ignore MQTT”, “Transmit Enabled”, and “RX Boosted Gain”, turn off “Ok to MQTT”, and set “Number of hops” to 3. Click save at the bottom of the page.
+<span class="raw-html"><br /></span></p>
+</section>
+<section id="robot">
+<h2>Robot<a class="headerlink" href="#robot" title="Link to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Current Configured Device Info:</p>
+<blockquote>
+<div><p>Name = 3480 <span class="raw-html"><br /></span>
+Node # = 1819554944 <span class="raw-html"><br /></span>
+User ID = !6c743480 <span class="raw-html"><br /></span></p>
+</div></blockquote>
+</div>
+<p>1. Make sure your phone’s bluetooth is on, then open the Meshtastic app and click “Connect”.
+<span class="raw-html"><br /></span></p>
+<p>2. In the “Available Radios” section, select the radio labeled “3480” (the device name).
+<span class="raw-html"><br /></span></p>
+<p>3. Click on the “Settings” button, then the “Channels” option. From here, select “Add Channel”.
+<span class="raw-html"><br /></span></p>
+<p>4. In the “Channel Details” page, name the channel “from Jetson” and assign it a “Key Size” of 128 bits. Use the generated key from the Beacon’s Meshtastic setup as the key for this channel.
+<span class="raw-html"><br /></span></p>
+<p>5. Follow Steps 6 - 17 from the Beacon’s Meshtastic setup, except with “Device Role” set to “Client” instead of “Client Mute”.
+<span class="raw-html"><br /></span></p>
+</section>
+<section id="tablet">
+<h2>Tablet<a class="headerlink" href="#tablet" title="Link to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Current Configured Device Info:</p>
+<blockquote>
+<div><p>Name = e074 <span class="raw-html"><br /></span>
+Node # = 3145785460 <span class="raw-html"><br /></span>
+User ID = !bb80e074 <span class="raw-html"><br /></span></p>
+</div></blockquote>
+</div>
+<p>1. Make sure your phone’s bluetooth is on, then open the Meshtastic app and click “Connect”.
+<span class="raw-html"><br /></span></p>
+<p>2. In the “Available Radios” section, select the radio labeled “e074” (the device name).
+<span class="raw-html"><br /></span></p>
+<p>3. Click on the “Settings” button, then the “Channels” option. From here, select “Add Channel”.
+<span class="raw-html"><br /></span></p>
+<p>4. In the “Channel Details” page, name the channel “from Jetson” and assign it a “Key Size” of 128 bits. Use the generated key from the Beacon’s Meshtastic setup as the key for this channel.
+<span class="raw-html"><br /></span></p>
+<p>5. Follow Steps 6 - 17 from the Beacon’s Meshtastic setup.
+<span class="raw-html"><br /></span></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="gps_config.html" class="btn btn-neutral float-left" title="GPS Module Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="visuals_setup.html" class="btn btn-neutral float-right" title="GPS Visualization Setup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Project RoboFlock.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

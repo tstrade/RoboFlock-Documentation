@@ -1,0 +1,28 @@
+==================
+Installation Guide
+==================
+
+First, ensure that the Jetson Orin Nano has been properly setup by following the `configuration guide <jetson_config>`.
+
+
+Next, follow the `ROS2 Humble Install Guide <https://docs.ros.org/en/humble/Installation.html>`_ to get ROS2 setup on the Jetson Orin Nano. 
+
+
+Then run the following: 
+
+.. code-block:: console
+
+    $ cd ~/
+
+    $ git clone https://github.com/shouvik-d/roboflock_ws.git
+
+    $ cd ~/roboflock_ws
+
+    $ rosdep install --from-paths src -y --ignore-src
+
+    $ colcon build
+
+    $ source install/bin/setup.bash
+
+
+Check out :doc:`Managing USB Devices <manage_usb>` to get all USB devices ready for use and run through the remaining configuration guides for all other components (GPS modules, motor drivers, etc.). 

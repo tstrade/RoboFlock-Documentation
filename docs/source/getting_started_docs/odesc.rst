@@ -23,10 +23,13 @@ Flashing
 Before configuring, ensure the ODESC board is running the official ODrive v0.5.6 firmware:
 
 1. Connect the ODESC to your computer via USB. 
+:raw-html:`<br />`
 
 2. Perform MASS ERASE to remove current firmware, then flash the standard ODrive v0.5.6 firmware using an `ST-Link <stlink_>`_ and `STM32CubeProgrammer <stm_>`_ .
+:raw-html:`<br />`
 
 3. Once flashed, launch :code:`odrivetool` in your terminal to connect.
+:raw-html:`<br />`
 
 After confirming that the firmware has been flashed and the controller is recognized by your computer, unplug the controller.
 
@@ -37,6 +40,7 @@ Base Configuration
 Next, connect the battery to the controller and connect the USB cable to the controller and your computer. In your terminal, launch :code:`odrivetool` and run the following blocks to configure the power limits, motor hardware, and anti-shake tuning.
 
 1. Power Limits (25.2V Battery)
+:raw-html:`<br />`
 
 .. code-block:: python
 
@@ -50,6 +54,7 @@ Next, connect the battery to the controller and connect the USB cable to the con
 
 
 2. Motor Configuration and Voltage Bump Calibration
+:raw-html:`<br />`
 
 .. code-block:: python
 
@@ -64,6 +69,7 @@ Next, connect the battery to the controller and connect the USB cable to the con
 
 
 3. Hall Sensor Configuration and Noise Filter
+:raw-html:`<br />`
 
 .. code-block:: python
 
@@ -77,6 +83,7 @@ Next, connect the battery to the controller and connect the USB cable to the con
 
 
 4. Tuning and Limits
+:raw-html:`<br />`
 
 .. code-block:: python
 
@@ -92,6 +99,7 @@ Next, connect the battery to the controller and connect the USB cable to the con
 
 
 5. Save Base Settings and Reboot
+:raw-html:`<br />`
 
 .. code-block:: python
 

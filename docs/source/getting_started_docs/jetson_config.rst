@@ -2,6 +2,9 @@
 Setting up the Nvidia Jetson Orin Nano
 ======================================
 
+.. include:: ../_templates/constants.rst
+
+    
 *This document is based entirely on the* `Jetson Orin Nano Developer Kit Getting Started Guide <gettingstarted_>`_ *, and is included here for convenience. All credit belongs to Nvidia.*
 
 Before getting started, make sure you have the following items:
@@ -15,7 +18,6 @@ Before getting started, make sure you have the following items:
 - USB cable
 
 
-+++++++++++++++++++++++++++++++
 Write Image to the microSD Card
 +++++++++++++++++++++++++++++++
 
@@ -51,28 +53,34 @@ Then, physically removed the microSD card from the host PC.
     Image flashing tools like `balenaEtcher <etcher_>`_ also work, but we prefer the terminal to relying on 3rd-party software.
 
 
-++++++++++++++++++++
 Setup and First Boot
 ++++++++++++++++++++
 
 1. Insert the microSD card (with the system image already written to it) into the slot on the underside of the Jetson Orin Nano
+:raw-html:`<br />`
 
 2. Power on the computer display and connect I/O devices (DisplayPort cable, USB keyboard and mouse). Then connect the power supply to the Jetson Orin Nano Developer Kit.
+:raw-html:`<br />`
 
 3. A green LED next to the USB-C connect will light as soon as the developer kit powers on. Follow the initial setup:
+:raw-html:`<br />`
 
     a. Review and accept Nvidia Jetson sofware EULA
+    :raw-html:`<br />`
 
     b. Select system language, keyboard layout, and time zone
+    :raw-html:`<br />`
 
     c. Connect to Wireless network
+    :raw-html:`<br />`
 
     d. Create username, password, and computer name
+    :raw-html:`<br />`
 
     e. Log in
+    :raw-html:`<br />`
 
 
-The Nvidia Jetson Orin Nano is now properly setup! Continue to :doc:`init_dev` to set up the environment for ROS2 and RoboFlock.
 
 .. _gettingstarted: https://developer.nvidia.com/embedded/learn/get-started-jetson-orin-nano-devkit#intro
 

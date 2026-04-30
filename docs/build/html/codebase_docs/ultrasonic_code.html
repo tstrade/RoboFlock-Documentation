@@ -10,6 +10,7 @@
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=8f3c863a" />
 
   
@@ -20,6 +21,7 @@
       <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="../_static/copybutton.js?v=6dbb43f8"></script>
+      <script src="../_static/tabs.js?v=3030b3cb"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -48,7 +50,16 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../getting_started_docs/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started_docs/getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started_docs/jetson_config.html">Setting up the Nvidia Jetson Orin Nano</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started_docs/install_guide.html">Installation Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started_docs/gps_config.html">GPS Module Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started_docs/meshtastic_config.html">Meshtastic Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started_docs/visuals_setup.html">GPS Visualization Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started_docs/odesc.html">ODESC V4.2 Motor Configuration and Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started_docs/manage_usb.html">Managing USB Devices</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts_docs/concepts.html">Concepts</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../concepts_docs/obstacle_detection.html">Obstacle Detection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../concepts_docs/navigation.html">Navigation</a></li>
@@ -57,14 +68,11 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial_docs/tutorials.html">Tutorials</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/jetson_config.html">Setting up the Nvidia Jetson Orin Nano</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/cmakelists.html">Writing CML Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/launch.html">Making Launch Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/urdf.html">Creating the URDF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/nav2.html">Working with Nav2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/roboflock_topics.html">Using RoboFlock’s Topics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/odesc.html">ODESC V4.2 Motor Configuration and Setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/init_dev.html">Initializing RoboFlock (Developers)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="codebase.html">RoboFlock Codebase</a><ul class="current">
@@ -91,10 +99,11 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../future_considerations.html">Future Considerations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../citation_docs/additional_info.html">Additional Information</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../citation_docs/mathref_docs/mathref.html">Mathematics References</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../citation_docs/bibliography.html">Bibliography</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../citation_docs/appendix_a.html">Appendix A</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../citation_docs/appendix_b.html">Appendix B</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../citation_docs/glossary.html">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../citation_docs/bibliography.html">Bibliography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../citation_docs/mathref_docs/mathref.html">Mathematics References</a></li>
 </ul>
 </li>
 </ul>
@@ -131,7 +140,7 @@
 <h1>Ultrasonic Sensor Code<a class="headerlink" href="#ultrasonic-sensor-code" title="Link to this heading"></a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>As with all code, there is likely a better way to execute this process. Through our own testing (and online Nvidia Jetson forums), we found that using the Jetson to directly control the ultrasonic sensors is not ideal. Additionally, that would be 6 pins on the Jetson’s expansion header that could be better used elsewhere. Instead, the ultrasonic sensors are controlled with an Arduino Uno, which takes care of the data collection and preprocessing. Future iterations of RoboFlock may choose to exclude the ultrasonic sensors completely in lieu of more powerful sensors (See <a class="reference internal" href="../future_considerations.html"><span class="doc">Future Considerations</span></a>)</p>
+<p>As with all code, there is likely a better way to execute this process. Through our own testing (and online Nvidia Jetson forums), we found that using the Jetson to directly control the ultrasonic sensors is not ideal. Instead, the ultrasonic sensors are controlled with an Arduino Nano, which takes care of the data collection and preprocessing. Future iterations of RoboFlock may choose to exclude the ultrasonic sensors completely in lieu of more powerful sensors (See <a class="reference internal" href="../future_considerations.html"><span class="doc">Future Considerations</span></a>)</p>
 </div>
 <p>Since we are dealing with three separate ultrasonic sensors that are all sending data through a single USB cable, we are using a custom data packet to make sure that the Jetson is receiving complete and parseable messages from the Arduino. Here is the packet’s structure:</p>
 <table class="docutils align-default">
@@ -163,10 +172,10 @@
 <section id="reading-and-writing">
 <h2>Reading and Writing<a class="headerlink" href="#reading-and-writing" title="Link to this heading"></a></h2>
 <p>When dealing with devices (USB, I2C, etc.), it is important to understand that in the Linux filesystem, <em>everything is a file or a directory</em>. This means that by using the Standard C Library, we can call functions like <code class="code docutils literal notranslate"><span class="pre">open()</span></code>, <code class="code docutils literal notranslate"><span class="pre">close()</span></code>, <code class="code docutils literal notranslate"><span class="pre">read()</span></code>, and <code class="code docutils literal notranslate"><span class="pre">write()</span></code> to interact with our USB device in the same we would with any other file. Check out <a class="reference external" href="https://tldp.org/LDP/Linux-Filesystem-Hierarchy/html/dev.html" rel="noreferrer" target="_blank">Linux Filesystem Hierarchy: Chapter 1</a> to learn more.</p>
-<p>To start, we will need the absolute path to the device, which in our case is <code class="code docutils literal notranslate"><span class="pre">/dev/ttyACM0</span></code>. There are a few ways to figure this out, with the simplest being to just look at the entries in <code class="code docutils literal notranslate"><span class="pre">/dev/</span></code> before and after plugging in the USB device. The new entry, which usually falls with the other <code class="code docutils literal notranslate"><span class="pre">tty</span></code> devices, is the entry corresponding to the USB device. When using multiple USB ports, it’s not guaranteed that a given device will be assigned the same filename each time its connected, so it’s important to make sure you are actually interfacing with the correct one. <a class="reference internal" href="../tutorial_docs/init_dev.html"><span class="doc">Managing USB Devices</span></a> goes through the process of assigning static names to your devices via symbolic links.</p>
+<p>To start, we will need the absolute path to the device, which in our case is <code class="code docutils literal notranslate"><span class="pre">/dev/ttyACM0</span></code>. There are a few ways to figure this out, with the simplest being to just look at the entries in <code class="code docutils literal notranslate"><span class="pre">/dev/</span></code> before and after plugging in the USB device. The new entry, which usually falls with the other <code class="code docutils literal notranslate"><span class="pre">tty</span></code> devices, is the entry corresponding to the USB device. When using multiple USB ports, it’s not guaranteed that a given device will be assigned the same filename each time its connected, so it’s important to make sure you are actually interfacing with the correct one. <a class="reference internal" href="../getting_started_docs/manage_usb.html"><span class="doc">Managing USB Devices</span></a> goes through the process of assigning static names to your devices via symbolic links.</p>
 <p>The basic structure of interfacing with the Arduino via USB connection is as follows:</p>
 <ol class="arabic simple">
-<li><p><em>Open</em> the file as read-write without it becoming the process’s controlling terminal (<cite>open(2) - Linux manual page &lt;open_&gt;</cite>)</p></li>
+<li><p><em>Open</em> the file as read-write without it becoming the process’s controlling terminal (<a class="reference external" href="https://man7.org/linux/man-pages/man2/open.2.html" rel="noreferrer" target="_blank">open(2) - Linux manual page</a>)</p></li>
 </ol>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/* `O_RDWR` and `O_NOCTTY` are argument flags that we can use */</span>
 <span class="cm">/*   to specify access modes, file creation, and file status  */</span>
@@ -174,7 +183,7 @@
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
-<li><p><em>Write</em> the request message to the file (<cite>write(2) - Linux manual page &lt;write_&gt;</cite>)</p></li>
+<li><p><em>Write</em> the request message to the file (<a class="reference external" href="https://man7.org/linux/man-pages/man2/write.2.html" rel="noreferrer" target="_blank">write(2) - Linux manual page</a>)</p></li>
 </ol>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/* Writes `sizeof(REQUEST)` bytes to the file     */</span>
 <span class="cm">/*  starting at the address provided by `REQUEST` */</span>
@@ -183,7 +192,7 @@
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
-<li><p><em>Read</em> the response message from the file (<cite>read(2) - Linux manual page &lt;read_&gt;</cite>)</p></li>
+<li><p><em>Read</em> the response message from the file (<a class="reference external" href="https://man7.org/linux/man-pages/man2/read.2.html" rel="noreferrer" target="_blank">read(2) - Linux manual page</a>)</p></li>
 </ol>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/* Reads `sizeof(read_buf)` bytes from the file and stores */</span>
 <span class="cm">/*  them at the starting address provided by `read_buf`    */</span>
@@ -193,7 +202,7 @@
 </pre></div>
 </div>
 <ol class="arabic simple" start="4">
-<li><p><em>Close</em> the file so that the file descriptor may be reused (<cite>close(2) - Linux manual page &lt;close_&gt;</cite>)</p></li>
+<li><p><em>Close</em> the file so that the file descriptor may be reused (<a class="reference external" href="https://man7.org/linux/man-pages/man2/close.2.html" rel="noreferrer" target="_blank">close(2) - Linux manual page</a>)</p></li>
 </ol>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">close</span><span class="w"> </span><span class="p">(</span><span class="n">fd</span><span class="p">)</span>
 </pre></div>
