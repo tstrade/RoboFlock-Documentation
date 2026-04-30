@@ -2,20 +2,23 @@
 ROS2
 ====
 
+.. include:: _templates/constants.rst 
 
 ROS2 is the main software framework for the robot. It handles message passing, timing, and modularity. Each sensor, controller, and algorithm runs as a ROS2 node. These nodes will use one of the following communication methods provided by the framework:
 
 1. *Topics* are used for continuous streams of data. Nodes can publish messages via topics and nodes can subscribe to messages via topics.
+:raw-html:`<br />`
 
 2. *Services* are used for call-and-response communication. Many nodes can act as the service client, each capable of sending requests to the node acting as the service server.
+:raw-html:`<br />`
 
 3. *Actions* are used for long-term communications that consist of a goal, feedback, and a result. One node acts as the action server that responds to requests about the goal and result, in addition to providing feedback information to the action client, which is another node that sends out the information requests. 
-
+:raw-html:`<br />`
 
 
 .. figure:: ../_images/fig11_ros2_overview.png
     :align: center
-    :width: 50%
+    :width: 80%
     :loading: link
 
     Overview of ROS2 Setup
@@ -90,28 +93,22 @@ TL;DR
 
 .. seealso::
 
-    Coordinate Frame Naming Conventions
+    `geometry/CoordinateFrameConventions <https://wiki.ros.org/geometry/CoordinateFrameConventions#Naming>`_
+        Coordinate Frame Naming Conventions
 
-        `geometry/CoordinateFrameConventions <https://wiki.ros.org/geometry/CoordinateFrameConventions#Naming>`_
+    `REP 103 <https://www.ros.org/reps/rep-0103.html>`_
+        Standard Units of Measure and Coordinate Conventions
 
-    Standard Units of Measure and Coordinate Conventions
+    `REP 117 <https://www.ros.org/reps/rep-0117.html>`_
+        Informational Distance Measurements Conventions
 
-        `REP 103 <https://www.ros.org/reps/rep-0103.html>`_
+    `REP 144 <https://www.ros.org/reps/rep-0144.html>`_
+        Package Naming Conventions
 
-    Informational Distance Measurements Conventions
-
-        `REP 117 <https://www.ros.org/reps/rep-0117.html>`_
-
-    Package Naming Conventions
-
-        `REP 144 <https://www.ros.org/reps/rep-0144.html>`_
-
-    IMU Sensor Driver Conventions  
-
-        `REP 145 <https://www.ros.org/reps/rep-0145.html>`_
+    `REP 145 <https://www.ros.org/reps/rep-0145.html>`_
+        IMU Sensor Driver Conventions
         
-    Documentation for the :code:`robot_localization` package
-    
-        `robot_localization <https://docs.ros.org/en/noetic/api/robot_localization/html/index.html>`_
+    `robot_localization <https://docs.ros.org/en/noetic/api/robot_localization/html/index.html>`_
+        Documentation for the :code:`robot_localization` package
         
 

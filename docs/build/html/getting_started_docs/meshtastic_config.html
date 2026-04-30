@@ -12,7 +12,8 @@
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=555e9d6c" />
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=bd7872ce" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
@@ -94,8 +95,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../construction_docs/construction.html">Construction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../construction_docs/constructing_the_roboflock.html">Step-by-Step Construction Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../construction_docs/chassis_design.html">Chassis Design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../construction_docs/design_overview.html">Design Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../construction_docs/subsystems/frame_and_extrusion.html">Frame and Extrusion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../construction_docs/subsystems/drivetrain.html">Drive System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../construction_docs/subsystems/suspension.html">Suspension</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../construction_docs/wiring_specifications.html">Wiring Specifications</a></li>
 </ul>
 </li>
@@ -145,15 +148,12 @@
 <p>RoboFlock uses three distinct Meshtastic devices: one for the beacon, one for the robot, and one for a Windows tablet.</p>
 <section id="beacon">
 <h2>Beacon<a class="headerlink" href="#beacon" title="Link to this heading"></a></h2>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Current Configured Device Info:</p>
-<blockquote>
-<div><p>Name = d700 <span class="raw-html"><br /></span>
+<details class="admonition-current-configured-device-info admonition" open="open">
+<summary class="admonition-title">Current Configured Device Info:</summary>
+<p>Name = d700 <span class="raw-html"><br /></span>
 Node # = 1819531008 <span class="raw-html"><br /></span>
 User ID = !6c73d700 <span class="raw-html"><br /></span></p>
-</div></blockquote>
-</div>
+</details>
 <p>1. Download the Meshtastic App on your phone from it’s native app marketplace.
 <span class="raw-html"><br /></span></p>
 <p>2. Make sure your phone’s bluetooth is on, then open the Meshtastic app and click “Connect”.
@@ -195,15 +195,12 @@ User ID = !6c73d700 <span class="raw-html"><br /></span></p>
 </section>
 <section id="robot">
 <h2>Robot<a class="headerlink" href="#robot" title="Link to this heading"></a></h2>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Current Configured Device Info:</p>
-<blockquote>
-<div><p>Name = 3480 <span class="raw-html"><br /></span>
+<details class="admonition-current-configured-device-info admonition" open="open">
+<summary class="admonition-title">Current Configured Device Info:</summary>
+<p>Name = 3480 <span class="raw-html"><br /></span>
 Node # = 1819554944 <span class="raw-html"><br /></span>
 User ID = !6c743480 <span class="raw-html"><br /></span></p>
-</div></blockquote>
-</div>
+</details>
 <p>1. Make sure your phone’s bluetooth is on, then open the Meshtastic app and click “Connect”.
 <span class="raw-html"><br /></span></p>
 <p>2. In the “Available Radios” section, select the radio labeled “3480” (the device name).
@@ -217,15 +214,13 @@ User ID = !6c743480 <span class="raw-html"><br /></span></p>
 </section>
 <section id="tablet">
 <h2>Tablet<a class="headerlink" href="#tablet" title="Link to this heading"></a></h2>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<details class="admonition note" open="open">
+<summary class="admonition-title">Note</summary>
 <p>Current Configured Device Info:</p>
-<blockquote>
-<div><p>Name = e074 <span class="raw-html"><br /></span>
+<p>Name = e074 <span class="raw-html"><br /></span>
 Node # = 3145785460 <span class="raw-html"><br /></span>
 User ID = !bb80e074 <span class="raw-html"><br /></span></p>
-</div></blockquote>
-</div>
+</details>
 <p>1. Make sure your phone’s bluetooth is on, then open the Meshtastic app and click “Connect”.
 <span class="raw-html"><br /></span></p>
 <p>2. In the “Available Radios” section, select the radio labeled “e074” (the device name).

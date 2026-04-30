@@ -5,7 +5,7 @@ GPS Module Configuration
 .. include:: ../_templates/constants.rst
 
 
-.. note::
+.. important::
 
     The following guide for configuring the GPS modules assumes access to a Windows machine.
 

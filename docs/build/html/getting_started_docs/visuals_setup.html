@@ -12,7 +12,8 @@
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=555e9d6c" />
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=bd7872ce" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
@@ -94,8 +95,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../construction_docs/construction.html">Construction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../construction_docs/constructing_the_roboflock.html">Step-by-Step Construction Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../construction_docs/chassis_design.html">Chassis Design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../construction_docs/design_overview.html">Design Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../construction_docs/subsystems/frame_and_extrusion.html">Frame and Extrusion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../construction_docs/subsystems/drivetrain.html">Drive System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../construction_docs/subsystems/suspension.html">Suspension</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../construction_docs/wiring_specifications.html">Wiring Specifications</a></li>
 </ul>
 </li>
@@ -157,13 +160,13 @@
 <ul>
 <li><p>Connect Meshtastic device “3480” to an open USB port on the Jetson Orin Nano.</p></li>
 <li><p>Connect the NEO-M8P module to another open USB port on the Jetson Orin Nano.</p></li>
-<li><p>Connections FROM the HC-12 TO the ZED-F9P:</p>
+<li><p>Connections <em>from</em> the HC-12 <em>to</em> the ZED-F9P:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>VCC –&gt; 5V</p></li>
-<li><p>GND –&gt; GND</p></li>
-<li><p>TXD –&gt; RX2</p></li>
-<li><p>RXD –&gt; TX2</p></li>
+<li><p>VCC ⟶ 5V</p></li>
+<li><p>GND ⟶ GND</p></li>
+<li><p>TXD ⟶ RX2</p></li>
+<li><p>RXD ⟶ TX2</p></li>
 </ul>
 </div></blockquote>
 </li>
@@ -188,17 +191,17 @@
 <p class="admonition-title">Note</p>
 <p>This direction should contain two folders, <code class="code docutils literal notranslate"><span class="pre">static</span></code> and <code class="code docutils literal notranslate"><span class="pre">template</span></code>, as well as two files, <code class="code docutils literal notranslate"><span class="pre">jetsonBoth.py</span></code> and <code class="code docutils literal notranslate"><span class="pre">tomBoth.py</span></code>.</p>
 </div>
-<ol class="arabic simple" start="4">
-<li><p>In the <code class="code docutils literal notranslate"><span class="pre">Roboflock</span></code> directory, run the following:</p></li>
-</ol>
-<div class="highlight-Powershell notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">tomBoth</span><span class="p">.</span><span class="n">py</span>
+<p>4. In the <code class="code docutils literal notranslate"><span class="pre">Roboflock</span></code> directory, run the following:
+<span class="raw-html"><br /></span></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python tomBoth.py</span>
 </pre></div>
 </div>
 <p>5. As messages are printed to the Powershell window, watch for “GPS RECEIVED” and the coordinates that follow. Wait until the robot and beacon’s coordinates are non-zero.
 <span class="raw-html"><br /></span></p>
 <p>6. Open a new web browser window and enter the URL <a class="reference external" href="http://localhost:5000/" rel="noreferrer" target="_blank">http://localhost:5000/</a>
 <span class="raw-html"><br /></span></p>
-<p>If successful, you should be able to see the location of both the robot (red) and the beacon (blue) on the map. As they move, their paths will be traced out in their corresponding colors. The page should also show buttons labeled “STOP ROBOT” and “COME TO BASE” that will each send a message to the other devices in the Meshtastic network. If a Meshtastic device receives either of these messages, it will be displayed on the device’s screen.</p>
+<p>If successful, you should be able to see the location of both the robot (red) and the beacon (blue) on the map. As they move, their paths will be traced out in their corresponding colors.</p>
+<p>The page should also show buttons labeled “STOP ROBOT” and “COME TO BASE” that will each send a message to the other devices in the Meshtastic network. If a Meshtastic device receives either of these messages, it will be displayed on the device’s screen.</p>
 <p>Otherwise, start over by checking all hardware connections and then repeating the software setup.</p>
 </section>
 </section>

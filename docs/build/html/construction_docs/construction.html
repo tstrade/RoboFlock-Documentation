@@ -12,7 +12,8 @@
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=555e9d6c" />
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=bd7872ce" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
@@ -27,7 +28,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Step-by-Step Construction Guide" href="constructing_the_roboflock.html" />
+    <link rel="next" title="Design Overview" href="design_overview.html" />
     <link rel="prev" title="MAX17048 Fuel Gauge and Battery Monitor" href="../hardware_docs/max_17048.html" /> 
 </head>
 
@@ -94,8 +95,10 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Construction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="constructing_the_roboflock.html">Step-by-Step Construction Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="chassis_design.html">Chassis Design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design_overview.html">Design Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subsystems/frame_and_extrusion.html">Frame and Extrusion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subsystems/drivetrain.html">Drive System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subsystems/suspension.html">Suspension</a></li>
 <li class="toctree-l2"><a class="reference internal" href="wiring_specifications.html">Wiring Specifications</a></li>
 </ul>
 </li>
@@ -132,7 +135,7 @@
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
         <a href="../hardware_docs/max_17048.html" class="btn btn-neutral float-left" title="MAX17048 Fuel Gauge and Battery Monitor" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="constructing_the_roboflock.html" class="btn btn-neutral float-right" title="Step-by-Step Construction Guide" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="design_overview.html" class="btn btn-neutral float-right" title="Design Overview" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
   <hr/>
 </div>
@@ -141,11 +144,17 @@
              
   <section id="construction">
 <h1>Construction<a class="headerlink" href="#construction" title="Link to this heading"></a></h1>
-<p>Everything needed to build the RoboFlock from scratch.</p>
+<p>Mechanical design and fabrication of the RoboFlock rover. This section covers
+the design intent for each subsystem, the parts that make it up, the hardware
+that holds it together, and a step-by-step build order.</p>
+<p>The robot is organized into six mechanical assemblies:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="constructing_the_roboflock.html"><span class="doc">Step-by-Step Construction Guide</span></a></p></li>
-<li><p><a class="reference internal" href="chassis_design.html"><span class="doc">Chassis Design</span></a></p></li>
-<li><p><a class="reference internal" href="wiring_specifications.html"><span class="doc">Wiring Specifications</span></a></p></li>
+<li><p><strong>Chassis</strong> — the structural frame and the 4080 extrusion rails it sits on</p></li>
+<li><p><strong>Drive System</strong> — BLDC motors, brackets, couplings driving each corner</p></li>
+<li><p><strong>Wheels</strong> — airless wheels and the printed adapters that drive them</p></li>
+<li><p><strong>Suspension</strong> — rocker-differential linkage that couples left and right sides</p></li>
+<li><p><strong>Hull / Body</strong> — outer enclosures, top cover, sensor mounts</p></li>
+<li><p><strong>Electronics</strong> — printed brackets and mounts for sensors and compute</p></li>
 </ul>
 <div class="toctree-wrapper compound">
 </div>
@@ -156,7 +165,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../hardware_docs/max_17048.html" class="btn btn-neutral float-left" title="MAX17048 Fuel Gauge and Battery Monitor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="constructing_the_roboflock.html" class="btn btn-neutral float-right" title="Step-by-Step Construction Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="design_overview.html" class="btn btn-neutral float-right" title="Design Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -94,8 +94,27 @@ video {
     margin: auto !important;
 }
 
-
 .figure {
     text-align: center !important;
 }
 
+details > summary {
+    display: list-item !important;
+    list-style: disclosure-closed inside !important;
+    cursor: pointer;
+}
+
+details[open] > summary {
+    list-style-type: disclosure-open inside !important;
+}
+
+/* If the above doesn't work, force the marker */
+details > summary::-webkit-details-marker {
+    display: inline-block !important;
+    color: inherit !important;
+}
+
+details > summary::marker {
+    display: inline-block !important;
+    color: inherit !important;
+}

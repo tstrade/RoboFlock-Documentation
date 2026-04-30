@@ -39,7 +39,7 @@ Main Changes From Alpha Design
 
 .. figure:: _images/fig1_finalprod_overview.png
     :align: center
-    :width: 50%
+    :width: 80%
     :loading: link
 
     Figure 1: Overview of Final Product

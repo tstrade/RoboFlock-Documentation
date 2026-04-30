@@ -4,19 +4,18 @@ ODESC V4.2 Motor Configuration and Setup
 
 .. include:: ../_templates/constants.rst
 
-**Overview:**
 
-- Controllers: `ODESC V4.2 <ctrl_>`_
+* Controllers: `ODESC V4.2 <ctrl_>`_
 
-- Firmware Download: `ODrive v0.5.6 <firmware_>`_
+* Firmware Download: `ODrive v0.5.6 <firmware_>`_
 
-- Motors: `24V Geared BLDC with Hall Sensors <motors_>`_
+* Motors: `24V Geared BLDC with Hall Sensors <motors_>`_
 
-- Battery: 25.2V 20Ah
+* Battery: 25.2V 20Ah
 
-- Software: `ODrive Documentation <odrive_>`_
+* Software: `ODrive Documentation <odrive_>`_
 
-++++++++
+
 Flashing
 ++++++++
 
@@ -33,7 +32,6 @@ Before configuring, ensure the ODESC board is running the official ODrive v0.5.6
 
 After confirming that the firmware has been flashed and the controller is recognized by your computer, unplug the controller.
 
-++++++++++++++++++
 Base Configuration
 ++++++++++++++++++
 
@@ -108,7 +106,6 @@ Next, connect the battery to the controller and connect the USB cable to the con
     dev0.reboot()
 
 
-++++++++++++++++++++
 Calibration Sequence
 ++++++++++++++++++++
 
@@ -123,7 +120,6 @@ Wait for the board to reconnect to :code:`odrivetool` after the reboot. Ensure t
 Allow approximately 15 to 20 seconds for the motor to beep and calibrate.
 
 
-++++++++++++++++++++++++++
 Enable Pre-Calibrated Mode
 ++++++++++++++++++++++++++
 
@@ -148,7 +144,6 @@ The next step is to lock the settings into flash memory so calibration process d
     dev0.reboot()
 
 
-+++++++
 Testing
 +++++++
 

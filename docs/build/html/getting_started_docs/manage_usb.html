@@ -12,7 +12,8 @@
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=555e9d6c" />
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=bd7872ce" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
@@ -94,8 +95,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../construction_docs/construction.html">Construction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../construction_docs/constructing_the_roboflock.html">Step-by-Step Construction Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../construction_docs/chassis_design.html">Chassis Design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../construction_docs/design_overview.html">Design Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../construction_docs/subsystems/frame_and_extrusion.html">Frame and Extrusion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../construction_docs/subsystems/drivetrain.html">Drive System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../construction_docs/subsystems/suspension.html">Suspension</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../construction_docs/wiring_specifications.html">Wiring Specifications</a></li>
 </ul>
 </li>
@@ -142,19 +145,56 @@
              
   <section id="managing-usb-devices">
 <h1>Managing USB Devices<a class="headerlink" href="#managing-usb-devices" title="Link to this heading"></a></h1>
-<p>RoboFlock reads from multiple USB devices and it is important that these do not get mixed up. When a USB device is plugged in, Linux adds an entry for the device to the <code class="code docutils literal notranslate"><span class="pre">/dev/</span></code> directory and gives it a name such as <code class="code docutils literal notranslate"><span class="pre">/dev/ttyUSB0</span></code>. The issue here is that we can’t guarantee that our devices will be given the same entry name everytime. The solution is to create a Udev rule that assigns a <em>symbolic link</em> to the device based on details such as the product ID.</p>
+<p>RoboFlock reads from multiple USB devices and it is important that these do not get mixed up. When a USB device is plugged in, Linux adds an entry for the device to the <code class="code docutils literal notranslate"><span class="pre">/dev/</span></code> directory and gives it a name such as <code class="code docutils literal notranslate"><span class="pre">/dev/ttyUSB0</span></code> (which we will use as our example device for this tutorial). The issue here is that we can’t guarantee that our devices will be given the same entry name everytime. The solution is to create a Udev rule that assigns a <em>symbolic link</em> to the device based on details such as the product ID.</p>
 <p>To do this, first plug in the device and find its entry name by either manually checking the <code class="code docutils literal notranslate"><span class="pre">/dev/</span></code> directory, or by running the command <code class="code docutils literal notranslate"><span class="pre">dmesg</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">ttyUSB*</span></code>. Next, we need to grab some identifiers about the USB device. To do this, run the following using the appropriate name for your device:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>udevadm<span class="w"> </span>info<span class="w"> </span>--name<span class="o">=</span>/dev/ttyUSB0<span class="w"> </span>--attribute-walk
 </pre></div>
 </div>
-<p>You can either scroll through the output or use the command <code class="code docutils literal notranslate"><span class="pre">grep</span></code> to find the correct values from <code class="code docutils literal notranslate"><span class="pre">ATTRS{idVendor}==&quot;xxxx&quot;</span></code>, <code class="code docutils literal notranslate"><span class="pre">ATTRS{idProduct}==&quot;yyyy&quot;</span></code>, and <code class="code docutils literal notranslate"><span class="pre">ATTRS{serial}=&quot;zzzzzzzz&quot;</span></code>. Now we can write our custom rule for the USB device. Create the rules file:</p>
+<p>You can either scroll through the output or use the command <code class="code docutils literal notranslate"><span class="pre">grep</span></code> to find the correct values for <code class="code docutils literal notranslate"><span class="pre">ATTRS{idVendor}==&quot;xxxx&quot;</span></code>, <code class="code docutils literal notranslate"><span class="pre">ATTRS{idProduct}==&quot;yyyy&quot;</span></code>, and <code class="code docutils literal notranslate"><span class="pre">ATTRS{serial}=&quot;zzzzzzzz&quot;</span></code>. Now we can write our custom rule for the USB device. Create the rules file:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>gedit<span class="w"> </span>/etc/udev/rules.d/99-my-serial.rules
 </pre></div>
 </div>
+<details class="admonition note">
+<summary class="admonition-title">Note</summary>
+<p>Use whatever text editor you like, it doesn’t have to be <code class="docutils literal notranslate"><span class="pre">gedit</span></code> as long as it is run as <code class="docutils literal notranslate"><span class="pre">sudo</span></code></p>
+</details>
 <p>and write the following content:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SUBSYSTEM==&quot;tty&quot;, ATTRS{idVendor}==&quot;xxxx&quot;, ATTRS{idProduct}==&quot;yyyy&quot;, ATTRS{serial}==&quot;zzzzzzzz&quot;, SYMLINK+=&quot;my_usb&quot;
 </pre></div>
 </div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>To add more rules, simply define it on a new line in this file. No need to create a new file for each rule.</p>
+</div>
+<p>After saving the file, reload the <code class="docutils literal notranslate"><span class="pre">udev</span></code> rules by either logging out and back in, or by running the follow commands:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>udevadm<span class="w"> </span>control<span class="w"> </span>--reload-rules<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>udevadm<span class="w"> </span>trigger
+</pre></div>
+</div>
+<p>To verify that the rule is in effect, run the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ls<span class="w"> </span>-lF<span class="w"> </span>/dev/ttyUSB0<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>my_usb
+</pre></div>
+</div>
+<p>The output will indicate whether or not the symbolic link exists. If not, check that all the values in your rule match exactly to the device. You can check for specifc values by running the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>lsusb<span class="w"> </span>-v<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="o">[</span>token<span class="o">]</span><span class="w"> </span>--after-context<span class="w"> </span><span class="m">30</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">[token]</span></code> should be <code class="docutils literal notranslate"><span class="pre">SUBSYSTEM</span></code>, <code class="docutils literal notranslate"><span class="pre">idVendor</span></code>, <code class="docutils literal notranslate"><span class="pre">idProduct</span></code>, or <code class="docutils literal notranslate"><span class="pre">iSerial</span></code>. The main issue to look out for is what subsystem the device is on. It should be <code class="docutils literal notranslate"><span class="pre">tty</span></code>. If not, this tutorial <strong>will not work</strong>.</p>
+<details class="admonition tip">
+<summary class="admonition-title">Tip</summary>
+<p>Other Useful Commands</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cat<span class="w"> </span>/proc/bus/input/devices
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>dmesg
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">udevadm info -a -p $(udevadm info -q path -n /dev/ttyUSB0)</span>
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">lsusb -v -d [idVendor]:[idProduct] 2&gt;/dev/null | grep iSerial | awk &#39;{ print $3 }&#39;</span>
+</pre></div>
+</div>
+</details>
 </section>
 
 

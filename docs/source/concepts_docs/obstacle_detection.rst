@@ -11,12 +11,16 @@ To complement the location mapping provided by the LiDAR sensor, three ultrasoni
 
 .. figure:: ../_images/fig4-2_sonar_positions.png
     :align: center
-    :width: 35%
+    :width: 50%
     :loading: link
 
     Ultrasonic Sensor Positioning and Ranges
 
 
-.. note::
+.. seealso::
 
-    See :doc:`../hardware_docs/rp_lidar` and :doc:`../hardware_docs/hc_sr04` for hardware specifications.
+    :doc:`../hardware_docs/rp_lidar` 
+        LiDAR scanner hardware specs
+        
+    :doc:`../hardware_docs/hc_sr04`
+        Ultrasonic sensor hardware specs

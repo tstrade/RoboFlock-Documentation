@@ -10,13 +10,12 @@ RoboFlock uses three distinct Meshtastic devices: one for the beacon, one for th
 Beacon
 ++++++
 
-.. note::
-
-    Current Configured Device Info: 
+.. admonition:: Current Configured Device Info:
+    :collapsible:
     
-        Name = d700 :raw-html:`<br />`
-        Node # = 1819531008 :raw-html:`<br />`
-        User ID = !6c73d700 :raw-html:`<br />`
+    Name = d700 :raw-html:`<br />`
+    Node # = 1819531008 :raw-html:`<br />`
+    User ID = !6c73d700 :raw-html:`<br />`
 
 
 1. Download the Meshtastic App on your phone from it's native app marketplace. 
@@ -79,13 +78,12 @@ Beacon
 Robot
 +++++
 
-.. note::
-
-    Current Configured Device Info: 
-    
-        Name = 3480 :raw-html:`<br />`
-        Node # = 1819554944 :raw-html:`<br />`
-        User ID = !6c743480 :raw-html:`<br />`
+.. admonition:: Current Configured Device Info:
+    :collapsible:
+     
+    Name = 3480 :raw-html:`<br />`
+    Node # = 1819554944 :raw-html:`<br />`
+    User ID = !6c743480 :raw-html:`<br />`
 
 
 1. Make sure your phone's bluetooth is on, then open the Meshtastic app and click "Connect". 
@@ -107,13 +105,12 @@ Robot
 Tablet
 ++++++
 
-.. note::
+.. note:: Current Configured Device Info:
+    :collapsible:
 
-    Current Configured Device Info:
-
-        Name = e074 :raw-html:`<br />`
-        Node # = 3145785460 :raw-html:`<br />`
-        User ID = !bb80e074 :raw-html:`<br />`
+    Name = e074 :raw-html:`<br />`
+    Node # = 3145785460 :raw-html:`<br />`
+    User ID = !bb80e074 :raw-html:`<br />`
 
 
 1. Make sure your phone's bluetooth is on, then open the Meshtastic app and click "Connect". 

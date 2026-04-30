@@ -3,21 +3,17 @@ Navigation
 ==========
 
 
-For RoboFlock to follow the user, they must be holding a beacon. This beacon is a portable-handheld device that acts as a homing system for the robot, and the robot will follow within a few meters to the best of its ability in an outdoor environment. The beacon consists of a battery system, GPS module, wireless radio frequency (RF) communication module, and LEDs (for a little flare). It will also alert the user if the robot has any problems, such as getting stuck or low battery power. Both the robot's and the beacon's GPS modules are configured to receive Global Navigation Satellite System (GNSS) latitude, longitude, and altitude data and Global Navigation Satellite System (GLONASS) satellite constellations. 
+For RoboFlock to follow the user, they must be holding a beacon. This beacon is a portable-handheld device that acts as a homing system for the robot, and the robot will follow within a few meters to the best of its ability in an outdoor environment. 
+
+The beacon consists of a battery system, GPS module, wireless radio frequency (RF) communication module, and LEDs (for a little flare). It will also alert the user if the robot has any problems, such as getting stuck or low battery power. 
+
+Both the robot's and the beacon's GPS modules are configured to receive Global Navigation Satellite System (GNSS) latitude, longitude, and altitude data and Global Navigation Satellite System (GLONASS) satellite constellations. 
 
 
 Architectural Block Diagram
 +++++++++++++++++++++++++++
 
 .. @todo: Update figure
-
-
-.. figure:: ../_images/fig5_beacon_rover_datastream.png
-    :align: center
-    :width: 40%
-    :loading: link
-
-    Figure 5: Block Diagram for the Beacon to Rover Correction Data Stream
 
 
 Tracking Functionality
@@ -47,6 +43,6 @@ As an intermediate step between testing and fully implementing the GPS visualiza
     :width: 50%
     :loading: link
 
-    Figure 6: Example of GPS Visualization of Robot's Position on Map of Black Rock City (Burning Man Site)
+    Example of GPS Visualization of Robot's Position on Map of Black Rock City (Burning Man Site)
 
 

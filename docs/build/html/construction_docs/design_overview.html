@@ -6,13 +6,14 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Step-by-Step Construction Guide &mdash; RoboFlock 1.1 documentation</title>
+  <title>Design Overview &mdash; RoboFlock 1.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
       <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=555e9d6c" />
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=bd7872ce" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
@@ -27,7 +28,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Chassis Design" href="chassis_design.html" />
+    <link rel="next" title="Frame and Extrusion" href="subsystems/frame_and_extrusion.html" />
     <link rel="prev" title="Construction" href="construction.html" /> 
 </head>
 
@@ -94,8 +95,10 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="construction.html">Construction</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Step-by-Step Construction Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="chassis_design.html">Chassis Design</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Design Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subsystems/frame_and_extrusion.html">Frame and Extrusion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subsystems/drivetrain.html">Drive System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subsystems/suspension.html">Suspension</a></li>
 <li class="toctree-l2"><a class="reference internal" href="wiring_specifications.html">Wiring Specifications</a></li>
 </ul>
 </li>
@@ -127,72 +130,94 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="construction.html">Construction</a></li>
-      <li class="breadcrumb-item active">Step-by-Step Construction Guide</li>
+      <li class="breadcrumb-item active">Design Overview</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/construction_docs/constructing_the_roboflock.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/construction_docs/design_overview.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
         <a href="construction.html" class="btn btn-neutral float-left" title="Construction" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="chassis_design.html" class="btn btn-neutral float-right" title="Chassis Design" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="subsystems/frame_and_extrusion.html" class="btn btn-neutral float-right" title="Frame and Extrusion" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="step-by-step-construction-guide">
-<h1>Step-by-Step Construction Guide<a class="headerlink" href="#step-by-step-construction-guide" title="Link to this heading"></a></h1>
-<p>The chassis must be fabricated and assembled before drivetrain integration, because the motors, axle pivot points, battery compartment, sensors, and mounts all depend on chassis mounting geometry.</p>
-<p>The prototype chassis should be 3D printed as originally planned under the section Chassis Design. We will be making a directory with all necessary files.</p>
-<section id="step-1-chassis">
-<h2>Step 1 - Chassis<a class="headerlink" href="#step-1-chassis" title="Link to this heading"></a></h2>
-<p>Print the lower structural frame in multiple joined pieces using large-bed printers if possible. Reinforce the joints using threaded inserts and screws through bridge plates.</p>
-<p>Confirm mounting holes align for the antenna mounts, motor mounting plate locations, axle pivot brackets, and LiDAR top mounting plate.</p>
-<p>Install the axle pivot structure using the two provided double-shear brackets in the noted areas.</p>
-<p>Print the shell shown in figure 15-16 which has an internal cavity sized for electronics and batteries. Assemble the collapsing two-tiered shelf inside the cavity using the provided designs.</p>
-<p>The front interior should contain LiDAR cabling and sensor routing, the center floor compartment stores the battery and related equipment. The rear area mounts motor controllers and relays. Organize wiring based on <a class="reference internal" href="wiring_specifications.html"><span class="doc">Table 4</span></a> color conventions.</p>
+  <section id="design-overview">
+<h1>Design Overview<a class="headerlink" href="#design-overview" title="Link to this heading"></a></h1>
+<p>The RoboFlock rover is a four-wheel, skid-steered outdoor robot built around a
+3D-printed structural frame and a pair of 4080 aluminum extrusion rails. The
+mechanical design optimizes for outdoor durability, modular iteration during
+prototyping, and a low center of gravity for stability on uneven terrain such
+as the Black Rock playa.</p>
+<p>This page is a high-level walkthrough.</p>
+<section id="design-goals">
+<h2>Design Goals<a class="headerlink" href="#design-goals" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Stable Sensor Integration</strong> — provide a clear 360° view for the LiDAR and a
+fixed forward placement for the ultrasonic sensors and GPS antenna.</p></li>
+<li><p><strong>Electronics Accommodation</strong> — segregate the battery (low, in a separate
+compartment) from compute and motor drivers (in the upper hull), with
+organized cable routing between the two.</p></li>
+<li><p><strong>Outdoor Operation</strong> — maintain a rigid structure, good impact resistance,
+and a low center of gravity for rough terrain.</p></li>
+<li><p><strong>Modular Suspension</strong> — a rocker-differential linkage that keeps all four
+wheels in ground contact across uneven terrain without active components.</p></li>
+<li><p><strong>Iterability</strong> — a fully parametric Fusion 360 design so dimensions, mounts,
+and structural features can be updated without re-engineering the system.</p></li>
+</ul>
 </section>
-<section id="step-2-drive-system">
-<h2>Step 2 - Drive System<a class="headerlink" href="#step-2-drive-system" title="Link to this heading"></a></h2>
-<p>Use four (4) identical BLDC motors (one per wheel) that are sized for a robot mass &lt;50lb, an 18in wheel diameter, and sufficient torque at low speeds. For each wheel, print the provided motor mounting bracket that bolts to the suspension trailing arm and holds the motor so its shaft is parallel to the wheel hub.Attach each more to its bracket using machine screws and threadlocker. Route the motor wires into the chassis through grommeted holes.</p>
-<p>Print and install the front steering uprights and connect them to the steering servo/linkage. Attach the front motors to their brackets so that the connection remains functional through the full steering angle. Also ensure that the motor wiring has enough slack and strain relief to steer without pulling or twisting the wires.</p>
-<p>Mount four (4) ESCs inside the chassis on the internal electronics plate and route each motor to their corresponding module.</p>
-</section>
-<section id="step-3-beacon">
-<h2>Step 3 - Beacon<a class="headerlink" href="#step-3-beacon" title="Link to this heading"></a></h2>
-<figure class="align-center" id="id1">
-<a class="reference internal image-reference" href="../_images/fig19_beacon_wiring_diagram.png"><img alt="../_images/fig19_beacon_wiring_diagram.png" src="../_images/fig19_beacon_wiring_diagram.png" style="width: 50%;" />
-</a>
-<figcaption>
-<p><span class="caption-text">Figure 19: Wiring Diagram of the Beacon’s GPS</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
-</figcaption>
-</figure>
-</section>
-<section id="step-4-mount-antennas">
-<h2>Step 4 - Mount Antennas<a class="headerlink" href="#step-4-mount-antennas" title="Link to this heading"></a></h2>
-<p>For the Robot, thread the antenna’s cable through the hole in the center of the antenna ground plate, then mount the antenna/ground plate combination on top of the Robot’s body with the antenna facing upward towards the sky.  Finally connect the Antenna’s male SMA connector to the female SMA to U.FL receiver adapter and connect the U.FL end to the U.FL connector on the NEO-M8P-2 breakout board.</p>
-<p>For the Beacon, thread the antenna’s cable through the hole in the center of the antenna ground plate, then mount the antenna/ground plate combination on top of the Beacon’s.  For ideal satellite connectivity the antenna should be facing upward towards the sky.  Finally connect the Antenna’s male SMA connector to the female SMA connector on the ZED-F9P breakout board.</p>
-</section>
-<section id="step-5-mount-ultrasonic-sensors">
-<h2>Step 5 - Mount Ultrasonic Sensors<a class="headerlink" href="#step-5-mount-ultrasonic-sensors" title="Link to this heading"></a></h2>
-<p>To support close-range obstacle detection along with the LiDAR system, install three (3) LVMAX ultrasonic sensors in the designated front-facing position as shown in the figure below. Each sensor should be placed in its printed mount on the robot’s body.</p>
-<figure class="align-center" id="id2">
-<a class="reference internal image-reference" href="../_images/fig4-2_sonar_positions.png"><img alt="../_images/fig4-2_sonar_positions.png" src="../_images/fig4-2_sonar_positions.png" style="width: 50%;" />
-</a>
-<figcaption>
-<p><span class="caption-text">Figure 20: Ultrasonic Sensor Positioning and Ranges</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
-</figcaption>
-</figure>
-</section>
-<section id="step-6-internal-wiring">
-<h2>Step 6 - Internal Wiring<a class="headerlink" href="#step-6-internal-wiring" title="Link to this heading"></a></h2>
-<figure class="align-center" id="id3">
-<a class="reference internal image-reference" href="../_images/fig21_internal_wiring_diagram.png"><img alt="../_images/fig21_internal_wiring_diagram.png" src="../_images/fig21_internal_wiring_diagram.png" style="width: 50%;" />
-</a>
-<figcaption>
-<p><span class="caption-text">Figure 21: Complete Internal Wiring for RoboFlock (See <a class="reference internal" href="wiring_specifications.html"><span class="doc">Table 4</span></a> for color conventions)</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
-</figcaption>
-</figure>
+<section id="architecture-at-a-glance">
+<h2>Architecture at a Glance<a class="headerlink" href="#architecture-at-a-glance" title="Link to this heading"></a></h2>
+<p>From the ground up:</p>
+<ol class="arabic simple">
+<li><p><strong>Drive corners (×4)</strong> — each wheel is driven by a BLDC motor. The motor
+bolts to a 3D-printed bracket containing a press-fit radial bearing that
+supports the motor shaft. The keyed shaft drives a clamping coupling, which
+bolts to a 3D-printed adapter, which carries an 18″ airless wheel.</p></li>
+<li><p><strong>Side rails (×2)</strong> — one 4080 T-slot extrusion runs front-to-back on each
+side (mounted with the 40 mm face down, 80 mm tall). Both motor brackets on
+that side bolt to the <strong>inner</strong> rail of the extrusion; the suspension
+bracket clamps to the <strong>outer</strong> rail.</p></li>
+<li><p><strong>Side suspension pivots (×2)</strong> — a printed bracket clamps onto each
+extrusion (4 bolts: 2 top rail, 2 bottom rail) and carries a 12 mm bore
+pivot hub. From each hub a hollow rod stub extends inboard. The two stubs
+meet near the centerline, where a solid linear rod slides inside both
+halves and acts as the through-shaft bearing surface — letting each side
+pivot independently.</p></li>
+<li><p><strong>Main chassis frame</strong> — a 3D-printed structure with two L-shaped “ears”
+that drop down from above the extrusions. Each ear has a press-fit ball
+bearing whose inner race rides on the OD of the inboard hollow rod. This
+is the per-side pivot the rest of the body hangs from.</p></li>
+<li><p><strong>Differential coupling</strong> — a 3D-printed rocker-differential arm sits on a
+vertical shoulder bolt at the front of the main frame. Two pushrod
+assemblies (threaded rod with a ball-joint rod end at each tip) link this
+arm to the side suspension brackets — the side-facing rod end couples to
+the bracket, the upward-facing rod end couples to the arm. This forces
+anti-symmetric travel: when one side rises, the other is driven down.</p></li>
+<li><p><strong>Battery compartment</strong> — bolted to the underside of the main frame,
+housing the 3S LiPo and bus-bar wiring.</p></li>
+<li><p><strong>Hull and top cover</strong> — the main hull bolts to the top of the main frame
+and houses the Jetson Orin Nano and motor drivers. Motor leads route up
+from the battery compartment into the hull. The hull top latches down,
+carries the LiDAR (in a twist-lock slot) and the GPS ground plane.</p></li>
+</ol>
+<p>This mechanical architecture is <strong>independent (per-side vertical pivot) plus
+dependent (rocker-differential)</strong>: each side can articulate over an obstacle,
+but the front cross-link constrains both sides to share roll axis travel. With
+no steering linkage, heading is controlled purely by differential torque
+across the four BLDCs (skid-steer).</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="subsystems/frame_and_extrusion.html"><span class="doc">Frame and Extrusion</span></a></dt><dd><p>Extrusion layout and main frame geometry</p>
+</dd>
+<dt><a class="reference internal" href="subsystems/drivetrain.html"><span class="doc">Drive System</span></a></dt><dd><p>Motor → coupling → wheel torque path</p>
+</dd>
+<dt><a class="reference internal" href="subsystems/suspension.html"><span class="doc">Suspension</span></a></dt><dd><p>Rocker-differential mechanics in detail</p>
+</dd>
+</dl>
+</div>
 </section>
 </section>
 
@@ -201,7 +226,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="construction.html" class="btn btn-neutral float-left" title="Construction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="chassis_design.html" class="btn btn-neutral float-right" title="Chassis Design" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="subsystems/frame_and_extrusion.html" class="btn btn-neutral float-right" title="Frame and Extrusion" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -2,7 +2,7 @@
 Managing USB Devices
 ====================
 
-RoboFlock reads from multiple USB devices and it is important that these do not get mixed up. When a USB device is plugged in, Linux adds an entry for the device to the :code:`/dev/` directory and gives it a name such as :code:`/dev/ttyUSB0`. The issue here is that we can't guarantee that our devices will be given the same entry name everytime. The solution is to create a Udev rule that assigns a *symbolic link* to the device based on details such as the product ID. 
+RoboFlock reads from multiple USB devices and it is important that these do not get mixed up. When a USB device is plugged in, Linux adds an entry for the device to the :code:`/dev/` directory and gives it a name such as :code:`/dev/ttyUSB0` (which we will use as our example device for this tutorial). The issue here is that we can't guarantee that our devices will be given the same entry name everytime. The solution is to create a Udev rule that assigns a *symbolic link* to the device based on details such as the product ID. 
 
 To do this, first plug in the device and find its entry name by either manually checking the :code:`/dev/` directory, or by running the command :code:`dmesg | grep ttyUSB*`. Next, we need to grab some identifiers about the USB device. To do this, run the following using the appropriate name for your device:
 
@@ -10,14 +10,68 @@ To do this, first plug in the device and find its entry name by either manually 
 
     $ udevadm info --name=/dev/ttyUSB0 --attribute-walk
 
-You can either scroll through the output or use the command :code:`grep` to find the correct values from :code:`ATTRS{idVendor}=="xxxx"`, :code:`ATTRS{idProduct}=="yyyy"`, and :code:`ATTRS{serial}="zzzzzzzz"`. Now we can write our custom rule for the USB device. Create the rules file:
+You can either scroll through the output or use the command :code:`grep` to find the correct values for :code:`ATTRS{idVendor}=="xxxx"`, :code:`ATTRS{idProduct}=="yyyy"`, and :code:`ATTRS{serial}="zzzzzzzz"`. Now we can write our custom rule for the USB device. Create the rules file:
 
 .. code-block:: console
 
     $ sudo gedit /etc/udev/rules.d/99-my-serial.rules
+
+.. note::
+    :collapsible: closed
+
+    Use whatever text editor you like, it doesn't have to be ``gedit`` as long as it is run as ``sudo``
+
 
 and write the following content: 
 
 .. code-block:: text
 
     SUBSYSTEM=="tty", ATTRS{idVendor}=="xxxx", ATTRS{idProduct}=="yyyy", ATTRS{serial}=="zzzzzzzz", SYMLINK+="my_usb"
+
+
+.. hint:: 
+
+    To add more rules, simply define it on a new line in this file. No need to create a new file for each rule.
+
+
+After saving the file, reload the ``udev`` rules by either logging out and back in, or by running the follow commands: 
+
+.. code-block:: console
+
+    $ sudo udevadm control --reload-rules && sudo udevadm trigger
+
+
+To verify that the rule is in effect, run the following command:
+
+.. code-block:: console
+
+    $ ls -lF /dev/ttyUSB0 | grep my_usb
+
+The output will indicate whether or not the symbolic link exists. If not, check that all the values in your rule match exactly to the device. You can check for specifc values by running the following command:
+
+.. code-block:: console
+
+    $ lsusb -v | grep [token] --after-context 30
+
+where ``[token]`` should be ``SUBSYSTEM``, ``idVendor``, ``idProduct``, or ``iSerial``. The main issue to look out for is what subsystem the device is on. It should be ``tty``. If not, this tutorial **will not work**. 
+
+
+.. tip:: Other Useful Commands
+    :collapsible: closed
+
+    .. code-block:: console
+
+        $ cat /proc/bus/input/devices
+
+    .. code-block:: console
+
+        $ sudo dmesg
+
+    .. code-block:: console
+
+        $ udevadm info -a -p $(udevadm info -q path -n /dev/ttyUSB0)
+
+    .. code-block:: console
+
+        $ lsusb -v -d [idVendor]:[idProduct] 2>/dev/null | grep iSerial | awk '{ print $3 }'
+
