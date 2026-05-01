@@ -69,9 +69,9 @@ where ``[token]`` should be ``SUBSYSTEM``, ``idVendor``, ``idProduct``, or ``iSe
 
     .. code-block:: console
 
-        udevadm info -a -p $(udevadm info -q path -n /dev/ttyUSB0)
+        $ udevadm info -a -p $(udevadm info -q path -n /dev/ttyUSB0)
 
     .. code-block:: console
 
-        lsusb -v -d [idVendor]:[idProduct] 2>/dev/null | grep iSerial | awk '{ print $3 }'
+        $ lsusb -v -d [idVendor]:[idProduct] 2>/dev/null | grep iSerial | awk '{ print $3 }'
 

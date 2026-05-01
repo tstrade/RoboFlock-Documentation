@@ -2,10 +2,6 @@
 Ultrasonic Sensor Code
 ======================
 
-.. note::
-
-    As with all code, there is likely a better way to execute this process. Through our own testing (and online Nvidia Jetson forums), we found that using the Jetson to directly control the ultrasonic sensors is not ideal. Instead, the ultrasonic sensors are controlled with an Arduino Nano, which takes care of the data collection and preprocessing. Future iterations of RoboFlock may choose to exclude the ultrasonic sensors completely in lieu of more powerful sensors (See :doc:`Future Considerations <../future_considerations>`)
-
 Since we are dealing with three separate ultrasonic sensors that are all sending data through a single USB cable, we are using a custom data packet to make sure that the Jetson is receiving complete and parseable messages from the Arduino. Here is the packet's structure:
 
 +-------+---------+-----------+-----------+-------------+----------+------------+------+
@@ -179,10 +175,15 @@ The last part is to get the data published to RoboFlock's ROS2 workspace. Curren
 
 Each time :code:`UltrasonicPublisher::timer_callback()` runs, the Jetson sends a request to the Arduino Nano and receives a data packet, only creating a message for valid measurements. A :code:`sensor_msgs/msg/Range` message is defined by a timestamp, frame ID, radiation type (in this case, ULTRASOUND), field of view (in radians), minimum range (meters), maximum range (meters), and the distance data obtained from the corresponding ultrasonic sensor.
 
-.. note::
+.. important::
 
     The Arduino sends the distance as an 8-bit integer value with centimeters as the corresponding unit, whereas the ROS2 message uses a floating point value with meters as the corresponding unit. This conversion is made by the ROS2 node to maintain simplicity and minimal size in terms of our data packet; otherwise, the size of the data packet would quadruple. 
 
+
+.. note::
+    :collapsible: closed
+
+    As with all code, there is likely a better way to execute this process. Through our own testing (and online Nvidia Jetson forums), we found that using the Jetson to directly control the ultrasonic sensors is not ideal. Instead, the ultrasonic sensors are controlled with an Arduino Nano, which takes care of the data collection and preprocessing. Future iterations of RoboFlock may choose to exclude the ultrasonic sensors completely in lieu of more powerful sensors (See :doc:`Future Considerations <../future_considerations>`)
 
 .. _dev: https://tldp.org/LDP/Linux-Filesystem-Hierarchy/html/dev.html
 

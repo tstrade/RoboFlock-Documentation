@@ -11,15 +11,12 @@ For direct connections to the batteries, we are using 12 AWG stranded wire. Red 
 
 **Electric Motors and Speed Controllers**
 
-For the electric motors and the speed controllers, we are using 18 AWG stranded wire. Yellow and blue wire will be used for the signal connections MTR+ and MTR-, respectively.
+For the electric motors and the speed controllers, we are using 18 AWG stranded wire. 
 
 
 **Low Power and Data Lines**
 
-For the remaining connections in the system, such as connections to a microcontroller, we are using 22 AWG stranded wire. The coloring specifications are given in Table 4.
-
-
-*Table 4: Color Scheme for RoboFlock Wiring*
+For the remaining connections in the system, such as connections to a microcontroller, we are using 22 AWG solid core wire. The coloring specifications are below:
 
 +--------+---------------+
 | Color  | Use-Case      |

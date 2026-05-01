@@ -6,8 +6,7 @@ if [[ $clean_rsp -eq "y" ]]; then
     make clean
 fi
 
-logfile=$(find makehtml.log)
-if [[ -n "$logfile" ]]; then
+if [[ -f makehtml.log ]]; then
     rm makehtml.log
 fi
 

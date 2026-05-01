@@ -32,7 +32,7 @@ Each rail provides three structural functions:
 - **Top rail** — provides the mounting interface for the printed main chassis
   frame, which sits over and across both extrusions.
 
-.. @todo: See ``RV1-CHS-FRM-001`` in the :doc:`../parts_catalog` for sourcing and exact length.
+See ``RV1-CHS-FRM-001`` in the :doc:`Parts Catalog <../parts_catalog>` for sourcing and exact length.
 
 .. note::
 
@@ -110,11 +110,13 @@ only the differential force needed to enforce that constraint.
 
 
 .. seealso::
+   :collapsible: closed
 
-    :doc:`Drive System <drivetrain>` 
-        What bolts to the inner rails of the extrusions
+   :doc:`Drive System <drivetrain>` 
+      What bolts to the inner rails of the extrusions
 
-    :doc:`Suspension <suspension>`
-        What hangs from the ears of the main frame
+   :doc:`Suspension <suspension>`
+      What hangs from the ears of the main frame
 
-.. @todo: - :doc:`../parts_catalog` — files and BOM for every part referenced here
+   :doc:`Parts Catalog <../parts_catalog>` 
+      Files and BOM for every part referenced here

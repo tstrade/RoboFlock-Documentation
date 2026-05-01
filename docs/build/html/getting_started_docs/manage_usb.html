@@ -99,6 +99,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../construction_docs/subsystems/frame_and_extrusion.html">Frame and Extrusion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../construction_docs/subsystems/drivetrain.html">Drive System</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../construction_docs/subsystems/suspension.html">Suspension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../construction_docs/subsystems/hull_and_enclosures.html">Hull and Enclosures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../construction_docs/fabrication_guide.html">Fabrication Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../construction_docs/parts_catalog.html">Parts Catalog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../construction_docs/hardware_catalog.html">Hardware Catalog</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../construction_docs/wiring_specifications.html">Wiring Specifications</a></li>
 </ul>
 </li>
@@ -188,10 +192,10 @@
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>dmesg
 </pre></div>
 </div>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">udevadm info -a -p $(udevadm info -q path -n /dev/ttyUSB0)</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>udevadm<span class="w"> </span>info<span class="w"> </span>-a<span class="w"> </span>-p<span class="w"> </span><span class="k">$(</span>udevadm<span class="w"> </span>info<span class="w"> </span>-q<span class="w"> </span>path<span class="w"> </span>-n<span class="w"> </span>/dev/ttyUSB0<span class="k">)</span>
 </pre></div>
 </div>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">lsusb -v -d [idVendor]:[idProduct] 2&gt;/dev/null | grep iSerial | awk &#39;{ print $3 }&#39;</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>lsusb<span class="w"> </span>-v<span class="w"> </span>-d<span class="w"> </span><span class="o">[</span>idVendor<span class="o">]</span>:<span class="o">[</span>idProduct<span class="o">]</span><span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>iSerial<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{ print $3 }&#39;</span>
 </pre></div>
 </div>
 </details>

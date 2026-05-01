@@ -99,6 +99,10 @@
 <li class="toctree-l2"><a class="reference internal" href="frame_and_extrusion.html">Frame and Extrusion</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Drive System</a></li>
 <li class="toctree-l2"><a class="reference internal" href="suspension.html">Suspension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hull_and_enclosures.html">Hull and Enclosures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fabrication_guide.html">Fabrication Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../parts_catalog.html">Parts Catalog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware_catalog.html">Hardware Catalog</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../wiring_specifications.html">Wiring Specifications</a></li>
 </ul>
 </li>
@@ -145,14 +149,10 @@
              
   <section id="drive-system">
 <h1>Drive System<a class="headerlink" href="#drive-system" title="Link to this heading"></a></h1>
-<p>The RoboFlock is driven by four identical BLDC motors — one per wheel — with
-heading controlled purely by differential torque across left and right pairs
-(skid-steer). There is no steering linkage; the wheels are fixed in
-orientation relative to the side rail they mount to.</p>
+<p>The RoboFlock is driven by four identical BLDC motors — one per wheel — with heading controlled purely by differential torque across left and right pairs (skid-steer). There is no steering linkage; the wheels are fixed in orientation relative to the side rail they mount to.</p>
 <section id="drive-corner-torque-path">
 <h2>Drive Corner — Torque Path<a class="headerlink" href="#drive-corner-torque-path" title="Link to this heading"></a></h2>
-<p>Each of the four drive corners is mechanically identical and follows the same
-chain from motor to ground:</p>
+<p>Each of the four drive corners is mechanically identical and follows the same chain from motor to ground:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>BLDC motor
     │  (keyed shaft)
     ▼
@@ -165,25 +165,15 @@ Wheel drive adapter       ── RV1-WHL-001
 18″ airless wheel
 </pre></div>
 </div>
-<p>The motor itself is fixed to a 3D-printed motor bracket (<code class="docutils literal notranslate"><span class="pre">RV1-DRV-BKT-001</span></code>).
-Inside the bracket, a press-fit radial ball bearing supports the motor shaft
-on the coupling side — this offloads radial load from the motor’s internal
-bearings, which would otherwise be cantilevered through the coupling.</p>
-<p>The clamping coupling has two bores: one keyed for the motor shaft, one
-plain-bored for the adapter shoulder. The adapter is screwed into the
-coupling’s plain bore and bolted to the wheel hub pattern, converting the
-airless wheel into a driven wheel.</p>
+<p>The motor itself is fixed to a 3D-printed motor bracket (<code class="docutils literal notranslate"><span class="pre">RV1-DRV-BKT-001</span></code>). Inside the bracket, a press-fit radial ball bearing supports the motor shaft on the coupling side — this offloads radial load from the motor’s internal bearings, which would otherwise be cantilevered through the coupling.</p>
+<p>The clamping coupling has two bores: one keyed for the motor shaft one plain-bored for the adapter shoulder. The adapter is screwed into the coupling’s plain bore and bolted to the wheel hub pattern, converting the airless wheel into a driven wheel.</p>
 </section>
 <section id="motor-mounting">
 <h2>Motor Mounting<a class="headerlink" href="#motor-mounting" title="Link to this heading"></a></h2>
-<p>The motor bracket bolts to the <strong>inner rail</strong> of the side extrusion using 3
-bolts and T-nuts. Mounting is symmetric front-to-back (the same bracket part
-is used for both motor positions on a side), and mirror-imaged left-to-right.</p>
+<p>The motor bracket bolts to the <strong>inner rail</strong> of the side extrusion using 3 bolts and T-nuts. Mounting is symmetric front-to-back (the same bracket part is used for both motor positions on a side), and mirror-imaged left-to-right.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>Apply medium-strength threadlocker to the motor-to-bracket fasteners.
-These bolts see oscillating loads through the bearing-coupling stack and
-are the most likely fastener on the robot to back out under vibration.</p>
+<p>Apply medium-strength threadlocker to the motor-to-bracket fasteners. These bolts see oscillating loads through the bearing-coupling stack and are the most likely fastener on the robot to back out under vibration.</p>
 </div>
 </section>
 <section id="per-corner-hardware">
@@ -199,24 +189,23 @@ are the most likely fastener on the robot to back out under vibration.</p>
 <li><p>1× 18″ airless wheel</p></li>
 <li><p>Adapter-to-coupling and adapter-to-wheel fasteners (TBD)</p></li>
 </ul>
+<p>The robot uses <strong>four</strong> drive corners total — full quantities live in the <a class="reference internal" href="../parts_catalog.html"><span class="doc">Parts Catalog</span></a>.</p>
 </section>
 <section id="cable-management">
 <h2>Cable Management<a class="headerlink" href="#cable-management" title="Link to this heading"></a></h2>
-<p>Motor leads route up the inner face of the extrusion and pass through
-grommeted holes in the bottom of the main chassis frame. Inside the body,
-they continue up into the hull through the floor of the battery compartment
-and terminate at the motor drivers. Service loops at each end let the
-suspension pivot through its full range without pulling on the strain
-reliefs.</p>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
+<p>Motor leads route up the inner face of the extrusion and pass through grommeted holes in the bottom of the main chassis frame. Inside the body, they continue up into the hull through the floor of the battery compartment and terminate at the motor drivers. Service loops at each end let the suspension pivot through its full range without pulling on the strain reliefs.</p>
+<p>See <a class="reference internal" href="hull_and_enclosures.html"><span class="doc">Hull and Enclosure</span></a> for the cable pass-through points and the <a class="reference internal" href="../wiring_specifications.html"><span class="doc">Wiring Specifications</span></a> for wire gauge and color conventions.</p>
+<details class="admonition seealso">
+<summary class="admonition-title">See also</summary>
 <dl class="simple">
 <dt><a class="reference internal" href="frame_and_extrusion.html"><span class="doc">Frame and Extrusion</span></a></dt><dd><p>The rails the motors mount to</p>
 </dd>
 <dt><a class="reference internal" href="suspension.html"><span class="doc">Suspension</span></a></dt><dd><p>What couples the two sides under articulation</p>
 </dd>
+<dt><a class="reference internal" href="../parts_catalog.html"><span class="doc">Parts Catalog</span></a></dt><dd><p>Files and BOM for each drive part</p>
+</dd>
 </dl>
-</div>
+</details>
 </section>
 </section>
 

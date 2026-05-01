@@ -99,6 +99,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../construction_docs/subsystems/frame_and_extrusion.html">Frame and Extrusion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../construction_docs/subsystems/drivetrain.html">Drive System</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../construction_docs/subsystems/suspension.html">Suspension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../construction_docs/subsystems/hull_and_enclosures.html">Hull and Enclosures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../construction_docs/fabrication_guide.html">Fabrication Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../construction_docs/parts_catalog.html">Parts Catalog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../construction_docs/hardware_catalog.html">Hardware Catalog</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../construction_docs/wiring_specifications.html">Wiring Specifications</a></li>
 </ul>
 </li>
@@ -145,16 +149,11 @@
              
   <section id="navigation">
 <h1>Navigation<a class="headerlink" href="#navigation" title="Link to this heading"></a></h1>
-<p>For RoboFlock to follow the user, they must be holding a beacon. This beacon is a portable-handheld device that acts as a homing system for the robot, and the robot will follow within a few meters to the best of its ability in an outdoor environment. The beacon consists of a battery system, GPS module, wireless radio frequency (RF) communication module, and LEDs (for a little flare). It will also alert the user if the robot has any problems, such as getting stuck or low battery power. Both the robot’s and the beacon’s GPS modules are configured to receive Global Navigation Satellite System (GNSS) latitude, longitude, and altitude data and Global Navigation Satellite System (GLONASS) satellite constellations.</p>
+<p>For RoboFlock to follow the user, they must be holding a beacon. This beacon is a portable-handheld device that acts as a homing system for the robot, and the robot will follow within a few meters to the best of its ability in an outdoor environment.</p>
+<p>The beacon consists of a battery system, GPS module, wireless radio frequency (RF) communication module, and LEDs (for a little flare). It will also alert the user if the robot has any problems, such as getting stuck or low battery power.</p>
+<p>Both the robot’s and the beacon’s GPS modules are configured to receive Global Navigation Satellite System (GNSS) latitude, longitude, and altitude data and Global Navigation Satellite System (GLONASS) satellite constellations.</p>
 <section id="architectural-block-diagram">
 <h2>Architectural Block Diagram<a class="headerlink" href="#architectural-block-diagram" title="Link to this heading"></a></h2>
-<figure class="align-center" id="id1">
-<a class="reference internal image-reference" href="../_images/fig5_beacon_rover_datastream.png"><img alt="../_images/fig5_beacon_rover_datastream.png" src="../_images/fig5_beacon_rover_datastream.png" style="width: 40%;" />
-</a>
-<figcaption>
-<p><span class="caption-text">Figure 5: Block Diagram for the Beacon to Rover Correction Data Stream</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
-</figcaption>
-</figure>
 </section>
 <section id="tracking-functionality">
 <h2>Tracking Functionality<a class="headerlink" href="#tracking-functionality" title="Link to this heading"></a></h2>
@@ -170,11 +169,11 @@
 <section id="gps-visualization-simulation">
 <h2>GPS Visualization Simulation<a class="headerlink" href="#gps-visualization-simulation" title="Link to this heading"></a></h2>
 <p>As an intermediate step between testing and fully implementing the GPS visualization functionality, we simulated the expected outputs from the beacon and robot GPS modules to the Jetson Orin Nano. By simulating this network traffic under assumption of NMEA formatted data, we wrote a script in Python that extracts latitude and longitude information from each module’s raw NMEA data stream. Using this positional information, we can visualize the location of the robot and the beacon on a map using the <a class="reference external" href="https://folium.readthedocs.io/en/latest/" rel="noreferrer" target="_blank">Folium mapping library</a>.</p>
-<figure class="align-center" id="id2">
+<figure class="align-center" id="id1">
 <a class="reference internal image-reference" href="../_images/fig6_ex_gps_visuals.png"><img alt="../_images/fig6_ex_gps_visuals.png" src="../_images/fig6_ex_gps_visuals.png" style="width: 50%;" />
 </a>
 <figcaption>
-<p><span class="caption-text">Figure 6: Example of GPS Visualization of Robot’s Position on Map of Black Rock City (Burning Man Site)</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+<p><span class="caption-text">Example of GPS Visualization of Robot’s Position on Map of Black Rock City (Burning Man Site)</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </section>

@@ -2,7 +2,7 @@
 ROS2
 ====
 
-.. include:: _templates/constants.rst 
+.. include:: ../_templates/constants.rst 
 
 ROS2 is the main software framework for the robot. It handles message passing, timing, and modularity. Each sensor, controller, and algorithm runs as a ROS2 node. These nodes will use one of the following communication methods provided by the framework:
 

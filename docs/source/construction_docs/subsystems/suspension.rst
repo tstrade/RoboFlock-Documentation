@@ -98,14 +98,14 @@ The mechanical articulation envelope is bounded by:
 - The clearance between the wheels and the underside of the hull (the lower
   hard stop on the opposite side)
 
-.. warning::
+.. important::
 
    Verify the actual articulation envelope on the assembled prototype before
    field testing — TBD pending first build measurements.
 
 
 
-.. attention:: Failure Modes to Watch
+.. caution:: Failure Modes to Watch
 
     **Ball joint loosening.** Vibration over rough terrain backs jam nuts off.
     Re-torque after every test session.
@@ -120,6 +120,7 @@ The mechanical articulation envelope is bounded by:
 
 
 .. seealso::
+   :collapsible: closed
 
     :doc:`Frame and Extrusion <frame_and_extrusion>` 
         The ears and the rails this assembly hangs from
@@ -127,6 +128,8 @@ The mechanical articulation envelope is bounded by:
     :doc:`Drive System <drivetrain>` 
         What's rigidly attached to each side
 
-.. @todo: * :doc:`../parts_catalog` — files and BOM for the suspension parts
+   :doc:`Parts Catalog <../parts_catalog>`
+      Files and BOM for the suspension parts
 
-.. @todo: * :doc:`../fabrication_guide` — assembly order for the full suspension
+   :doc:`Fabrication Guide <../fabrication_guide>`
+      Assembly order for the full suspension

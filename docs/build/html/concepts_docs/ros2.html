@@ -99,6 +99,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../construction_docs/subsystems/frame_and_extrusion.html">Frame and Extrusion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../construction_docs/subsystems/drivetrain.html">Drive System</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../construction_docs/subsystems/suspension.html">Suspension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../construction_docs/subsystems/hull_and_enclosures.html">Hull and Enclosures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../construction_docs/fabrication_guide.html">Fabrication Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../construction_docs/parts_catalog.html">Parts Catalog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../construction_docs/hardware_catalog.html">Hardware Catalog</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../construction_docs/wiring_specifications.html">Wiring Specifications</a></li>
 </ul>
 </li>
@@ -146,13 +150,14 @@
   <section id="ros2">
 <h1>ROS2<a class="headerlink" href="#ros2" title="Link to this heading"></a></h1>
 <p>ROS2 is the main software framework for the robot. It handles message passing, timing, and modularity. Each sensor, controller, and algorithm runs as a ROS2 node. These nodes will use one of the following communication methods provided by the framework:</p>
-<ol class="arabic simple">
-<li><p><em>Topics</em> are used for continuous streams of data. Nodes can publish messages via topics and nodes can subscribe to messages via topics.</p></li>
-<li><p><em>Services</em> are used for call-and-response communication. Many nodes can act as the service client, each capable of sending requests to the node acting as the service server.</p></li>
-<li><p><em>Actions</em> are used for long-term communications that consist of a goal, feedback, and a result. One node acts as the action server that responds to requests about the goal and result, in addition to providing feedback information to the action client, which is another node that sends out the information requests.</p></li>
-</ol>
+<p>1. <em>Topics</em> are used for continuous streams of data. Nodes can publish messages via topics and nodes can subscribe to messages via topics.
+<span class="raw-html"><br /></span></p>
+<p>2. <em>Services</em> are used for call-and-response communication. Many nodes can act as the service client, each capable of sending requests to the node acting as the service server.
+<span class="raw-html"><br /></span></p>
+<p>3. <em>Actions</em> are used for long-term communications that consist of a goal, feedback, and a result. One node acts as the action server that responds to requests about the goal and result, in addition to providing feedback information to the action client, which is another node that sends out the information requests.
+<span class="raw-html"><br /></span></p>
 <figure class="align-center" id="id1">
-<a class="reference internal image-reference" href="../_images/fig11_ros2_overview.png"><img alt="../_images/fig11_ros2_overview.png" src="../_images/fig11_ros2_overview.png" style="width: 50%;" />
+<a class="reference internal image-reference" href="../_images/fig11_ros2_overview.png"><img alt="../_images/fig11_ros2_overview.png" src="../_images/fig11_ros2_overview.png" style="width: 80%;" />
 </a>
 <figcaption>
 <p><span class="caption-text">Overview of ROS2 Setup</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
@@ -200,30 +205,20 @@
 </ul>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p>Coordinate Frame Naming Conventions</p>
-<blockquote>
-<div><p><a class="reference external" href="https://wiki.ros.org/geometry/CoordinateFrameConventions#Naming" rel="noreferrer" target="_blank">geometry/CoordinateFrameConventions</a></p>
-</div></blockquote>
-<p>Standard Units of Measure and Coordinate Conventions</p>
-<blockquote>
-<div><p><a class="reference external" href="https://www.ros.org/reps/rep-0103.html" rel="noreferrer" target="_blank">REP 103</a></p>
-</div></blockquote>
-<p>Informational Distance Measurements Conventions</p>
-<blockquote>
-<div><p><a class="reference external" href="https://www.ros.org/reps/rep-0117.html" rel="noreferrer" target="_blank">REP 117</a></p>
-</div></blockquote>
-<p>Package Naming Conventions</p>
-<blockquote>
-<div><p><a class="reference external" href="https://www.ros.org/reps/rep-0144.html" rel="noreferrer" target="_blank">REP 144</a></p>
-</div></blockquote>
-<p>IMU Sensor Driver Conventions</p>
-<blockquote>
-<div><p><a class="reference external" href="https://www.ros.org/reps/rep-0145.html" rel="noreferrer" target="_blank">REP 145</a></p>
-</div></blockquote>
-<p>Documentation for the <code class="code docutils literal notranslate"><span class="pre">robot_localization</span></code> package</p>
-<blockquote>
-<div><p><a class="reference external" href="https://docs.ros.org/en/noetic/api/robot_localization/html/index.html" rel="noreferrer" target="_blank">robot_localization</a></p>
-</div></blockquote>
+<dl class="simple">
+<dt><a class="reference external" href="https://wiki.ros.org/geometry/CoordinateFrameConventions#Naming" rel="noreferrer" target="_blank">geometry/CoordinateFrameConventions</a></dt><dd><p>Coordinate Frame Naming Conventions</p>
+</dd>
+<dt><a class="reference external" href="https://www.ros.org/reps/rep-0103.html" rel="noreferrer" target="_blank">REP 103</a></dt><dd><p>Standard Units of Measure and Coordinate Conventions</p>
+</dd>
+<dt><a class="reference external" href="https://www.ros.org/reps/rep-0117.html" rel="noreferrer" target="_blank">REP 117</a></dt><dd><p>Informational Distance Measurements Conventions</p>
+</dd>
+<dt><a class="reference external" href="https://www.ros.org/reps/rep-0144.html" rel="noreferrer" target="_blank">REP 144</a></dt><dd><p>Package Naming Conventions</p>
+</dd>
+<dt><a class="reference external" href="https://www.ros.org/reps/rep-0145.html" rel="noreferrer" target="_blank">REP 145</a></dt><dd><p>IMU Sensor Driver Conventions</p>
+</dd>
+<dt><a class="reference external" href="https://docs.ros.org/en/noetic/api/robot_localization/html/index.html" rel="noreferrer" target="_blank">robot_localization</a></dt><dd><p>Documentation for the <code class="code docutils literal notranslate"><span class="pre">robot_localization</span></code> package</p>
+</dd>
+</dl>
 </div>
 </section>
 </section>

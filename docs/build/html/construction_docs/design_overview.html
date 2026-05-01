@@ -99,6 +99,10 @@
 <li class="toctree-l2"><a class="reference internal" href="subsystems/frame_and_extrusion.html">Frame and Extrusion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="subsystems/drivetrain.html">Drive System</a></li>
 <li class="toctree-l2"><a class="reference internal" href="subsystems/suspension.html">Suspension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subsystems/hull_and_enclosures.html">Hull and Enclosures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fabrication_guide.html">Fabrication Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parts_catalog.html">Parts Catalog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware_catalog.html">Hardware Catalog</a></li>
 <li class="toctree-l2"><a class="reference internal" href="wiring_specifications.html">Wiring Specifications</a></li>
 </ul>
 </li>
@@ -145,24 +149,16 @@
              
   <section id="design-overview">
 <h1>Design Overview<a class="headerlink" href="#design-overview" title="Link to this heading"></a></h1>
-<p>The RoboFlock rover is a four-wheel, skid-steered outdoor robot built around a
-3D-printed structural frame and a pair of 4080 aluminum extrusion rails. The
-mechanical design optimizes for outdoor durability, modular iteration during
-prototyping, and a low center of gravity for stability on uneven terrain such
-as the Black Rock playa.</p>
+<p>The RoboFlock rover is a four-wheel, skid-steered outdoor robot built around a 3D-printed structural frame and a pair of 4080 aluminum extrusion rails. The mechanical design optimizes for outdoor durability, modular iteration during prototyping, and a low center of gravity for stability on uneven terrain such as the Black Rock playa.</p>
 <p>This page is a high-level walkthrough.</p>
+<p>Detailed geometry, fasteners, and CAD files for every part live in the <a class="reference internal" href="parts_catalog.html"><span class="doc">Parts Catalog</span></a> and the per-subsystem pages linked below.</p>
 <section id="design-goals">
 <h2>Design Goals<a class="headerlink" href="#design-goals" title="Link to this heading"></a></h2>
 <ul class="simple">
-<li><p><strong>Stable Sensor Integration</strong> — provide a clear 360° view for the LiDAR and a
-fixed forward placement for the ultrasonic sensors and GPS antenna.</p></li>
-<li><p><strong>Electronics Accommodation</strong> — segregate the battery (low, in a separate
-compartment) from compute and motor drivers (in the upper hull), with
-organized cable routing between the two.</p></li>
-<li><p><strong>Outdoor Operation</strong> — maintain a rigid structure, good impact resistance,
-and a low center of gravity for rough terrain.</p></li>
-<li><p><strong>Modular Suspension</strong> — a rocker-differential linkage that keeps all four
-wheels in ground contact across uneven terrain without active components.</p></li>
+<li><p><strong>Stable Sensor Integration</strong> — provide a clear 360° view for the LiDAR and a fixed forward placement for the ultrasonic sensors and GPS antenna.</p></li>
+<li><p><strong>Electronics Accommodation</strong> — segregate the battery (low, in a separate compartment) from compute and motor drivers (in the upper hull), with organized cable routing between the two.</p></li>
+<li><p><strong>Outdoor Operation</strong> — maintain a rigid structure, good impact resistance, and a low center of gravity for rough terrain.</p></li>
+<li><p><strong>Modular Suspension</strong> — a rocker-differential linkage that keeps all four wheels in ground contact across uneven terrain without active components.</p></li>
 <li><p><strong>Iterability</strong> — a fully parametric Fusion 360 design so dimensions, mounts,
 and structural features can be updated without re-engineering the system.</p></li>
 </ul>
@@ -171,24 +167,10 @@ and structural features can be updated without re-engineering the system.</p></l
 <h2>Architecture at a Glance<a class="headerlink" href="#architecture-at-a-glance" title="Link to this heading"></a></h2>
 <p>From the ground up:</p>
 <ol class="arabic simple">
-<li><p><strong>Drive corners (×4)</strong> — each wheel is driven by a BLDC motor. The motor
-bolts to a 3D-printed bracket containing a press-fit radial bearing that
-supports the motor shaft. The keyed shaft drives a clamping coupling, which
-bolts to a 3D-printed adapter, which carries an 18″ airless wheel.</p></li>
-<li><p><strong>Side rails (×2)</strong> — one 4080 T-slot extrusion runs front-to-back on each
-side (mounted with the 40 mm face down, 80 mm tall). Both motor brackets on
-that side bolt to the <strong>inner</strong> rail of the extrusion; the suspension
-bracket clamps to the <strong>outer</strong> rail.</p></li>
-<li><p><strong>Side suspension pivots (×2)</strong> — a printed bracket clamps onto each
-extrusion (4 bolts: 2 top rail, 2 bottom rail) and carries a 12 mm bore
-pivot hub. From each hub a hollow rod stub extends inboard. The two stubs
-meet near the centerline, where a solid linear rod slides inside both
-halves and acts as the through-shaft bearing surface — letting each side
-pivot independently.</p></li>
-<li><p><strong>Main chassis frame</strong> — a 3D-printed structure with two L-shaped “ears”
-that drop down from above the extrusions. Each ear has a press-fit ball
-bearing whose inner race rides on the OD of the inboard hollow rod. This
-is the per-side pivot the rest of the body hangs from.</p></li>
+<li><p><strong>Drive corners (×4)</strong> — each wheel is driven by a BLDC motor. The motor bolts to a 3D-printed bracket containing a press-fit radial bearing that supports the motor shaft. The keyed shaft drives a clamping coupling, which bolts to a 3D-printed adapter, which carries an 18″ airless wheel.</p></li>
+<li><p><strong>Side rails (×2)</strong> — one 4080 T-slot extrusion runs front-to-back on each side (mounted with the 40 mm face down, 80 mm tall). Both motor brackets on that side bolt to the <strong>inner</strong> rail of the extrusion; the suspension bracket clamps to the <strong>outer</strong> rail.</p></li>
+<li><p><strong>Side suspension pivots (×2)</strong> — a printed bracket clamps onto each extrusion (4 bolts: 2 top rail, 2 bottom rail) and carries a 12 mm bore pivot hub. From each hub a hollow rod stub extends inboard. The two stubs meet near the centerline, where a solid linear rod slides inside both halves and acts as the through-shaft bearing surface — letting each side pivot independently.</p></li>
+<li><p><strong>Main chassis frame</strong> — a 3D-printed structure with two L-shaped “ears” that drop down from above the extrusions. Each ear has a press-fit ball bearing whose inner race rides on the OD of the inboard hollow rod. This is the per-side pivot the rest of the body hangs from.</p></li>
 <li><p><strong>Differential coupling</strong> — a 3D-printed rocker-differential arm sits on a
 vertical shoulder bolt at the front of the main frame. Two pushrod
 assemblies (threaded rod with a ball-joint rod end at each tip) link this
@@ -207,8 +189,8 @@ dependent (rocker-differential)</strong>: each side can articulate over an obsta
 but the front cross-link constrains both sides to share roll axis travel. With
 no steering linkage, heading is controlled purely by differential torque
 across the four BLDCs (skid-steer).</p>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
+<details class="admonition seealso">
+<summary class="admonition-title">See also</summary>
 <dl class="simple">
 <dt><a class="reference internal" href="subsystems/frame_and_extrusion.html"><span class="doc">Frame and Extrusion</span></a></dt><dd><p>Extrusion layout and main frame geometry</p>
 </dd>
@@ -216,8 +198,16 @@ across the four BLDCs (skid-steer).</p>
 </dd>
 <dt><a class="reference internal" href="subsystems/suspension.html"><span class="doc">Suspension</span></a></dt><dd><p>Rocker-differential mechanics in detail</p>
 </dd>
+<dt><a class="reference internal" href="subsystems/hull_and_enclosures.html"><span class="doc">Hull and Enclosures</span></a></dt><dd><p>Hull, top cover, battery compartment, sensor mounts</p>
+</dd>
+<dt><a class="reference internal" href="fabrication_guide.html"><span class="doc">Fabrication Guide</span></a></dt><dd><p>Step-by-step assembly order</p>
+</dd>
+<dt><a class="reference internal" href="parts_catalog.html"><span class="doc">Parts Catalog</span></a></dt><dd><p>Every part with files and BOM</p>
+</dd>
+<dt><a class="reference internal" href="hardware_catalog.html"><span class="doc">Hardware Catalog</span></a></dt><dd><p>Fasteners, inserts, bearings</p>
+</dd>
 </dl>
-</div>
+</details>
 </section>
 </section>
 
