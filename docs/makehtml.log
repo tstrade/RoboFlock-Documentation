@@ -179,15 +179,15 @@ dumping search index in English (code: en)... done
 dumping object inventory... done
 
 ====================== total reading duration ==========================
-Total time reading 53 files: 0m 0.622s
+Total time reading 53 files: 0m 0.328s
 
 
 ====================== slowest reading durations =======================
-0.058s photo_video
-0.040s construction_docs/fabrication_guide
-0.039s codebase_docs/ultrasonic_code
-0.037s citation_docs/mathref_docs/quaternions
-0.021s hardware_docs/rp_lidar
+0.031s photo_video
+0.026s construction_docs/fabrication_guide
+0.016s codebase_docs/ultrasonic_code
+0.015s citation_docs/mathref_docs/quaternions
+0.010s citation_docs/additional_info
 
 build succeeded.
 
