@@ -49,6 +49,8 @@ html_static_path = [
     '_static',
     '_images',
 ]
+html_extra_path = ['_files']
+
 html_logo = "_images/Robo.png"
 html_css_files = [
     'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css',
