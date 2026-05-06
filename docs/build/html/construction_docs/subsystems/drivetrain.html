@@ -1,0 +1,244 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Drive System &mdash; RoboFlock 1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=8f3c863a" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=56dcb7b8"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=6dbb43f8"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Suspension" href="suspension.html" />
+    <link rel="prev" title="Frame and Extrusion" href="frame_and_extrusion.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/Robo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started_docs/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts_docs/concepts.html">Concepts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts_docs/obstacle_detection.html">Obstacle Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts_docs/navigation.html">Navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts_docs/communication.html">Communication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts_docs/ros2.html">ROS2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial_docs/tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial_docs/rtk_gps.html">Setting up the RTK GPS System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial_docs/jetson_config.html">Setting up the Nvidia Jetson Orin Nano</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial_docs/cmakelists.html">Writing CML Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial_docs/launch.html">Making Launch Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial_docs/urdf.html">Creating the URDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial_docs/nav2.html">Working with Nav2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial_docs/roboflock_topics.html">Using RoboFlock’s Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial_docs/init_dev.html">Initializing RoboFlock (Developers)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../codebase_docs/codebase.html">RoboFlock Codebase</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../codebase_docs/ultrasonic_code.html">Ultrasonic Sensor Code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware_docs/hardware.html">Hardware Components</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/jetson_devkit.html">Nvidia Jetson Orin Nano Super Developer Kit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/arduino.html">Arduino Boards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/rp_lidar.html">RPLIDAR A1M8 Laser Range Scanner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/hc_sr04.html">Ultrasonic Distance Sensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/imu.html">MPU-6050 Motion Tracking Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/neo_m8p.html">NEO-M8P-2 GNSS/GPS Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/zed_f9p.html">ZED-F9P-02B GNSS/GPS Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/hc_12.html">HC-12 Wireless Serial Port Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/max_17048.html">MAX17048 Fuel Gauge and Battery Monitor</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../construction.html">Construction</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../design_overview.html">Design Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="frame_and_extrusion.html">Frame and Extrusion</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Drive System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="suspension.html">Suspension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hull_and_enclosures.html">Hull and Enclosures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fabrication_guide.html">Fabrication Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../parts_catalog.html">Parts Catalog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware_catalog.html">Hardware Catalog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wiring_specifications.html">Wiring Specifications</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../future_considerations.html">Future Considerations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../citation_docs/additional_info.html">Additional Information</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../citation_docs/mathref_docs/mathref.html">Mathematics References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../citation_docs/bibliography.html">Bibliography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../citation_docs/appendix_a.html">Appendix A</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../citation_docs/appendix_b.html">Appendix B</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">RoboFlock</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../construction.html">Construction</a></li>
+      <li class="breadcrumb-item active">Drive System</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/construction_docs/subsystems/drivetrain.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="frame_and_extrusion.html" class="btn btn-neutral float-left" title="Frame and Extrusion" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="suspension.html" class="btn btn-neutral float-right" title="Suspension" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="drive-system">
+<h1>Drive System<a class="headerlink" href="#drive-system" title="Link to this heading"></a></h1>
+<p>The RoboFlock is driven by four identical BLDC motors - one per wheel - with
+heading controlled purely by differential torque across left and right pairs
+(skid-steer). There is no steering linkage; the wheels are fixed in
+orientation relative to the side rail they mount to.</p>
+<section id="drive-corner-torque-path">
+<h2>Drive Corner - Torque Path<a class="headerlink" href="#drive-corner-torque-path" title="Link to this heading"></a></h2>
+<p>Each of the four drive corners is mechanically identical and follows the same
+chain from motor to ground:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>BLDC motor
+    │  (keyed shaft)
+    ▼
+Clamping shaft coupling   ── RV1-DRV-CPL-001
+    │
+    ▼
+Wheel drive adapter       ── RV1-WHL-001
+    │
+    ▼
+10&quot; pneumatic wheel
+</pre></div>
+</div>
+<p>The motor itself is fixed to a 3D-printed motor bracket (<code class="docutils literal notranslate"><span class="pre">RV1-DRV-BKT-001</span></code>).
+Inside the bracket, a press-fit radial ball bearing supports the motor shaft
+on the coupling side - this offloads radial load from the motor’s internal
+bearings, which would otherwise be cantilevered through the coupling.</p>
+<p>The clamping coupling has one keyed bore for the motor shaft and a planar face for the adapter shoulder. The adapter is screwed into the
+coupling’s planar face and bolted to the wheel hub pattern, converting the
+pneumatic wheel into a driven wheel.</p>
+</section>
+<section id="motor-mounting">
+<h2>Motor Mounting<a class="headerlink" href="#motor-mounting" title="Link to this heading"></a></h2>
+<p>The motor bracket bolts to the <strong>lower rail</strong> of the side extrusion using 3
+bolts and T-nuts. Mounting is symmetric front-to-back (the same bracket part
+is used for both motor positions on a side), and mirror-imaged left-to-right.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Apply medium-strength threadlocker to the motor-to-bracket fasteners.
+These bolts see oscillating loads through the bearing-coupling stack and
+are the most likely fastener on the robot to back out under vibration.</p>
+</div>
+</section>
+<section id="per-corner-hardware">
+<h2>Per-Corner Hardware<a class="headerlink" href="#per-corner-hardware" title="Link to this heading"></a></h2>
+<p>For one drive corner you will need:</p>
+<ul class="simple">
+<li><p>1× BLDC motor (assembly model TBD - see hardware catalog)</p></li>
+<li><p>1× motor-shaft radial bearing, press-fit into bracket (TBD)</p></li>
+<li><p>1× <code class="docutils literal notranslate"><span class="pre">RV1-DRV-BKT-001</span></code> motor bracket (printed)</p></li>
+<li><p>3× M8 cap screws + T-nuts, bracket → extrusion (TBD)</p></li>
+<li><p>1× <code class="docutils literal notranslate"><span class="pre">RV1-DRV-CPL-001</span></code> clamping shaft coupling</p></li>
+<li><p>1× <code class="docutils literal notranslate"><span class="pre">RV1-WHL-001</span></code> wheel drive adapter (printed)</p></li>
+<li><p>1× 10” pneumatic wheel</p></li>
+<li><p>Adapter-to-coupling and adapter-to-wheel fasteners (TBD)</p></li>
+</ul>
+<p>The robot uses <strong>four</strong> drive corners total - full quantities live in the
+<a class="reference internal" href="../parts_catalog.html"><span class="doc">Parts Catalog</span></a>.</p>
+</section>
+<section id="cable-management">
+<h2>Cable Management<a class="headerlink" href="#cable-management" title="Link to this heading"></a></h2>
+<p>Motor leads route up the inner face of the extrusion and pass through
+grommeted holes in the bottom of the lower battery compartment. Inside the body,
+they continue up into the hull through the floor of the battery compartment
+and terminate at the motor drivers.</p>
+<p>See <a class="reference internal" href="hull_and_enclosures.html"><span class="doc">Hull and Enclosures</span></a> for the cable pass-through points and
+<a class="reference internal" href="../wiring_specifications.html"><span class="doc">Wiring Specifications</span></a> for wire gauge and color conventions.</p>
+</section>
+<section id="related-pages">
+<h2>Related Pages<a class="headerlink" href="#related-pages" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="frame_and_extrusion.html"><span class="doc">Frame and Extrusion</span></a> - the rails the motors mount to</p></li>
+<li><p><a class="reference internal" href="suspension.html"><span class="doc">Suspension</span></a> - what couples the two sides under articulation</p></li>
+<li><p><a class="reference internal" href="../parts_catalog.html"><span class="doc">Parts Catalog</span></a> - files and BOM for each drive part</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="frame_and_extrusion.html" class="btn btn-neutral float-left" title="Frame and Extrusion" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="suspension.html" class="btn btn-neutral float-right" title="Suspension" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Project RoboFlock.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

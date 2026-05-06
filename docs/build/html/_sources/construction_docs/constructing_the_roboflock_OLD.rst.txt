@@ -1,3 +1,5 @@
+:orphan:
+
 Step-by-Step Construction Guide
 ===============================
 

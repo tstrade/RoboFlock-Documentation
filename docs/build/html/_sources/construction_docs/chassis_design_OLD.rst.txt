@@ -1,3 +1,5 @@
+:orphan:
+
 Chassis Design
 ==============
 
@@ -119,7 +121,7 @@ The chassis interfaces with the drivetrain and motors listed in :doc:`Appendix A
     :width: 50%
     :loading: link
 
-    Figure 17: Airless Wheels and Tires
+    Figure 17: pneumatic Wheels and Tires
 
 
 .. figure:: ../_images/fig18_airless_tires_dims.png
@@ -127,4 +129,4 @@ The chassis interfaces with the drivetrain and motors listed in :doc:`Appendix A
     :width: 50%
     :loading: link
 
-    Figure 18: Airless Wheel and Tire Dimensions
+    Figure 18: pneumatic Wheel and Tire Dimensions

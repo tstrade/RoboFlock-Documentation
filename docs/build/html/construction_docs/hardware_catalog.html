@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chassis Design &mdash; RoboFlock 1.1 documentation</title>
+  <title>Hardware Catalog &mdash; RoboFlock 1.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -24,7 +24,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Wiring Specifications" href="wiring_specifications.html" />
-    <link rel="prev" title="Step-by-Step Construction Guide" href="constructing_the_roboflock.html" /> 
+    <link rel="prev" title="Parts Catalog" href="parts_catalog.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -84,8 +84,14 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="construction.html">Construction</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="constructing_the_roboflock.html">Step-by-Step Construction Guide</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Chassis Design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design_overview.html">Design Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subsystems/frame_and_extrusion.html">Frame and Extrusion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subsystems/drivetrain.html">Drive System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subsystems/suspension.html">Suspension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subsystems/hull_and_enclosures.html">Hull and Enclosures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fabrication_guide.html">Fabrication Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parts_catalog.html">Parts Catalog</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Hardware Catalog</a></li>
 <li class="toctree-l2"><a class="reference internal" href="wiring_specifications.html">Wiring Specifications</a></li>
 </ul>
 </li>
@@ -114,12 +120,12 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="construction.html">Construction</a></li>
-      <li class="breadcrumb-item active">Chassis Design</li>
+      <li class="breadcrumb-item active">Hardware Catalog</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/construction_docs/chassis_design.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/construction_docs/hardware_catalog.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
-        <a href="constructing_the_roboflock.html" class="btn btn-neutral float-left" title="Step-by-Step Construction Guide" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="parts_catalog.html" class="btn btn-neutral float-left" title="Parts Catalog" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="wiring_specifications.html" class="btn btn-neutral float-right" title="Wiring Specifications" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
   <hr/>
@@ -127,103 +133,88 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="chassis-design">
-<h1>Chassis Design<a class="headerlink" href="#chassis-design" title="Link to this heading"></a></h1>
-<p>The chassis is designed around a rounded “delivery-robot” form similar to the reference image, with an upper pod and a lower hull mounted on a custom designed frame. It supports the LiDAR, ultrasonic sensors, battery, Jetson Orin Nano, and wiring while maintaining high ground clearance and stability for outdoor environments like Burning Man.</p>
-<section id="design-objectives">
-<h2>Design Objectives<a class="headerlink" href="#design-objectives" title="Link to this heading"></a></h2>
+  <section id="hardware-catalog">
+<h1>Hardware Catalog<a class="headerlink" href="#hardware-catalog" title="Link to this heading"></a></h1>
+<p>This page is the cross-reference for fasteners, threaded inserts, bearings,
+and other hardware that are reused across multiple parts. Where a printed
+part’s BOM in the <a class="reference internal" href="parts_catalog.html"><span class="doc">Parts Catalog</span></a> references a hardware ID, that ID is
+defined here.</p>
+<p>Hardware is grouped by category. Each item has a unique ID and a single
+canonical entry - multiple printed parts that use the same insert or
+fastener should reference the same hardware ID rather than restating the
+spec inline.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This catalog is currently seeded with the hardware referenced by the
+first generation of printed parts. Additional fasteners, T-nuts,
+bearings, and rod-end ball joints will be added soon.</p>
+</div>
+<section id="threaded-inserts">
+<h2>Threaded Inserts<a class="headerlink" href="#threaded-inserts" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 18.0%" />
+<col style="width: 22.0%" />
+<col style="width: 15.0%" />
+<col style="width: 15.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Hardware ID</p></th>
+<th class="head"><p>Thread</p></th>
+<th class="head"><p>Material</p></th>
+<th class="head"><p>Pack Qty</p></th>
+<th class="head"><p>Unit Cost</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">INS-M2.5-BRASS-HEATSET</span></code></p></td>
+<td><p>M2.5</p></td>
+<td><p>Brass</p></td>
+<td><p>4</p></td>
+<td><p>$1.80</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">INS-M6-BRASS-HEATSET</span></code></p></td>
+<td><p>M6</p></td>
+<td><p>Brass</p></td>
+<td><p>4</p></td>
+<td><p>$1.80</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="fasteners">
+<h2>Fasteners<a class="headerlink" href="#fasteners" title="Link to this heading"></a></h2>
+<p>To be populated as fastener sizes are finalized in each printed part’s BOM.
+Anticipated entries include:</p>
 <ul class="simple">
-<li><p><strong>Stable Sensor Integration:</strong> Provide a clear 360° view for the LiDAR and fixed forward placement for the ultrasonic sensors.</p></li>
-<li><p><strong>Electronics Accommodation:</strong> Include protected internal spaces and organized cable routing for the Jetson Orin Nano, ESC, GPS, and UWB modules.</p></li>
-<li><p><strong>Outdoor Operation:</strong> Maintain a rigid structure, good impact resistance, and a low center of gravity for rough terrain.</p></li>
-<li><p><strong>Modularity for Future Teams:</strong> Use a fully parametric Fusion design so dimensions, mounts, and structural features can be easily updated.</p></li>
+<li><p>M3, M4, M5 socket head cap screws (multiple lengths)</p></li>
+<li><p>M8 cap screws + matching T-nuts for 4080 extrusion</p></li>
+<li><p>Shoulder bolt for the rocker differential arm vertical pivot (TBD)</p></li>
 </ul>
 </section>
-<section id="fabrication-plan">
-<h2>Fabrication Plan<a class="headerlink" href="#fabrication-plan" title="Link to this heading"></a></h2>
-<p>The fabrication will occur in two major phases:</p>
-<p><em>Phase 1: 3D-Printed Prototype (Spring 2026)</em></p>
-<p>The first full chassis prototype will be fabricated using large-format 3D printing. This approach provides:</p>
+<section id="bearings">
+<h2>Bearings<a class="headerlink" href="#bearings" title="Link to this heading"></a></h2>
 <ul class="simple">
-<li><p><strong>Rapid iteration:</strong> Components can be reprinted quickly as sensor locations or wiring requirements change.</p></li>
-<li><p><strong>Low material cost:</strong> Prototyping-grade plastics allow experimentation with geometry and structure.</p></li>
-<li><p><strong>Testing flexibility:</strong> Mounting brackets, electronics trays, and sensor housings can be modified easily to validate performance in field tests.</p></li>
+<li><p>Motor-shaft radial bearing (motor bracket press-fit) - bore TBD</p></li>
+<li><p>Frame-ear pivot bearing (chassis frame press-fit, rides on hollow rod
+stub OD) - bore TBD</p></li>
 </ul>
-<p>The prototype will validate:</p>
-<ul class="simple">
-<li><p>Ground clearance</p></li>
-<li><p>LiDAR scan stability</p></li>
-<li><p>Ultrasonic sensor field-of-view alignment</p></li>
-<li><p>GPS reception (minimizing RF interference from structural components)</p></li>
-<li><p>Weight distribution under load</p></li>
-</ul>
-<p><em>Phase 2: Machined Final Chassis (Future Team)</em></p>
-<p>Following successful testing of the 3D-printed version, the final chassis will be optimized for CNC machining and fabricated from lightweight metals such as aluminum. This future iteration will offer:</p>
-<ul class="simple">
-<li><p>Improved structural strength</p></li>
-<li><p>Resistance to UV, heat, and deformation</p></li>
-<li><p>Tighter mechanical tolerances</p></li>
-<li><p>Enhanced durability for long-term outdoor operation</p></li>
-</ul>
-<p>Our Fusion design files will include fully constrained sketches, an updated bill of materials, and annotated 2D drawings so the next team can transition directly into fabrication without re-engineering the system.</p>
 </section>
-<section id="integration-with-mechanical-components">
-<h2>Integration with Mechanical Components<a class="headerlink" href="#integration-with-mechanical-components" title="Link to this heading"></a></h2>
-<p>The chassis interfaces with the drivetrain and motors listed in <a class="reference internal" href="../citation_docs/appendix_a.html"><span class="doc">Appendix A</span></a>. It includes:</p>
+<section id="linkage-hardware">
+<h2>Linkage Hardware<a class="headerlink" href="#linkage-hardware" title="Link to this heading"></a></h2>
 <ul class="simple">
-<li><p>Reinforced compartments for the 3S 6000mAh LiPo battery</p></li>
-<li><p>ESC and brushed motor integration for reliable power delivery</p></li>
-<li><p>Cable routing channels to isolate motor noise from sensor wiring</p></li>
+<li><p>Ball-joint rod ends (used on both ends of each pushrod, mixed orientations)</p></li>
+<li><p>Threaded rod stock for pushrods</p></li>
+<li><p>Jam nuts for pushrod adjustment locking</p></li>
 </ul>
-<figure class="align-center" id="id1">
-<a class="reference internal image-reference" href="../_images/fig12_chassis_design_proto.png"><img alt="../_images/fig12_chassis_design_proto.png" src="../_images/fig12_chassis_design_proto.png" style="width: 50%;" />
-</a>
-<figcaption>
-<p><span class="caption-text">Figure 12: Chassis Design Prototype</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
-</figcaption>
-</figure>
-<figure class="align-center" id="id2">
-<a class="reference internal image-reference" href="../_images/fig13_chassis_frame.png"><img alt="../_images/fig13_chassis_frame.png" src="../_images/fig13_chassis_frame.png" style="width: 50%;" />
-</a>
-<figcaption>
-<p><span class="caption-text">Figure 13: Chassis Custom Frame</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
-</figcaption>
-</figure>
-<figure class="align-center" id="id3">
-<a class="reference internal image-reference" href="../_images/fig14_chassis_frame_dims.png"><img alt="../_images/fig14_chassis_frame_dims.png" src="../_images/fig14_chassis_frame_dims.png" style="width: 50%;" />
-</a>
-<figcaption>
-<p><span class="caption-text">Figure 14: Chassis Frame Dimensions</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
-</figcaption>
-</figure>
-<figure class="align-center" id="id4">
-<a class="reference internal image-reference" href="../_images/fig15_chassis_shell.png"><img alt="../_images/fig15_chassis_shell.png" src="../_images/fig15_chassis_shell.png" style="width: 50%;" />
-</a>
-<figcaption>
-<p><span class="caption-text">Figure 15: Chassis Shell with Electronics Storage Space</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
-</figcaption>
-</figure>
-<figure class="align-center" id="id5">
-<a class="reference internal image-reference" href="../_images/fig16_chassis_shell_dims.png"><img alt="../_images/fig16_chassis_shell_dims.png" src="../_images/fig16_chassis_shell_dims.png" style="width: 50%;" />
-</a>
-<figcaption>
-<p><span class="caption-text">Figure 16: Chassis Shell Dimensions</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
-</figcaption>
-</figure>
-<figure class="align-center" id="id6">
-<a class="reference internal image-reference" href="../_images/fig17_airless_tires.png"><img alt="../_images/fig17_airless_tires.png" src="../_images/fig17_airless_tires.png" style="width: 50%;" />
-</a>
-<figcaption>
-<p><span class="caption-text">Figure 17: Airless Wheels and Tires</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
-</figcaption>
-</figure>
-<figure class="align-center" id="id7">
-<a class="reference internal image-reference" href="../_images/fig18_airless_tires_dims.png"><img alt="../_images/fig18_airless_tires_dims.png" src="../_images/fig18_airless_tires_dims.png" style="width: 50%;" />
-</a>
-<figcaption>
-<p><span class="caption-text">Figure 18: Airless Wheel and Tire Dimensions</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
-</figcaption>
-</figure>
+</section>
+<section id="source-of-truth">
+<h2>Source of Truth<a class="headerlink" href="#source-of-truth" title="Link to this heading"></a></h2>
+<p>Quantities listed in this catalog are <em>per-piece</em> unit costs as of May 1st, 2026. The total
+hardware cost for any single printed part is shown in that part’s detail
+panel in the <a class="reference internal" href="parts_catalog.html"><span class="doc">Parts Catalog</span></a>. A robot-wide rollup will be added once
+all part BOMs have been finalized.</p>
 </section>
 </section>
 
@@ -231,7 +222,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="constructing_the_roboflock.html" class="btn btn-neutral float-left" title="Step-by-Step Construction Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="parts_catalog.html" class="btn btn-neutral float-left" title="Parts Catalog" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="wiring_specifications.html" class="btn btn-neutral float-right" title="Wiring Specifications" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

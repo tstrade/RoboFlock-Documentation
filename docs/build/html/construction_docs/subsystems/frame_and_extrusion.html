@@ -1,0 +1,261 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frame and Extrusion &mdash; RoboFlock 1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=8f3c863a" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=56dcb7b8"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=6dbb43f8"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Drive System" href="drivetrain.html" />
+    <link rel="prev" title="Design Overview" href="../design_overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/Robo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started_docs/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts_docs/concepts.html">Concepts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts_docs/obstacle_detection.html">Obstacle Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts_docs/navigation.html">Navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts_docs/communication.html">Communication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts_docs/ros2.html">ROS2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial_docs/tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial_docs/rtk_gps.html">Setting up the RTK GPS System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial_docs/jetson_config.html">Setting up the Nvidia Jetson Orin Nano</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial_docs/cmakelists.html">Writing CML Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial_docs/launch.html">Making Launch Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial_docs/urdf.html">Creating the URDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial_docs/nav2.html">Working with Nav2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial_docs/roboflock_topics.html">Using RoboFlock’s Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial_docs/init_dev.html">Initializing RoboFlock (Developers)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../codebase_docs/codebase.html">RoboFlock Codebase</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../codebase_docs/ultrasonic_code.html">Ultrasonic Sensor Code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware_docs/hardware.html">Hardware Components</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/jetson_devkit.html">Nvidia Jetson Orin Nano Super Developer Kit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/arduino.html">Arduino Boards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/rp_lidar.html">RPLIDAR A1M8 Laser Range Scanner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/hc_sr04.html">Ultrasonic Distance Sensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/imu.html">MPU-6050 Motion Tracking Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/neo_m8p.html">NEO-M8P-2 GNSS/GPS Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/zed_f9p.html">ZED-F9P-02B GNSS/GPS Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/hc_12.html">HC-12 Wireless Serial Port Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/max_17048.html">MAX17048 Fuel Gauge and Battery Monitor</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../construction.html">Construction</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../design_overview.html">Design Overview</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Frame and Extrusion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drivetrain.html">Drive System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="suspension.html">Suspension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hull_and_enclosures.html">Hull and Enclosures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fabrication_guide.html">Fabrication Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../parts_catalog.html">Parts Catalog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware_catalog.html">Hardware Catalog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wiring_specifications.html">Wiring Specifications</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../future_considerations.html">Future Considerations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../citation_docs/additional_info.html">Additional Information</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../citation_docs/mathref_docs/mathref.html">Mathematics References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../citation_docs/bibliography.html">Bibliography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../citation_docs/appendix_a.html">Appendix A</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../citation_docs/appendix_b.html">Appendix B</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">RoboFlock</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../construction.html">Construction</a></li>
+      <li class="breadcrumb-item active">Frame and Extrusion</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/construction_docs/subsystems/frame_and_extrusion.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="../design_overview.html" class="btn btn-neutral float-left" title="Design Overview" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="drivetrain.html" class="btn btn-neutral float-right" title="Drive System" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="frame-and-extrusion">
+<h1>Frame and Extrusion<a class="headerlink" href="#frame-and-extrusion" title="Link to this heading"></a></h1>
+<p>The structural backbone of the RoboFlock is split between two parts that work
+together: a pair of 4080 aluminum extrusions running along the sides of the
+robot, and a 3D-printed main chassis frame that hangs above and between them.</p>
+<p>This split keeps the high-load mounting interfaces (motor brackets, suspension
+brackets) on rigid metal extrusion, while the printed frame carries the lower
+loads associated with the body, battery compartment, and hull.</p>
+<section id="side-rails-4080-extrusion">
+<h2>Side Rails - 4080 Extrusion<a class="headerlink" href="#side-rails-4080-extrusion" title="Link to this heading"></a></h2>
+<p>Each side of the robot has a single length of 4080 T-slot aluminum extrusion
+running front-to-back. The profile is mounted with the <strong>40 mm face down</strong>, so
+the rail stands 80 mm tall.</p>
+<p>Each rail provides two structural functions:</p>
+<ul class="simple">
+<li><p><strong>Inner rail</strong> (the face pointing toward the centerline of the robot) - the rocker body bracket for
+that side clamps around this rail, anchored with 4 bolts (2 into the top
+T-slot, 2 into the bottom). This provides the mounting interface for the printed main chassis
+frame, which sits between both extrusions</p></li>
+<li><p><strong>Lower rail</strong> - (the face pointing downward) - the two motor brackets for that side bolt to this rail, 3 bolts each, into the T-slot.</p></li>
+</ul>
+<p>See <code class="docutils literal notranslate"><span class="pre">RV1-CHS-FRM-001</span></code> in the <a class="reference internal" href="../parts_catalog.html"><span class="doc">Parts Catalog</span></a> for sourcing and exact
+length.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Length, fastener size, and T-nut style are still TBD in the catalog -
+confirm with assembly hardware once the first set is sourced.</p>
+</div>
+</section>
+<section id="main-chassis-frame">
+<h2>Main Chassis Frame<a class="headerlink" href="#main-chassis-frame" title="Link to this heading"></a></h2>
+<p>The main chassis frame (<code class="docutils literal notranslate"><span class="pre">RV1-CHS-001</span></code>) is the largest single 3D-printed
+part on the robot. It serves three roles:</p>
+<ol class="arabic simple">
+<li><p>Mounts the body, battery compartment, and hull (top + bottom screw
+interfaces).</p></li>
+<li><p>Provides the <strong>suspension pivot ears</strong> - two L-shaped projections that
+drop down. Each ear contains a press-fit
+bearing whose inner race rides on the outer diameter of the suspension’s
+inboard hollow rod stub. This pair of bearings defines the per-side
+suspension pivot axis.</p></li>
+<li><p>Anchors the rocker differential arm - at the front of the frame, a
+shoulder bolt threads upward into the frame, providing a vertical pivot
+for <code class="docutils literal notranslate"><span class="pre">RV1-SUS-001</span></code>.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The “ears” carry the entire suspended weight of the robot through their
+pressed bearings. Inspect for layer delamination or insert pull-out before
+each test session and re-print if any cracking is visible around the
+bearing seats.</p>
+</div>
+</section>
+<section id="load-path-summary">
+<h2>Load Path Summary<a class="headerlink" href="#load-path-summary" title="Link to this heading"></a></h2>
+<p>Vertical load travels:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Hull, electronics, battery
+          │
+          ▼
+    Main chassis frame
+          │
+          ▼
+Bearings in frame ears
+          │
+          ▼
+   Hollow rod stubs
+          │
+          ▼
+    12 mm pivot hubs
+          │
+          ▼
+  Rocker body brackets
+          │
+          ▼
+     4080 extrusions
+          │
+          ▼
+Motor brackets ───► Motors ───► Wheels ───► Ground
+</pre></div>
+</div>
+<p>The differential arm and its pushrods do <strong>not</strong> carry vertical load directly -
+they constrain anti-symmetric pivot motion between the two sides, and absorb
+only the differential force needed to enforce that constraint.</p>
+</section>
+<section id="related-pages">
+<h2>Related Pages<a class="headerlink" href="#related-pages" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="drivetrain.html"><span class="doc">Drive System</span></a> - what bolts to the inner rails of the extrusions</p></li>
+<li><p><a class="reference internal" href="suspension.html"><span class="doc">Suspension</span></a> - what hangs from the ears of the main frame</p></li>
+<li><p><a class="reference internal" href="../parts_catalog.html"><span class="doc">Parts Catalog</span></a> - files and BOM for every part referenced here</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../design_overview.html" class="btn btn-neutral float-left" title="Design Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="drivetrain.html" class="btn btn-neutral float-right" title="Drive System" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Project RoboFlock.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

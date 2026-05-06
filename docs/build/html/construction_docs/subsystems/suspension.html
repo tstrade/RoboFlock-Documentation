@@ -1,0 +1,278 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Suspension &mdash; RoboFlock 1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=8f3c863a" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=56dcb7b8"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=6dbb43f8"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Hull and Enclosures" href="hull_and_enclosures.html" />
+    <link rel="prev" title="Drive System" href="drivetrain.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/Robo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started_docs/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts_docs/concepts.html">Concepts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts_docs/obstacle_detection.html">Obstacle Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts_docs/navigation.html">Navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts_docs/communication.html">Communication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts_docs/ros2.html">ROS2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial_docs/tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial_docs/rtk_gps.html">Setting up the RTK GPS System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial_docs/jetson_config.html">Setting up the Nvidia Jetson Orin Nano</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial_docs/cmakelists.html">Writing CML Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial_docs/launch.html">Making Launch Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial_docs/urdf.html">Creating the URDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial_docs/nav2.html">Working with Nav2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial_docs/roboflock_topics.html">Using RoboFlock’s Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial_docs/init_dev.html">Initializing RoboFlock (Developers)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../codebase_docs/codebase.html">RoboFlock Codebase</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../codebase_docs/ultrasonic_code.html">Ultrasonic Sensor Code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware_docs/hardware.html">Hardware Components</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/jetson_devkit.html">Nvidia Jetson Orin Nano Super Developer Kit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/arduino.html">Arduino Boards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/rp_lidar.html">RPLIDAR A1M8 Laser Range Scanner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/hc_sr04.html">Ultrasonic Distance Sensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/imu.html">MPU-6050 Motion Tracking Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/neo_m8p.html">NEO-M8P-2 GNSS/GPS Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/zed_f9p.html">ZED-F9P-02B GNSS/GPS Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/hc_12.html">HC-12 Wireless Serial Port Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/max_17048.html">MAX17048 Fuel Gauge and Battery Monitor</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../construction.html">Construction</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../design_overview.html">Design Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="frame_and_extrusion.html">Frame and Extrusion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drivetrain.html">Drive System</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Suspension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hull_and_enclosures.html">Hull and Enclosures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fabrication_guide.html">Fabrication Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../parts_catalog.html">Parts Catalog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware_catalog.html">Hardware Catalog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wiring_specifications.html">Wiring Specifications</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../future_considerations.html">Future Considerations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../citation_docs/additional_info.html">Additional Information</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../citation_docs/mathref_docs/mathref.html">Mathematics References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../citation_docs/bibliography.html">Bibliography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../citation_docs/appendix_a.html">Appendix A</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../citation_docs/appendix_b.html">Appendix B</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">RoboFlock</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../construction.html">Construction</a></li>
+      <li class="breadcrumb-item active">Suspension</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/construction_docs/subsystems/suspension.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="drivetrain.html" class="btn btn-neutral float-left" title="Drive System" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hull_and_enclosures.html" class="btn btn-neutral float-right" title="Hull and Enclosures" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="suspension">
+<h1>Suspension<a class="headerlink" href="#suspension" title="Link to this heading"></a></h1>
+<p>The RoboFlock suspension is a passive <strong>rocker-differential</strong> linkage. It has
+no springs, dampers, or active components - instead it uses a single
+geometric constraint to keep all four wheels in ground contact across uneven
+terrain.</p>
+<p>The mechanism is built up in two stages: an <strong>independent</strong> per-side pivot,
+and a <strong>dependent</strong> front cross-link that couples the two sides together. The
+two stages combine to give a single articulation axis with anti-symmetric
+travel between left and right.</p>
+<section id="stage-1-independent-per-side-pivot">
+<h2>Stage 1 - Independent Per-Side Pivot<a class="headerlink" href="#stage-1-independent-per-side-pivot" title="Link to this heading"></a></h2>
+<p>Each side of the robot can rotate independently about a single horizontal
+axis that runs left-to-right across the centerline of the robot. The side
+itself - extrusion, both motor brackets, both wheels - is rigidly attached
+together, so the entire side rocks as a unit.</p>
+<p>The pivot axis is built from two nested mechanical interfaces:</p>
+<ol class="arabic simple">
+<li><p><strong>Outer interface (frame ear bearings).</strong> The 3D-printed main chassis
+frame has two L-shaped ears that drop down from above the extrusions. Each
+ear has a ball bearing pressed into its lower face. The inner race of
+each bearing rides on the outer diameter of a hollow rod stub.</p></li>
+<li><p><strong>Inner interface (centerline through-shaft).</strong> Each side’s hollow rod
+stub extends inboard from a 12 mm pivot hub (<code class="docutils literal notranslate"><span class="pre">RV1-SUS-HUB-001</span></code>). The two
+stubs from left and right meet near the centerline. A solid linear rod is
+slipped inside both hollow stubs so that one rod bridges across - this
+acts as a sliding plain bearing between the two halves and locks the
+pivot axes of the two sides into a single shared line.</p></li>
+</ol>
+<p>Each pivot hub bolts to a printed rocker body bracket
+(<code class="docutils literal notranslate"><span class="pre">RV1-SUS-RBR-001</span></code>) via 4× M4 SHCS. The rocker body bracket itself slides
+onto the 4080 extrusion and clamps with 4 bolts (2 into the top T-slot, 2
+into the bottom).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>At this stage - independent pivot only, no front cross-link installed -
+the two sides are mechanically disconnected from each other. If you
+articulate one side, the other does not move. The <strong>dependent</strong> behavior
+is added in Stage 2.</p>
+</div>
+</section>
+<section id="stage-2-dependent-cross-link-rocker-differential-arm">
+<h2>Stage 2 - Dependent Cross-Link (Rocker-Differential Arm)<a class="headerlink" href="#stage-2-dependent-cross-link-rocker-differential-arm" title="Link to this heading"></a></h2>
+<p>At the front of the main chassis frame, a 3D-printed differential arm
+(<code class="docutils literal notranslate"><span class="pre">RV1-SUS-001</span></code>) sits on a vertical shoulder bolt that threads upward into
+the frame. The arm pivots in the horizontal plane.</p>
+<p>Two pushrod assemblies (<code class="docutils literal notranslate"><span class="pre">RV1-SUS-002</span></code>) connect this arm to the two side
+suspensions, one per side. Each pushrod is a length of threaded rod with a
+ball-joint rod end at each tip:</p>
+<ul class="simple">
+<li><p>The <strong>upward-facing</strong> rod end attaches to the differential arm.</p></li>
+<li><p>The <strong>side-facing</strong> rod end (90° rotated) attaches to a mount on the side’s
+rocker body bracket.</p></li>
+</ul>
+<p>Geometry is mirror-symmetric across the centerline. As one side pivots
+upward, its pushrod rotates the differential arm in one direction; the
+opposite-side pushrod, attached to the same arm but on the other side, is
+forced to translate the matching distance in the opposite sense - pushing
+the other side down.</p>
+<p>The result is <strong>anti-symmetric travel</strong>: when one side is pushed up by an
+obstacle, the other side is geometrically driven downward by the same
+amount, keeping the average pitch of the body constant and keeping all four
+wheels loaded against the ground.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pushrod length is set on assembly (via the threaded rod between the two
+ball-joint ends) and defines the static ride height. After initial
+assembly, set both pushrods to the same length with the robot on a flat
+surface so the body sits level; lock the rod ends with jam nuts.</p>
+</div>
+</section>
+<section id="articulation-limits">
+<h2>Articulation Limits<a class="headerlink" href="#articulation-limits" title="Link to this heading"></a></h2>
+<p>The mechanical articulation envelope is bounded by:</p>
+<ul class="simple">
+<li><p>The clearance between the rocker body bracket and the frame ears as the
+side pivots upward (the upper hard stop)</p></li>
+<li><p>The angle at which the ball joints reach the end of their rotational
+travel (the geometric stop on either side)</p></li>
+<li><p>The clearance between the wheels and the underside of the hull (the lower
+hard stop on the opposite side)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Verify the actual articulation envelope on the assembled prototype before
+field testing - TBD pending first build measurements.</p>
+</div>
+</section>
+<section id="failure-modes-to-watch">
+<h2>Failure Modes to Watch<a class="headerlink" href="#failure-modes-to-watch" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Ball joint loosening.</strong> Vibration over rough terrain may back jam nuts off.
+Monitor and re-torque after every test session if needed.</p></li>
+<li><p><strong>Frame ear bearing seat creep.</strong> Repeated articulation under load can
+deform the printed bearing seat. Inspect for ovalization periodically and
+reprint the frame if the press fit becomes loose.</p></li>
+<li><p><strong>Centerline rod gallng.</strong> The inner sliding rod relies on the hollow stub
+bores being clean. Wipe down and lightly lubricate during reassembly.</p></li>
+</ul>
+</section>
+<section id="related-pages">
+<h2>Related Pages<a class="headerlink" href="#related-pages" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="frame_and_extrusion.html"><span class="doc">Frame and Extrusion</span></a> - the ears and the rails this assembly hangs from</p></li>
+<li><p><a class="reference internal" href="drivetrain.html"><span class="doc">Drive System</span></a> - what’s rigidly attached to each side</p></li>
+<li><p><a class="reference internal" href="../parts_catalog.html"><span class="doc">Parts Catalog</span></a> - files and BOM for the suspension parts</p></li>
+<li><p><a class="reference internal" href="../fabrication_guide.html"><span class="doc">Fabrication Guide</span></a> - assembly order for the full suspension</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="drivetrain.html" class="btn btn-neutral float-left" title="Drive System" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hull_and_enclosures.html" class="btn btn-neutral float-right" title="Hull and Enclosures" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Project RoboFlock.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -84,8 +84,14 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../construction_docs/construction.html">Construction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../construction_docs/constructing_the_roboflock.html">Step-by-Step Construction Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../construction_docs/chassis_design.html">Chassis Design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../construction_docs/design_overview.html">Design Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../construction_docs/subsystems/frame_and_extrusion.html">Frame and Extrusion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../construction_docs/subsystems/drivetrain.html">Drive System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../construction_docs/subsystems/suspension.html">Suspension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../construction_docs/subsystems/hull_and_enclosures.html">Hull and Enclosures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../construction_docs/fabrication_guide.html">Fabrication Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../construction_docs/parts_catalog.html">Parts Catalog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../construction_docs/hardware_catalog.html">Hardware Catalog</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../construction_docs/wiring_specifications.html">Wiring Specifications</a></li>
 </ul>
 </li>
@@ -133,8 +139,16 @@
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.ros.org/en/humble/Installation.html" rel="noreferrer" target="_blank">ROS2</a></p></li>
 <li><p><a class="reference external" href="https://github.com/shouvik-d/RoboFlock" rel="noreferrer" target="_blank">RoboFlock GitHub Repository</a></p></li>
-<li><p>Startup Scripts</p></li>
+<li><p>System Configuration</p></li>
 </ul>
+<p>RoboFlock uses a number of USB connections, which is convenient in terms of wiring, but the approach must be treated with caution. When a device is plugged in, there is no gaurantee that the Link user device manager (<code class="code docutils literal notranslate"><span class="pre">udev</span></code>) will assign the same name to a device each time it is plugged in.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>SUBSYSTEM==&quot;tty&quot;, ATTRS{idVendor}==&quot;0403&quot;, ATTRS{idProduct}==&quot;6001&quot;, ATTRS{serial}==&quot;A10LVY3A&quot;, SYMLINK+=&quot;arduino_usb&quot;
+</pre></div>
+</div>
 </section>
 <section id="user-manual">
 <h2>User Manual<a class="headerlink" href="#user-manual" title="Link to this heading"></a></h2>

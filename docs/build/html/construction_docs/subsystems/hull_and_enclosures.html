@@ -1,0 +1,263 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hull and Enclosures &mdash; RoboFlock 1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=8f3c863a" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=56dcb7b8"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=6dbb43f8"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Fabrication Guide" href="../fabrication_guide.html" />
+    <link rel="prev" title="Suspension" href="suspension.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/Robo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started_docs/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts_docs/concepts.html">Concepts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts_docs/obstacle_detection.html">Obstacle Detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts_docs/navigation.html">Navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts_docs/communication.html">Communication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../concepts_docs/ros2.html">ROS2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial_docs/tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial_docs/rtk_gps.html">Setting up the RTK GPS System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial_docs/jetson_config.html">Setting up the Nvidia Jetson Orin Nano</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial_docs/cmakelists.html">Writing CML Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial_docs/launch.html">Making Launch Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial_docs/urdf.html">Creating the URDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial_docs/nav2.html">Working with Nav2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial_docs/roboflock_topics.html">Using RoboFlock’s Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial_docs/init_dev.html">Initializing RoboFlock (Developers)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../codebase_docs/codebase.html">RoboFlock Codebase</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../codebase_docs/ultrasonic_code.html">Ultrasonic Sensor Code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware_docs/hardware.html">Hardware Components</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/jetson_devkit.html">Nvidia Jetson Orin Nano Super Developer Kit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/arduino.html">Arduino Boards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/rp_lidar.html">RPLIDAR A1M8 Laser Range Scanner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/hc_sr04.html">Ultrasonic Distance Sensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/imu.html">MPU-6050 Motion Tracking Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/neo_m8p.html">NEO-M8P-2 GNSS/GPS Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/zed_f9p.html">ZED-F9P-02B GNSS/GPS Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/hc_12.html">HC-12 Wireless Serial Port Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/max_17048.html">MAX17048 Fuel Gauge and Battery Monitor</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../construction.html">Construction</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../design_overview.html">Design Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="frame_and_extrusion.html">Frame and Extrusion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drivetrain.html">Drive System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="suspension.html">Suspension</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Hull and Enclosures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fabrication_guide.html">Fabrication Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../parts_catalog.html">Parts Catalog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware_catalog.html">Hardware Catalog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wiring_specifications.html">Wiring Specifications</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../future_considerations.html">Future Considerations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../citation_docs/additional_info.html">Additional Information</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../citation_docs/mathref_docs/mathref.html">Mathematics References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../citation_docs/bibliography.html">Bibliography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../citation_docs/appendix_a.html">Appendix A</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../citation_docs/appendix_b.html">Appendix B</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">RoboFlock</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../construction.html">Construction</a></li>
+      <li class="breadcrumb-item active">Hull and Enclosures</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/construction_docs/subsystems/hull_and_enclosures.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="suspension.html" class="btn btn-neutral float-left" title="Suspension" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../fabrication_guide.html" class="btn btn-neutral float-right" title="Fabrication Guide" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="hull-and-enclosures">
+<h1>Hull and Enclosures<a class="headerlink" href="#hull-and-enclosures" title="Link to this heading"></a></h1>
+<p>The body of the RoboFlock is split into three printed enclosures: a lower
+<strong>battery compartment</strong> under the chassis, the <strong>main hull</strong> above it, and a
+latching <strong>hull top</strong> that carries the LiDAR and GPS.</p>
+<p>This split keeps the high-current battery physically
+separated from the low-voltage logic and motor drivers, simplifies access
+during testing (the hull top latches off without disturbing the rest of the
+robot), and gives each major sensor a fixed, repeatable mounting reference.</p>
+<section id="lower-battery-compartment">
+<h2>Lower Battery Compartment<a class="headerlink" href="#lower-battery-compartment" title="Link to this heading"></a></h2>
+<p>The battery compartment screws into the underside of the main chassis frame.
+It houses:</p>
+<ul class="simple">
+<li><p>Two 3S 6 Ah LiPo batteries</p></li>
+<li><p>The 24v 20Ah 40A Lithium Ion Battery</p></li>
+<li><p>Cable pass-throughs that route motor leads upward into the main hull</p></li>
+</ul>
+</section>
+<section id="main-hull">
+<h2>Main Hull<a class="headerlink" href="#main-hull" title="Link to this heading"></a></h2>
+<p>The main hull (<code class="docutils literal notranslate"><span class="pre">RV1-HUL-001</span></code>) bolts to the <strong>top</strong> of the main chassis
+frame. It houses the upper electronics stack:</p>
+<ul class="simple">
+<li><p>Jetson Orin Nano on its carrier board</p></li>
+<li><p>Motor drivers (one per BLDC, ×4)</p></li>
+<li><p>Power distribution from the battery compartment below</p></li>
+<li><p>Sensor cabling on its way up to the hull top</p></li>
+</ul>
+<p>Motor leads route from the battery compartment up through the floor of the
+hull and terminate at the motor drivers inside. Service loops at each end
+allow the suspension to articulate through its full range without putting
+tension on the strain reliefs.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The hull is currently in Draft status - the print spec block in the
+<a class="reference internal" href="../parts_catalog.html"><span class="doc">Parts Catalog</span></a> is intentionally TBD until the geometry stabilizes.</p>
+</div>
+</section>
+<section id="hull-top">
+<h2>Hull Top<a class="headerlink" href="#hull-top" title="Link to this heading"></a></h2>
+<p>The hull top (<code class="docutils literal notranslate"><span class="pre">RV1-HUL-002</span></code>) latches onto the main hull and acts as both a
+weather cover and a sensor mounting plate. Two sensors mount directly to it:</p>
+<ul class="simple">
+<li><p><strong>LiDAR</strong> - secured in a forward-facing twist-lock slot. Drop the LiDAR
+base into the slot and rotate to lock; the slot constrains both vertical
+and rotational position so the LiDAR repeats its mounting orientation
+every time the cover is reinstalled.</p></li>
+<li><p><strong>GPS antenna</strong> - sits on a flat base plate immediately behind the LiDAR.
+The plate provides the ground plane required by the patch antenna.</p></li>
+</ul>
+<p>The latching mechanism lets the top come off in one motion for service,
+without unplugging any sensor cabling that lives below the hull-top plane.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Sensor cables route through the dedicated hole in the hull top - verify
+strain relief and make sure the LiDAR cable has enough slack to allow
+the twist-lock action without binding.</p>
+</div>
+</section>
+<section id="electronics-brackets">
+<h2>Electronics Brackets<a class="headerlink" href="#electronics-brackets" title="Link to this heading"></a></h2>
+<p>Smaller printed brackets handle individual electronics modules. The first
+of these is the LiDAR mounting bracket (<code class="docutils literal notranslate"><span class="pre">RV1-ELE-BKT-001</span></code>), which mates
+the LiDAR body to the twisting slot in the hull top via 4× M2.5 brass
+heat-set inserts.</p>
+<p>Additional brackets - ultrasonic sensor housings, IMU mount, GPS antenna
+retention, status LED housings - will be added to the catalog as they
+finalize.</p>
+</section>
+<section id="cable-routing-summary">
+<h2>Cable Routing Summary<a class="headerlink" href="#cable-routing-summary" title="Link to this heading"></a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Battery compartment ─────► Main hull ─────► Hull top
+   (batteries)    (Jetson, drivers)   (LiDAR, GPS)
+
+   motor leads (×4) ──┐
+                      ▼
+              pass through floor
+                      │
+                      ▼
+                motor drivers
+</pre></div>
+</div>
+<p>For wire gauge, color conventions, and full pinouts see
+<a class="reference internal" href="../wiring_specifications.html"><span class="doc">Wiring Specifications</span></a>.</p>
+</section>
+<section id="related-pages">
+<h2>Related Pages<a class="headerlink" href="#related-pages" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="frame_and_extrusion.html"><span class="doc">Frame and Extrusion</span></a> - what these enclosures bolt to</p></li>
+<li><p><a class="reference internal" href="../parts_catalog.html"><span class="doc">Parts Catalog</span></a> - files and BOM for hull and bracket parts</p></li>
+<li><p><a class="reference internal" href="../wiring_specifications.html"><span class="doc">Wiring Specifications</span></a> - electrical interfaces between compartments</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="suspension.html" class="btn btn-neutral float-left" title="Suspension" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../fabrication_guide.html" class="btn btn-neutral float-right" title="Fabrication Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Project RoboFlock.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -57,6 +57,7 @@ html_static_path = [
     '_static',
     '_images',
 ]
+html_extra_path = ['_files']
 html_logo = "_images/Robo.png"
 html_css_files = [
     'custom.css',
