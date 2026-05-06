@@ -92,6 +92,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../hardware_docs/zed_f9p.html">ZED-F9P-02B GNSS/GPS Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../hardware_docs/hc_12.html">HC-12 Wireless Serial Port Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../hardware_docs/max_17048.html">MAX17048 Fuel Gauge and Battery Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware_docs/odesc_v4_2.html">ODESC V4.2 Brushless Servo Motor Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware_docs/motors.html">Brushless DC Planetary Geared Motor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hardware_docs/motor_battery.html">25.2V Lithium Ion Battery</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="construction.html">Construction</a><ul class="current">
@@ -201,10 +204,10 @@ on T-nuts to the bolts (do not tighten)</p></li>
 <li><p>Slide the T-nuts into the <strong>lower</strong> rail T-slot for both motor bracket
 positions. Tighten two of the drive corner assemblies (3 bolts each) to the
 lower rail. Confirm both wheels are oriented the same direction.</p></li>
-<li><p>Bolt the 12 mm pivot hub (<code class="docutils literal notranslate"><span class="pre">RV1-SUS-HUB-001</span></code>) to the rocker body bracket
+<li><p>Bolt the 12 mm pivot hub (<code class="docutils literal notranslate"><span class="pre">RV1-SUS-HUB-001</span></code>) to the rocker beam bracket
 using 4× M4 Socket Head Cap Screws. The hollow rod stub on the hub should point <strong>inboard</strong>
 (toward the centerline of the robot).</p></li>
-<li><p>Slide the rocker body bracket (<code class="docutils literal notranslate"><span class="pre">RV1-SUS-RBR-001</span></code>) onto the <strong>outer</strong>
+<li><p>Slide the rocker beam bracket (<code class="docutils literal notranslate"><span class="pre">RV1-SUS-RBR-001</span></code>) onto the <strong>outer</strong>
 rail. Anchor it with 4 bolts (2 into the top T-slot, 2 into the bottom).</p></li>
 </ol>
 <p>Both side-rail subassemblies are now complete and stand on their own wheels.</p>
@@ -233,21 +236,27 @@ articulates independently with no coupling between them.</p>
 <section id="stage-4-differential-coupling">
 <h2>Stage 4 - Differential Coupling<a class="headerlink" href="#stage-4-differential-coupling" title="Link to this heading"></a></h2>
 <ol class="arabic simple">
-<li><p>Install the rocker differential arm (<code class="docutils literal notranslate"><span class="pre">RV1-SUS-001</span></code>) at the front of the main chassis frame using a vertical shoulder bolt threaded upward into the frame. The arm should rotate freely in the horizontal plane.</p></li>
+<li><p>Install the rocker differential arm (<code class="docutils literal notranslate"><span class="pre">RV1-SUS-001</span></code>) at the front of the
+main chassis frame using a vertical shoulder bolt threaded upward into
+the frame. The arm should rotate freely in the horizontal plane.</p></li>
 <li><p>Build two pushrod assemblies (<code class="docutils literal notranslate"><span class="pre">RV1-SUS-002</span></code>):</p>
 <ul class="simple">
 <li><p>Thread a ball-joint rod end onto each end of a length of threaded rod.</p></li>
-<li><p>One rod end orients vertically (for the differential arm); the other orients horizontally (for the rocker body bracket).</p></li>
+<li><p>One rod end orients vertically (for the differential arm); the other
+orients horizontally (for the rocker beam bracket).</p></li>
 <li><p>Set both rods to the same starting length per the CAD reference.</p></li>
 </ul>
 </li>
-<li><p>With the robot on a flat surface and both sides level, attach each pushrod:</p>
+<li><p>With the robot on a flat surface and both sides level, attach each
+pushrod:</p>
 <ul class="simple">
 <li><p><strong>Vertical end</strong> → mount on the rocker differential arm</p></li>
-<li><p><strong>Side-facing end</strong> → mount on the rocker body bracket</p></li>
+<li><p><strong>Side-facing end</strong> → mount on the rocker beam bracket</p></li>
 </ul>
 </li>
-<li><p>Verify anti-symmetric travel: lift one side; the other should drop by the same amount through the action of the differential arm. If travel is not symmetric, equalize the pushrod lengths.</p></li>
+<li><p>Verify anti-symmetric travel: lift one side; the other should drop by
+the same amount through the action of the differential arm. If travel is
+not symmetric, equalize the pushrod lengths.</p></li>
 <li><p>Lock both rod ends with jam nuts.</p></li>
 </ol>
 <p>The suspension is now in its full <strong>rocker-differential</strong> configuration.</p>
@@ -255,27 +264,39 @@ articulates independently with no coupling between them.</p>
 <section id="stage-5-body">
 <h2>Stage 5 - Body<a class="headerlink" href="#stage-5-body" title="Link to this heading"></a></h2>
 <ol class="arabic simple">
-<li><p>Bolt the battery compartment to the underside of the main chassis frame. Verify the lower lid latches. Install batteries.</p></li>
-<li><p>Pass the motor leads through the grommet holes of the lower lid, leaving service loops at each end so the suspension can articulate without putting tension on the cables.. Install the batteries by setting them in the lower lid, and latch the lid to the affixed battery compartment housing.</p></li>
-<li><p>Bolt the main hull (<code class="docutils literal notranslate"><span class="pre">RV1-HUL-001</span></code>) to the top of the main chassis frame. Install the Jetson and motor drivers. Route the four motor leads from the battery compartment up through the hull floor to the motor
+<li><p>Bolt the battery compartment to the underside of the main chassis frame.
+Verify the lower lid latches. Install batteries.</p></li>
+<li><p>Pass the motor leads through the grommet holes of the lower lid, leaving service loops at each end so the suspension can
+articulate without putting tension on the cables.. Install the batteries
+by setting them in the lower lid, and latch the lid to the affixed battery compartment housing.</p></li>
+<li><p>Bolt the main hull (<code class="docutils literal notranslate"><span class="pre">RV1-HUL-001</span></code>) to the top of the main chassis
+frame. Install the Jetson and motor drivers. Route the four motor leads
+from the battery compartment up through the hull floor to the motor
 drivers.</p></li>
-<li><p>Install the LiDAR mounting bracket (<code class="docutils literal notranslate"><span class="pre">RV1-ELE-BKT-001</span></code>) in the hull top (<code class="docutils literal notranslate"><span class="pre">RV1-HUL-002</span></code>). Install the GPS antenna on the base plate behind the LiDAR slot.</p></li>
-<li><p>Drop the LiDAR into the twist-lock slot and rotate to engage. Verify cable strain relief.</p></li>
+<li><p>Install the LiDAR mounting bracket (<code class="docutils literal notranslate"><span class="pre">RV1-ELE-BKT-001</span></code>) in the hull top
+(<code class="docutils literal notranslate"><span class="pre">RV1-HUL-002</span></code>). Install the GPS antenna on the base plate behind the
+LiDAR slot.</p></li>
+<li><p>Drop the LiDAR into the twist-lock slot and rotate to engage. Verify
+cable strain relief.</p></li>
 <li><p>Latch the hull top onto the main hull.</p></li>
 </ol>
-<p>The robot is now mechanically complete. Continue with electrical bring-up per the <a class="reference internal" href="wiring_specifications.html"><span class="doc">Wiring Specifications</span></a> and the codebase tutorials.</p>
+<p>The robot is now mechanically complete. Continue with electrical bring-up
+per <a class="reference internal" href="wiring_specifications.html"><span class="doc">Wiring Specifications</span></a> and the codebase tutorials.</p>
 </section>
 <section id="pre-test-checklist">
 <h2>Pre-Test Checklist<a class="headerlink" href="#pre-test-checklist" title="Link to this heading"></a></h2>
 <p>Before powering on for the first time:</p>
 <ul class="simple">
-<li><p>All four wheels rotate freely with no binding from the couplings or bearings.</p></li>
-<li><p>Suspension articulates smoothly through its full range, with anti-symmetric travel between the two sides.</p></li>
-<li><p>Pushrod jam nuts are tight.</p></li>
-<li><p>Motor leads do not bind or stretch at full articulation.</p></li>
-<li><p>Hull top and battery compartment latches and unlatches cleanly without snagging on internal components.</p></li>
-<li><p>LiDAR seats into its twist-lock without forcing.</p></li>
-<li><p>Battery compartment lid is secured.</p></li>
+<li><p>All four wheels rotate freely with no binding from the couplings or
+bearings</p></li>
+<li><p>Suspension articulates smoothly through its full range, with anti-
+symmetric travel between the two sides</p></li>
+<li><p>Pushrod jam nuts are tight</p></li>
+<li><p>Motor leads do not bind or stretch at full articulation</p></li>
+<li><p>Hull top and battery compartment latches and unlatches cleanly without snagging on internal
+components</p></li>
+<li><p>LiDAR seats into its twist-lock without forcing</p></li>
+<li><p>Battery compartment lid is secured</p></li>
 </ul>
 </section>
 </section>

@@ -92,6 +92,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/zed_f9p.html">ZED-F9P-02B GNSS/GPS Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/hc_12.html">HC-12 Wireless Serial Port Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/max_17048.html">MAX17048 Fuel Gauge and Battery Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/odesc_v4_2.html">ODESC V4.2 Brushless Servo Motor Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/motors.html">Brushless DC Planetary Geared Motor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware_docs/motor_battery.html">25.2V Lithium Ion Battery</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../construction.html">Construction</a><ul class="current">
@@ -151,30 +154,28 @@
 <h1>Frame and Extrusion<a class="headerlink" href="#frame-and-extrusion" title="Link to this heading"></a></h1>
 <p>The structural backbone of the RoboFlock is split between two parts that work
 together: a pair of 4080 aluminum extrusions running along the sides of the
-robot, and a 3D-printed main chassis frame that hangs above them.</p>
+robot, and a 3D-printed main chassis frame that hangs above and between them.</p>
 <p>This split keeps the high-load mounting interfaces (motor brackets, suspension
 brackets) on rigid metal extrusion, while the printed frame carries the lower
 loads associated with the body, battery compartment, and hull.</p>
 <section id="side-rails-4080-extrusion">
-<h2>Side Rails — 4080 Extrusion<a class="headerlink" href="#side-rails-4080-extrusion" title="Link to this heading"></a></h2>
+<h2>Side Rails - 4080 Extrusion<a class="headerlink" href="#side-rails-4080-extrusion" title="Link to this heading"></a></h2>
 <p>Each side of the robot has a single length of 4080 T-slot aluminum extrusion
 running front-to-back. The profile is mounted with the <strong>40 mm face down</strong>, so
 the rail stands 80 mm tall.</p>
-<p>Each rail provides three structural functions:</p>
+<p>Each rail provides two structural functions:</p>
 <ul class="simple">
-<li><p><strong>Inner rail</strong> (the face pointing toward the centerline of the robot) — the
-two motor brackets for that side bolt to this rail, 3 bolts each, into the
-T-slot.</p></li>
-<li><p><strong>Outer rail</strong> (the face pointing outward) — the rocker body bracket for
+<li><p><strong>Inner rail</strong> (the face pointing toward the centerline of the robot) - the rocker beam bracket for
 that side clamps around this rail, anchored with 4 bolts (2 into the top
-T-slot, 2 into the bottom).</p></li>
-<li><p><strong>Top rail</strong> — provides the mounting interface for the printed main chassis
-frame, which sits over and across both extrusions.</p></li>
+T-slot, 2 into the bottom). This provides the mounting interface for the printed main chassis
+frame, which sits between both extrusions</p></li>
+<li><p><strong>Lower rail</strong> - (the face pointing downward) - the two motor brackets for that side bolt to this rail, 3 bolts each, into the T-slot.</p></li>
 </ul>
-<p>See <code class="docutils literal notranslate"><span class="pre">RV1-CHS-FRM-001</span></code> in the <a class="reference internal" href="../parts_catalog.html"><span class="doc">Parts Catalog</span></a> for sourcing and exact length.</p>
+<p>See <code class="docutils literal notranslate"><span class="pre">RV1-CHS-FRM-001</span></code> in the <a class="reference internal" href="../parts_catalog.html"><span class="doc">Parts Catalog</span></a> for sourcing and exact
+length.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Length, fastener size, and T-nut style are still TBD in the catalog —
+<p>Length, fastener size, and T-nut style are still TBD in the catalog -
 confirm with assembly hardware once the first set is sourced.</p>
 </div>
 </section>
@@ -185,20 +186,17 @@ part on the robot. It serves three roles:</p>
 <ol class="arabic simple">
 <li><p>Mounts the body, battery compartment, and hull (top + bottom screw
 interfaces).</p></li>
-<li><p>Provides the <strong>suspension pivot ears</strong> — two L-shaped projections that
-drop down from above the extrusions. Each ear contains a press-fit
+<li><p>Provides the <strong>suspension pivot ears</strong> - two L-shaped projections that
+drop down. Each ear contains a press-fit
 bearing whose inner race rides on the outer diameter of the suspension’s
 inboard hollow rod stub. This pair of bearings defines the per-side
 suspension pivot axis.</p></li>
-<li><p>Anchors the rocker differential arm — at the front of the frame, a
+<li><p>Anchors the rocker differential arm - at the front of the frame, a
 shoulder bolt threads upward into the frame, providing a vertical pivot
 for <code class="docutils literal notranslate"><span class="pre">RV1-SUS-001</span></code>.</p></li>
 </ol>
-<p>The frame is printed in ABS, flat on bed, 40% infill at 0.2 mm layer height.
-Brass M6 heat-set inserts (<code class="docutils literal notranslate"><span class="pre">INS-M6-BRASS-HEATSET</span></code>, 4×) handle the high-load
-mating surfaces.</p>
-<div class="admonition attention">
-<p class="admonition-title">Attention</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>The “ears” carry the entire suspended weight of the robot through their
 pressed bearings. Inspect for layer delamination or insert pull-out before
 each test session and re-print if any cracking is visible around the
@@ -223,7 +221,7 @@ Bearings in frame ears
     12 mm pivot hubs
           │
           ▼
-  Rocker body brackets
+  Rocker beam brackets
           │
           ▼
      4080 extrusions
@@ -232,11 +230,11 @@ Bearings in frame ears
 Motor brackets ───► Motors ───► Wheels ───► Ground
 </pre></div>
 </div>
-<p>The differential arm and its pushrods do <strong>not</strong> carry vertical load directly —
+<p>The differential arm and its pushrods do <strong>not</strong> carry vertical load directly -
 they constrain anti-symmetric pivot motion between the two sides, and absorb
 only the differential force needed to enforce that constraint.</p>
-<details class="admonition seealso">
-<summary class="admonition-title">See also</summary>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
 <dl class="simple">
 <dt><a class="reference internal" href="drivetrain.html"><span class="doc">Drive System</span></a></dt><dd><p>What bolts to the inner rails of the extrusions</p>
 </dd>
@@ -245,7 +243,7 @@ only the differential force needed to enforce that constraint.</p>
 <dt><a class="reference internal" href="../parts_catalog.html"><span class="doc">Parts Catalog</span></a></dt><dd><p>Files and BOM for every part referenced here</p>
 </dd>
 </dl>
-</details>
+</div>
 </section>
 </section>
 

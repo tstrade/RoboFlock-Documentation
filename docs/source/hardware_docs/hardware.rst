@@ -1,4 +1,3 @@
-===================
 Hardware Components
 ===================
 
@@ -6,7 +5,7 @@ Brief descriptions and use-cases of the hardware required by RoboFlock.
 
 - :doc:`Nvidia Jetson Orin Nano Super Developer Kit <jetson_devkit>`
 
-- :doc:`Arduino Nano <arduino>`
+- :doc:`Arduino Boards <arduino>`
 
 - :doc:`RPLIDAR A1M8 Laser Range Scanner <rp_lidar>`
 
@@ -21,6 +20,12 @@ Brief descriptions and use-cases of the hardware required by RoboFlock.
 - :doc:`HC-12 Wireless Serial Port Module <hc_12>`
 
 - :doc:`MAX17048 Fuel Gauge and Battery Monitor <max_17048>`
+
+- :doc:`ODESC V4.2 Brushless Servo Motor Controller <odesc_v4_2>`
+
+- :doc:`Brushless DC Planetary Geared Motor <motors>`
+
+- :doc:`25.2V Lithium Ion Battery <motor_battery>`
 
 
 .. toctree::
@@ -37,3 +42,6 @@ Brief descriptions and use-cases of the hardware required by RoboFlock.
     zed_f9p
     hc_12
     max_17048
+    odesc_v4_2
+    motors
+    motor_battery

@@ -92,6 +92,9 @@
 <li class="toctree-l2"><a class="reference internal" href="hardware_docs/zed_f9p.html">ZED-F9P-02B GNSS/GPS Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hardware_docs/hc_12.html">HC-12 Wireless Serial Port Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hardware_docs/max_17048.html">MAX17048 Fuel Gauge and Battery Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware_docs/odesc_v4_2.html">ODESC V4.2 Brushless Servo Motor Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware_docs/motors.html">Brushless DC Planetary Geared Motor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware_docs/motor_battery.html">25.2V Lithium Ion Battery</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="construction_docs/construction.html">Construction</a><ul>
@@ -149,12 +152,45 @@
   <section id="future-considerations">
 <h1>Future Considerations<a class="headerlink" href="#future-considerations" title="Link to this heading"></a></h1>
 <p>Lighter build</p>
+<ul class="simple">
+<li><p>Current build weighs ~60lbs, largely from motors</p></li>
+</ul>
 <p>Return home functionality</p>
-<p>Replace NEO with ZED</p>
-<p>Location broadcasting</p>
-<p>L5 GPS</p>
-<p>4D LiDAR</p>
+<ul class="simple">
+<li><p>Use meshtastic system to send goalpose to robot</p></li>
+</ul>
+<p>Battery life / monitor</p>
+<ul class="simple">
+<li><p>Look into different types of batteries to prioritize capacity</p></li>
+<li><p>Motors last 30 minutes at maximum speed</p></li>
+<li><p>Find safer alternative to LiPo</p></li>
+<li><p>Implement fuel guage</p></li>
+</ul>
+<p>Upgrade GPS capabilities</p>
+<ul class="simple">
+<li><p>Upgrade NEO to ZED</p></li>
+<li><p>Invest in L5 GPS</p></li>
+<li><p>Work on RTK</p></li>
+</ul>
+<p>Upgrade sensors</p>
+<ul class="simple">
+<li><p>4D LiDAR</p></li>
+<li><p>Camera (computer vision)</p></li>
+<li><p>Upgrade / remove ultrasonic sensors</p></li>
+<li><p>Consider multiple IMUs for redundancy</p></li>
+<li><p>Motor encoders (already have, but need to be configured / fully implemented with ROS2)</p></li>
+</ul>
 <p>Nvidia (ISAAC) ROS 2 Projects</p>
+<ul class="simple">
+<li><p>Currently not using any of the Jetson’s AI processing capabilities</p></li>
+<li><p>Computer vision, user identification, remote access, etc.</p></li>
+</ul>
+<p>Error handling / user-friendly debugging</p>
+<ul class="simple">
+<li><p>Parse logs from different nodes so not printing all at once</p></li>
+<li><p>Process errors behind-the-scenes and only show user the diagnostic summary</p></li>
+<li><p>Stop, handle, &amp; restart ROS2 (or some other solution) when there is a fatal error</p></li>
+</ul>
 </section>
 
 
