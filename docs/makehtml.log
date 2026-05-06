@@ -145,15 +145,15 @@ dumping search index in English (code: en)... done
 dumping object inventory... done
 
 ====================== total reading duration ==========================
-Total time reading 48 files: 0m 0.200s
+Total time reading 48 files: 0m 0.193s
 
 
 ====================== slowest reading durations =======================
-0.014s construction_docs/hardware_catalog
-0.012s codebase_docs/ultrasonic_code
+0.013s construction_docs/hardware_catalog
+0.011s codebase_docs/ultrasonic_code
 0.011s citation_docs/mathref_docs/quaternions
+0.009s citation_docs/additional_info
 0.008s concepts_docs/ros2
-0.008s hardware_docs/jetson_devkit
 
 build succeeded.
 

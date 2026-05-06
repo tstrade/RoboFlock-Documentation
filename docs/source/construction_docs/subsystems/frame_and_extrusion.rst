@@ -20,7 +20,7 @@ the rail stands 80 mm tall.
 
 Each rail provides two structural functions:
 
-- **Inner rail** (the face pointing toward the centerline of the robot) - the rocker body bracket for
+- **Inner rail** (the face pointing toward the centerline of the robot) - the rocker beam bracket for
   that side clamps around this rail, anchored with 4 bolts (2 into the top
   T-slot, 2 into the bottom). This provides the mounting interface for the printed main chassis
   frame, which sits between both extrusions
@@ -85,7 +85,7 @@ Vertical load travels:
         12 mm pivot hubs
               │
               ▼
-      Rocker body brackets
+      Rocker beam brackets
               │
               ▼
          4080 extrusions

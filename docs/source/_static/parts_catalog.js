@@ -19,6 +19,13 @@
  *   spec, qty, supplier, supplierPN, supplierUrl, cost
  *   components: [ "string", ... ]
  *   notes, cost
+ *
+ * File naming convention: RV1-XXX-NNN_Part_Name.{ext}
+ *   - Part number prefix uses hyphens, part name uses underscores
+ *   - Part name comes from Title 1 of the technical drawing
+ *   - .f3d  -> ../mechanical/fusion/
+ *   - .stl  -> ../mechanical/meshes/
+ *   - .pdf  -> ../mechanical/drawings/
  * ========================================================================= */
 
 (function () {
@@ -29,22 +36,26 @@
   const PARTS = [
     {
       id: "RV1-CHS-001",
-      name: "Main Chassis Frame",
+      name: "Chassis Frame",
       type: "Printed",
       assembly: "Chassis",
       status: "Active",
       version: "v1.0",
       designer: "Andrew Collado",
-      date: "2026-02-18",
-      material: "ABS",
+      date: "2026-05-06",
+      material: "PETG-CF",
       orientation: "Flat on bed",
-      infill: "40%",
-      layer: "0.2 mm",
-      files: { f3d: "", stl: "", drawing: "" },
+      infill: "58% Gyroid",
+      layer: "0.3 mm",
+      files: {
+        f3d: "../mechanical/fusion/RV1-CHS-001_Frame.f3d",
+        stl: "../mechanical/meshes/RV1-CHS-001_Frame.stl",
+        drawing: "../mechanical/drawings/RV1-CHS-001_Frame.pdf"
+      },
       hardware: [
         { qty: 4, hwid: "INS-M6-BRASS-HEATSET", desc: "M6 brass heat-set insert", ext: 1.80 }
       ],
-      notes: "Primary 3D-printed structural frame. L-shaped ears each carry a pressed bearing that supports the lateral pivot rod for that side's suspension. Battery compartment screws to the underside; hull screws to the top.",
+      notes: "Primary 3D-printed structural frame. L-shaped ears each carry a pressed bearing that supports the lateral pivot rod for that side's suspension. Battery compartment (RV1-HUL-003) screws to the underside; main hull (RV1-HUL-001) screws to the top.",
       cost: 1.80
     },
     {
@@ -59,22 +70,26 @@
       supplierPN: null,
       supplierUrl: null,
       cost: null,
-      notes: "One per side. Mounted with the 40 mm face down (80 mm tall). Inner rail receives the two motor brackets (3 bolts each). Outer rail receives the rocker body bracket (4 bolts: 2 top, 2 bottom)."
+      notes: "One per side. Mounted with the 40 mm face down (80 mm tall). Inner rail receives the two motor brackets (3 bolts each). Outer rail receives the rocker beam bracket (4 bolts: 2 top, 2 bottom)."
     },
     {
       id: "RV1-DRV-BKT-001",
       name: "Motor Bracket",
       type: "Printed",
       assembly: "Drive System",
-      status: "Draft",
+      status: "Active",
       version: "v1.0",
       designer: "Andrew Collado",
-      date: "2026-02-18",
-      material: "ABS",
-      orientation: null,
-      infill: null,
-      layer: null,
-      files: { f3d: "", stl: null, drawing: null },
+      date: "2026-05-06",
+      material: "PA6-CF",
+      orientation: "Sideways",
+      infill: "100%",
+      layer: "0.3",
+      files: {
+        f3d: "../mechanical/fusion/RV1-DRV-BKT-001_Motor_Bracket.f3d",
+        stl: "../mechanical/meshes/RV1-DRV-BKT-001_Motor_Bracket.stl",
+        drawing: "../mechanical/drawings/RV1-DRV-BKT-001_Motor_Bracket.pdf"
+      },
       hardware: [
         { qty: 3, hwid: null, desc: "M8 cap screw + T-nut \u2014 inner-rail mount to extrusion", ext: null },
         { qty: 1, hwid: null, desc: "Radial ball bearing, press-fit (motor shaft support)", ext: null },
@@ -95,22 +110,26 @@
       supplierPN: null,
       supplierUrl: null,
       cost: null,
-      notes: "One per drive corner. Clamps onto the keyed motor shaft on one side and bolts to the wheel drive adapter on the other."
+      notes: "One per drive corner. Clamps onto the keyed motor shaft on one side and bolts to the wheel hub adapter on the other."
     },
     {
       id: "RV1-WHL-001",
-      name: "Wheel Drive Adapter",
+      name: "Wheel Hub Adapter",
       type: "Printed",
       assembly: "Wheels",
-      status: "Draft",
+      status: "Active",
       version: "v1.0",
       designer: "Andrew Collado",
-      date: "2026-02-18",
-      material: null,
-      orientation: null,
-      infill: null,
-      layer: null,
-      files: { f3d: "", stl: null, drawing: null },
+      date: "2026-05-06",
+      material: "PA6-CF",
+      orientation: "Flat on Bed - Larger Diameter Side",
+      infill: "100%",
+      layer: "0.3",
+      files: {
+        f3d: "../mechanical/fusion/RV1-WHL-001_Wheel_Hub_Adapter.f3d",
+        stl: "../mechanical/meshes/RV1-WHL-001_Wheel_Hub_Adapter.stl",
+        drawing: "../mechanical/drawings/RV1-WHL-001_Wheel_Hub_Adapter.pdf"
+      },
       hardware: [
         { qty: "?", hwid: null, desc: "Adapter-to-coupling fasteners", ext: null },
         { qty: "?", hwid: null, desc: "Adapter-to-wheel fasteners (matches pneumatic wheel hub pattern)", ext: null }
@@ -127,11 +146,15 @@
       version: "v1.0",
       designer: "Andrew Collado",
       date: "2026-02-18",
-      material: "ABS",
-      orientation: null,
-      infill: null,
-      layer: null,
-      files: { f3d: "../mechanical/fusion/Differential_Arm.f3d", stl: "../mechanical/meshes/Differential_Arm.stl", drawing: "../mechanical/drawings/Differential_Arm.pdf" },
+      material: "PA6-CF",
+      orientation: "Flat on Bed",
+      infill: "100%",
+      layer: "0.3",
+      files: {
+        f3d: "../mechanical/fusion/RV1-SUS-001_Rocker_Differential_Arm.f3d",
+        stl: "../mechanical/meshes/RV1-SUS-001_Rocker_Differential_Arm.stl",
+        drawing: "../mechanical/drawings/RV1-SUS-001_Rocker_Differential_Arm.pdf"
+      },
       hardware: [
         { qty: 1, hwid: null, desc: "Shoulder bolt \u2014 vertical pivot into front of main frame", ext: null },
         { qty: 2, hwid: null, desc: "Ball-joint rod end \u2014 left and right pushrod terminations (upward-facing)", ext: null }
@@ -152,23 +175,27 @@
         "Ball-joint rod end \u00d7 2 (one vertical-axis end, one 90\u00b0 side-facing end)",
         "Jam nuts \u00d7 2"
       ],
-      notes: "One assembly per side. Couples the side-facing ball-joint mount on the rocker body bracket to the upward-facing mount on the rocker differential arm. Length is set on assembly to define static ride height.",
+      notes: "One assembly per side. Couples the side-facing ball-joint mount on the rocker beam bracket to the upward-facing mount on the rocker differential arm. Length is set on assembly to define static ride height.",
       cost: null
     },
     {
       id: "RV1-SUS-RBR-001",
-      name: "Rocker Body Bracket",
+      name: "Rocker Beam Bracket",
       type: "Printed",
       assembly: "Suspension",
-      status: "Draft",
+      status: "Active",
       version: "v1.0",
       designer: "Andrew Collado",
-      date: "2026-02-18",
-      material: "ABS",
-      orientation: null,
-      infill: null,
-      layer: null,
-      files: { f3d: "", stl: null, drawing: null },
+      date: "2026-05-06",
+      material: "PETG-CF",
+      orientation: "Flat on bed",
+      infill: "58% Gyroid",
+      layer: "0.3 mm",
+      files: {
+        f3d: "../mechanical/fusion/RV1-SUS-RBR-001_Rocker_Beam_Bracket.f3d",
+        stl: "../mechanical/meshes/RV1-SUS-RBR-001_Rocker_Beam_Bracket.stl",
+        drawing: "../mechanical/drawings/RV1-SUS-RBR-001_Rocker_Beam_Bracket.pdf"
+      },
       hardware: [
         { qty: 4, hwid: null, desc: "M? cap screw + T-nut \u2014 2 top rail, 2 bottom rail (extrusion clamp)", ext: null },
         { qty: 4, hwid: null, desc: "M4 SHCS \u2014 bracket-to-hub", ext: null },
@@ -189,63 +216,163 @@
       supplierPN: null,
       supplierUrl: null,
       cost: null,
-      notes: "One per side. Bolts to the rocker body bracket via 4\u00d7 M4. Carries the inboard hollow rod stub that meets the centerline pivot."
+      notes: "One per side. Bolts to the rocker beam bracket via 4\u00d7 M4. Carries the inboard hollow rod stub that meets the centerline pivot."
     },
     {
       id: "RV1-HUL-001",
-      name: "Robot Main Hull",
+      name: "Main Hull",
       type: "Printed",
       assembly: "Hull/Body",
-      status: "Draft",
+      status: "Active",
       version: "v1.0",
       designer: "Andrew Collado",
-      date: "2026-02-18",
+      date: "2026-05-06",
       material: "ABS",
-      orientation: "Flat on bed",
-      infill: null,
-      layer: null,
-      files: { f3d: "", stl: null, drawing: null },
+      orientation: "Flat on Bed",
+      infill: "15% Grid",
+      layer: "0.2mm",
+      files: {
+        f3d: "../mechanical/fusion/RV1-HUL-001_Main_Hull.f3d",
+        stl: "../mechanical/meshes/RV1-HUL-001_Main_Hull.stl",
+        drawing: "../mechanical/drawings/RV1-HUL-001_Main_Hull.pdf"
+      },
       hardware: [],
-      notes: "Hull body bolted to the top of the main chassis frame. Houses the Jetson, motor drivers, and cable runs from the battery compartment.",
+      notes: "Hull body bolted to the top of the main chassis frame. Houses the Jetson, motor drivers, and cable runs from the lower compartment.",
       cost: 0
     },
     {
       id: "RV1-HUL-002",
-      name: "Robot Hull Top",
+      name: "Hull Top",
       type: "Printed",
       assembly: "Hull/Body",
-      status: "Draft",
+      status: "Active",
       version: "v1.0",
       designer: "Andrew Collado",
-      date: "2026-02-18",
-      material: "ABS",
-      orientation: "Flat on bed",
-      infill: null,
-      layer: null,
-      files: { f3d: "", stl: null, drawing: null },
+      date: "2026-05-06",
+      material: "PETG",
+      orientation: "Sideways - Short Edge",
+      infill: "15% Grid",
+      layer: "0.2mm",
+      files: {
+        f3d: "../mechanical/fusion/RV1-HUL-002_Hull_Top.f3z",
+        stl: "../mechanical/meshes/RV1-HUL-002_Hull_Top.stl",
+        drawing: "../mechanical/drawings/RV1-HUL-002_Hull_Top.pdf"
+      },
       hardware: [],
-      notes: "Latching top cover of the hull. Twisting slot retains the LiDAR; flat base plate behind it carries the GPS antenna ground plane.",
+      notes: "Latching top cover of the main hull. Forward twist-lock slot retains the Lidar holder (RV1-ELE-BKT-001); flat region behind it carries the GPS base plate mount (RV1-ELE-BKT-003).",
+      cost: 0
+    },
+    {
+      id: "RV1-HUL-003",
+      name: "Lower Compartment Body",
+      type: "Printed",
+      assembly: "Hull/Body",
+      status: "Active",
+      version: "v1.0",
+      designer: "Andrew Collado",
+      date: "2026-05-06",
+      material: "PLA",
+      orientation: "Flat on Bed",
+      infill: "15% Grid",
+      layer: "0.2mm",
+      files: {
+        f3d: "../mechanical/fusion/RV1-HUL-003_Lower_Compartment_Body.f3z",
+        stl: "../mechanical/meshes/RV1-HUL-003_Lower_Compartment_Body.stl",
+        drawing: "../mechanical/drawings/RV1-HUL-003_Lower_Compartment_Body.pdf"
+      },
+      hardware: [],
+      notes: "Lower compartment beneath the main chassis frame. Houses the LiPo battery, bus-bar wiring, and main switch. Cover (RV1-HUL-004) latches into it; motor leads pass through dedicated holes up into the main hull.",
+      cost: 0
+    },
+    {
+      id: "RV1-HUL-004",
+      name: "Lower Compartment Cover",
+      type: "Printed",
+      assembly: "Hull/Body",
+      status: "Active",
+      version: "v1.0",
+      designer: "Andrew Collado",
+      date: "2026-05-06",
+      material: "PLA",
+      orientation: "Flat on Bed",
+      infill: "15% Grid",
+      layer: "0.2mm",
+      files: {
+        f3d: "../mechanical/fusion/RV1-HUL-004_Lower_Compartment_Cover.f3z",
+        stl: "../mechanical/meshes/RV1-HUL-004_Lower_Compartment_Cover.stl",
+        drawing: "../mechanical/drawings/RV1-HUL-004_Lower_Compartment_Cover.pdf"
+      },
+      hardware: [],
+      notes: "Removable cover for the lower compartment (RV1-HUL-003). Provides battery access for charging and swap-out without disturbing the rest of the robot.",
       cost: 0
     },
     {
       id: "RV1-ELE-BKT-001",
-      name: "LiDAR Mounting Bracket",
+      name: "Lidar Holder",
       type: "Printed",
       assembly: "Electronics",
-      status: "Draft",
+      status: "Active",
       version: "v1.0",
       designer: "Andrew Collado",
-      date: "2026-02-18",
+      date: "2026-05-06",
       material: "ABS",
-      orientation: "Flat on bed",
-      infill: null,
-      layer: null,
-      files: { f3d: "", stl: null, drawing: null },
+      orientation: "Sideways - Long Edge",
+      infill: "15% Gyroid",
+      layer: "0.2mm",
+      files: {
+        f3d: "../mechanical/fusion/RV1-ELE-BKT-001_Lidar_Holder.f3d",
+        stl: "../mechanical/meshes/RV1-ELE-BKT-001_Lidar_Holder.stl",
+        drawing: "../mechanical/drawings/RV1-ELE-BKT-001_Lidar_Holder.pdf"
+      },
       hardware: [
         { qty: 4, hwid: "INS-M2.5-BRASS-HEATSET", desc: "M2.5 brass heat-set insert", ext: 1.80 }
       ],
-      notes: "Mates the LiDAR to the hull-top twisting slot.",
+      notes: "Mates the Lidar to the hull-top twist-lock slot.",
       cost: 1.80
+    },
+    {
+      id: "RV1-ELE-BKT-002",
+      name: "Ultrasonic Sensor Mount",
+      type: "Printed",
+      assembly: "Electronics",
+      status: "Active",
+      version: "v1.0",
+      designer: "Andrew Collado",
+      date: "2026-05-06",
+      material: "ABS",
+      orientation: "Sideways - Short Edge",
+      infill: "10% Gyroid",
+      layer: "0.2mm",
+      files: {
+        f3d: "../mechanical/fusion/RV1-ELE-BKT-002_Ultrasonic_Sensor_Mount.f3d",
+        stl: "../mechanical/meshes/RV1-ELE-BKT-002_Ultrasonic_Sensor_Mount.stl",
+        drawing: "../mechanical/drawings/RV1-ELE-BKT-002_Ultrasonic_Sensor_Mount.pdf"
+      },
+      hardware: [],
+      notes: "Mount for an LVMAX ultrasonic sensor (\u00d817 mm sensor through-hole). Quantity per robot pending confirmation \u2014 sensor layout uses three sensors total (forward, port, starboard).",
+      cost: 0
+    },
+    {
+      id: "RV1-ELE-BKT-003",
+      name: "GPS Base Plate Mount",
+      type: "Printed",
+      assembly: "Electronics",
+      status: "Active",
+      version: "v1.0",
+      designer: "Andrew Collado",
+      date: "2026-05-06",
+      material: "ABS",
+      orientation: "Flat on Bed",
+      infill: "15% Gyroid",
+      layer: "0.2mm",
+      files: {
+        f3d: "../mechanical/fusion/RV1-ELE-BKT-003_GPS_Base_Plate_Mount.f3d",
+        stl: "../mechanical/meshes/RV1-ELE-BKT-003_GPS_Base_Plate_Mount.stl",
+        drawing: "../mechanical/drawings/RV1-ELE-BKT-003_GPS_Base_Plate_Mount.pdf"
+      },
+      hardware: [],
+      notes: "Mounts the GPS antenna ground plane to the hull top, immediately behind the Lidar holder. The 120 \u00d7 120 mm footprint provides the ground plane required by the patch antenna.",
+      cost: 0
     }
   ];
 

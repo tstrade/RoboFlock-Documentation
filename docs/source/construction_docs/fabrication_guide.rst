@@ -60,10 +60,10 @@ For each side (build both):
 #. Slide the T-nuts into the **lower** rail T-slot for both motor bracket
    positions. Tighten two of the drive corner assemblies (3 bolts each) to the
    lower rail. Confirm both wheels are oriented the same direction.
-#. Bolt the 12 mm pivot hub (``RV1-SUS-HUB-001``) to the rocker body bracket
+#. Bolt the 12 mm pivot hub (``RV1-SUS-HUB-001``) to the rocker beam bracket
    using 4× M4 Socket Head Cap Screws. The hollow rod stub on the hub should point **inboard**
    (toward the centerline of the robot).
-#. Slide the rocker body bracket (``RV1-SUS-RBR-001``) onto the **outer**
+#. Slide the rocker beam bracket (``RV1-SUS-RBR-001``) onto the **outer**
    rail. Anchor it with 4 bolts (2 into the top T-slot, 2 into the bottom).
 
 Both side-rail subassemblies are now complete and stand on their own wheels.
@@ -103,14 +103,14 @@ Stage 4 - Differential Coupling
 
    - Thread a ball-joint rod end onto each end of a length of threaded rod.
    - One rod end orients vertically (for the differential arm); the other
-     orients horizontally (for the rocker body bracket).
+     orients horizontally (for the rocker beam bracket).
    - Set both rods to the same starting length per the CAD reference.
 
 #. With the robot on a flat surface and both sides level, attach each
    pushrod:
 
    - **Vertical end** → mount on the rocker differential arm
-   - **Side-facing end** → mount on the rocker body bracket
+   - **Side-facing end** → mount on the rocker beam bracket
 
 #. Verify anti-symmetric travel: lift one side; the other should drop by
    the same amount through the action of the differential arm. If travel is

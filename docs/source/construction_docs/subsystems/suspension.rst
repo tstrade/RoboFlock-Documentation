@@ -35,8 +35,8 @@ The pivot axis is built from two nested mechanical interfaces:
    acts as a sliding plain bearing between the two halves and locks the
    pivot axes of the two sides into a single shared line.
 
-Each pivot hub bolts to a printed rocker body bracket
-(``RV1-SUS-RBR-001``) via 4× M4 SHCS. The rocker body bracket itself slides
+Each pivot hub bolts to a printed rocker beam bracket
+(``RV1-SUS-RBR-001``) via 4× M4 SHCS. The rocker beam bracket itself slides
 onto the 4080 extrusion and clamps with 4 bolts (2 into the top T-slot, 2
 into the bottom).
 
@@ -61,7 +61,7 @@ ball-joint rod end at each tip:
 
 - The **upward-facing** rod end attaches to the differential arm.
 - The **side-facing** rod end (90° rotated) attaches to a mount on the side's
-  rocker body bracket.
+  rocker beam bracket.
 
 Geometry is mirror-symmetric across the centerline. As one side pivots
 upward, its pushrod rotates the differential arm in one direction; the
@@ -87,7 +87,7 @@ Articulation Limits
 
 The mechanical articulation envelope is bounded by:
 
-- The clearance between the rocker body bracket and the frame ears as the
+- The clearance between the rocker beam bracket and the frame ears as the
   side pivots upward (the upper hard stop)
 - The angle at which the ball joints reach the end of their rotational
   travel (the geometric stop on either side)
