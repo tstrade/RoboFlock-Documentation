@@ -373,7 +373,63 @@
       hardware: [],
       notes: "Mounts the GPS antenna ground plane to the hull top, immediately behind the Lidar holder. The 120 \u00d7 120 mm footprint provides the ground plane required by the patch antenna.",
       cost: 0
-    }
+    },
+    {
+      id: "INS-M6-BRASS-HEATSET",
+      name: "M6 Brass Heat Insert",
+      type: "Stock",
+      assembly: "Chassis",
+      status: "Active",
+      spec: "",
+      qty: 8,
+      supplier: null,
+      supplierPN: null,
+      supplierUrl: null,
+      cost: null,
+      notes: ""
+    },
+    {
+      id: "BEARING-6001ZZ",
+      name: "6001ZZ Deep Groove Ball Bearing",
+      type: "Stock",
+      assembly: "Chassis",
+      status: "Active",
+      spec: "12x28x8mm Pre-Lubricated",
+      qty: 2,
+      supplier: "XIKE",
+      supplierPN: "6001ZZ",
+      supplierUrl: "https://www.amazon.com/dp/B07S9MHMM8",
+      cost: 4.49,
+      notes: "Link contains 2 pack. Cost is per unit"
+    },
+    {
+      id: "ROD-LINEAR-300MM",
+      name: "Linear Motion Rod",
+      type: "Stock",
+      assembly: "Chassis",
+      status: "Active",
+      spec: "10mm OD - 300mm Length",
+      qty: 1,
+      supplier: "Vigorous",
+      supplierPN: "23030011",
+      supplierUrl: "https://www.amazon.com/dp/B0BZQ7T7JJ",
+      cost: 5.99,
+      notes: "Link contains 2 pack. Cost is per unit"
+    },
+    {
+      id: "ROD-HOLLOW-LINEAR-150MM",
+      name: "Hollow Linear Rod",
+      type: "Stock",
+      assembly: "Chassis",
+      status: "Active",
+      spec: "12mm OD - 10mm ID - 150mm Length",
+      qty: 2,
+      supplier: "Eowpower",
+      supplierPN: null,
+      supplierUrl: "https://www.amazon.com/dp/B0C3CYHKGX",
+      cost: 2.59,
+      notes: "Link contains 5 pack. Cost is per unit. Tubing is 300mm long. Must be cut into halves of 150mm each"
+    },
   ];
 
   /* ---------- STYLES ------------------------------------------------------- */
