@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Meshtastic Configuration &mdash; RoboFlock 1.1 documentation</title>
+  <title>beacon_pkg &mdash; RoboFlock 1.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -28,8 +28,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="GPS Visualization Setup" href="visuals_setup.html" />
-    <link rel="prev" title="GPS Module Configuration" href="gps_config.html" /> 
+    <link rel="next" title="Hardware Components" href="../hardware_docs/hardware.html" />
+    <link rel="prev" title="ultrasonic_pkg" href="ultrasonic_code.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -53,14 +53,14 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="getting_started.html">Getting Started</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="jetson_config.html">Setting up the Nvidia Jetson Orin Nano</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install_guide.html">Installation Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gps_config.html">GPS Module Configuration</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Meshtastic Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="visuals_setup.html">GPS Visualization Setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="odesc.html">ODESC V4.2 Motor Configuration and Setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="manage_usb.html">Managing USB Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started_docs/getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started_docs/jetson_config.html">Setting up the Nvidia Jetson Orin Nano</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started_docs/install_guide.html">Installation Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started_docs/gps_config.html">GPS Module Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started_docs/meshtastic_config.html">Meshtastic Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started_docs/visuals_setup.html">GPS Visualization Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started_docs/odesc.html">ODESC V4.2 Motor Configuration and Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started_docs/manage_usb.html">Managing USB Devices</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts_docs/concepts.html">Concepts</a><ul>
@@ -79,9 +79,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/debugging/debug.html">Troubleshooting and Debugging</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../codebase_docs/codebase.html">RoboFlock Codebase</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../codebase_docs/ultrasonic_code.html"><code class="code docutils literal notranslate"><span class="pre">ultrasonic_pkg</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../codebase_docs/beacon_code.html"><code class="code docutils literal notranslate"><span class="pre">beacon_pkg</span></code></a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="codebase.html">RoboFlock Codebase</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ultrasonic_code.html"><code class="code docutils literal notranslate"><span class="pre">ultrasonic_pkg</span></code></a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#"><code class="code docutils literal notranslate"><span class="pre">beacon_pkg</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware_docs/hardware.html">Hardware Components</a><ul>
@@ -138,108 +138,91 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="getting_started.html">Getting Started</a></li>
-      <li class="breadcrumb-item active">Meshtastic Configuration</li>
+          <li class="breadcrumb-item"><a href="codebase.html">RoboFlock Codebase</a></li>
+      <li class="breadcrumb-item active"><code class="code docutils literal notranslate"><span class="pre">beacon_pkg</span></code></li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/getting_started_docs/meshtastic_config.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/codebase_docs/beacon_code.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
-        <a href="gps_config.html" class="btn btn-neutral float-left" title="GPS Module Configuration" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="visuals_setup.html" class="btn btn-neutral float-right" title="GPS Visualization Setup" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="ultrasonic_code.html" class="btn btn-neutral float-left" title="ultrasonic_pkg" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../hardware_docs/hardware.html" class="btn btn-neutral float-right" title="Hardware Components" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="meshtastic-configuration">
-<h1>Meshtastic Configuration<a class="headerlink" href="#meshtastic-configuration" title="Link to this heading"></a></h1>
-<p>RoboFlock uses three distinct Meshtastic devices: one for the beacon, one for the robot, and one for a Windows tablet.</p>
-<section id="beacon">
-<h2>Beacon<a class="headerlink" href="#beacon" title="Link to this heading"></a></h2>
-<details class="admonition-current-configured-device-info admonition" open="open">
-<summary class="admonition-title">Current Configured Device Info:</summary>
-<p>Name = d700 <span class="raw-html"><br /></span>
-Node # = 1819531008 <span class="raw-html"><br /></span>
-User ID = !6c73d700 <span class="raw-html"><br /></span></p>
-</details>
-<p>1. Download the Meshtastic App on your phone from it’s native app marketplace.
-<span class="raw-html"><br /></span></p>
-<p>2. Make sure your phone’s bluetooth is on, then open the Meshtastic app and click “Connect”.
-<span class="raw-html"><br /></span></p>
-<p>3. In the “Available Radios” section, select the radio labeled “d700” (the device name).
-<span class="raw-html"><br /></span></p>
-<p>4. Click on the “Settings” button, then the “Channels” option. From here, select “Add Channel”.
-<span class="raw-html"><br /></span></p>
-<p>5. In the “Channel Details” page, name the channel “from Jetson” and assign it a “Key Size” of 128 bits.
-<span class="raw-html"><br /></span></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Copy the generated key from the “Key” value and save it to use for later setup of other devices.</p>
+  <section id="beacon-pkg">
+<h1><code class="code docutils literal notranslate"><span class="pre">beacon_pkg</span></code><a class="headerlink" href="#beacon-pkg" title="Link to this heading"></a></h1>
+<p>This package creates a ROS2 node called <code class="code docutils literal notranslate"><span class="pre">BeaconGoalPose</span></code> that converts incoming GPS coordinates to a target coordinate, or waypoint, for the robot. The node subscribes to a stream of NMEA GGA messages from the beacon and extracts the latitude, longitude, and altitude from each message. These three values are then translated to the <code class="code docutils literal notranslate"><span class="pre">global</span></code> frame and published as a <code class="code docutils literal notranslate"><span class="pre">PoseStamped</span></code> message to the <code class="code docutils literal notranslate"><span class="pre">/goal_pose</span></code> topic.</p>
+<p>The three main files for the package are:</p>
+<ul>
+<li><p><code class="code docutils literal notranslate"><span class="pre">beacon_goalpose.cpp</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Subscribes to the topic the data is coming in</p></li>
+<li><p>Converts to latitude/longitude to UTM</p></li>
+<li><p>Publishes converted to a <code class="code docutils literal notranslate"><span class="pre">PoseStamped</span></code> message</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">beacon_goalpose.launch.py</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Launches <code class="code docutils literal notranslate"><span class="pre">beacon_pkg</span></code> with defined default parameters</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">beacon_receiver.launch.py</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Remaps the beacon’s publication topic to <code class="code docutils literal notranslate"><span class="pre">/gps/beacon/fix</span></code></p></li>
+<li><p>Launches <code class="code docutils literal notranslate"><span class="pre">nmea_navsat_driver</span></code> with defined default parameters</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<section id="system-design">
+<h2>System Design<a class="headerlink" href="#system-design" title="Link to this heading"></a></h2>
+<p>The GPS beacon transmits NMEA GGA sentences that contain latitude and longitude coordinates through the HC-12 connection. The resulting sentences will be automatically read on the <code class="code docutils literal notranslate"><span class="pre">/fix</span></code> topic, so to avoid data conflicts between the robot and beacon, they are remapped to publish to with <code class="code docutils literal notranslate"><span class="pre">/gps/robot/fix</span></code> and <code class="code docutils literal notranslate"><span class="pre">/gps/beacon/fix</span></code>, respectively.</p>
+<p>Since Nav2 uses Cartesian map coordinates (x,y), this node convert the geographic coordinates into local map coordinates relative to a fixed origin using the <code class="code docutils literal notranslate"><span class="pre">geodesy</span></code> package (see the <a class="reference external" href="https://github.com/ros-geographic-info/geographic_info" rel="noreferrer" target="_blank">geographic_info GitHub repository</a>). The Cartesion coordinates are then published to the /goal_pose topic used for waypoint following.</p>
+</section>
+<section id="high-level-data-flow">
+<h2>High-Level Data Flow<a class="headerlink" href="#high-level-data-flow" title="Link to this heading"></a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>GPS Beacon
+    │
+    ▼
+nmea_serial_driver
+    │
+    ▼
+/gps/beacon/fix   (NavSatFix message)
+    │
+    ▼
+BeaconGoalPose Node
+    │
+    ▼
+Convert Lat/Lon → UTM
+    │
+    ▼
+Compute Local X/Y Relative to Origin
+    │
+    ▼
+/goal_pose        (PoseStamped message)
+    │
+    ▼
+Nav2 Navigation Stack
+</pre></div>
 </div>
-<p>6. Set the “Channel Role” to “Secondary”.
-<span class="raw-html"><br /></span></p>
-<p>7. Under the “Position” section, turn off “Allow Position Requests”.
-<span class="raw-html"><br /></span></p>
-<p>8. Under the “MQTT” section, turn off “Uplink Enabled” and “Downlink Enabled”. Click save at the bottom of the page.
-<span class="raw-html"><br /></span></p>
-<p>9. Repeat Steps 4 - 8 to create a channel named “from Tom” and another channel named “gps Coords”. Click save at the bottom of the page.
-<span class="raw-html"><br /></span></p>
-<p>10. Click on the “Settings” button again and then the “Bluetooth” option.
-<span class="raw-html"><br /></span></p>
-<p>11. Under the “Options” section, click the “Enabled” button. Click save at the bottom of the page.
-<span class="raw-html"><br /></span></p>
-<p>12. Click on the “Settings” button again and then the “Device Config” option.
-<span class="raw-html"><br /></span></p>
-<p>13. Set “Device Role” to “Client Mute”, “Rebroadcast Mode” to “Local Only”, and “Node Info Broadcast Interval” to “Three Hours”. Click save at the bottom of the page.
-<span class="raw-html"><br /></span></p>
-<p>14. Click on the “Settings” button again and then the “Position Config” option.
-<span class="raw-html"><br /></span></p>
-<p>15. Set “Broadcast Interval” to “Never” and turn off “Smart Position”. Under the “Device GPS” section, set to “Disabled” and turn off “Fixed Position”. Click save at the bottom of the page.
-<span class="raw-html"><br /></span></p>
-<p>16. Click on the “Settings” button again and then the “LoRa Config” option.
-<span class="raw-html"><br /></span></p>
-<p>17. Set “Region” to “United States” and turn on “Use Preset”. Under the “Presets” section, select “Long Range - Fast”. Under “Advanced” turn on “Ignore MQTT”, “Transmit Enabled”, and “RX Boosted Gain”, turn off “Ok to MQTT”, and set “Number of hops” to 3. Click save at the bottom of the page.
-<span class="raw-html"><br /></span></p>
 </section>
-<section id="robot">
-<h2>Robot<a class="headerlink" href="#robot" title="Link to this heading"></a></h2>
-<details class="admonition-current-configured-device-info admonition" open="open">
-<summary class="admonition-title">Current Configured Device Info:</summary>
-<p>Name = 3480 <span class="raw-html"><br /></span>
-Node # = 1819554944 <span class="raw-html"><br /></span>
-User ID = !6c743480 <span class="raw-html"><br /></span></p>
-</details>
-<p>1. Make sure your phone’s bluetooth is on, then open the Meshtastic app and click “Connect”.
-<span class="raw-html"><br /></span></p>
-<p>2. In the “Available Radios” section, select the radio labeled “3480” (the device name).
-<span class="raw-html"><br /></span></p>
-<p>3. Click on the “Settings” button, then the “Channels” option. From here, select “Add Channel”.
-<span class="raw-html"><br /></span></p>
-<p>4. In the “Channel Details” page, name the channel “from Jetson” and assign it a “Key Size” of 128 bits. Use the generated key from the Beacon’s Meshtastic setup as the key for this channel.
-<span class="raw-html"><br /></span></p>
-<p>5. Follow Steps 6 - 17 from the Beacon’s Meshtastic setup, except with “Device Role” set to “Client” instead of “Client Mute”.
-<span class="raw-html"><br /></span></p>
-</section>
-<section id="tablet">
-<h2>Tablet<a class="headerlink" href="#tablet" title="Link to this heading"></a></h2>
-<details class="admonition note" open="open">
-<summary class="admonition-title">Note</summary>
-<p>Current Configured Device Info:</p>
-<p>Name = e074 <span class="raw-html"><br /></span>
-Node # = 3145785460 <span class="raw-html"><br /></span>
-User ID = !bb80e074 <span class="raw-html"><br /></span></p>
-</details>
-<p>1. Make sure your phone’s bluetooth is on, then open the Meshtastic app and click “Connect”.
-<span class="raw-html"><br /></span></p>
-<p>2. In the “Available Radios” section, select the radio labeled “e074” (the device name).
-<span class="raw-html"><br /></span></p>
-<p>3. Click on the “Settings” button, then the “Channels” option. From here, select “Add Channel”.
-<span class="raw-html"><br /></span></p>
-<p>4. In the “Channel Details” page, name the channel “from Jetson” and assign it a “Key Size” of 128 bits. Use the generated key from the Beacon’s Meshtastic setup as the key for this channel.
-<span class="raw-html"><br /></span></p>
-<p>5. Follow Steps 6 - 17 from the Beacon’s Meshtastic setup.
-<span class="raw-html"><br /></span></p>
+<section id="class-beacongoalpose-public-rclcpp-node">
+<h2><code class="code docutils literal notranslate"><span class="pre">class</span> <span class="pre">BeaconGoalPose</span> <span class="pre">:</span> <span class="pre">public</span> <span class="pre">rclcpp::Node</span></code><a class="headerlink" href="#class-beacongoalpose-public-rclcpp-node" title="Link to this heading"></a></h2>
+<p>This node consists of both a publisher and a subscriber. The publisher, as mentioned above, publishes a <code class="code docutils literal notranslate"><span class="pre">PoseStamped</span></code> message to the <code class="code docutils literal notranslate"><span class="pre">/goal_pose</span></code> topic. The subscriber subscribes to the <code class="code docutils literal notranslate"><span class="pre">/gps/beacon/fix</span></code> topic that hosts a <code class="code docutils literal notranslate"><span class="pre">NavSatFix</span></code> message.</p>
+<p>There are two characteristics of the subscriber that are worth noting:</p>
+<ol class="arabic simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">rclcpp::QoS(10)</span></code> - a ROS2 <a class="reference external" href="https://docs.ros.org/en/humble/Concepts/Intermediate/About-Quality-of-Service-Settings.html" rel="noreferrer" target="_blank">Quality of Service setting</a> that tells the node to keep a history of the 10 most-recent messages</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">std::bind(&amp;BeaconGoalPose::callback,</span> <span class="pre">this,</span> <span class="pre">std::placeholders::_1))</span></code> - the node’s overall functionality is entirely dependent on this subscription, so the callback is bound to the subscriber to prevent repeated publications of stale data</p></li>
+</ol>
+<p>The callback takes the message data and converts it to UTM coordinates that are compared to an origin point. This origin is set when the very first subscripted message is received. The difference between these two points is the corresponding Cartesion coordinate in the <code class="code docutils literal notranslate"><span class="pre">global</span></code> frame.</p>
 </section>
 </section>
 
@@ -247,8 +230,8 @@ User ID = !bb80e074 <span class="raw-html"><br /></span></p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="gps_config.html" class="btn btn-neutral float-left" title="GPS Module Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="visuals_setup.html" class="btn btn-neutral float-right" title="GPS Visualization Setup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="ultrasonic_code.html" class="btn btn-neutral float-left" title="ultrasonic_pkg" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../hardware_docs/hardware.html" class="btn btn-neutral float-right" title="Hardware Components" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

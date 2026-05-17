@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ultrasonic Sensor Code &mdash; RoboFlock 1.1 documentation</title>
+  <title>ultrasonic_pkg &mdash; RoboFlock 1.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -28,7 +28,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Hardware Components" href="../hardware_docs/hardware.html" />
+    <link rel="next" title="beacon_pkg" href="beacon_code.html" />
     <link rel="prev" title="RoboFlock Codebase" href="codebase.html" /> 
 </head>
 
@@ -76,10 +76,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/urdf.html">Creating the URDF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/nav2.html">Working with Nav2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/roboflock_topics.html">Using RoboFlock’s Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial_docs/debugging/debug.html">Troubleshooting and Debugging</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="codebase.html">RoboFlock Codebase</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Ultrasonic Sensor Code</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#"><code class="code docutils literal notranslate"><span class="pre">ultrasonic_pkg</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="beacon_code.html"><code class="code docutils literal notranslate"><span class="pre">beacon_pkg</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware_docs/hardware.html">Hardware Components</a><ul>
@@ -137,21 +139,21 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="codebase.html">RoboFlock Codebase</a></li>
-      <li class="breadcrumb-item active">Ultrasonic Sensor Code</li>
+      <li class="breadcrumb-item active"><code class="code docutils literal notranslate"><span class="pre">ultrasonic_pkg</span></code></li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/codebase_docs/ultrasonic_code.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
         <a href="codebase.html" class="btn btn-neutral float-left" title="RoboFlock Codebase" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../hardware_docs/hardware.html" class="btn btn-neutral float-right" title="Hardware Components" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="beacon_code.html" class="btn btn-neutral float-right" title="beacon_pkg" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="ultrasonic-sensor-code">
-<h1>Ultrasonic Sensor Code<a class="headerlink" href="#ultrasonic-sensor-code" title="Link to this heading"></a></h1>
+  <section id="ultrasonic-pkg">
+<h1><code class="code docutils literal notranslate"><span class="pre">ultrasonic_pkg</span></code><a class="headerlink" href="#ultrasonic-pkg" title="Link to this heading"></a></h1>
 <p>Since we are dealing with three separate ultrasonic sensors that are all sending data through a single USB cable, we are using a custom data packet to make sure that the Jetson is receiving complete and parseable messages from the Arduino. Here is the packet’s structure:</p>
 <table class="docutils align-default">
 <thead>
@@ -308,8 +310,8 @@
 </pre></div>
 </div>
 </section>
-<section id="ultrasonic-publisher">
-<h2>Ultrasonic Publisher<a class="headerlink" href="#ultrasonic-publisher" title="Link to this heading"></a></h2>
+<section id="class-ultrasonicpublisher-public-rclcpp-node">
+<h2><code class="code docutils literal notranslate"><span class="pre">class</span> <span class="pre">UltrasonicPublisher</span> <span class="pre">:</span> <span class="pre">public</span> <span class="pre">rclcpp::Node</span></code><a class="headerlink" href="#class-ultrasonicpublisher-public-rclcpp-node" title="Link to this heading"></a></h2>
 <p>The last part is to get the data published to RoboFlock’s ROS2 workspace. Currently, there are 3 separate publishers contained in a single node. ROS2 provides a message type called <code class="code docutils literal notranslate"><span class="pre">sensor_msgs/msg/Range</span></code>, which you can read more about in <a class="reference internal" href="../tutorial_docs/roboflock_topics.html"><span class="doc">RoboFlock Topics</span></a>. The node first sets up the connection with the Arduino: if this fails, the ultrasonic publishers <em>do not get initialized</em>.  Upon success, the node logs its progress and then creates the three publishers and their corresponding topics.</p>
 <p>Each time <code class="code docutils literal notranslate"><span class="pre">UltrasonicPublisher::timer_callback()</span></code> runs, the Jetson sends a request to the Arduino Nano and receives a data packet, only creating a message for valid measurements. A <code class="code docutils literal notranslate"><span class="pre">sensor_msgs/msg/Range</span></code> message is defined by a timestamp, frame ID, radiation type (in this case, ULTRASOUND), field of view (in radians), minimum range (meters), maximum range (meters), and the distance data obtained from the corresponding ultrasonic sensor.</p>
 <div class="admonition important">
@@ -328,7 +330,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="codebase.html" class="btn btn-neutral float-left" title="RoboFlock Codebase" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../hardware_docs/hardware.html" class="btn btn-neutral float-right" title="Hardware Components" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="beacon_code.html" class="btn btn-neutral float-right" title="beacon_pkg" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

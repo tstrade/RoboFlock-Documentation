@@ -1,5 +1,5 @@
 ======================
-Ultrasonic Sensor Code
+:code:`ultrasonic_pkg`
 ======================
 
 Since we are dealing with three separate ultrasonic sensors that are all sending data through a single USB cable, we are using a custom data packet to make sure that the Jetson is receiving complete and parseable messages from the Arduino. Here is the packet's structure:
@@ -168,8 +168,8 @@ The main loop is as follows:
 
 
 
-Ultrasonic Publisher
-++++++++++++++++++++
+:code:`class UltrasonicPublisher : public rclcpp::Node`
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 The last part is to get the data published to RoboFlock's ROS2 workspace. Currently, there are 3 separate publishers contained in a single node. ROS2 provides a message type called :code:`sensor_msgs/msg/Range`, which you can read more about in :doc:`RoboFlock Topics <../tutorial_docs/roboflock_topics>`. The node first sets up the connection with the Arduino: if this fails, the ultrasonic publishers *do not get initialized*.  Upon success, the node logs its progress and then creates the three publishers and their corresponding topics. 
 

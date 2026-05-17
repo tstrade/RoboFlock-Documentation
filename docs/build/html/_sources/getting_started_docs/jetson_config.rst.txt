@@ -81,7 +81,6 @@ Setup and First Boot
     :raw-html:`<br />`
 
 
-
 .. _gettingstarted: https://developer.nvidia.com/embedded/learn/get-started-jetson-orin-nano-devkit#intro
 
 .. _jpsdk: https://developer.nvidia.com/downloads/embedded/l4t/r36_release_v4.3/jp62-orin-nano-sd-card-image.zip

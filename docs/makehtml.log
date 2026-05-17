@@ -1,65 +1,67 @@
 Running Sphinx v9.1.0
 loading translations [en]... done
-[autosummary] generating autosummary for: citation_docs/additional_info.rst, citation_docs/appendix_a.rst, citation_docs/appendix_b.rst, citation_docs/bibliography.rst, citation_docs/glossary.rst, citation_docs/mathref_docs/mathref.rst, citation_docs/mathref_docs/quaternions.rst, codebase_docs/codebase.rst, codebase_docs/ultrasonic_code.rst, concepts_docs/communication.rst, ..., hardware_docs/zed_f9p.rst, index.rst, photo_video.rst, tutorial_docs/cmakelists.rst, tutorial_docs/launch.rst, tutorial_docs/nav2.rst, tutorial_docs/roboflock_topics.rst, tutorial_docs/tf2.rst, tutorial_docs/tutorials.rst, tutorial_docs/urdf.rst
+[autosummary] generating autosummary for: citation_docs/additional_info.rst, citation_docs/appendix_a.rst, citation_docs/appendix_b.rst, citation_docs/bibliography.rst, citation_docs/glossary.rst, citation_docs/mathref_docs/mathref.rst, citation_docs/mathref_docs/quaternions.rst, codebase_docs/beacon_code.rst, codebase_docs/codebase.rst, codebase_docs/ultrasonic_code.rst, ..., index.rst, photo_video.rst, tutorial_docs/cmakelists.rst, tutorial_docs/debugging/debug.rst, tutorial_docs/launch.rst, tutorial_docs/nav2.rst, tutorial_docs/roboflock_topics.rst, tutorial_docs/tf2.rst, tutorial_docs/tutorials.rst, tutorial_docs/urdf.rst
 Writing evaluated template result to /home/tstrade/School/Fall_2025/Hardware_Software_Integration/RoboFlock-Documentation/docs/build/html/_static/carousel-custom.css
 building [mo]: targets for 0 po files that are out of date
 writing output... 
-building [html]: targets for 56 source files that are out of date
-updating environment: [new config] 56 added, 0 changed, 0 removed
+building [html]: targets for 58 source files that are out of date
+updating environment: [new config] 58 added, 0 changed, 0 removed
 reading sources... [  2%] citation_docs/additional_info
-reading sources... [  4%] citation_docs/appendix_a
+reading sources... [  3%] citation_docs/appendix_a
 reading sources... [  5%] citation_docs/appendix_b
 reading sources... [  7%] citation_docs/bibliography
 reading sources... [  9%] citation_docs/glossary
-reading sources... [ 11%] citation_docs/mathref_docs/mathref
+reading sources... [ 10%] citation_docs/mathref_docs/mathref
 reading sources... [ 12%] citation_docs/mathref_docs/quaternions
-reading sources... [ 14%] codebase_docs/codebase
-reading sources... [ 16%] codebase_docs/ultrasonic_code
-reading sources... [ 18%] concepts_docs/communication
-reading sources... [ 20%] concepts_docs/concepts
-reading sources... [ 21%] concepts_docs/navigation
-reading sources... [ 23%] concepts_docs/obstacle_detection
-reading sources... [ 25%] concepts_docs/ros2
-reading sources... [ 27%] construction_docs/construction
+reading sources... [ 14%] codebase_docs/beacon_code
+reading sources... [ 16%] codebase_docs/codebase
+reading sources... [ 17%] codebase_docs/ultrasonic_code
+reading sources... [ 19%] concepts_docs/communication
+reading sources... [ 21%] concepts_docs/concepts
+reading sources... [ 22%] concepts_docs/navigation
+reading sources... [ 24%] concepts_docs/obstacle_detection
+reading sources... [ 26%] concepts_docs/ros2
+reading sources... [ 28%] construction_docs/construction
 reading sources... [ 29%] construction_docs/design_overview
-reading sources... [ 30%] construction_docs/fabrication_guide
-reading sources... [ 32%] construction_docs/hardware_catalog
+reading sources... [ 31%] construction_docs/fabrication_guide
+reading sources... [ 33%] construction_docs/hardware_catalog
 reading sources... [ 34%] construction_docs/parts_catalog
 reading sources... [ 36%] construction_docs/subsystems/drivetrain
 reading sources... [ 38%] construction_docs/subsystems/frame_and_extrusion
-reading sources... [ 39%] construction_docs/subsystems/hull_and_enclosures
+reading sources... [ 40%] construction_docs/subsystems/hull_and_enclosures
 reading sources... [ 41%] construction_docs/subsystems/suspension
 reading sources... [ 43%] construction_docs/wiring_specifications
 reading sources... [ 45%] contact
-reading sources... [ 46%] future_considerations
+reading sources... [ 47%] future_considerations
 reading sources... [ 48%] getting_started_docs/getting_started
 reading sources... [ 50%] getting_started_docs/gps_config
 reading sources... [ 52%] getting_started_docs/install_guide
-reading sources... [ 54%] getting_started_docs/jetson_config
+reading sources... [ 53%] getting_started_docs/jetson_config
 reading sources... [ 55%] getting_started_docs/manage_usb
 reading sources... [ 57%] getting_started_docs/meshtastic_config
 reading sources... [ 59%] getting_started_docs/odesc
-reading sources... [ 61%] getting_started_docs/visuals_setup
+reading sources... [ 60%] getting_started_docs/visuals_setup
 reading sources... [ 62%] hardware_docs/arduino
 reading sources... [ 64%] hardware_docs/hardware
 reading sources... [ 66%] hardware_docs/hc_12
-reading sources... [ 68%] hardware_docs/hc_sr04
-reading sources... [ 70%] hardware_docs/imu
+reading sources... [ 67%] hardware_docs/hc_sr04
+reading sources... [ 69%] hardware_docs/imu
 reading sources... [ 71%] hardware_docs/jetson_devkit
-reading sources... [ 73%] hardware_docs/max_17048
-reading sources... [ 75%] hardware_docs/motor_battery
-reading sources... [ 77%] hardware_docs/motors
-reading sources... [ 79%] hardware_docs/neo_m8p
-reading sources... [ 80%] hardware_docs/odesc_v4_2
-reading sources... [ 82%] hardware_docs/rp_lidar
-reading sources... [ 84%] hardware_docs/zed_f9p
-reading sources... [ 86%] index
-reading sources... [ 88%] photo_video
-reading sources... [ 89%] tutorial_docs/cmakelists
+reading sources... [ 72%] hardware_docs/max_17048
+reading sources... [ 74%] hardware_docs/motor_battery
+reading sources... [ 76%] hardware_docs/motors
+reading sources... [ 78%] hardware_docs/neo_m8p
+reading sources... [ 79%] hardware_docs/odesc_v4_2
+reading sources... [ 81%] hardware_docs/rp_lidar
+reading sources... [ 83%] hardware_docs/zed_f9p
+reading sources... [ 84%] index
+reading sources... [ 86%] photo_video
+reading sources... [ 88%] tutorial_docs/cmakelists
+reading sources... [ 90%] tutorial_docs/debugging/debug
 reading sources... [ 91%] tutorial_docs/launch
 reading sources... [ 93%] tutorial_docs/nav2
 reading sources... [ 95%] tutorial_docs/roboflock_topics
-reading sources... [ 96%] tutorial_docs/tf2
+reading sources... [ 97%] tutorial_docs/tf2
 reading sources... [ 98%] tutorial_docs/tutorials
 reading sources... [100%] tutorial_docs/urdf
 
@@ -79,59 +81,61 @@ copying extra files...
 copying extra files: done
 copying assets: done
 writing output... [  2%] citation_docs/additional_info
-writing output... [  4%] citation_docs/appendix_a
+writing output... [  3%] citation_docs/appendix_a
 writing output... [  5%] citation_docs/appendix_b
 writing output... [  7%] citation_docs/bibliography
 writing output... [  9%] citation_docs/glossary
-writing output... [ 11%] citation_docs/mathref_docs/mathref
+writing output... [ 10%] citation_docs/mathref_docs/mathref
 writing output... [ 12%] citation_docs/mathref_docs/quaternions
-writing output... [ 14%] codebase_docs/codebase
-writing output... [ 16%] codebase_docs/ultrasonic_code
-writing output... [ 18%] concepts_docs/communication
-writing output... [ 20%] concepts_docs/concepts
-writing output... [ 21%] concepts_docs/navigation
-writing output... [ 23%] concepts_docs/obstacle_detection
-writing output... [ 25%] concepts_docs/ros2
-writing output... [ 27%] construction_docs/construction
+writing output... [ 14%] codebase_docs/beacon_code
+writing output... [ 16%] codebase_docs/codebase
+writing output... [ 17%] codebase_docs/ultrasonic_code
+writing output... [ 19%] concepts_docs/communication
+writing output... [ 21%] concepts_docs/concepts
+writing output... [ 22%] concepts_docs/navigation
+writing output... [ 24%] concepts_docs/obstacle_detection
+writing output... [ 26%] concepts_docs/ros2
+writing output... [ 28%] construction_docs/construction
 writing output... [ 29%] construction_docs/design_overview
-writing output... [ 30%] construction_docs/fabrication_guide
-writing output... [ 32%] construction_docs/hardware_catalog
+writing output... [ 31%] construction_docs/fabrication_guide
+writing output... [ 33%] construction_docs/hardware_catalog
 writing output... [ 34%] construction_docs/parts_catalog
 writing output... [ 36%] construction_docs/subsystems/drivetrain
 writing output... [ 38%] construction_docs/subsystems/frame_and_extrusion
-writing output... [ 39%] construction_docs/subsystems/hull_and_enclosures
+writing output... [ 40%] construction_docs/subsystems/hull_and_enclosures
 writing output... [ 41%] construction_docs/subsystems/suspension
 writing output... [ 43%] construction_docs/wiring_specifications
 writing output... [ 45%] contact
-writing output... [ 46%] future_considerations
+writing output... [ 47%] future_considerations
 writing output... [ 48%] getting_started_docs/getting_started
 writing output... [ 50%] getting_started_docs/gps_config
 writing output... [ 52%] getting_started_docs/install_guide
-writing output... [ 54%] getting_started_docs/jetson_config
+writing output... [ 53%] getting_started_docs/jetson_config
 writing output... [ 55%] getting_started_docs/manage_usb
 writing output... [ 57%] getting_started_docs/meshtastic_config
 writing output... [ 59%] getting_started_docs/odesc
-writing output... [ 61%] getting_started_docs/visuals_setup
+writing output... [ 60%] getting_started_docs/visuals_setup
 writing output... [ 62%] hardware_docs/arduino
 writing output... [ 64%] hardware_docs/hardware
 writing output... [ 66%] hardware_docs/hc_12
-writing output... [ 68%] hardware_docs/hc_sr04
-writing output... [ 70%] hardware_docs/imu
+writing output... [ 67%] hardware_docs/hc_sr04
+writing output... [ 69%] hardware_docs/imu
 writing output... [ 71%] hardware_docs/jetson_devkit
-writing output... [ 73%] hardware_docs/max_17048
-writing output... [ 75%] hardware_docs/motor_battery
-writing output... [ 77%] hardware_docs/motors
-writing output... [ 79%] hardware_docs/neo_m8p
-writing output... [ 80%] hardware_docs/odesc_v4_2
-writing output... [ 82%] hardware_docs/rp_lidar
-writing output... [ 84%] hardware_docs/zed_f9p
-writing output... [ 86%] index
-writing output... [ 88%] photo_video
-writing output... [ 89%] tutorial_docs/cmakelists
+writing output... [ 72%] hardware_docs/max_17048
+writing output... [ 74%] hardware_docs/motor_battery
+writing output... [ 76%] hardware_docs/motors
+writing output... [ 78%] hardware_docs/neo_m8p
+writing output... [ 79%] hardware_docs/odesc_v4_2
+writing output... [ 81%] hardware_docs/rp_lidar
+writing output... [ 83%] hardware_docs/zed_f9p
+writing output... [ 84%] index
+writing output... [ 86%] photo_video
+writing output... [ 88%] tutorial_docs/cmakelists
+writing output... [ 90%] tutorial_docs/debugging/debug
 writing output... [ 91%] tutorial_docs/launch
 writing output... [ 93%] tutorial_docs/nav2
 writing output... [ 95%] tutorial_docs/roboflock_topics
-writing output... [ 96%] tutorial_docs/tf2
+writing output... [ 97%] tutorial_docs/tf2
 writing output... [ 98%] tutorial_docs/tutorials
 writing output... [100%] tutorial_docs/urdf
 
@@ -185,15 +189,15 @@ dumping search index in English (code: en)... done
 dumping object inventory... done
 
 ====================== total reading duration ==========================
-Total time reading 56 files: 0m 0.971s
+Total time reading 58 files: 0m 0.853s
 
 
 ====================== slowest reading durations =======================
-0.094s index
-0.080s construction_docs/fabrication_guide
-0.063s photo_video
-0.043s hardware_docs/rp_lidar
-0.033s tutorial_docs/cmakelists
+0.062s photo_video
+0.051s construction_docs/fabrication_guide
+0.049s hardware_docs/zed_f9p
+0.037s tutorial_docs/cmakelists
+0.031s codebase_docs/ultrasonic_code
 
 build succeeded.
 

@@ -14,6 +14,8 @@ A quick guide to RoboFlock's internal mechanisms and how to use, edit, and run t
 
 - :doc:`Using RoboFlock's Topics <roboflock_topics>`
 
+- :doc:`Troubleshooting and Debugging <debugging/debug>`
+
 
 
 .. toctree::
@@ -25,4 +27,5 @@ A quick guide to RoboFlock's internal mechanisms and how to use, edit, and run t
     urdf
     nav2
     roboflock_topics
+    debugging/debug
     
