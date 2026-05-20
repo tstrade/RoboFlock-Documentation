@@ -162,8 +162,7 @@
 <p>3. <em>Actions</em> are used for long-term communications that consist of a goal, feedback, and a result. One node acts as the action server that responds to requests about the goal and result, in addition to providing feedback information to the action client, which is another node that sends out the information requests.
 <span class="raw-html"><br /></span></p>
 <figure class="align-center" id="id1">
-<a class="reference internal image-reference" href="../_images/fig11_ros2_overview.png"><img alt="../_images/fig11_ros2_overview.png" src="../_images/fig11_ros2_overview.png" style="width: 80%;" />
-</a>
+<img alt="../_images/fig11_ros2_overview.png" src="../_images/fig11_ros2_overview.png" />
 <figcaption>
 <p><span class="caption-text">Overview of ROS2 Setup</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
 </figcaption>
@@ -180,8 +179,8 @@
 <h2>Transformations<a class="headerlink" href="#transformations" title="Link to this heading"></a></h2>
 <p>An important concept to understand in ROS2’s navigation system is the <em>frame of reference</em>. Each component on the robot is considered to have its own frame of reference, which is a 3D space at which the component is the origin and the <em>x</em>, <em>y</em>, and <em>z</em> axes are aligned with the component’s front, left side, and top, respectively.</p>
 <p>In order for the sensor data to be used accurately, it needs to be in the robot’s frame of reference. Let’s say that RoboFlock’s left ultrasonic sensor detects an object 1 meter in front of itself. If taken at face value, then this data is incorrect to the robot because the object is actually 1 meter to the robot’s left. The data needs to be transformed from the ultrasonic sensor’s frame of reference to the robot’s frame of reference.</p>
-<p>Fortunately, ROS2 can handle the translational and rotational math needed to move data between different frames of reference; however, it still needs a starting point. This is where the URDF file comes in. It gives a spatial description of each component in the robot relative to the robot’s center of mass.</p>
-<p>Using the left ultrasonic example, we might describe its translational offset as being 10 centimeters above and 15 centimeters to the left of the robot’s center, and its rotational offset would be 90 degrees about the <em>z</em>-axis. The file can be manually written or automatically generated from CAD models using tools such as <strong>LIST CAD-URDF TOOL HERE</strong>.</p>
+<p>Fortunately, ROS2 can handle the translational and rotational math needed to move data between different frames of reference via the <code class="code docutils literal notranslate"><span class="pre">tf2</span></code> subsystem; however, it still needs a starting point. This is where the URDF file comes in. It gives a spatial description of each component in the robot relative to the robot’s center of mass.</p>
+<p>Using the left ultrasonic example, we might describe its translational offset as being 10 centimeters above and 15 centimeters to the left of the robot’s center, and its rotational offset would be 90 degrees about the <em>z</em>-axis.</p>
 </section>
 <section id="sensor-fusion">
 <h2>Sensor Fusion<a class="headerlink" href="#sensor-fusion" title="Link to this heading"></a></h2>
@@ -196,21 +195,24 @@
 <p>Since RoboFlock is (currently) only concered with planar motion, we can disregard any roll, pitch, or <em>z</em>-axis values. The remaining variables are ultimately controlled by how the sensor fusion is configured. The <code class="code docutils literal notranslate"><span class="pre">robot_localization</span></code> package processes sensor data needed to understand the robot’s physical location in the environment.</p>
 <p>In the case of RoboFlock, this data comes from the inertial measurement unit (IMU), LiDAR scanner, and GPS module. The result is an odometry message that contains information on the robot’s frame of reference, position on the global map, linear velocity, and angular velocity. The <code class="code docutils literal notranslate"><span class="pre">robot_localization</span></code> package also updates the transform between the global frame of reference and the robot’s frame of reference, which will be the main transform that data is moved through when navigational calculations are made.</p>
 </section>
+<section id="mapping">
+<h2>Mapping<a class="headerlink" href="#mapping" title="Link to this heading"></a></h2>
+<p><a class="reference external" href="https://github.com/SteveMacenski/slam_toolbox" rel="noreferrer" target="_blank">SLAM toolbox</a> is an open-source ROS2 package that uses the robot’s odometry and incoming LiDAR scans to build a map of the surroundings, which gets published alongside a corresponding <code class="code docutils literal notranslate"><span class="pre">map</span></code> to <code class="code docutils literal notranslate"><span class="pre">odom</span></code> transformation.</p>
+<figure class="align-center">
+<img alt="../_images/slam_toolbox_sync.png" src="../_images/slam_toolbox_sync.png" />
+</figure>
+</section>
 <section id="navigation">
 <h2>Navigation<a class="headerlink" href="#navigation" title="Link to this heading"></a></h2>
-<p>Nav2. That’s it.</p>
-</section>
-<section id="tl-dr">
-<h2>TL;DR<a class="headerlink" href="#tl-dr" title="Link to this heading"></a></h2>
-<ul class="simple">
-<li><p>Publish sensor data to a topic</p></li>
-<li><p>Define the robot’s spatial characteristics</p></li>
-<li><p>Configure which data is getting fused</p></li>
-<li><p>Configure the costmaps, movement constraints, and action/reaction parameters</p></li>
-</ul>
+<p>Nav2 is ROS2’s navigation stack that takes in a set of <a class="reference external" href="https://www.ros.org/reps/rep-0105.html" rel="noreferrer" target="_blank">REP-105</a> compliant TF transformations, a BT (behavior tree) XML file, and any relevant sensor data, which in the case of RoboFlock is the IMU, ultrasonic sensor, and GPS data.</p>
+<p>Transformations and sensor data needed by Nav2 is obtained by configuring it to subscribe to the corresponding topics. This data gets used to build several layers of costmaps, allowing the pathfinding behavior to choose the best, obstacle-free route to its goal. The BT XML file is generated by a set of plugins that is defined when configuring Nav2. See the <a class="reference external" href="https://github.com/shouvik-d/roboflock_ws/blob/main/src/bring_up/config/nav2_params.yaml" rel="noreferrer" target="_blank">RoboFlock GitHub repository</a> for the Nav2 plugins used in this project.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <dl class="simple">
+<dt><a class="reference external" href="https://docs.ros.org/en/humble/Tutorials/Intermediate/Tf2/Introduction-To-Tf2.html" rel="noreferrer" target="_blank">Introducing tf2</a></dt><dd><p>ROS2 Humble tutorial on the <code class="code docutils literal notranslate"><span class="pre">tf2</span></code> and the <code class="code docutils literal notranslate"><span class="pre">rviz2</span></code> visualization tool</p>
+</dd>
+<dt><a class="reference external" href="https://docs.ros.org/en/noetic/api/robot_localization/html/index.html" rel="noreferrer" target="_blank">robot_localization</a></dt><dd><p>Documentation for the <code class="code docutils literal notranslate"><span class="pre">robot_localization</span></code> package</p>
+</dd>
 <dt><a class="reference external" href="https://wiki.ros.org/geometry/CoordinateFrameConventions#Naming" rel="noreferrer" target="_blank">geometry/CoordinateFrameConventions</a></dt><dd><p>Coordinate Frame Naming Conventions</p>
 </dd>
 <dt><a class="reference external" href="https://www.ros.org/reps/rep-0103.html" rel="noreferrer" target="_blank">REP 103</a></dt><dd><p>Standard Units of Measure and Coordinate Conventions</p>
@@ -220,8 +222,6 @@
 <dt><a class="reference external" href="https://www.ros.org/reps/rep-0144.html" rel="noreferrer" target="_blank">REP 144</a></dt><dd><p>Package Naming Conventions</p>
 </dd>
 <dt><a class="reference external" href="https://www.ros.org/reps/rep-0145.html" rel="noreferrer" target="_blank">REP 145</a></dt><dd><p>IMU Sensor Driver Conventions</p>
-</dd>
-<dt><a class="reference external" href="https://docs.ros.org/en/noetic/api/robot_localization/html/index.html" rel="noreferrer" target="_blank">robot_localization</a></dt><dd><p>Documentation for the <code class="code docutils literal notranslate"><span class="pre">robot_localization</span></code> package</p>
 </dd>
 </dl>
 </div>

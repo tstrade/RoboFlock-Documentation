@@ -142,46 +142,49 @@ writing output... [100%] tutorial_docs/urdf
 generating indices... genindex done
 writing additional pages... search done
 copying images... [  2%] _images/fig6_ex_gps_visuals.png
-copying images... [  5%] _images/fig4-2_sonar_positions.png
+copying images... [  4%] _images/fig4-2_sonar_positions.png
 copying images... [  7%] _images/fig11_ros2_overview.png
-copying images... [  9%] _images/fig2-1_jetson_block_diagram.png
-copying images... [ 12%] _images/fig2-2_jetson_carrier_connections.png
-copying images... [ 14%] _images/fig3-2_lidar_usb_adapter.png
-copying images... [ 16%] _images/fig3-1_lidar_dims.png
-copying images... [ 19%] _images/fig1_finalprod_overview.png
-copying images... [ 21%] _static/videos/IMG_5514.mp4
-copying images... [ 23%] _static/videos/IMG_5523.mp4
-copying images... [ 26%] _static/videos/IMG_5524.mp4
-copying images... [ 28%] _static/videos/IMG_5713.mp4
-copying images... [ 30%] _images/progress_album/IMG_5511.jpg
-copying images... [ 33%] _images/progress_album/IMG_5522.jpg
-copying images... [ 35%] _images/progress_album/IMG_5525.jpg
-copying images... [ 37%] _images/progress_album/IMG_5531.jpg
-copying images... [ 40%] _images/progress_album/IMG_5537.jpg
-copying images... [ 42%] _images/progress_album/IMG_5538.jpg
-copying images... [ 44%] _images/progress_album/IMG_5540.jpg
-copying images... [ 47%] _images/progress_album/IMG_5545.jpg
-copying images... [ 49%] _images/progress_album/IMG_5548.jpg
-copying images... [ 51%] _images/progress_album/IMG_5550.jpg
-copying images... [ 53%] _images/progress_album/IMG_5554.jpg
-copying images... [ 56%] _images/progress_album/IMG_5565.jpg
-copying images... [ 58%] _images/progress_album/IMG_5581.jpg
-copying images... [ 60%] _images/progress_album/IMG_5592.jpg
-copying images... [ 63%] _images/progress_album/IMG_5594.jpg
-copying images... [ 65%] _images/progress_album/IMG_5595.jpg
-copying images... [ 67%] _images/progress_album/IMG_5598.jpg
-copying images... [ 70%] _images/progress_album/IMG_5600.jpg
-copying images... [ 72%] _images/progress_album/IMG_5609.jpg
-copying images... [ 74%] _images/progress_album/IMG_5708.jpg
-copying images... [ 77%] _images/progress_album/IMG_5711.jpg
-copying images... [ 79%] _images/progress_album/IMG_5720.jpg
-copying images... [ 81%] _images/progress_album/IMG_5721.jpg
-copying images... [ 84%] _images/progress_album/IMG_5723.jpg
-copying images... [ 86%] _images/progress_album/IMG_5750.jpg
-copying images... [ 88%] _images/progress_album/IMG_5751.jpg
+copying images... [  9%] _images/flowcharts/slam_toolbox_sync.png
+copying images... [ 11%] _images/wiring_diagrams/MotorSystemWiring.png
+copying images... [ 13%] _images/wiring_diagrams/ObstacleDetectSystemWiring.png
+copying images... [ 15%] _images/fig2-1_jetson_block_diagram.png
+copying images... [ 17%] _images/fig2-2_jetson_carrier_connections.png
+copying images... [ 20%] _images/fig3-2_lidar_usb_adapter.png
+copying images... [ 22%] _images/fig3-1_lidar_dims.png
+copying images... [ 24%] _images/fig1_finalprod_overview.png
+copying images... [ 26%] _static/videos/IMG_5514.mp4
+copying images... [ 28%] _static/videos/IMG_5523.mp4
+copying images... [ 30%] _static/videos/IMG_5524.mp4
+copying images... [ 33%] _static/videos/IMG_5713.mp4
+copying images... [ 35%] _images/progress_album/IMG_5511.jpg
+copying images... [ 37%] _images/progress_album/IMG_5522.jpg
+copying images... [ 39%] _images/progress_album/IMG_5525.jpg
+copying images... [ 41%] _images/progress_album/IMG_5531.jpg
+copying images... [ 43%] _images/progress_album/IMG_5537.jpg
+copying images... [ 46%] _images/progress_album/IMG_5538.jpg
+copying images... [ 48%] _images/progress_album/IMG_5540.jpg
+copying images... [ 50%] _images/progress_album/IMG_5545.jpg
+copying images... [ 52%] _images/progress_album/IMG_5548.jpg
+copying images... [ 54%] _images/progress_album/IMG_5550.jpg
+copying images... [ 57%] _images/progress_album/IMG_5554.jpg
+copying images... [ 59%] _images/progress_album/IMG_5565.jpg
+copying images... [ 61%] _images/progress_album/IMG_5581.jpg
+copying images... [ 63%] _images/progress_album/IMG_5592.jpg
+copying images... [ 65%] _images/progress_album/IMG_5594.jpg
+copying images... [ 67%] _images/progress_album/IMG_5595.jpg
+copying images... [ 70%] _images/progress_album/IMG_5598.jpg
+copying images... [ 72%] _images/progress_album/IMG_5600.jpg
+copying images... [ 74%] _images/progress_album/IMG_5609.jpg
+copying images... [ 76%] _images/progress_album/IMG_5708.jpg
+copying images... [ 78%] _images/progress_album/IMG_5711.jpg
+copying images... [ 80%] _images/progress_album/IMG_5720.jpg
+copying images... [ 83%] _images/progress_album/IMG_5721.jpg
+copying images... [ 85%] _images/progress_album/IMG_5723.jpg
+copying images... [ 87%] _images/progress_album/IMG_5750.jpg
+copying images... [ 89%] _images/progress_album/IMG_5751.jpg
 copying images... [ 91%] _images/progress_album/IMG_5753.jpg
 copying images... [ 93%] _images/progress_album/IMG_5754.jpg
-copying images... [ 95%] _images/progress_album/IMG_5777.jpg
+copying images... [ 96%] _images/progress_album/IMG_5777.jpg
 copying images... [ 98%] _images/progress_album/IMG_5778.jpg
 copying images... [100%] _images/progress_album/IMG_5892.jpg
 
@@ -189,15 +192,15 @@ dumping search index in English (code: en)... done
 dumping object inventory... done
 
 ====================== total reading duration ==========================
-Total time reading 58 files: 0m 0.853s
+Total time reading 58 files: 0m 0.777s
 
 
 ====================== slowest reading durations =======================
-0.062s photo_video
-0.051s construction_docs/fabrication_guide
-0.049s hardware_docs/zed_f9p
-0.037s tutorial_docs/cmakelists
-0.031s codebase_docs/ultrasonic_code
+0.053s citation_docs/mathref_docs/quaternions
+0.051s hardware_docs/zed_f9p
+0.049s codebase_docs/ultrasonic_code
+0.047s photo_video
+0.031s tutorial_docs/cmakelists
 
 build succeeded.
 
