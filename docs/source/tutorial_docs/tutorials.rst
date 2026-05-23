@@ -6,15 +6,15 @@ A quick guide to RoboFlock's internal mechanisms and how to use, edit, and run t
 
 - :doc:`Writing CML Files <cmakelists>`
 
-- :doc:`Making Launch Files <launch>`
-
-- :doc:`Creating the URDF <urdf>`
-
-- :doc:`Working with Nav2 <nav2>`
-
 - :doc:`Using RoboFlock's Topics <roboflock_topics>`
 
-- :doc:`Troubleshooting and Debugging <debugging/debug>`
+- :doc:`Troubleshooting and Debugging <debugging/website_debug>`
+
+- :doc:`Making Launch Files <website_launch>`
+
+- :doc:`Creating the URDF <website_urdf>`
+
+- :doc:`Working with Nav2 <website_nav2>`
 
 
 
@@ -23,9 +23,9 @@ A quick guide to RoboFlock's internal mechanisms and how to use, edit, and run t
     :maxdepth: 2
 
     cmakelists
-    launch
-    urdf
-    nav2
     roboflock_topics
-    debugging/debug
+    debugging/website_debug
+    website_launch
+    website_urdf
+    website_nav2
     
