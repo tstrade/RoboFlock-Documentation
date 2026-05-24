@@ -1,0 +1,17 @@
+body, p, li, td, th, div {
+    font-size: 10pt !important;
+}
+
+h1 { font-size: 16pt !important; }
+h2 { font-size: 13pt !important; }
+h3 { font-size: 11pt !important; }
+
+img.math {
+    height: 1.1em;
+    vertical-align: middle;
+}
+
+div.math img {
+    max-width: 100%;
+    height: auto;
+}
